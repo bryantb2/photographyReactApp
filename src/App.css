@@ -1,3 +1,31 @@
+@font-face {
+    font-family: 'FuturaPT-Bold';
+    src: local('FuturaPT Bold'), local('FuturaPTBold'),
+    url(fonts/FuturaPTBold.otf);
+}
+
+@font-face {
+    font-family: "FuturaPT Medium";
+    src: local('FuturaPT Medium'), local('FuturaPTMedium'),
+    url(fonts/FuturaPTMedium.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "FuturaPT MediumOblique";
+    src: local('FuturaPT Medium Oblique'), local('FuturaPTMediumOblique'),url(fonts/FuturaPTCondMediumOblique.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "FuturaPT Book";
+    src: local('FuturaPT Book'), local('FuturaPTBook'),
+        url(fonts/FuturaPTBook.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "FuturaPT Light";
+    src: local('FuturaPT Light'), local('FuturaPTLight'),url(fonts/FuturaPTLight.otf) format("opentype");
+}
+
 .App {
   text-align: center;
 }
@@ -31,3 +59,117 @@
     transform: rotate(360deg);
   }
 }
+
+/* Background Image Styles */
+
+#imageContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -100;
+    transform: rotate(90deg);
+    
+}
+
+img.mainImage {
+    z-index: -101;
+    object-fit: cover;
+    max-width: 150%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.8;
+} 
+
+/* Nav Bar Styles */
+nav {
+    z-index: 100;
+}
+
+nav.customNavStyles {
+    /*affixes nav bar to top of pag*/
+    background-color: rgba(128,128,128,0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 22pt;
+    color: white;
+}
+
+.nav-item > a {
+    color: white;
+    font-size: 15pt;
+}
+
+.nav-item {
+    /*spacing out nav items*/
+    margin-left: 20%;
+}
+
+@media (max-width: 990px) {
+    /* modifies margin spacing when the nav bar is collapsed */
+    .navbar-collapse .nav-item{
+        margin-left: 0%;
+        margin-top: 2.5%;
+    }
+}
+
+/* Main Page content */
+.parent-container {
+    position: relative;
+    height:100%;
+    width: 100%;
+}
+
+.child-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 265%);
+}
+
+.headerStyle {
+    font-family: 'FuturaPT-Bold';
+    font-size: 65pt;
+    color: #f4e0b9;
+    margin-bottom: 2.5%;
+}
+
+
+.infoStyle {
+    font-family: "FuturaPTBook";
+    font-size: 29pt;
+    color: #f4e0b9;
+    letter-spacing: 0.3pt;
+}
+
+.infoStyle::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 5%;
+    border-bottom: solid 4px #f4e0b9;
+}
+
+
+
+.btn:first-of-type {
+    background: transparent;
+    border-width:medium;
+    color: #f4e0b9;
+    border-color: #f4e0b9;
+    font-family: 'FuturaPTLight';
+    padding: 12px 29px;
+    margin-top: 4%;
+}
+
+/* TEST STYLES */
