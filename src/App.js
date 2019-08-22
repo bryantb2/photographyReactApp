@@ -2,15 +2,32 @@ import React from 'react';
 import backgroundImage from '../src/referenceImages/9DS_0066.JPG';
 import './App.css';
 
-/*
- */
+  /*
+        <div className="parent-container">
+            <div className="child-container text-center">
+                <h1 className="headerStyle">Bryant Photography</h1>
+    
+                <p className="infoStyle">Emphasis on drone shots and natural environments.</p>
+    
+                <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
+            </div>
+        </div>
+                
+      */
 
 function App() {
+    /* Test function
+    function widthHeightCalc() {
+        let height = window.innerHeight;
+        let width = window.innerWidth;
+        console.log(`height: ${height}     ` + `width: ${width}`);
+    }*/
     
   return (
     <div>
       <div id="imageContainer">
         <img className="mainImage" src={backgroundImage}/>
+        <div className="backgroundImage"></div>
       </div>
       
       <nav className="navbar navbar-expand-lg navbar-dark  customNavStyles">
@@ -43,23 +60,24 @@ function App() {
         </div>
         </nav>
     
-    
-  
-        <div className="parent-container">
-            <div className="child-container text-center">
-                <h1 className="headerStyle">Bryant Photography</h1>
-    
-                <p className="infoStyle">Emphasis on drone shots and natural environments.</p>
-    
-                <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
-            </div>
+        
+        <article className="contentContainer">
+        <div className="d-flex justify-content-center headerStyle align-self-center">
+            <div className="p-2 X">Bryant Photography</div>
         </div>
-                
-            
-
-          
     
+        <div className="d-flex justify-content-center infoStyle">
+              <div className="p-2">Emphasis on drone shots and natural environments.</div>
+        </div>
     
+        <div className="d-flex justify-content-center lineStyle">
+              <div className="p-2">&nbsp;</div>
+        </div>
+    
+        <div className="d-flex justify-content-center">
+              <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
+        </div>
+        </article>
     
     </div>
   );
