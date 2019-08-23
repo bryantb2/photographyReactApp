@@ -1,5 +1,6 @@
 import React from 'react';
 import backgroundImage from '../src/referenceImages/9DS_0066.JPG';
+import textBoxVector from '../src/referenceImages/vectors/textBox.png';
 import './App.css';
 
   /*
@@ -11,23 +12,13 @@ import './App.css';
     
                 <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
             </div>
-        </div>
-                
+        </div>   
+               
       */
-
-function App() {
-    /* Test function
-    function widthHeightCalc() {
-        let height = window.innerHeight;
-        let width = window.innerWidth;
-        console.log(`height: ${height}     ` + `width: ${width}`);
-    }*/
-    
-  return (
-    <div>
+/*
+    <div id="page1">
       <div id="imageContainer">
         <img className="mainImage" src={backgroundImage}/>
-        <div className="backgroundImage"></div>
       </div>
       
       <nav className="navbar navbar-expand-lg navbar-dark  customNavStyles">
@@ -79,6 +70,54 @@ function App() {
         </div>
         </article>
     
+    </div>
+*/
+
+function App() {
+    /* Test function
+    function widthHeightCalc() {
+        let height = window.innerHeight;
+        let width = window.innerWidth;
+        console.log(`height: ${height}     ` + `width: ${width}`);
+    }*/
+    
+  return (
+    <div id="page2">
+      <div id="title-imageContainer">
+        <img className="titleImage" src={textBoxVector}/>
+      </div>
+      
+      <article className="title-contentContainer">
+        <div className="d-flex justify-content-start">
+            <div className="p-2">High quality</div>
+        </div>
+
+        <div className="d-flex justify-content-start">
+              <div className="p-2"><span className="titleBold">photographs</span></div>
+        </div>
+
+        <div className="d-flex justify-content-start">
+            <div className="p-2">always tell a</div>
+        </div>
+
+        <div className="d-flex justify-content-start">
+            <div className="p-2"><span className="titleBold">story</span> or capture the</div>
+        </div>
+
+        <div className="d-flex justify-content-start">
+            <div className="p-2"><span className="titleBold">essence</span> of the subject...</div>
+        </div>
+
+        <div className="d-flex justify-content-start">
+              <div className="p-2 titleOblique-text">So it would be a shame to not share a good story, right?</div>
+        </div>
+      
+        <div className="d-flex justify-content-center">
+            <div className="p-2">&nbsp</div>
+            <div className="p-2">Scroll Down for Mainpage</div>
+            <div className="p-2">&nbsp</div>
+        </div>
+      </article>
     </div>
   );
 }

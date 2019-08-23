@@ -26,51 +26,20 @@
     src: local('FuturaPT Light'), local('FuturaPTLight'),url(fonts/FuturaPTLight.otf) format("opentype");
 }
 
-.App {
-  text-align: center;
-}
+html, body {margin:0;padding:0;height:100%;}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* HOME PAGE STYLES */
 /* Background Image Styles */
 
 #imageContainer {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
+    /*position: absolute;
     top: 0px;
-    left: 0px;
+    left: 0px;*/
     z-index: -100;
     transform: rotate(90deg);
-    
 }
 
 img.mainImage {
@@ -83,14 +52,10 @@ img.mainImage {
     bottom: 0;
     left: 0;
     right: 0;
-    opacity: 0.8;
+    opacity: 0.85;
 } 
 
 /* Nav Bar Styles */
-nav {
-    z-index: 100;
-}
-
 nav.customNavStyles {
     /*affixes nav bar to top of pag*/
     background-color: rgba(128,128,128,0.5);
@@ -100,21 +65,24 @@ nav.customNavStyles {
 }
 
 .navbar-brand {
-    font-size: 22pt;
+    font-family: 'FuturaPT-Book';
+    font-size: 20pt;
     color: white;
-}
-
-.nav-item > a {
-    color: white;
-    font-size: 15pt;
 }
 
 .nav-item {
     /*spacing out nav items*/
     margin-left: 20%;
+    color: white;
+    font-size: 13pt;
+}
+
+.nav-link:hover {
+    color: #f5e1b9 !important;
 }
 
 /* Main Page content DESKTOP
+
 .parent-container {
     position: relative;
     height:100%;
@@ -128,6 +96,7 @@ nav.customNavStyles {
     transform: translate(-50%, 265%);
 }
 */
+
 .headerStyle {
     font-family: 'FuturaPT-Bold';
     font-size: 60pt;
@@ -174,6 +143,10 @@ nav.customNavStyles {
     font-size: 20pt;
     padding: 15px 45px;
     margin-top: 4%;
+}
+
+.btn:first-of-type:hover {
+    background-color: dimgrey;
 }
 
 .contentContainer {
@@ -266,8 +239,21 @@ w: 978
         }
     }
     
-    /* Optimizing for MOBILE DEVICES */
-    @media (max-width: 450px) {
+    /* OPTIMIZING FOR MOBILE DEVICES*/
+    @media (max-width: 500px) {
+        .navbar-brand {
+            font-family: 'FuturaPT-Book';
+            font-size: 15pt;
+            color: white;
+        }
+
+        .nav-item {
+            /*spacing out nav items*/
+            margin-left: 20%;
+            color: white;
+            font-size: 10pt;
+        }
+        
         img.mainImage {
             z-index: -101;
             max-width: 150%;
@@ -276,8 +262,8 @@ w: 978
             top: 0px;
             left: 180px;
         }
-
-        #imageContainer {
+        
+        #imageContainer { /*background restyling*/
             width: 100%;
             height: 100%;
             position: relative;
@@ -285,22 +271,8 @@ w: 978
             transform: rotate(90deg);
         }
         
-        .parent-container {
-            position: relative;
-            height:100%;
-            width: 100%;
-        }
-
-        .child-container {
-            position: absolute;
-            perspective: 1000;
-            top: 50%;
-            left: 50%;
-            margin: 0 auto;
-        }
-        
         .contentContainer {
-            margin-top: 69%;
+            margin-top: 62%;
         }
 
         .headerStyle {
@@ -341,6 +313,65 @@ w: 978
     } 
         
 }
+
+/* TITLE PAGE STYLES */
+#page2 {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #5f703a;
+}
+
+#title-imageContainer {
+    position: relative;
+    z-index: 50;
+    max-width: 100%;
+    margin-top: 5%;
+}
+
+img.titleImage {
+    display: block;
+    width: 50%;
+    height: auto;
+    margin: 0px auto;
+}
+
+.title-contentContainer {
+    z-index: 100;
+    position: relative;
+    margin-top: -30%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
