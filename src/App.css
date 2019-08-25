@@ -26,12 +26,68 @@
     src: local('FuturaPT Light'), local('FuturaPTLight'),url(fonts/FuturaPTLight.otf) format("opentype");
 }
 
+/* Basic styles*/
 html, body {margin:0;padding:0;height:100%;}
 
-/* HOME PAGE STYLES */
-/* Background Image Styles */
 
-#imageContainer {
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* TITLE PAGE STYLES */
+#page1 {
+    width: 100%;
+    height: 100%;
+    background: #5f703a;
+    position: relative;
+}
+
+.titleImage {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.titleOblique-text {
+    font-family: 'FuturaPT-MediumOblique';
+    font-size: 35pt;
+    color: #f4e0b9;
+    letter-spacing: 1.5px;
+}
+
+.title-lineStyle {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 3%;
+    border-bottom: solid 2px #f4e0b9;
+    margin-top: 1%;
+}
+
+.scroll-info {
+    width: 30%;
+    margin: 0 auto;
+    padding-bottom: 3%;
+    margin-top: 2.5%;
+}
+
+.scroll-text {
+    font-family: 'FuturaPT-Book';
+    font-size: 15pt;
+    color: #f4e0b9;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.page-divider {
+    content: "";
+    background-color: #464232;
+    width: 100%;
+    max-height: 65px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* HOME PAGE STYLES */
+#imageContainer { /* Background Image Styles */
     width: 100%;
     height: 100%;
     position: relative;
@@ -56,8 +112,16 @@ img.mainImage {
 } 
 
 /* Nav Bar Styles */
-nav.customNavStyles {
-    /*affixes nav bar to top of pag*/
+nav.customNavStyles-unFixed {
+    /*detached from top of page until scrolled past*/
+    background-color: rgba(128,128,128,0.5);
+    /*position: absolute;*/
+    top: 0;
+    width: 100%;
+}
+
+nav.customNavStyles-Fixed {
+    /*affixes nav bar to top of page once scrolled past*/
     background-color: rgba(128,128,128,0.5);
     position: fixed;
     top: 0;
@@ -153,10 +217,7 @@ nav.customNavStyles {
     margin-top: 50%;
 }
 
-/* Downsized MainPage MOBILE 
-h: 964
-w: 978
-*/
+/* Downsized MainPage MOBILE */
 
 @media (max-width: 991px) {
     /* modifies margin spacing when the nav bar is collapsed */
@@ -313,40 +374,6 @@ w: 978
     } 
         
 }
-
-/* TITLE PAGE STYLES */
-#page2 {
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: #5f703a;
-}
-
-#title-imageContainer {
-    position: relative;
-    z-index: 50;
-    max-width: 100%;
-    margin-top: 5%;
-}
-
-img.titleImage {
-    display: block;
-    width: 50%;
-    height: auto;
-    margin: 0px auto;
-}
-
-.title-contentContainer {
-    z-index: 100;
-    position: relative;
-    margin-top: -30%;
-}
-
-
-
-
-
 
 
 
