@@ -47,7 +47,7 @@ html, body {margin:0;padding:0;height:100%;}
 
 .titleOblique-text {
     font-family: 'FuturaPT-MediumOblique';
-    font-size: 35pt;
+    font-size: 45pt;
     color: #f4e0b9;
     letter-spacing: 1.5px;
 }
@@ -72,6 +72,68 @@ html, body {margin:0;padding:0;height:100%;}
     font-family: 'FuturaPT-Book';
     font-size: 15pt;
     color: #f4e0b9;
+}
+
+    
+/* optimizing background for MINIMIZED DESKTOP displays*/
+@media (max-width: 1200px) {
+    .titleImage {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .titleOblique-text {
+        font-size: 35pt;
+    }
+    
+    .scroll-text {
+        font-size: 12pt;
+    }
+}
+
+@media (max-width: 1000px) {
+    .titleOblique-text {
+        font-size: 28pt;
+    }
+    .scroll-text {
+        font-size: 12pt;
+    }
+}
+
+@media (max-width: 795px) {
+    .titleOblique-text {
+        font-size: 23pt;
+    }
+    .scroll-text {
+        font-size: 12pt;
+    }
+}
+
+@media (max-width: 660px) {
+    .titleOblique-text {
+        font-size: 19pt;
+    }
+    .scroll-text {
+        font-size: 10pt;
+    }
+}
+
+@media (max-width: 555px) {
+    .titleOblique-text {
+        font-size: 13.5pt;
+    }
+    .scroll-text {
+        font-size: 6.5pt;
+    }
+}
+
+@media (max-width: 380px) {
+    .titleOblique-text {
+        font-size: 11pt;
+    }
+    .scroll-text {
+        font-size: 6.5pt;
+    }
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -145,21 +207,7 @@ nav.customNavStyles-Fixed {
     color: #f5e1b9 !important;
 }
 
-/* Main Page content DESKTOP
-
-.parent-container {
-    position: relative;
-    height:100%;
-    width: 100%;
-}
-
-.child-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 265%);
-}
-*/
+/* Main Page content DESKTOP */
 
 .headerStyle {
     font-family: 'FuturaPT-Bold';
@@ -177,16 +225,6 @@ nav.customNavStyles-Fixed {
     letter-spacing: 0.3pt;
     margin-bottom: 0%;
 }
-
-/*
-.infoStyle::after {
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    padding-top: 5%;
-    border-bottom: solid 4px #f4e0b9;
-}*/
 
 .lineStyle {
     content: "";
@@ -214,7 +252,7 @@ nav.customNavStyles-Fixed {
 }
 
 .contentContainer {
-    margin-top: 50%;
+    margin-top: 25%;
 }
 
 /* Downsized MainPage MOBILE */
@@ -243,20 +281,6 @@ nav.customNavStyles-Fixed {
             position: relative;
             z-index: -100;
             transform: rotate(90deg);
-        }
-        
-        .parent-container {
-            position: relative;
-            height:100%;
-            width: 100%;
-        }
-
-        .child-container {
-            position: absolute;
-            perspective: 1000;
-            top: 50%;
-            left: 50%;
-            margin: 0 auto;
         }
         
         .contentContainer {
