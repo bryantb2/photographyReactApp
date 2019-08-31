@@ -1,7 +1,8 @@
 import React from 'react';
+import './App.css';
 import backgroundImage from '../src/referenceImages/9DS_0066.JPG';
 import textBoxVector from '../src/referenceImages/vectors/mainTitleVector.png';
-import './App.css';
+import highlight1 from '../src/referenceImages/9DS_0353.JPG';
 
 class App extends React.Component {
     constructor(props) {
@@ -101,24 +102,96 @@ render() {
         <img className="mainImage" src={backgroundImage}/>
       </div>
         <article className="contentContainer">
-        <div className="d-flex justify-content-center headerStyle align-self-center">
-            <div className="p-2 X">Bryant Photography</div>
-        </div>
+            <div className="d-flex justify-content-center headerStyle align-self-center">
+                <div className="p-2">Bryant Photography</div>
+            </div>
 
-        <div className="d-flex justify-content-center infoStyle">
-              <div className="p-2">Emphasis on drone shots and natural environments.</div>
-        </div>
+            <div className="d-flex justify-content-center infoStyle">
+                  <div className="p-2">Emphasis on drone shots and natural environments.</div>
+            </div>
 
-        <div className="d-flex justify-content-center lineStyle">
-              <div className="p-2">&nbsp;</div>
-        </div>
+            <div className="d-flex justify-content-center lineStyle">
+                  <div className="p-2">&nbsp;</div>
+            </div>
 
-        <div className="d-flex justify-content-center">
-              <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
-        </div>
+            <div className="d-flex justify-content-center">
+                  <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
+            </div>
         </article>
 
         </div>
+        
+        <div id="highlightsDivider1">
+            <div className="d-flex justify-content-center align-self-center dividerHeader">
+                <div className="p-2">Portfolio Highlights</div>
+            </div>
+            
+            <div className="d-flex justify-content-center align-self-center dividerSubText">
+                <div className="p-2">Click photos for expanded view.</div>
+            </div>
+            
+        </div>
+        
+        <div id="page3">
+            <div className="row">
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+            </div>
+             <div className="row">
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+                <div className="col-lg-4 col-md-4 col-6">
+                    <a href="#" className="d-block mb-4 h-100">
+                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+
+
+
     </div>
     );
   }
