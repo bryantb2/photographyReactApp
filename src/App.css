@@ -138,10 +138,13 @@ html, body {margin:0;padding:0;height:100%;}
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .page-divider {
-    content: "";
     background-color: #464232;
     width: 100%;
-    max-height: 65px;
+    height: 75px;
+}
+
+.navbar {
+    height: 75px;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -407,7 +410,7 @@ nav.customNavStyles-Fixed {
 
 
 /* DIVIDER 1 STYLES */
-#highlightsDivider1 {
+#highlightsDivider {
     margin-top: 50%;
     padding-top: 1%;
     width: 100%;
@@ -432,12 +435,12 @@ nav.customNavStyles-Fixed {
 
 /* Optimizing Divider for Minimized Screen Widths */
 @media (max-width: 1485px) {
-    #highlightsDivider1 {
+    #highlightsDivider {
         margin-top: 45%;
     }
     
     @media (max-width: 1221px) {
-        #highlightsDivider1 {
+        #highlightsDivider {
             margin-top: 35%;
         }
     }
@@ -474,48 +477,50 @@ nav.customNavStyles-Fixed {
 /* Highlights Page */
 #page3 {
     width: 100%;
-    position: absolute;
+    position: relative;
+    background-color: #8e7d69;
+    display: block;
 }
 
 .row {
     width: 100%;
     margin: 0 auto;
-    padding-top: 0px;
 }
 
 .row:first-of-type {
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
 .imageAnchor {
     border-style: none;
+    background: none;
+    padding: 0px;
+    border-radius: 0px;
 }
 
-/*
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* More Info Divider */
+#moreInfoDivider {
+    padding-top: 1%;
+    width: 100%;
+    background: #454231;
+    position: relative;
+    padding-bottom: 1%;
 }
 
-.column {
-  flex: 30%;
-  max-width: 30%;
-  padding: 0 4px;
+.infoDivider-lineStyle {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    border-bottom: solid 4px #f4e0b9;
+    margin-top: -2%;
+    margin-bottom: -2%;
 }
 
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-*/
-
-
-
-
-
-
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
