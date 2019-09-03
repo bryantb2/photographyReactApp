@@ -144,7 +144,7 @@ html, body {margin:0;padding:0;height:100%;}
 }
 
 .navbar {
-    height: 75px;
+    min-height: 75px;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -156,7 +156,7 @@ html, body {margin:0;padding:0;height:100%;}
     position: relative;
 }
 
-#imageContainer { /* Background Image Styles */
+.imageContainer { /* Background Image Styles */
     width: 100%;
     height: 100%;
     position: relative;
@@ -240,8 +240,6 @@ nav.customNavStyles-Fixed {
     border-bottom: solid 4px #f4e0b9;
 }
 
-
-
 .btn:first-of-type {
     background: transparent;
     border-width:medium;
@@ -281,7 +279,7 @@ nav.customNavStyles-Fixed {
             left: 180px;
         }
 
-        #imageContainer {
+        .imageContainer {
             width: 100%;
             height: 100%;
             position: relative;
@@ -354,7 +352,7 @@ nav.customNavStyles-Fixed {
             left: 180px;
         }
         
-        #imageContainer { /*background restyling*/
+        .imageContainer { /*background restyling*/
             width: 100%;
             height: 100%;
             position: relative;
@@ -455,6 +453,7 @@ nav.customNavStyles-Fixed {
 
     .dividerSubText {
         font-size: 15pt;
+        padding-bottom: 2%;
     }
 }
 
@@ -503,31 +502,91 @@ nav.customNavStyles-Fixed {
 
 /* More Info Divider */
 #moreInfoDivider {
-    padding-top: 1%;
+    z-index: 100;
+    padding-top: 1.5%;
     width: 100%;
     background: #454231;
     position: relative;
-    padding-bottom: 1%;
+    padding-bottom: 2.5%;
 }
 
 .infoDivider-lineStyle {
     content: "";
     display: block;
     margin: 0 auto;
-    width: 20%;
+    width: 18%;
     border-bottom: solid 4px #f4e0b9;
-    margin-top: -2%;
-    margin-bottom: -2%;
+    margin-top: -1.5%;
+    margin-bottom: -1%;
+}
+
+/* Optimizing for smaller desktop displays */
+@media (max-width: 1200px) {
+    .infoDivider-lineStyle {
+        margin-top: -3%;
+    }
+}
+
+@media (max-width: 978px) {
+    .infoDivider-lineStyle {
+        border-bottom: solid 3px #f4e0b9;
+        margin-top: -5%;
+    }
+}
+
+@media (max-width: 800px) {
+    .infoDivider-lineStyle {
+        margin-top: -7%;
+    }
+}
+
+@media (max-width: 500px) {
+    .infoDivider-lineStyle {
+        border-bottom: solid 2px #f4e0b9;
+        margin-top: -10%;
+    }
+}
+
+
+@media (max-width: 300px) {
+    .infoDivider-lineStyle {
+        border-bottom: solid 2px #f4e0b9;
+        margin-top: -16%;
+    }
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/*Bio Page Styles */
+#page4 { /* Background Image Styles */
+    position: relative;
+    width: 100%;
+}
+
+.imageContainer2 { /* Background Image Styles */
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    z-index: -101;
+}
+
+.mainImage2 {
+    transform: rotate(90deg);
+    min-width: 150%;
+}
+/*
+max-width: 170%;
+    transform: rotate(90deg);
+    z-index: -101;
+    position: absolute;
+    margin: 0 auto;
+    top: 10%;
+    left:-30%;
+    opacity: 0.85;
+    max-width: 177%;*/
 
 
 
 
-
-
-
-
-/* TEST STYLES */

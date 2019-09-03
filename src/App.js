@@ -3,6 +3,7 @@ import './App.css';
 import backgroundImage from '../src/referenceImages/9DS_0066.JPG';
 import textBoxVector from '../src/referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../src/referenceImages/9DS_0353.JPG';
+import backgroundImage2 from '../src/referenceImages/DSC_0530.JPG';
 
 class App extends React.Component {
     constructor(props) {
@@ -65,44 +66,40 @@ render() {
       
 
       <div className="page-divider">
-        <nav className="navbar navbar-expand-lg navbar-dark  customNavStyles-unFixed">
+        <nav className="navbar navbar-expand-lg navbar-dark customNavStyles-unFixed">
       
-            <div className="container-fluid">
-      
-              <a className="navbar-brand" href="#">Bryant Photography</a>
+          <a className="navbar-brand" href="#">Bryant Photography</a>
 
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto centeringStyle">
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Highlights<span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Portfolio<span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">About<span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Share<span className="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-              </div>
-    
-            </div>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">Highlights<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">Portfolio<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">About<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">Share<span className="sr-only">(current)</span></a>
+                </li>
+            </ul>
+          </div>
     
         </nav>
       </div>
     
 
       <section id="page2">
-          <div id="imageContainer">
+          <div className="imageContainer">
             <img className="mainImage" src={backgroundImage}/>
           </div>
             <article className="contentContainer">
@@ -123,6 +120,7 @@ render() {
                 </div>
             </article>
         </section>
+    
         
         <div id="highlightsDivider">
             <div className="d-flex justify-content-center align-self-center dividerHeader">
@@ -207,6 +205,13 @@ render() {
             </div>
         </div>
         
+    
+    <section id="page4">
+        <div className="imageContainer2">
+            <img className="mainImage2" src={backgroundImage2}/>
+        </div>
+          
+    </section>
 
 
 
