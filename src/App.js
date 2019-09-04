@@ -195,6 +195,7 @@ render() {
             </div>
         </section>
         
+    
         <div id="moreInfoDivider">
             <div className="d-flex justify-content-center align-self-center dividerSubText">
                 <div className="p-2">For more of my work, visit the portfolio section of this site</div>
@@ -218,11 +219,11 @@ render() {
             </div>
             <br/>
             <div className="d-flex justify-content-center infoStyle">
-                  <p className="p-2">My name is Blake Bryant, and, as you have probably already discovered, I have a love for photography. More specifically, I seek to capture “the asthetic”. This is satisfying sensation a viewer gets from, one, finding the image visually pleasing and, two, feeling a connection to the subject.</p>
+                  <p className="p-2">My name is Blake Bryant, and, as you have probably already discovered, I have a love for photography. More specifically, I seek to capture “the asthetic”. This is the satisfying sensation a viewer gets from, one, finding an image visually pleasing and, two, feeling a connection to the subject.</p>
             </div>
     
             <div className="d-flex justify-content-center infoStyle">
-                  <p className="p-2">My favorite types of photography usually involve a drone and forested enviroment rich in detail, as you will see. I personally find Aerial photos to be the most effective way of capturing landscape photos due to the unique perspective and scope of the scenery that can be shown. However, I am comfortable with snapping photos in a variety of settings, ranging from highly urbanized cities to beaches, for types of photography consisting of, but not limited to, action shots, portraits, landscapes, and light painting.</p>
+                  <p className="p-2">My favorite types of photography usually involve a drone and forested enviroment rich in detail, as you will see. I personally find aerial photos to be the most effective way of capturing landscape photos due to the unique perspective and scope of the scenery that can be shown. However, I am comfortable with snapping a host of photograph types consisting of, but not limited to, action shots, portraits, landscapes, and light painting. I have experience in a variety of settings ranging from highly urbanized cities to beaches.</p>
             </div>
         </article>
         
@@ -233,54 +234,59 @@ render() {
     
     
     <footer id="contactInfo">
-        <article className="footer-contentContainer">
-            <div className="d-flex justify-content-center align-self-center">
-                <div className="p-2">Contact Information</div>
-            </div>
-            <div className="d-flex justify-content-center align-self-center">
-                <div className="p-2">For business inquires, comments, or questions about my work:</div>
-            </div>
-            
-            <div className="footerLeftSection">
-                <div className="d-flex justify-content-left">
-                    <div className="p-2">
-                        <img className="icon" width="20" src={locationIcon}/>
-                    </div>
-                    <div className="p-2">Eugene, Oregon, USA</div>
-                </div>
-                <div className="d-flex justify-content-left">
-                    <div className="p-2">
-                        <img className="icon" width="20" src={emailIcon}/>
-                    </div>
-                    <div className="p-2">bryantb2@my.lanecc.edu</div>
-                </div>
-                <div className="d-flex justify-content-left">
-                    <div className="p-2">
-                        <img className="icon" width="20" src={phoneIcon}/>
-                    </div>
-                    <div className="p-2">541-505-0520</div>
-                </div>
-                <div className="d-flex justify-content-left">
-                    <div className="p-2">
-                        <img className="icon" width="20" src={socialMediaIcon}/>
-                    </div>
-                    <div className="p-2">bryantb2</div>
-                </div>
-            </div>
-    
-            <div className="d-flex justify-content-center">
-                <div className="p-2">&nbsp;</div>
-            </div>
+        <div className="d-flex justify-content-center align-self-center">
+            <div className="p-2 dividerHeader">Contact Information</div>
+        </div>
+        <div className="d-flex justify-content-center align-self-center">
+            <div className="p-2 dividerSubText">For business inquires, comments, or questions about my work:</div>
+        </div>
 
-            <div className="footerRightSection">
-                <div className="d-flex justify-content-left">
-                    <div className="p-2">If you like what you see, please consider sharing this site:</div>
+        <div className="container footer-contentContainer">
+            <div className="row">
+                <div className="col-6">
+                    
+                    <div className="footerLeftSection">
+                        <div className="d-flex justify-content-right footer-subText">
+                            <div className="p-2">
+                                <img className="icon" width="16" src={locationIcon}/>
+                            </div>
+                            <div className="p-2">Eugene, Oregon, USA</div>
+                        </div>
+                        <div className="d-flex justify-content-right">
+                            <div className="p-2">
+                                <img className="icon" width="20" src={emailIcon}/>
+                            </div>
+                            <div className="p-2">bryantb2@my.lanecc.edu</div>
+                        </div>
+                        <div className="d-flex justify-content-right">
+                            <div className="p-2">
+                                <img className="icon" width="20" src={phoneIcon}/>
+                            </div>
+                            <div className="p-2">541-505-0520</div>
+                        </div>
+                        <div className="d-flex justify-content-right">
+                            <div className="p-2">
+                                <img className="icon" width="20" src={socialMediaIcon}/>
+                            </div>
+                            <div className="p-2">bryantb2</div>
+                        </div>
+                    </div>
+    
                 </div>
-                <div className="d-flex justify-content-left">
-                      <button type="button" className="text-center btn btn-lg btn-light ">Share</button>
+
+                <div className="col-6 verticalLineStyle">
+                    <div className="footerRightSection">
+                        <div className="d-flex justify-content-center">
+                            <div className="p-2 footer-subText">Please consider sharing this site:</div>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                              <button type="button" className="text-center btn btn-lg btn-light ">Share</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-        </article>
+        </div>
     </footer>
 
 
