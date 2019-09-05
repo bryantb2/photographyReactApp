@@ -117,7 +117,7 @@ render() {
             </div>
 
             <div className="d-flex justify-content-center">
-                  <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
+                  <button type="button" className="text-center btn btn-lg btn-light portfolioButton">Portfolio</button>
             </div>
         </article>
 
@@ -133,7 +133,7 @@ render() {
         </div>
 
         <div className="d-flex justify-content-center dividerSubText">
-            <div className="p-2">Click photos for expanded view.</div>
+            <div className="p-2 highlightsDivider-subText">Click photos for expanded view.</div>
         </div>
     </div>
 
@@ -198,7 +198,7 @@ render() {
 
     <div id="moreInfoDivider">
         <div className="d-flex justify-content-center dividerSubText">
-            <div className="p-2">For more of my work, visit the portfolio section of this site</div>
+            <div className="p-2 moreInfoDivider-subText">For more of my work, visit the portfolio section of this site.</div>
         </div>
 
         <div className="d-flex justify-content-center infoDivider-lineStyle">
@@ -207,7 +207,7 @@ render() {
 
 
         <div className="d-flex justify-content-center">
-              <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
+              <button type="button" className="portfolioButton text-center btn btn-lg btn-light ">Portfolio</button>
         </div>
     </div>
         
@@ -239,7 +239,7 @@ render() {
             <div className="p-2 dividerHeader">Contact Information</div>
         </div>
         <div className="d-flex justify-content-center">
-            <div className="p-2 dividerSubText">For business inquires, comments, or questions about my work:</div>
+            <div className="p-2 dividerSubText contactInfo-subText">For business inquires, comments, or questions about my work:</div>
         </div>
         
         <div className="container footer-contentContainer">
