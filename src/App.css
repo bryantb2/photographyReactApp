@@ -40,6 +40,8 @@ html, body {margin:0;padding:0;height:100%;}
 }
 
 .titleImage {
+    max-width: 90%;
+    height: auto;
     padding-top: 5%;
     padding-bottom: 5%;
 }
@@ -74,13 +76,8 @@ html, body {margin:0;padding:0;height:100%;}
 }
 
     
-/* optimizing background for MINIMIZED DESKTOP displays*/
+/* TITLE PAGE MEDIA QUERY OPTIMIZATION*/
 @media (max-width: 1200px) {
-    .titleImage {
-        max-width: 90%;
-        height: auto;
-    }
-
     .titleOblique-text {
         font-size: 35pt;
     }

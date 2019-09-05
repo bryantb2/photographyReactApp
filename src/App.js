@@ -104,7 +104,7 @@ render() {
 
     <section id="page2">
         <article className="contentContainer">
-            <div className="d-flex justify-content-center headerStyle align-self-center">
+            <div className="d-flex justify-content-center headerStyle">
                 <div className="p-2">Bryant Photography</div>
             </div>
 
@@ -128,11 +128,11 @@ render() {
 
 
     <div id="highlightsDivider">
-        <div className="d-flex justify-content-center align-self-center dividerHeader">
+        <div className="d-flex justify-content-center dividerHeader">
             <div className="p-2">Portfolio Highlights</div>
         </div>
 
-        <div className="d-flex justify-content-center align-self-center dividerSubText">
+        <div className="d-flex justify-content-center dividerSubText">
             <div className="p-2">Click photos for expanded view.</div>
         </div>
     </div>
@@ -197,7 +197,7 @@ render() {
 
 
     <div id="moreInfoDivider">
-        <div className="d-flex justify-content-center align-self-center dividerSubText">
+        <div className="d-flex justify-content-center dividerSubText">
             <div className="p-2">For more of my work, visit the portfolio section of this site</div>
         </div>
 
@@ -233,7 +233,7 @@ render() {
     </section>
     
     
-    <footer id="contactInfo" className="align-self-center">
+    <footer id="contactInfo">
         
         <div className="d-flex justify-content-center">
             <div className="p-2 dividerHeader">Contact Information</div>
@@ -244,7 +244,7 @@ render() {
         
         <div className="container footer-contentContainer">
             <div className="row">
-                <div className="col-4">
+                <div className="col-lg-4 col-md-4 col-4">
                     
                     <div className="footerLeftSection footer-subText">
                         <div className="d-flex justify-content-left">
@@ -275,7 +275,7 @@ render() {
     
                 </div>
 
-                <div className="col-4 verticalLineStyle">
+                <div className="col-lg-4 col-md-4 col-4 verticalLineStyle">
                     <div className="footerRightSection">
                         <div className="d-flex customContentJustify-right">
                             <div className="p-2 footer-subText">Please consider sharing this site:</div>
