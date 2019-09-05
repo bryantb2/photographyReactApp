@@ -70,6 +70,7 @@ html, body {margin:0;padding:0;height:100%;}
 }
 
 .scroll-text {
+    width: 100%;
     font-family: 'FuturaPT-Book';
     font-size: 15pt;
     color: #f4e0b9;
@@ -79,47 +80,56 @@ html, body {margin:0;padding:0;height:100%;}
 /* TITLE PAGE MEDIA QUERY OPTIMIZATION*/
 @media (max-width: 1200px) {
     .titleOblique-text {
-        font-size: 35pt;
+        font-size: 44pt;
     }
     
     .scroll-text {
-        font-size: 12pt;
+        font-size: 14pt;
     }
 }
 
 @media (max-width: 1000px) {
     .titleOblique-text {
-        font-size: 28pt;
+        font-size: 36pt;
     }
     .scroll-text {
         font-size: 12pt;
     }
 }
 
-@media (max-width: 795px) {
+@media (max-width: 960px) {
     .titleOblique-text {
-        font-size: 23pt;
+        font-size: 34pt;
     }
     .scroll-text {
         font-size: 12pt;
     }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 760px) {
     .titleOblique-text {
-        font-size: 19pt;
+        font-size: 26.5pt;
+    }
+    .scroll-text {
+        font-size: 12pt;
+    }
+}
+
+@media (max-width: 550px) {
+    .titleOblique-text {
+        font-size: 18pt;
     }
     .scroll-text {
         font-size: 10pt;
     }
 }
 
-@media (max-width: 555px) {
+@media (max-width: 480px) {
     .titleOblique-text {
-        font-size: 13.5pt;
+        font-size: 15.5pt;
     }
     .scroll-text {
-        font-size: 6.5pt;
+        font-size: 10pt;
     }
 }
 
@@ -128,7 +138,16 @@ html, body {margin:0;padding:0;height:100%;}
         font-size: 11pt;
     }
     .scroll-text {
-        font-size: 6.5pt;
+        font-size: 7pt;
+    }
+}
+
+@media (max-width: 320px) {
+    .titleOblique-text {
+        font-size: 9pt;
+    }
+    .scroll-text {
+        font-size: 7pt;
     }
 }
 

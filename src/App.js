@@ -63,8 +63,8 @@ render() {
                   <div className="p-2 title-lineStyle"></div>
             </div>
 
-            <div className="d-flex scroll-info justify-content-center">
-                <div className="p-2 scroll-text">Scroll Down for Mainpage</div>
+            <div className="d-flex scroll-info justify-content-center scroll-text">
+                <div className="p-2">Scroll Down for Mainpage</div>
             </div>
         </section>
       
