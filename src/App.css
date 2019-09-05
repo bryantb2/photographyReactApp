@@ -550,7 +550,7 @@ nav.customNavStyles-Fixed {
 
 .flexboxRestricted {
     width: 40%;
-    margin-top: 20%;
+    margin-top: 15%;
     margin-left: 5%;
     max-height: 100%;
 }
@@ -586,15 +586,25 @@ nav.customNavStyles-Fixed {
     border-left: 4px solid #f4e0b9;
 }
 
+.row:last-of-type {
+    justify-content: center;
+}
 
+.dividerSubText:last-of-type {
+    font-size: 23pt;
+}
 
+.customContentJustify-right {
+    justify-content: right;
+}
 
+.customPadding {
+    padding-top: 12%;
+}
 
-
-
-
-
-
+.customMargin-Footer {
+    
+}
 
 
 

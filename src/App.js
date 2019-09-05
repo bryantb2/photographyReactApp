@@ -102,119 +102,119 @@ render() {
       </div>
     
 
-        <section id="page2">
-            <article className="contentContainer">
-                <div className="d-flex justify-content-center headerStyle align-self-center">
-                    <div className="p-2">Bryant Photography</div>
-                </div>
+    <section id="page2">
+        <article className="contentContainer">
+            <div className="d-flex justify-content-center headerStyle align-self-center">
+                <div className="p-2">Bryant Photography</div>
+            </div>
 
-                <div className="d-flex justify-content-center infoStyle">
-                      <div className="p-2">Emphasis on drone shots and natural environments.</div>
-                </div>
+            <div className="d-flex justify-content-center infoStyle">
+                  <div className="p-2">Emphasis on drone shots and natural environments.</div>
+            </div>
 
-                <div className="d-flex justify-content-center lineStyle">
-                      <div className="p-2">&nbsp;</div>
-                </div>
+            <div className="d-flex justify-content-center lineStyle">
+                  <div className="p-2">&nbsp;</div>
+            </div>
 
-                <div className="d-flex justify-content-center">
-                      <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
-                </div>
-            </article>
-    
-            <div className="imageContainer">
-                <img className="mainImage" src={backgroundImage}/>
-            </div>
-        </section>
-    
-        
-        <div id="highlightsDivider">
-            <div className="d-flex justify-content-center align-self-center dividerHeader">
-                <div className="p-2">Portfolio Highlights</div>
-            </div>
-            
-            <div className="d-flex justify-content-center align-self-center dividerSubText">
-                <div className="p-2">Click photos for expanded view.</div>
-            </div>
-        </div>
-        
-    
-        <section id="page3">
-            <div className="row">
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-            </div>
-             <div className="row">
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-                <div className="col-lg-4 col-md-4 col-4">
-                    <a href="#" className="d-block mb-4 h-100">
-                        <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-    
-        <div id="moreInfoDivider">
-            <div className="d-flex justify-content-center align-self-center dividerSubText">
-                <div className="p-2">For more of my work, visit the portfolio section of this site</div>
-            </div>
-    
-            <div className="d-flex justify-content-center infoDivider-lineStyle">
-                <div className="p-2">&nbsp;</div>
-            </div>
-            
-    
             <div className="d-flex justify-content-center">
                   <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
             </div>
+        </article>
+
+        <div className="imageContainer">
+            <img className="mainImage" src={backgroundImage}/>
         </div>
+    </section>
+
+
+    <div id="highlightsDivider">
+        <div className="d-flex justify-content-center align-self-center dividerHeader">
+            <div className="p-2">Portfolio Highlights</div>
+        </div>
+
+        <div className="d-flex justify-content-center align-self-center dividerSubText">
+            <div className="p-2">Click photos for expanded view.</div>
+        </div>
+    </div>
+
+
+    <section id="page3">
+        <div className="row">
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+        </div>
+         <div className="row">
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="moreInfoDivider">
+        <div className="d-flex justify-content-center align-self-center dividerSubText">
+            <div className="p-2">For more of my work, visit the portfolio section of this site</div>
+        </div>
+
+        <div className="d-flex justify-content-center infoDivider-lineStyle">
+            <div className="p-2">&nbsp;</div>
+        </div>
+
+
+        <div className="d-flex justify-content-center">
+              <button type="button" className="text-center btn btn-lg btn-light ">Portfolio</button>
+        </div>
+    </div>
         
     
     <section id="page4">
         <article className="contentContainer flexboxRestricted">
-            <div className="d-flex justify-content-left dividerHeader align-self-center">
+            <div className="d-flex justify-content-left dividerHeader">
                 <div className="p-2">Bio Information</div>
             </div>
             <br/>
@@ -233,38 +233,39 @@ render() {
     </section>
     
     
-    <footer id="contactInfo">
-        <div className="d-flex justify-content-center align-self-center">
+    <footer id="contactInfo" className="align-self-center">
+        
+        <div className="d-flex justify-content-center">
             <div className="p-2 dividerHeader">Contact Information</div>
         </div>
-        <div className="d-flex justify-content-center align-self-center">
+        <div className="d-flex justify-content-center">
             <div className="p-2 dividerSubText">For business inquires, comments, or questions about my work:</div>
         </div>
-
+        
         <div className="container footer-contentContainer">
             <div className="row">
-                <div className="col-6">
+                <div className="col-4">
                     
-                    <div className="footerLeftSection">
-                        <div className="d-flex justify-content-right footer-subText">
+                    <div className="footerLeftSection footer-subText">
+                        <div className="d-flex justify-content-left">
                             <div className="p-2">
                                 <img className="icon" width="16" src={locationIcon}/>
                             </div>
                             <div className="p-2">Eugene, Oregon, USA</div>
                         </div>
-                        <div className="d-flex justify-content-right">
+                        <div className="d-flex justify-content-left">
                             <div className="p-2">
                                 <img className="icon" width="20" src={emailIcon}/>
                             </div>
                             <div className="p-2">bryantb2@my.lanecc.edu</div>
                         </div>
-                        <div className="d-flex justify-content-right">
+                        <div className="d-flex justify-content-left">
                             <div className="p-2">
                                 <img className="icon" width="20" src={phoneIcon}/>
                             </div>
                             <div className="p-2">541-505-0520</div>
                         </div>
-                        <div className="d-flex justify-content-right">
+                        <div className="d-flex justify-content-left">
                             <div className="p-2">
                                 <img className="icon" width="20" src={socialMediaIcon}/>
                             </div>
@@ -274,12 +275,12 @@ render() {
     
                 </div>
 
-                <div className="col-6 verticalLineStyle">
+                <div className="col-4 verticalLineStyle">
                     <div className="footerRightSection">
-                        <div className="d-flex justify-content-center">
+                        <div className="d-flex customContentJustify-right">
                             <div className="p-2 footer-subText">Please consider sharing this site:</div>
                         </div>
-                        <div className="d-flex justify-content-center">
+                        <div className="d-flex customContentJustify-right customPadding">
                               <button type="button" className="text-center btn btn-lg btn-light ">Share</button>
                         </div>
                     </div>
