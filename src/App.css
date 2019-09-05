@@ -80,9 +80,8 @@ html, body {margin:0;padding:0;height:100%;}
 /* TITLE PAGE MEDIA QUERY OPTIMIZATION*/
 @media (max-width: 1200px) {
     .titleOblique-text {
-        font-size: 44pt;
+        font-size: 39pt;
     }
-    
     .scroll-text {
         font-size: 14pt;
     }
@@ -90,7 +89,7 @@ html, body {margin:0;padding:0;height:100%;}
 
 @media (max-width: 1000px) {
     .titleOblique-text {
-        font-size: 36pt;
+        font-size: 35pt;
     }
     .scroll-text {
         font-size: 12pt;
@@ -99,25 +98,19 @@ html, body {margin:0;padding:0;height:100%;}
 
 @media (max-width: 960px) {
     .titleOblique-text {
-        font-size: 34pt;
-    }
-    .scroll-text {
-        font-size: 12pt;
+        font-size: 27pt;
     }
 }
 
 @media (max-width: 760px) {
     .titleOblique-text {
-        font-size: 26.5pt;
-    }
-    .scroll-text {
-        font-size: 12pt;
+        font-size: 19pt;
     }
 }
 
 @media (max-width: 550px) {
     .titleOblique-text {
-        font-size: 18pt;
+        font-size: 15pt;
     }
     .scroll-text {
         font-size: 10pt;
@@ -126,16 +119,13 @@ html, body {margin:0;padding:0;height:100%;}
 
 @media (max-width: 480px) {
     .titleOblique-text {
-        font-size: 15.5pt;
-    }
-    .scroll-text {
-        font-size: 10pt;
+        font-size: 11.5pt;
     }
 }
 
 @media (max-width: 380px) {
     .titleOblique-text {
-        font-size: 11pt;
+        font-size: 9pt;
     }
     .scroll-text {
         font-size: 7pt;
@@ -146,13 +136,11 @@ html, body {margin:0;padding:0;height:100%;}
     .titleOblique-text {
         font-size: 9pt;
     }
-    .scroll-text {
-        font-size: 7pt;
-    }
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/* NAV BAR DIVIDER STYLES */
 .page-divider {
     background-color: #464232;
     width: 100%;
@@ -163,34 +151,9 @@ html, body {margin:0;padding:0;height:100%;}
     min-height: 75px;
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-/* HOME PAGE STYLES */
-#page2 {
-    width: 100%;
-}
-
-.imageContainer { /* Background Image Styles */
-    position: relative;
-    width: 100%;
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    z-index: -100;
-}
-
-img.mainImage {
-    transform: rotate(90deg);
-    min-width: 150%;
-    opacity: 0.85;
-} 
-
-/* Nav Bar Styles */
 nav.customNavStyles-unFixed {
     /*detached from top of page until scrolled past*/
     background-color: rgba(128,128,128,0.5);
-    /*position: absolute;*/
     top: 0;
     width: 100%;
     z-index: 100;
@@ -222,6 +185,62 @@ nav.customNavStyles-Fixed {
     color: #f5e1b9 !important;
 }
 
+
+/* NAVBAR PAGE MEDIA QUERY OPTIMIZATION*/
+@media (max-width: 991px) {
+    /* Special case: modifies margin spacing when the nav bar is collapsed  */
+    .navbar-collapse .nav-item{
+        margin-left: 0%;
+        margin-top: 2.5%;
+    }
+}
+
+@media (max-width: 550px) {
+    .navbar {
+        min-height: 60px;
+    }
+    .page-divider {
+        height: 60px;
+    }
+    .navbar-brand {
+        font-size: 15pt;
+    }
+    .nav-item {
+        margin-left: 20%;
+        font-size: 10pt;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav-link {
+        padding-bottom: 2px;
+    }
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* HOME PAGE STYLES */
+#page2 {
+    width: 100%;
+}
+
+.imageContainer { /* Background Image Styles */
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    z-index: -100;
+}
+
+img.mainImage {
+    transform: rotate(90deg);
+    min-width: 150%;
+    opacity: 0.85;
+} 
+
 /* Main Page content DESKTOP */
 .contentContainer {
     display: block;
@@ -235,9 +254,7 @@ nav.customNavStyles-Fixed {
     font-size: 60pt;
     color: #f4e0b9;
     margin-bottom: -1.5%;
-    /*margin-bottom: 2.5%;*/
 }
-
 
 .infoStyle {
     font-family: "FuturaPT-Light";
@@ -270,128 +287,122 @@ nav.customNavStyles-Fixed {
     background-color: dimgrey;
 }
 
-
-
-/* Downsized MainPage MOBILE */
-
-@media (max-width: 991px) {
-    /* modifies margin spacing when the nav bar is collapsed */
-    .navbar-collapse .nav-item{
-        margin-left: 0%;
-        margin-top: 2.5%;
-    }
-    
-    /* optimizing background for MINIMIZED DESKTOP displays*/
-    @media (max-width: 978px) {
-        img.mainImage {
-        }
-
-        .imageContainer {
-        }
-        
-        .contentContainer {
-        }
-
-        .headerStyle {
-            font-family: 'FuturaPT-Bold';
-            font-size: 35pt;
-            color: #f4e0b9;
-            margin-bottom: -2%;
-        }
-
-
-        .infoStyle {
-            font-family: "FuturaPT-Light";
-            font-size: 16.5pt;
-            color: #f4e0b9;
-            letter-spacing: 0.3pt;
-            margin-bottom: -2%;
-        }
-        
-        .lineStyle {
-            content: "";
-            display: block;
-            margin: 0 auto;
-            width: 25%;
-            border-bottom: solid 3px #f4e0b9;
-            margin-bottom: 0%;
-        }
-
-        .btn:first-of-type {
-            background: transparent;
-            border-width:2px;
-            color: #f4e0b9;
-            border-color: #f4e0b9;
-            font-family: 'FuturaPT-Light';
-            font-size: 15pt;
-            padding: 12px 29px;
-            margin-top: 4%;
-        }
-    }
-    
-    /* OPTIMIZING FOR MOBILE DEVICES*/
-    @media (max-width: 500px) {
-        .navbar-brand {
-            font-family: 'FuturaPT-Book';
-            font-size: 15pt;
-            color: white;
-        }
-
-        .nav-item {
-            /*spacing out nav items*/
-            margin-left: 20%;
-            color: white;
-            font-size: 10pt;
-        }
-        
-        img.mainImage {
-        }
-        
-        .imageContainer { /*background restyling*/
-        }
-        
-        .contentContainer {
-        }
-
-        .headerStyle {
-            font-family: 'FuturaPT-Bold';
-            font-size: 20pt;
-            color: #f4e0b9;
-            margin-bottom: -3%;
-        }
-
-
-        .infoStyle {
-            font-family: "FuturaPT-Light";
-            font-size: 9.25pt;
-            color: #f4e0b9;
-            letter-spacing: 0.3pt;
-            margin-bottom: -7%;
-        }
-        
-        .lineStyle {
-            content: "";
-            display: block;
-            margin: 0 auto;
-            width: 25%;
-            border-bottom: solid 2px #f4e0b9;
-            margin-bottom: 1%;
-        }
-
-        .btn:first-of-type {
-            background: transparent;
-            border-width:1px;
-            color: #f4e0b9;
-            border-color: #f4e0b9;
-            font-family: 'FuturaPT-Light';
-            font-size: 12pt;
-            padding: 5px 18px;
-            margin-top: 4%;
-        }
-    } 
-        
+/* HOMEPAGE MEDIA QUERY OPTIMIZATION */
+@media (max-width: 1200px) {
 }
 
+@media (max-width: 1000px) {
+}
+
+@media (max-width: 960px) {
+    .headerStyle {
+        font-size: 39pt;
+        margin-bottom: -2%;
+    }
+    .infoStyle {
+        font-size: 19pt;
+        margin-bottom: -2%;
+    }
+    .lineStyle {
+        border-bottom: solid 3px #f4e0b9;
+        margin-bottom: 0%;
+    }
+    .btn:first-of-type {
+        border-width:2px;
+        font-size: 15pt;
+        padding: 12px 29px;
+    }
+}
+
+@media (max-width: 760px) {
+    .headerStyle {
+        font-size: 33pt;
+        margin-bottom: -3%;
+    }
+    .infoStyle {
+        font-size: 15.7pt;
+        margin-bottom: -4%;
+    }
+    .btn:first-of-type {
+        border-width:2px;
+        font-size: 13pt;
+        padding: 10px 27px;
+    }
+}
+
+@media (max-width: 550px) {
+    .headerStyle {
+        font-size: 27pt;
+        margin-bottom: -3.5%;
+    }
+    .infoStyle {
+        font-size: 12.7pt;
+        margin-bottom: -7%;
+    }
+    .lineStyle {
+        border-bottom: solid 2px #f4e0b9;
+        margin-bottom: 0.5%;
+    }
+    .btn:first-of-type {
+        border-width:1.75px;
+        font-size: 12pt;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerStyle {
+        font-size: 25pt;
+        margin-bottom: -4%;
+    }
+    .infoStyle {
+        font-size: 11.7pt;
+        margin-bottom: -8%;
+    }
+    .lineStyle {
+        border-bottom: solid 2px #f4e0b9;
+    }
+    .btn:first-of-type {
+        font-size: 10pt;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .headerStyle {
+        font-size: 19.5pt;
+        margin-bottom: -4.5%;
+    }
+    .infoStyle {
+        font-size: 9pt;
+        margin-bottom: -11%;
+    }
+    .lineStyle {
+        border-bottom: solid 1.75px #f4e0b9;
+    }
+    .btn:first-of-type {
+        font-size: 10pt;
+        padding: 6px 18px;
+    }
+}
+
+@media (max-width: 320px) {
+    .headerStyle {
+        font-size: 17pt;
+        margin-bottom: -5%;
+    }
+    .infoStyle {
+        font-size: 7.7pt;
+        margin-bottom: -12%;
+    }
+    .lineStyle {
+        border-bottom: solid 1.75px #f4e0b9;
+    }
+    .btn:first-of-type {
+        font-size: 9pt;
+        padding: 5px 15px;
+    }
+}
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
