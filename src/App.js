@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.css'; 
 import backgroundImage from '../src/referenceImages/9DS_0066.JPG';
 import textBoxVector from '../src/referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../src/referenceImages/9DS_0353.JPG';
