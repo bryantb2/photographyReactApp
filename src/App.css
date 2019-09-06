@@ -505,6 +505,13 @@ img.mainImage {
     display: block;
 }
 
+#page3Hidden {
+    width: 100%;
+    position: relative;
+    background-color: #8e7d69;
+    display: none;
+}
+
 .row {
     width: 100%;
     margin: 0 auto;
@@ -536,11 +543,10 @@ img.mainImage {
 
 .moreInfoDivider-subText {
     font-size: 20pt;
-    margin-bottom: -2%;
+    margin-bottom: -1%;
 }
 
 .infoDivider-lineStyle {
-    content: "";
     display: block;
     margin: 0 auto;
     width: 18%;
@@ -548,7 +554,7 @@ img.mainImage {
     margin-bottom: -1.5%;
 }
 
-/* HIGHLIGHTS DIVIDER MEDIA QUERY OPTIMIZATION */
+/* MORE INFO DIVIDER MEDIA QUERY OPTIMIZATION */
 @media (min-width:2000px) {
     .moreInfoDivider-subText {
         font-size: 30pt;
@@ -622,13 +628,72 @@ img.mainImage {
     opacity: 0.9;
 }
 
-.flexboxRestricted {
-    width: 40%;
-    margin-top: 15%;
+.bioInfo-subText {
+    font-family: "FuturaPT-Light";
+    font-size: 25pt;
+    color: #f4e0b9;
+    letter-spacing: 0.3pt;
+    margin-bottom: 0%;
+    line-height: 1.25em;
+}
+
+.contentBoxRestricted {
+    max-width: 50%;
+    margin-top: 8%;
     margin-left: 5%;
     max-height: 100%;
 }
 
+.bioInfo-customMargin {
+    margin-bottom: -3%;
+}
+
+
+/* BIO PAGE MEDIA QUERY OPTIMIZATION */
+@media (min-width:2000px) {
+}
+
+@media (max-width: 1200px) {
+    .bioInfo-subText {
+        font-size: 
+    }
+}
+
+@media (max-width:960px) {
+    .moreInfoDivider-subText {
+        font-size: 15pt;
+        margin-bottom: -4%;
+    }
+    .infoDivider-lineStyle {
+        border-bottom: solid 2px #f4e0b9;
+    }
+}
+@media (max-width:760px) {
+    .moreInfoDivider-subText {
+        margin-bottom: -6%;
+    }
+}
+@media (max-width:550px) {
+    .moreInfoDivider-subText {
+        font-size: 10pt;
+        margin-bottom: -11%;
+    }
+    .infoDivider-lineStyle {
+        border-bottom: solid 1px #f4e0b9;
+        margin-bottom: 0.5%;
+        margin-top: -1%;
+    }
+}
+
+@media (max-width: 320px) {
+    .moreInfoDivider-subText {
+        margin-bottom: -10%;
+    }
+    .infoDivider-lineStyle {
+        margin-top: -4%;
+        margin-bottom: 0.5%;
+    }
+}
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
