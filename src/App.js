@@ -280,7 +280,7 @@ render() {
                 <div className="p-2">Bio Information</div>
             </div>
             <br/>
-            <div className="d-flex justify-content-center bioInfo-subText">
+            <div className="d-flex justify-content-center bioInfo-subText bioInfo-customParaMargin">
                   <p className="p-2">My name is Blake Bryant, and, as you have probably already discovered, I have a love for photography. More specifically, I seek to capture “the asthetic”. This is the satisfying sensation a viewer gets from, one, finding an image visually pleasing and, two, feeling a connection to the subject.</p>
             </div>
     
@@ -296,16 +296,19 @@ render() {
     
     
     <footer id="contactInfo">
-        
-        <div className="d-flex justify-content-center">
-            <div className="p-2 dividerHeader">Contact Information</div>
-        </div>
-        <div className="d-flex justify-content-center">
-            <div className="p-2 dividerSubText contactInfo-subText">For business inquires, comments, or questions about my work:</div>
-        </div>
-        
         <div className="container footer-contentContainer">
-            <div className="row">
+            <div className="row customContentJustify-center">
+                <div className="col-lg-8 col-md-8 col-8 dividerHeader">
+                    Contact Information
+                </div>
+            </div>
+            <div className="row customContentJustify-center">
+                <div className="col-lg-8 col-md-8 col-8 dividerSubText contactInfo-subText">
+                    For business inquires, comments, or questions about my work:
+                </div>
+            </div>
+        
+            <div className="row ">
                 <div className="col-lg-4 col-md-4 col-4">
                     
                     <div className="footerLeftSection footer-subText">
@@ -343,7 +346,7 @@ render() {
                             <div className="p-2 footer-subText">Please consider sharing this site:</div>
                         </div>
                         <div className="d-flex customContentJustify-right customPadding">
-                              <button type="button" className="text-center btn btn-lg btn-light ">Share</button>
+                              <button type="button" className="shareButton text-center btn btn-lg btn-light ">Share</button>
                         </div>
                     </div>
                 </div>

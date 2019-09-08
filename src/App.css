@@ -622,6 +622,13 @@ img.mainImage {
     z-index: -101;
 }
 
+.contentBoxRestricted {
+    max-width: 50%;
+    margin-top: 22%;
+    margin-left: 5%;
+    max-height: 100%;
+}
+
 .mainImage2 {
     transform: rotate(90deg);
     min-width: 150%;
@@ -637,13 +644,6 @@ img.mainImage {
     line-height: 1.25em;
 }
 
-.contentBoxRestricted {
-    max-width: 50%;
-    margin-top: 30%;
-    margin-left: 5%;
-    max-height: 100%;
-}
-
 .bioInfo-customMargin {
     margin-bottom: -3%;
 }
@@ -653,45 +653,108 @@ img.mainImage {
 @media (min-width:2000px) {
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
+    .contentBoxRestricted {
+        margin-top: 15%;
+    }
     .bioInfo-subText {
-        font-size: 
+        font-size: 20pt;
+    }
+    .bioInfo-customMargin {
+        margin-bottom: -5%;
+    }
+    .bioInfo-customParaMargin{
+        margin-bottom: -1.5%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .contentBoxRestricted {
+        margin-top: 13%;
+    }
+    .bioInfo-subText {
+        font-size: 18pt;
+    }
+    .bioInfo-customMargin {
+        margin-bottom: -7%;
+    }
+    .bioInfo-customParaMargin{
+        margin-bottom: -2%;
     }
 }
 
 @media (max-width:960px) {
-    .moreInfoDivider-subText {
-        font-size: 15pt;
-        margin-bottom: -4%;
+    .contentBoxRestricted {
+        margin-top: 10%;
     }
-    .infoDivider-lineStyle {
-        border-bottom: solid 2px #f4e0b9;
+    .bioInfo-subText {
+        font-size: 15pt;
+    }
+    .bioInfo-customMargin {
+        margin-bottom: -9%;
+    }
+    .bioInfo-customParaMargin{
+        margin-bottom: -3.5%;
     }
 }
 @media (max-width:760px) {
-    .moreInfoDivider-subText {
-        margin-bottom: -6%;
+    .contentBoxRestricted {
+        margin-top: 7%;
+    }
+    .bioInfo-subText {
+        font-size: 11pt;
+    }
+    .bioInfo-customMargin {
+        margin-bottom: -13%;
+    }
+    .bioInfo-customParaMargin{
+        margin-bottom: -5%;
     }
 }
 @media (max-width:550px) {
-    .moreInfoDivider-subText {
+    .contentBoxRestricted {
+        margin-top: 10%;
+        max-width: 90%;
+    }
+    .bioInfo-subText {
         font-size: 10pt;
+    }
+    .bioInfo-customMargin {
+        margin-bottom: -8.5%;
+    }
+    .bioInfo-customParaMargin{
+        margin-bottom: -4%;
+    }
+}
+
+@media (max-width: 400px) {
+    /*special case to fix scaling issues */
+    .contentBoxRestricted {
+        margin-top: 2%;
+    }
+    .bioInfo-subText {
+        font-size: 9pt;
+    }
+    .bioInfo-customMargin {
         margin-bottom: -11%;
     }
-    .infoDivider-lineStyle {
-        border-bottom: solid 1px #f4e0b9;
-        margin-bottom: 0.5%;
-        margin-top: -1%;
+    .bioInfo-customParaMargin{
+        margin-bottom: -6%;
     }
 }
 
 @media (max-width: 320px) {
-    .moreInfoDivider-subText {
-        margin-bottom: -10%;
+    .contentBoxRestricted {
+        margin-top: -1%;
     }
-    .infoDivider-lineStyle {
-        margin-top: -4%;
-        margin-bottom: 0.5%;
+    .bioInfo-subText {
+        font-size: 8pt;
+    }
+    .bioInfo-customMargin {
+        margin-bottom: -13.5%;
+    }
+    .bioInfo-customParaMargin{
+        margin-bottom: -8%;
     }
 }
 
@@ -706,6 +769,17 @@ img.mainImage {
     padding-top: 2%;
     padding-bottom: 2%;
 
+}
+
+.shareButton {
+    background: transparent;
+    border-width:medium;
+    color: #f4e0b9;
+    border-color: #f4e0b9;
+    font-family: 'FuturaPT-Light';
+    font-size: 20pt;
+    padding: 15px 45px;
+    margin-top: 4%;
 }
 
 .footer-contentContainer {
@@ -727,10 +801,13 @@ img.mainImage {
 
 .row:last-of-type {
     justify-content: center;
+    width: 100%;
 }
 
 .contactInfo-subText {
     font-size: 23pt;
+    text-align: center;
+    padding-bottom: 2%;
 }
 
 .customContentJustify-right {
@@ -741,8 +818,8 @@ img.mainImage {
     padding-top: 12%;
 }
 
-.customMargin-Footer {
-    
+.customContentJustify-center {
+    justify-content: center;
 }
 
 
@@ -751,6 +828,52 @@ img.mainImage {
 
 
 
+/* CONTACT INFO MEDIA QUERY OPTIMIZATION */
+@media (min-width: 1920px) {
+}
 
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 1000px) {
+}
+
+@media (max-width: 960px) {
+}
+
+@media (max-width: 760px) {
+}
+
+@media (max-width: 550px) {
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 380px) {
+}
+
+@media (max-width: 320px) {
+}
+
+
+
+
+
+/* HTML
+<div className="col-lg-4 col-md-4 col-4">
+    <div className="d-flex justify-content-center">
+        <div className="p-2 dividerHeader">Contact Information</div>
+    </div>
+</div>
+
+<div className="col-lg-4 col-md-4 col-4">
+    <div className="d-flex justify-content-center">
+        <div className="p-2 dividerSubText contactInfo-subText">For business inquires, comments, or questions about my work:</div>
+    </div>
+</div>
+
+
+*/
 
 
