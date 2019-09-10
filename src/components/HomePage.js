@@ -11,12 +11,32 @@ import phoneIcon from '../../src/referenceImages/icons/phoneIcon.png';
 import socialMediaIcon from '../../src/referenceImages/icons/socialMediaIcon.png';
 
 function HomePage() {
+    
+    //presentational components for col 6 photos
+    const ColumnSixImage = props =>
+    <div id={props.imageNumber} className="col-lg-6 col-md-6 col-6">
+        <a href="#" className="d-block mb-4 h-100">
+            <img className="imageAnchor img-thumbnail" src={props.URL} alt=""/>
+        </a>
+    </div>;
+    
+    
+    const ColumnTwelveImage = props =>
+    <div className="col-lg-12 col-md-12 col-12">
+        <a href="#" className="d-block mb-4 h-100">
+            <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+        </a>
+    </div>;
+    
+    //presentation compoents for col 4 photos
     const ColumnFourImage = props =>
     <div id={props.imageNumber} className="col-lg-4 col-md-4 col-4">
         <a href="#" className="d-block mb-4 h-100">
             <img className="imageAnchor img-thumbnail" src={props.URL} alt=""/>
         </a>
     </div>;
+    
+    
   return (
     <div>
         <section id="page1">
@@ -107,63 +127,18 @@ function HomePage() {
     
     <section id="page3Hidden">
         <div className="row">
-            <div className="col-lg-12 col-md-12 col-12">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
         </div>
-         <div className="row">
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-        </div>
+    
         <div className="row">
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
         </div>
+    
         <div className="row">
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
         </div>
+    
         <div className="row">
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-6 col-md-6 col-6">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
+        </div>
+    
+        <div className="row">
         </div>
     </section>
 

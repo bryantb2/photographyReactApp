@@ -1,0 +1,56 @@
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* PORTFOLIO PAGE STYLES */
+#portfolioPage {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #454231;
+}
+
+.customPortfolioContainer {
+    position: relative;
+    margin-top: 10%;
+}
+
+.customPortfolioLineStyle {
+    width: 10%;
+}
+
+.genreSelectButton1 {
+    background: transparent;
+    border-width:medium;
+    color: #f4e0b9;
+    border-color: #f4e0b9;
+    font-family: 'FuturaPT-Light';
+    font-size: 20pt;
+    padding: 15px 45px;
+    margin-top: 20%;
+}
+
+.genreSelectButton1:hover {
+    background-color: dimgrey;
+}
+
+.portfolioDropdown>.dropdown-menu {
+    background-color: transparent;
+    width: 100%;
+    /*border-right: none;
+    border-left: none;*/
+    border: 2px solid #f4e0b9;
+    border-top: none;
+    border-radius: 0px 0px 3px 3px;
+    text-align: center;
+}
+
+.portfolioDropdown .dropdown-item {
+    color: #f4e0b9;
+    font-family:'FuturaPT-Light';
+    font-size: 15pt;
+    padding-bottom: 5%;
+    letter-spacing: 0.5px;
+}
+
+.portfolioDropdown .dropdown-item:hover {
+    color: #454231;
+}
