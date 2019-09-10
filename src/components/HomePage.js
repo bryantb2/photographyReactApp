@@ -11,6 +11,30 @@ import phoneIcon from '../../src/referenceImages/icons/phoneIcon.png';
 import socialMediaIcon from '../../src/referenceImages/icons/socialMediaIcon.png';
 
 function HomePage() {
+    //GLOBAL VARIABLES
+    let navBar = null;
+    let navBarHeight = null;
+    window.onload = function() {
+        //assigns values to variables after the page has loaded
+        navBar = document.getElementById('navigationBar');
+        navBarHeight = navBar.offsetTop;
+    }
+    
+    //EVENT LISTENERS
+    window.addEventListener('scroll', afixNavbar);
+    
+    
+    //EVENT HANDLER METHODS
+    function afixNavbar() {
+        //function will calculate navbar and pageOffset height to make the navbar stick or unstick to the top
+        if(window.pageYOffset > navBarHeight) {
+            navBar.classList.add("customNavStyles-Fixed");
+        }
+        else {
+            navBar.classList.remove("customNavStyles-Fixed");
+        }
+        console.log(`this is the navBar offset: ${navBarHeight};    this is the pageYOffset: ${window.scrollY}`);
+    }
     
     //presentational components for col 6 photos
     const ColumnSixImage = props =>
@@ -57,7 +81,7 @@ function HomePage() {
       
 
       <div className="page-divider">
-        <nav className="navbar navbar-expand-lg navbar-dark customNavStyles-unFixed">
+        <nav id="navigationBar" className="navbar navbar-expand-lg navbar-dark customNavStyles-unFixed">
       
           <a className="navbar-brand" href="#">Bryant Photography</a>
 
@@ -68,19 +92,19 @@ function HomePage() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                    <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="#page2">Home<span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#">Highlights<span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="#page3">Highlights<span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item active">
                     <a className="nav-link" href="#">Portfolio<span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#">About<span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="#page4">About<span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#">Share<span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="#contactInfo">Share<span className="sr-only">(current)</span></a>
                 </li>
             </ul>
           </div>
