@@ -26,7 +26,7 @@ class HomePage extends React.Component {
         
         //METHOD CALLS AND EVENT ASSIGNMENT
         window.onload = () => {
-            //assigns values to variables after the page has loaded
+            //fills the navBar and navBarHeight variables
             this.updateNavbarHeight();
 
             //EVENT LISTENERS
@@ -37,6 +37,7 @@ class HomePage extends React.Component {
     }
 
     //EVENT HANDLER METHODS
+    /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     navbarScrollEventHandler() {
         //function will calculate navbar and pageOffset height to make the navbar stick or unstick to the top
         if(window.pageYOffset > this.navBarHeight) {
@@ -50,18 +51,18 @@ class HomePage extends React.Component {
     }
     
     resizeEventHandler() {
-        document.location.reload();
         this.updateNavbarHeight();
     }
     
     updateNavbarHeight() {
-        //function accomodates for the fact that navBarHeight value changes when window is resize
+        //function accomodates for the fact that navBarHeight value CHANGES when window is RESIZED
         this.navBar = document.getElementById('navigationBar');
         this.navBarHeight = this.getOffsetTop(this.navBar);
         console.log("hello there, I am inside the navbar height updater!");
     }
     
     getOffsetTop(element){
+        //gets the offset height of the navbar by iterating through parent elements until it's null
       let offsetTop = 0;
       while(element) {
         offsetTop += element.offsetTop;
@@ -69,32 +70,10 @@ class HomePage extends React.Component {
       }
       return offsetTop;
     }
-    
-    /*
-    //presentational components for col 6 photos
-    const ColumnSixImage = props =>
-    <div id={props.imageNumber} className="col-lg-6 col-md-6 col-6">
-        <a href="#" className="d-block mb-4 h-100">
-            <img className="imageAnchor img-thumbnail" src={props.URL} alt=""/>
-        </a>
-    </div>;
+    /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     
-    const ColumnTwelveImage = props =>
-    <div className="col-lg-12 col-md-12 col-12">
-        <a href="#" className="d-block mb-4 h-100">
-            <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-        </a>
-    </div>;
     
-    //presentation compoents for col 4 photos
-    const ColumnFourImage = props =>
-    <div id={props.imageNumber} className="col-lg-4 col-md-4 col-4">
-        <a href="#" className="d-block mb-4 h-100">
-            <img className="imageAnchor img-thumbnail" src={props.URL} alt=""/>
-        </a>
-    </div>;
-    */
     
   render() {
       return (
@@ -184,24 +163,7 @@ class HomePage extends React.Component {
         </div>
     </div>
 
-    
-    <section id="page3Hidden">
-        <div className="row">
-        </div>
-    
-        <div className="row">
-        </div>
-    
-        <div className="row">
-        </div>
-    
-        <div className="row">
-        </div>
-    
-        <div className="row">
-        </div>
-    </section>
-
+      
     <section id="page3">
         <div className="row">
             <div className="col-lg-4 col-md-4 col-4">

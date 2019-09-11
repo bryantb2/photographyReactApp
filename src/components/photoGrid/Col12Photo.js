@@ -1,0 +1,14 @@
+import React from 'react';
+
+function Col12Photo(props) {
+    
+    
+    return (
+        <div className="col-lg-12 col-md-12 col-12">
+            <a href="#" className="d-block mb-4 h-100">
+                <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+            </a>
+        </div>
+    );
+}
+export default Col12Photo;
