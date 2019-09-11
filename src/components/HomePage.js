@@ -22,6 +22,7 @@ class HomePage extends React.Component {
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
         this.updateNavbarHeight = this.updateNavbarHeight.bind(this);
+        this.resizeEventHandler = this.resizeEventHandler.bind(this);
         
         //METHOD CALLS AND EVENT ASSIGNMENT
         window.onload = () => {
@@ -30,7 +31,7 @@ class HomePage extends React.Component {
 
             //EVENT LISTENERS
             window.addEventListener('scroll', this.navbarScrollEventHandler);
-            window.addEventListener('resize', this.updateNavbarHeight);
+            window.addEventListener('resize', this.resizeEventHandler);
         }
         
     }
@@ -48,6 +49,11 @@ class HomePage extends React.Component {
         this is the navBar off set from top: ${this.navBarHeight}`);
     }
     
+    resizeEventHandler() {
+        document.location.reload();
+        this.updateNavbarHeight();
+    }
+    
     updateNavbarHeight() {
         //function accomodates for the fact that navBarHeight value changes when window is resize
         this.navBar = document.getElementById('navigationBar');
@@ -59,7 +65,7 @@ class HomePage extends React.Component {
       let offsetTop = 0;
       while(element) {
         offsetTop += element.offsetTop;
-        element = element.offsetParent;
+        element = element.parentElement;
       }
       return offsetTop;
     }
