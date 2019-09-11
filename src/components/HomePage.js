@@ -10,32 +10,61 @@ import locationIcon from '../../src/referenceImages/icons/locationIcon.png';
 import phoneIcon from '../../src/referenceImages/icons/phoneIcon.png';
 import socialMediaIcon from '../../src/referenceImages/icons/socialMediaIcon.png';
 
-function HomePage() {
-    //GLOBAL VARIABLES
-    let navBar = null;
-    let navBarHeight = null;
-    window.onload = function() {
-        //assigns values to variables after the page has loaded
-        navBar = document.getElementById('navigationBar');
-        navBarHeight = navBar.offsetTop;
+class HomePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={};
+        
+        //GLOBAL VARIABLES
+        let navBar = null;
+        let navBarHeight = null;
+        
+        //BINDS
+        this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
+        this.updateNavbarHeight = this.updateNavbarHeight.bind(this);
+        
+        //METHOD CALLS AND EVENT ASSIGNMENT
+        window.onload = () => {
+            //assigns values to variables after the page has loaded
+            this.updateNavbarHeight();
+
+            //EVENT LISTENERS
+            window.addEventListener('scroll', this.navbarScrollEventHandler);
+            window.addEventListener('resize', this.updateNavbarHeight);
+        }
+        
     }
-    
-    //EVENT LISTENERS
-    window.addEventListener('scroll', afixNavbar);
-    
-    
+
     //EVENT HANDLER METHODS
-    function afixNavbar() {
+    navbarScrollEventHandler() {
         //function will calculate navbar and pageOffset height to make the navbar stick or unstick to the top
-        if(window.pageYOffset > navBarHeight) {
-            navBar.classList.add("customNavStyles-Fixed");
+        if(window.pageYOffset > this.navBarHeight) {
+            this.navBar.classList.add("customNavStyles-Fixed");
         }
         else {
-            navBar.classList.remove("customNavStyles-Fixed");
+            this.navBar.classList.remove("customNavStyles-Fixed");
         }
-        console.log(`this is the navBar offset: ${navBarHeight};    this is the pageYOffset: ${window.scrollY}`);
+        console.log(`this is the pageYoffset: ${window.pageYOffset}
+        this is the navBar off set from top: ${this.navBarHeight}`);
     }
     
+    updateNavbarHeight() {
+        //function accomodates for the fact that navBarHeight value changes when window is resize
+        this.navBar = document.getElementById('navigationBar');
+        this.navBarHeight = this.getOffsetTop(this.navBar);
+        console.log("hello there, I am inside the navbar height updater!");
+    }
+    
+    getOffsetTop(element){
+      let offsetTop = 0;
+      while(element) {
+        offsetTop += element.offsetTop;
+        element = element.offsetParent;
+      }
+      return offsetTop;
+    }
+    
+    /*
     //presentational components for col 6 photos
     const ColumnSixImage = props =>
     <div id={props.imageNumber} className="col-lg-6 col-md-6 col-6">
@@ -59,10 +88,11 @@ function HomePage() {
             <img className="imageAnchor img-thumbnail" src={props.URL} alt=""/>
         </a>
     </div>;
+    */
     
-    
-  return (
-    <div>
+  render() {
+      return (
+    <div id="homepage-wrapper">
         <section id="page1">
             <img className="titleImage d-block img-fluid mx-auto" src={textBoxVector}/>
 
@@ -318,6 +348,7 @@ function HomePage() {
     </footer>
     </div>
   );
+  }  
 }
 
 export default HomePage;

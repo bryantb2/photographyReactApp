@@ -1,4 +1,8 @@
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* WRAPPER STYLES */
+#homepage-wrapper {
+    position: relative;
+}
 
 /* TITLE PAGE STYLES */
 #page1 {
@@ -123,6 +127,7 @@
 
 /* NAV BAR DIVIDER STYLES */
 .page-divider {
+    position: relative;
     background-color: #464232;
     width: 100%;
     height: 75px;
