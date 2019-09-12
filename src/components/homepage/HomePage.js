@@ -1,14 +1,14 @@
 import React from 'react';
 import './HomePage.css';
-import '../App.css';
-import backgroundImage from '../../src/referenceImages/9DS_0066.JPG';
-import textBoxVector from '../../src/referenceImages/vectors/mainTitleVector.png';
-import highlight1 from '../../src/referenceImages/9DS_0353.JPG';
-import backgroundImage2 from '../../src/referenceImages/DSC_0530.JPG';
-import emailIcon from '../../src/referenceImages/icons/emailIcon.png';
-import locationIcon from '../../src/referenceImages/icons/locationIcon.png';
-import phoneIcon from '../../src/referenceImages/icons/phoneIcon.png';
-import socialMediaIcon from '../../src/referenceImages/icons/socialMediaIcon.png';
+import '../../App.css';
+import backgroundImage from '../../referenceImages/9DS_0066.JPG';
+import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
+import highlight1 from '../../referenceImages/9DS_0353.JPG';
+import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
+import emailIcon from '../../referenceImages/icons/emailIcon.png';
+import locationIcon from '../../referenceImages/icons/locationIcon.png';
+import phoneIcon from '../../referenceImages/icons/phoneIcon.png';
+import socialMediaIcon from '../../referenceImages/icons/socialMediaIcon.png';
 
 class HomePage extends React.Component {
     constructor(props) {

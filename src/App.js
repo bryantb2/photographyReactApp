@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import HomePage from '../src/components/HomePage.js';
-import PortfolioPage from '../src/components/PortfolioPage.js';
+import HomePage from '../src/components/homepage/HomePage.js';
+import PortfolioPage from '../src/components/infiniteScrollPage/PortfolioPage.js';
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
+        
         this.state = {
-            
+            greeting: "hello there",
         }
         
         //BINDS
