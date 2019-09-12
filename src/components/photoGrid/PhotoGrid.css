@@ -4,3 +4,19 @@
     position: relative;
     display: block;
 }
+
+.gridSection .row {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.gridSection .row:first-of-type {
+    padding-top: 25px;
+}
+
+.gridSection .imageAnchor {
+    border-style: none;
+    background: none;
+    padding: 0px;
+    border-radius: 0px;
+}

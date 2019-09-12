@@ -485,16 +485,16 @@ img.mainImage {
     display: none;
 }
 
-.row {
+#page3 .row {
     width: 100%;
     margin: 0 auto;
 }
 
-.row:first-of-type {
+#page3 .row:first-of-type {
     padding-top: 25px;
 }
 
-.imageAnchor {
+#page3 .imageAnchor {
     border-style: none;
     background: none;
     padding: 0px;

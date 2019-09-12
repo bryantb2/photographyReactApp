@@ -1,6 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import '../../App.css';
+import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../../referenceImages/9DS_0353.JPG';

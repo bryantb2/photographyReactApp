@@ -1,5 +1,5 @@
 import React from 'react';
-import '././App.css';
+import '../../App.css';
 import './PhotoGrid.css';
 import Col12Photo from './Col12Photo';
 import PhotoRow from './PhotoGrid';
@@ -63,9 +63,8 @@ function PhotoGrid(props,gridSize) {
                 //passes it in to the photorow component
     const ColumnFourGrid = props =>
         <div className="gridSection">
-            props.sectionedArray.map((section) =>
-                <PhotoRow section={section} gridSize={props.gridSize} />
-           );
+            {props.sectionedArray.map(section =>
+                <PhotoRow section={section} gridSize={props.gridSize} />)}
         </div>;
     
     //PHOTOGRID COLUMN SIX (per image)
@@ -74,9 +73,8 @@ function PhotoGrid(props,gridSize) {
             <div className="row">
                 <Col12Photo />
             </div>
-            props.sectionedArray.map((section) =>
-                <PhotoRow section={section} gridSize={props.gridSize} />  
-           );
+            {props.sectionedArray.map(section =>
+                <PhotoRow section={section} gridSize={props.gridSize}/>)}
         </div>;
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -98,7 +96,7 @@ function PhotoGrid(props,gridSize) {
     };
     
     return (
-        <finaloutput />
+        {finaloutput}
     );
 }
 
