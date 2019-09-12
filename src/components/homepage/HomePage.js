@@ -2,6 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import '../../App.css';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
+import TestAPI from '../../server/TestAPI.js';
 import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../../referenceImages/9DS_0353.JPG';
@@ -19,6 +20,9 @@ class HomePage extends React.Component {
         //GLOBAL VARIABLES
         let navBar = null;
         let navBarHeight = null;
+        
+        //testing the portfolio API system
+        let apiData = TestAPI();
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
@@ -73,7 +77,63 @@ class HomePage extends React.Component {
     }
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
-    
+    /*
+    <section id="page3">
+        <div className="row">
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+        </div>
+         <div className="row">
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+            <div className="col-lg-4 col-md-4 col-4">
+                <a href="#" className="d-block mb-4 h-100">
+                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
+                </a>
+            </div>
+        </div>
+    </section>*/
     
     
   render() {
@@ -165,62 +225,7 @@ class HomePage extends React.Component {
     </div>
 
       
-    <section id="page3">
-        <div className="row">
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-        </div>
-         <div className="row">
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-        </div>
-        <div className="row">
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-        </div>
-    </section>
+    <PhotoGrid sectionedArray={this.apiData} gridSize={4} />
 
 
     <div id="moreInfoDivider">
