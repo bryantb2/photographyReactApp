@@ -29,17 +29,25 @@ function PhotoGrid(props,gridSize) {
         }
         else {
             //creating four sections
+            
+            //variables to track the changing start and end points of the nested for loop
+            const STARTINDEXINCREMENTOR = 2;
+            const ENDINDEXINCREMENTOR = 2;
+            let startIndex = 1;
+            let endIndex = 3;
+            
             for (let i = 0; i < 4; i++) {
                 //1. index into image props array
                 //2. copy sets of TWO image objects from props into each spot of the sectionedImageArray
-                //3. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
-                for (let j = i; j < (i+3); j++) {
-                    sectionedImageArray[i][j+1] = props[j];
+                //3. increment start and indexers outside of nested for loop
+                //4. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
+                for (let j = startIndex; j < endIndex; j++) {
+                    sectionedImageArray[i][j] = props[j];
                 }
+                startIndex += STARTINDEXINCREMENTOR;
+                endIndex += ENDINDEXINCREMENTOR;
             }
         }
-        
-    }
     
     
     //photo grid with 4 colmn photos

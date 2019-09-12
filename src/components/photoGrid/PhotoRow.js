@@ -7,7 +7,7 @@ function PhotoRow(props,gridSize) {
     const ColumnFourRow = (props) =>
     <div className="row">
         <Col4Photo 
-            imageNumber={props.sectionNumber.[0].imageNumber}
+            imageNumber={props.sectionNumber[0].imageNumber}
             custom-orientation= {props[0].orientation}
             src={props[0].sectionNumber.URL}
         />
