@@ -225,7 +225,7 @@ class HomePage extends React.Component {
     </div>
 
       
-    <PhotoGrid sectionedArray={this.apiData} gridSize={4} />
+    <PhotoGrid array={this.apiData} gridSize={4} />
 
 
     <div id="moreInfoDivider">

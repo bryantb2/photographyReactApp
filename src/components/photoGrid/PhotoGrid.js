@@ -11,7 +11,7 @@ function PhotoGrid(props,gridSize) {
     //WORKING ASSUMPTION: each object will, AT LEAST, contain an imageNumber, URL, and orientation key:value pair
     
     //GLOBAL VARIABLES  
-    let sectionedImageArray = [[],[],[],[]];
+    
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
@@ -19,6 +19,7 @@ function PhotoGrid(props,gridSize) {
     function splitAndSectionPhotoArray(props,sectionNumber) {
         //splits the API call elements into sections for rows
         //takes in sectionNumber to account for the row number difference between the col6 and col4 grids (can be either 3 or 4)
+        let sectionedImageArray = [[],[],[],[]];
         let rawArray = props.array;
         if(sectionNumber === 3) {
             //creating three sections
@@ -51,6 +52,7 @@ function PhotoGrid(props,gridSize) {
                 endIndex += ENDINDEXINCREMENTOR;
             }   
         }
+        return sectionedImageArray;
     }
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -61,42 +63,52 @@ function PhotoGrid(props,gridSize) {
     //map sectioned image collection to THREE photoRow
             //takes a sectioned portion of the array map function and:
                 //passes it in to the photorow component
-    const ColumnFourGrid = props =>
-        <div className="gridSection">
-            {props.sectionedArray.map(section =>
-                <PhotoRow section={section} gridSize={props.gridSize} />)}
-        </div>;
+    const ColumnFourGrid = props => {
+        return (
+            <div className="gridSection">
+                {props.sectionedArray.map(section =>
+                    <PhotoRow section={section} gridSize={props.gridSize} />)}
+            </div>
+        )
+    }
+        
     
     //PHOTOGRID COLUMN SIX (per image)
-    const ColumnSixGrid = props =>
-        <div className="gridSection">
-            <div className="row">
-                <Col12Photo />
+    const ColumnSixGrid = props => {
+        return (
+            <div className="gridSection">
+                <div className="row">
+                    <Col12Photo />
+                </div>
+                {props.sectionedArray.map(section =>
+                    <PhotoRow section={section} gridSize={props.gridSize}/>)}
             </div>
-            {props.sectionedArray.map(section =>
-                <PhotoRow section={section} gridSize={props.gridSize}/>)}
-        </div>;
+        )
+    }
+        
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     //CONDITIONAL RENDER FUNCTION
     const finaloutput = props => {
         //returnedJSX will store the final output to be returned
-        //split the rawArray that was inputted so it can be passed into the Grid
+        //split the rawArray that was inputted so it can be passed as sections into the Grid
         let finalJSX = null;
         if(gridSize === 6) {
-            //fill the grid
-            //assign it to final output
-            finalJSX = <ColumnSixGrid gridSize = {gridSize}/>;
+            //section number parameter is 4 in a six col grid because there are two images for every section (2 x 4 = 8 total images)
+            let sectionedArray = splitAndSectionPhotoArray(props.array,4);
+            finalJSX = <ColumnSixGrid sectionedArray={sectionedArray} gridSize = {gridSize}/>;
         }
         else {
+            //section number parameter is 3 in a 4 col grid because there are three images for every section (3 x 3 = 9 total images)
+            let sectionedArray = splitAndSectionPhotoArray(props,3);
             finalJSX = <ColumnFourGrid gridSize = {gridSize} />;
         }
-        
+        return finalJSX;
     };
     
     return (
-        {finaloutput}
+        <finaloutput array={props.array}/>
     );
 }
 
