@@ -22,7 +22,7 @@ class HomePage extends React.Component {
         let navBarHeight = null;
         
         //testing the portfolio API system
-        let apiData = TestAPI();
+        const photoArray = TestAPI();
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
@@ -225,7 +225,7 @@ class HomePage extends React.Component {
     </div>
 
       
-    <PhotoGrid array={this.apiData} gridSize={4} />
+    <PhotoGrid photoArray={this.photoArray} gridSize={4} />
 
 
     <div id="moreInfoDivider">

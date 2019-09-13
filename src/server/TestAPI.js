@@ -2,7 +2,7 @@ import React from 'react';
 
 function TestAPI() {
     const apiArray = {
-        "genre": [
+        "genreType": [
             {
                "imageNumber": 0,
                 "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
@@ -49,11 +49,11 @@ function TestAPI() {
                 "orientation": "landscape",
             },
         ]
-    }
+    };
     
-    return (
-        {apiArray}
-    );
+    return {
+        apiArray
+    }
 }
 
 export default TestAPI;

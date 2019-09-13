@@ -1,8 +1,6 @@
 import React from 'react';
 
 function Col4Photo(props) {
-    
-    
     return (
         <div id={props.imageNumber} className="col-lg-4 col-md-4 col-4">
             <a href="#" className="d-block mb-4 h-100">
