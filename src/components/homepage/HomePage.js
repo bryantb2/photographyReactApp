@@ -18,6 +18,7 @@ import Col4Photo from '../photoGrid/Col4Photo.js';
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
+        this.props = props;
         this.state={};
         
         //GLOBAL VARIABLES
@@ -25,7 +26,7 @@ class HomePage extends React.Component {
         let navBarHeight = null;
         
         //testing the portfolio API system
-        //let photoArray = TestAPI();
+        let photoArray = TestAPI();
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
@@ -140,7 +141,7 @@ class HomePage extends React.Component {
     
     
   render() {
-      let photoArray = TestAPI();
+      const gridSizeVar = 4;
       return (
     <div id="homepage-wrapper">
         <section id="page1">
@@ -229,7 +230,7 @@ class HomePage extends React.Component {
     </div>
 
       
-    <PhotoGrid photoArray={photoArray.genreType} gridSize={4} />
+    <PhotoGrid photoArray={this.props.genreType} gridSize={gridSizeVar} />
 
 
     <div id="moreInfoDivider">

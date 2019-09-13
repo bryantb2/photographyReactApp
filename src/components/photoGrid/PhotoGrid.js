@@ -4,41 +4,40 @@ import './PhotoGrid.css';
 import ColumnSixGrid from './ColumnSixGrid.js';
 import ColumnFourGrid from './ColumnFourGrid.js';
 
-function PhotoGrid(props) {
-    //INPUT: will take in photoArray, gridSize, and 
-    //WORKING ASSUMPTION: gridSize is an integer that is either 4 or 6
-    //WORKING ASSUMPTION: props is an array of NINE image objects
-    //WORKING ASSUMPTION: each object will, AT LEAST, contain an imageNumber, URL, and orientation key:value pair
+class PhotoGrid extends React.Component {
+    constructor(props) {
+        //INPUT: will take in photoArray, gridSize, and 
+        //WORKING ASSUMPTION: gridSize is an integer that is either 4 or 6
+        //WORKING ASSUMPTION: props is an array of NINE image objects
+        //WORKING ASSUMPTION: each object will, AT LEAST, contain an imageNumber, URL, and orientation key:value pair
+        super(props);
+        this.state = {};
+        
+        //BINDS
+        this.finalOutput = this.finalOutput.bind(this);
+        this.splitAndSectionPhotoArray = this.splitAndSectionPhotoArray.bind(this);
+        
+        //Method CALLS
+        const JSXOutput = this.finalOutput(this.props);
+    }
+   
     
-    
-    /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
-    
-    //CONDITIONAL RENDER FUNCTION
-    function FinalOutput(props) {
+    //Methods
+    finalOutput(props) {
         //returnedJSX will store the final output to be returned
         //split the rawArray that was inputted so it can be passed as sections into the Grid
         let finalJSX = null;
-        if(props.gridSize === 6) {
-            //section number parameter is 4 in a six col grid because there are two images for every section (2 x 4 = 8 total images)
-            let sectionedArray = splitAndSectionPhotoArray(props.photoArray,4);
-            finalJSX = <ColumnSixGrid 
-                        sectionedArray={sectionedArray} 
-                        gridSize = {props.gridSize}
-                        />;
-        }
-        else {
-            //section number parameter is 3 in a 4 col grid because there are three images for every section (3 x 3 = 9 total images)
-            let sectionedArray = splitAndSectionPhotoArray(props.photoArray,3);
-            finalJSX = <ColumnFourGrid 
-                        gridSize = {props.gridSize} 
-                        sectionedArray={sectionedArray}
-                        />;
-        }
-        return finalJSX;
+        let sectionedArray = this.splitAndSectionPhotoArray(props.photoArray,(props.gridSize ===6 ? 4 : 3));
+        //section number parameter is 4 in a six col grid because there are two images for every section (2 x 4 = 8 total images)
+        finalJSX = <ColumnSixGrid 
+                    sectionedArray={sectionedArray} 
+                    gridSize = {props.gridSize}
+                    />;
+                    
+        return {finalJSX};
     };
     
-    //SUB-FUNCTIONS
-    function splitAndSectionPhotoArray(props,sectionNumber) {
+    splitAndSectionPhotoArray(props,sectionNumber) {
         //splits the API call elements into sections for rows
         //takes in sectionNumber to account for the row number difference between the col6 and col4 grids (can be either 3 or 4)
         let sectionedImageArray = [[],[],[],[]];
@@ -77,9 +76,11 @@ function PhotoGrid(props) {
         return sectionedImageArray;
     }
     
-    return (
-        <FinalOutput photoArray={props.photoArray} gridSize={props.gridSize}/>
-    );
+    render() {
+        return (
+            <JSXOutput />
+        );
+    }
 }
 
 export default PhotoGrid;
