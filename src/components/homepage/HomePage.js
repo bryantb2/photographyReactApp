@@ -2,7 +2,6 @@ import React from 'react';
 import './HomePage.css';
 import '../../App.css';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
-import TestAPI from '../../server/TestAPI.js';
 import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../../referenceImages/9DS_0353.JPG';
@@ -11,6 +10,10 @@ import emailIcon from '../../referenceImages/icons/emailIcon.png';
 import locationIcon from '../../referenceImages/icons/locationIcon.png';
 import phoneIcon from '../../referenceImages/icons/phoneIcon.png';
 import socialMediaIcon from '../../referenceImages/icons/socialMediaIcon.png';
+
+//imports for testing:
+import TestAPI from '../../server/TestAPI.js';
+import Col4Photo from '../photoGrid/Col4Photo.js';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -22,7 +25,7 @@ class HomePage extends React.Component {
         let navBarHeight = null;
         
         //testing the portfolio API system
-        const photoArray = TestAPI();
+        //let photoArray = TestAPI();
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
@@ -137,6 +140,7 @@ class HomePage extends React.Component {
     
     
   render() {
+      let photoArray = TestAPI();
       return (
     <div id="homepage-wrapper">
         <section id="page1">
@@ -225,7 +229,7 @@ class HomePage extends React.Component {
     </div>
 
       
-    <PhotoGrid photoArray={this.photoArray} gridSize={4} />
+    <PhotoGrid photoArray={photoArray.genreType} gridSize={4} />
 
 
     <div id="moreInfoDivider">
