@@ -18,31 +18,36 @@ import Col4Photo from '../photoGrid/Col4Photo.js';
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
-        this.props = props;
-        this.state={};
+        let APIDataObject = TestAPI();
+        this.state={
+            //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
+            APIData: APIDataObject.apiArray.genreType,
+            columnSize: 3,
+        };
         
         //GLOBAL VARIABLES
         let navBar = null;
         let navBarHeight = null;
         
         //testing the portfolio API system
-        let photoArray = TestAPI();
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
         this.updateNavbarHeight = this.updateNavbarHeight.bind(this);
         this.resizeEventHandler = this.resizeEventHandler.bind(this);
+        this.addEventListeners = this.addEventListeners.bind(this);
         
         //METHOD CALLS AND EVENT ASSIGNMENT
-        window.onload = () => {
-            //fills the navBar and navBarHeight variables
-            this.updateNavbarHeight();
+        window.addEventListener('load',this.addEventListeners);
+    }
+    
+    addEventListeners() {
+        //fills the navBar and navBarHeight variables
+        this.updateNavbarHeight();
 
-            //EVENT LISTENERS
-            window.addEventListener('scroll', this.navbarScrollEventHandler);
-            window.addEventListener('resize', this.resizeEventHandler);
-        }
-        
+        //EVENT LISTENERS
+        window.addEventListener('scroll', this.navbarScrollEventHandler);
+        window.addEventListener('resize', this.resizeEventHandler);
     }
 
     //EVENT HANDLER METHODS
@@ -141,7 +146,9 @@ class HomePage extends React.Component {
     
     
   render() {
-      const gridSizeVar = 4;
+      //const columnSize = 3;
+      console.log(this.state.APIData);
+      console.log(this.state.columnSize);
       return (
     <div id="homepage-wrapper">
         <section id="page1">
@@ -230,7 +237,7 @@ class HomePage extends React.Component {
     </div>
 
       
-    <PhotoGrid photoArray={this.props.genreType} gridSize={gridSizeVar} />
+    <PhotoGrid photoArray={this.state.APIData} columnSize={this.state.columnSize} />
 
 
     <div id="moreInfoDivider">
