@@ -50,19 +50,19 @@ function PhotoRow(props, gridSize) {
         //returnedJSX will store the final output to be returned
         //conditionally render row based on gridSize
         let finalJSX = null;
-        if(gridSize === 6) {
+        if(props.gridSize === 6) {
             //fill the grid
             //assign it to final output
-            finalJSX = <ColumnSixRow section={props.section} gridSize = {gridSize}/>;
+            finalJSX = <ColumnSixRow key={props.key} section={props.section} gridSize={props.gridSize} />;
         }
         else {
-            returnedJSX = <ColumnFourRow section={props.section} gridSize = {gridSize} />;
+            finalJSX = <ColumnFourRow key={props.key} section={props.section} gridSize={props.gridSize} />;
         }
         return finalJSX;
     };
     
     return (
-        <finaloutput key={props.key} section={props.section} gridSize={props.gridSize}/>
+        <finaloutput props={props}/>
     );
 }
 
