@@ -147,8 +147,8 @@ class HomePage extends React.Component {
     
   render() {
       //const columnSize = 3;
-      console.log(this.state.APIData);
-      console.log(this.state.columnSize);
+      /*console.log(this.state.APIData);
+      console.log(this.state.columnSize);*/
       return (
     <div id="homepage-wrapper">
         <section id="page1">

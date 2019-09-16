@@ -19,7 +19,7 @@ class PhotoGrid extends React.Component {
         
         //Method CALLS
         
-        console.log("inside photogrid constructor");
+        console.log("inside photogrid constructor, logging props.photoArray");
         console.log(props.photoArray);
     }
    
@@ -27,7 +27,7 @@ class PhotoGrid extends React.Component {
     //Methods
     finalOutput(props) {
         
-        console.log("inside finalOuput function");
+        console.log("inside finalOuput function, logging props.photoArray");
         console.log(props.photoArray);
         
         //returnedJSX will store the final output to be returned
@@ -39,7 +39,7 @@ class PhotoGrid extends React.Component {
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
                     
         return (
-            <ColumnSixGrid 
+            <ColumnFourGrid 
                 sectionedArray={sectionedPhotoArray} 
                 gridSize = {props.gridSize}
             />
@@ -51,10 +51,10 @@ class PhotoGrid extends React.Component {
         //takes in sectionNumber to account for the row number difference between the col6 and col4 grids (can be either 3 or 4)
         let sectionedImageArray;
         
-        console.log("inside split and section method");
+        console.log("inside split and section method, logging props.photoArray");
         console.log(props.photoArray);
         
-        //let rawArray = ;
+        const photoArray = props.photoArray;
         
         if(sectionNumber === 3) {
             sectionedImageArray = [[],[],[]]
@@ -67,10 +67,11 @@ class PhotoGrid extends React.Component {
                 let subArrayCounter = 0;
                 //subArrayCounter ensures that the objects of each section start with index 0 and end with index 2
                 for (let j = (i*3); j < ((i*3)+3); j++) {
-                    sectionedImageArray[i][subArrayCounter] = props.photoArray[j];
+                    sectionedImageArray[i][subArrayCounter] = photoArray[j];
                     subArrayCounter++;
                 }
             }
+            
             console.log("inside split and section method, logging sectionedArray");
             console.log(sectionedImageArray);
         }
@@ -88,8 +89,9 @@ class PhotoGrid extends React.Component {
                 //2. copy sets of TWO image objects from props into each spot of the sectionedImageArray
                 //3. increment start and indexers outside of nested for loop
                 //4. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
+                let subArrayCounter = 0;
                 for (let j = startIndex; j < endIndex; j++) {
-                    sectionedImageArray[i][j] = props.photoArray[j];
+                    sectionedImageArray[i][subArrayCounter] = photoArray[j];
                 }
                 startIndex += STARTINDEXINCREMENTOR;
                 endIndex += ENDINDEXINCREMENTOR;
