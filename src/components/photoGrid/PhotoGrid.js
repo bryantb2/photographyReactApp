@@ -5,8 +5,6 @@ import ColumnSixGrid from './ColumnSixGrid.js';
 import ColumnFourGrid from './ColumnFourGrid.js';
 
 function PhotoGrid(props) {
-    console.log("inside photogrid function");
-    console.log(props);
     //INPUT: will take in photoArray and gridSize
     //WORKING ASSUMPTION: gridSize is an integer that is either 4 or 6
     //WORKING ASSUMPTION: props is an array of NINE image objects
@@ -17,15 +15,25 @@ function PhotoGrid(props) {
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
         let arraySectionNumber = (props.gridSize ===6 ? 4 : 3);
         let sectionedArrayData = splitAndSectionPhotoArray(arraySectionNumber);
-        
-        console.log("inside finalOuput function, logging sectionedArrayData");
-        console.log(sectionedArrayData);
+        const finalJSX = () => {
+            if(arraySectionNumber==4)
+                return (
+                    <ColumnSixGrid 
+                        sectionedArray={sectionedArrayData} 
+                        gridSize = {props.gridSize}
+                    />
+                );
+            else
+                return (
+                    <ColumnFourGrid 
+                        sectionedArray={sectionedArrayData} 
+                        gridSize = {props.gridSize}
+                    />
+                );
+        }
                     
         return (
-            <ColumnFourGrid 
-                sectionedArray={sectionedArrayData} 
-                gridSize = {props.gridSize}
-            />
+            finalJSX()
         );
     }
     
@@ -47,8 +55,6 @@ function PhotoGrid(props) {
                 //4. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
         let sectionedImageArray;
         const photoArray = props.photoArray;
-        console.log("inside split and section method, logging photoArray");
-        console.log(photoArray);
         
         if(sectionNumber === 3) {
             sectionedImageArray = [[],[],[]];
@@ -59,8 +65,6 @@ function PhotoGrid(props) {
                     subArrayCounter++;
                 }
             }
-            console.log("inside split and section method, logging sectionedArray");
-            console.log(sectionedImageArray);
         }
         else {
             sectionedImageArray = [[],[],[],[]];

@@ -29,7 +29,6 @@ class HomePage extends React.Component {
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             APIData: APIDataObject.apiArray.genreType,
             columnSize: 3,
-            sectionedArray: null,
         };
         
         //GLOBAL VARIABLES
@@ -42,15 +41,8 @@ class HomePage extends React.Component {
         this.resizeEventHandler = this.resizeEventHandler.bind(this);
         this.addEventListeners = this.addEventListeners.bind(this);
         
-        //TESTING API and GRID SYSTEMS
-        this.splitAndSectionPhotoArray = this.splitAndSectionPhotoArray.bind(this);
-        let sectionedArrayData = this.splitAndSectionPhotoArray(this.state.columnSize);
-        this.state.sectionedArray=sectionedArrayData;
-        
         //METHOD CALLS AND EVENT ASSIGNMENT
         window.addEventListener('load',this.addEventListeners); //assigs once window has loaded
-        console.log(`inside constructor for homePage, here is the sectioned array state data:`);
-        console.log(this.state.sectionedArray);
     }
     
     addEventListeners() {
@@ -100,113 +92,7 @@ class HomePage extends React.Component {
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
-    /*Test methods */
-    splitAndSectionPhotoArray(sectionNumber) {
-        let sectionedImageArray;
-        const photoArray = this.state.APIData;
-        
-        if(sectionNumber === 3) {
-            sectionedImageArray = [[],[],[]];
-            for (let i = 0; i < 3; i++) {
-                let subArrayCounter = 0;
-                for (let j = (i*3); j < ((i*3)+3); j++) {
-                    sectionedImageArray[i][subArrayCounter] = photoArray[j];
-                    subArrayCounter++;
-                }
-            }
-        }
-        else {
-            sectionedImageArray = [[],[],[],[]];
-            const STARTINDEXINCREMENTOR = 2;
-            const ENDINDEXINCREMENTOR = 2;
-            let startIndex = 1;
-            let endIndex = 3;
-
-            for (let i = 0; i < 4; i++) {
-                let subArrayCounter = 0;
-                for (let j = startIndex; j < endIndex; j++) {
-                    sectionedImageArray[i][subArrayCounter] = photoArray[j];
-                }
-                startIndex += STARTINDEXINCREMENTOR;
-                endIndex += ENDINDEXINCREMENTOR;
-            }   
-        }
-        return sectionedImageArray;
-    }
-    
-    
-    
-    
-    
-    /*
-    <section id="page3">
-        <div className="row">
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-        </div>
-         <div className="row">
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-        </div>
-        <div className="row">
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-            <div className="col-lg-4 col-md-4 col-4">
-                <a href="#" className="d-block mb-4 h-100">
-                    <img className="imageAnchor img-thumbnail" src={highlight1} alt=""/>
-                </a>
-            </div>
-        </div>
-    </section>*/
-    
-    //<PhotoGrid photoArray={this.state.APIData} columnSize={this.state.columnSize} />
-    
   render() {
-      /* Row testing components
-      <PhotoRow key={"row0:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>
-
-        <PhotoRow key={"row1:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>
-
-        <PhotoRow key={"row2:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>*/
-      
-      //<ColumnFourGrid sectionedArray={this.state.sectionedArray} gridSize={3}/>
       return (
     <div id="homepage-wrapper">
         <section id="page1">
