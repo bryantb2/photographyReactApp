@@ -1,8 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import './PhotoGrid.css';
-import ColumnSixGrid from './ColumnSixGrid.js';
-import ColumnFourGrid from './ColumnFourGrid.js';
+import PhotoRow from './PhotoRow';
 
 function PhotoGrid(props) {
     //INPUT: will take in photoArray and gridSize
@@ -15,25 +14,19 @@ function PhotoGrid(props) {
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
         let arraySectionNumber = (props.gridSize ===6 ? 4 : 3);
         let sectionedArrayData = splitAndSectionPhotoArray(arraySectionNumber);
-        const finalJSX = () => {
-            if(arraySectionNumber==4)
-                return (
-                    <ColumnSixGrid 
-                        sectionedArray={sectionedArrayData} 
-                        gridSize = {props.gridSize}
-                    />
-                );
-            else
-                return (
-                    <ColumnFourGrid 
-                        sectionedArray={sectionedArrayData} 
-                        gridSize = {props.gridSize}
-                    />
-                );
-        }
                     
         return (
-            finalJSX()
+            <div className="gridSection">
+                {
+                sectionedArrayData.map((section,index) =>
+                    <PhotoRow 
+                        key={"row"+index} 
+                        sectionIndex={index} //this is for debugging
+                        section={section} 
+                        gridSize={props.gridSize}
+                    />)
+                }
+            </div>
         );
     }
     

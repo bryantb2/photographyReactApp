@@ -13,10 +13,6 @@ import socialMediaIcon from '../../referenceImages/icons/socialMediaIcon.png';
 
 //imports for testing:
 import TestAPI from '../../server/TestAPI.js';
-import Col4Photo from '../photoGrid/Col4Photo.js';
-import ColumnSixGrid from '../photoGrid/ColumnSixGrid.js';
-import ColumnFourGrid from '../photoGrid/ColumnFourGrid.js';
-import PhotoRow from '../photoGrid/PhotoRow.js';
 
 class HomePage extends React.Component {
     constructor(props) {
