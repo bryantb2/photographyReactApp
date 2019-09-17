@@ -478,13 +478,6 @@ img.mainImage {
     display: block;
 }
 
-#page3Hidden {
-    width: 100%;
-    position: relative;
-    background-color: #8e7d69;
-    display: none;
-}
-
 #page3 .row {
     width: 100%;
     margin: 0 auto;
@@ -499,6 +492,9 @@ img.mainImage {
     background: none;
     padding: 0px;
     border-radius: 0px;
+    object-fit: cover;
+    width:100%;
+    height: 95%;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/

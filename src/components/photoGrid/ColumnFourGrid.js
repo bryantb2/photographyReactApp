@@ -12,15 +12,12 @@ function ColumnFourGrid(props) {
     return (
         <div className="gridSection">
             {
-                props.sectionedArray.map((section,index) => {
-                    return (
-                        <PhotoRow 
-                            key={row.toString() + index} 
-                            sectionIndex={index} section={section} 
-                            gridSize={props.gridSize}
-                        />
-                    );
-                })
+            props.sectionedArray.map((section,index) =>
+                <PhotoRow 
+                    key={row.toString() + index} 
+                    sectionIndex={index} section={section} 
+                    gridSize={props.gridSize}
+                />)
             }
         </div>
     );

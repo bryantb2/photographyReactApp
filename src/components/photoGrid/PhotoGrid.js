@@ -18,28 +18,24 @@ class PhotoGrid extends React.Component {
         this.splitAndSectionPhotoArray = this.splitAndSectionPhotoArray.bind(this);
         
         //Method CALLS
-        
-        console.log("inside photogrid constructor, logging props.photoArray");
-        console.log(props.photoArray);
     }
    
     
     //Methods
     finalOutput() {
-        console.log("inside finalOuput function, logging props.photoArray");
-        console.log(this.props.photoArray);
-        
         //returnedJSX will store the final output to be returned
         //split the rawArray that was inputted so it can be passed as sections into the Grid
-        
         let arraySectionNumber = (this.props.columnSize ===6 ? 4 : 3);
-        let sectionedPhotoArray = this.splitAndSectionPhotoArray(arraySectionNumber);
+        let sectionedArrayData = this.splitAndSectionPhotoArray(arraySectionNumber);
+        
+        console.log("inside finalOuput function, logging sectionedArrayData");
+        console.log(sectionedArrayData);
         //if section number parameter is 4, there will be a three col grid because there are three images for every section (2 x 4 = 8 total images)
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
                     
         return (
             <ColumnFourGrid 
-                sectionedArray={sectionedPhotoArray} 
+                sectionedArray={sectionedArrayData} 
                 gridSize = {this.props.gridSize}
             />
         );
@@ -49,9 +45,9 @@ class PhotoGrid extends React.Component {
         //splits the API call elements into sections for rows
         //takes in sectionNumber to account for the row number difference between the col6 and col4 grids (can be either 3 or 4)
         let sectionedImageArray;
-        
         const photoArray = this.props.photoArray;
-        console.log("inside split and section method, logging photoArray const");
+        
+        console.log("inside split and section method, logging photoArray");
         console.log(photoArray);
         
         if(sectionNumber === 3) {
@@ -95,15 +91,12 @@ class PhotoGrid extends React.Component {
                 endIndex += ENDINDEXINCREMENTOR;
             }   
         }
-        return {sectionedImageArray};
+        return sectionedImageArray;
     }
     
     render() {
-        /*console.log(this.props);
-        const JSXOutput = () => <h1>hello world</h1>;*/
-        const JSXOutput = () => this.finalOutput();
         return (
-            <JSXOutput />
+            this.finalOutput()
         );
     }
 }

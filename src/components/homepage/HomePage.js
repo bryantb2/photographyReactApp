@@ -14,6 +14,9 @@ import socialMediaIcon from '../../referenceImages/icons/socialMediaIcon.png';
 //imports for testing:
 import TestAPI from '../../server/TestAPI.js';
 import Col4Photo from '../photoGrid/Col4Photo.js';
+import ColumnSixGrid from '../photoGrid/ColumnSixGrid.js';
+import ColumnFourGrid from '../photoGrid/ColumnFourGrid.js';
+import PhotoRow from '../photoGrid/PhotoRow.js';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -29,7 +32,11 @@ class HomePage extends React.Component {
         let navBar = null;
         let navBarHeight = null;
         
-        //testing the portfolio API system
+        //TESTING
+        this.splitAndSectionPhotoArray = this.splitAndSectionPhotoArray.bind(this);
+        
+        this.sectionedArray = this.splitAndSectionPhotoArray(this.state.columnSize);
+        
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
@@ -85,6 +92,44 @@ class HomePage extends React.Component {
       return offsetTop;
     }
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    /*Test methods */
+    splitAndSectionPhotoArray(sectionNumber) {
+        let sectionedImageArray;
+        const photoArray = this.state.APIData;
+        
+        if(sectionNumber === 3) {
+            sectionedImageArray = [[],[],[]];
+            for (let i = 0; i < 3; i++) {
+                let subArrayCounter = 0;
+                for (let j = (i*3); j < ((i*3)+3); j++) {
+                    sectionedImageArray[i][subArrayCounter] = photoArray[j];
+                    subArrayCounter++;
+                }
+            }
+        }
+        else {
+            sectionedImageArray = [[],[],[],[]];
+            const STARTINDEXINCREMENTOR = 2;
+            const ENDINDEXINCREMENTOR = 2;
+            let startIndex = 1;
+            let endIndex = 3;
+
+            for (let i = 0; i < 4; i++) {
+                let subArrayCounter = 0;
+                for (let j = startIndex; j < endIndex; j++) {
+                    sectionedImageArray[i][subArrayCounter] = photoArray[j];
+                }
+                startIndex += STARTINDEXINCREMENTOR;
+                endIndex += ENDINDEXINCREMENTOR;
+            }   
+        }
+        return sectionedImageArray;
+    }
+    
+    
+    
+    
     
     /*
     <section id="page3">
@@ -144,11 +189,9 @@ class HomePage extends React.Component {
         </div>
     </section>*/
     
+    //<PhotoGrid photoArray={this.state.APIData} columnSize={this.state.columnSize} />
     
   render() {
-      //const columnSize = 3;
-      /*console.log(this.state.APIData);
-      console.log(this.state.columnSize);*/
       return (
     <div id="homepage-wrapper">
         <section id="page1">
@@ -237,7 +280,23 @@ class HomePage extends React.Component {
     </div>
 
       
-    <PhotoGrid photoArray={this.state.APIData} columnSize={this.state.columnSize} />
+    <section id="page3">
+        <PhotoRow key={"row0:"} section={this.sectionedArray} sectionIndex={0}/>
+         <div className="row">
+            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+
+            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+                
+            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+        </div>
+        <div className="row">
+            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+
+            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+                
+            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+        </div>
+    </section>  
 
 
     <div id="moreInfoDivider">
