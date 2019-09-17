@@ -4,42 +4,32 @@ import './PhotoGrid.css';
 import ColumnSixGrid from './ColumnSixGrid.js';
 import ColumnFourGrid from './ColumnFourGrid.js';
 
-class PhotoGrid extends React.Component {
-    constructor(props) {
-        //INPUT: will take in photoArray, gridSize, and 
-        //WORKING ASSUMPTION: gridSize is an integer that is either 4 or 6
-        //WORKING ASSUMPTION: props is an array of NINE image objects
-        //WORKING ASSUMPTION: each object will, AT LEAST, contain an imageNumber, URL, and orientation key:value pair
-        super(props);
-        this.state = {};
-        
-        //BINDS
-        this.finalOutput = this.finalOutput.bind(this);
-        this.splitAndSectionPhotoArray = this.splitAndSectionPhotoArray.bind(this);
-        
-        //Method CALLS
-    }
-   
-    
-    //Methods
-    finalOutput() {
-        let arraySectionNumber = (this.props.columnSize ===6 ? 4 : 3);
-        let sectionedArrayData = this.splitAndSectionPhotoArray(arraySectionNumber);
+function PhotoGrid(props) {
+    console.log("inside photogrid function");
+    console.log(props);
+    //INPUT: will take in photoArray and gridSize
+    //WORKING ASSUMPTION: gridSize is an integer that is either 4 or 6
+    //WORKING ASSUMPTION: props is an array of NINE image objects
+    //WORKING ASSUMPTION: each object will, AT LEAST, contain an imageNumber, URL, and orientation key:value pair
+
+    function finalOutput() {
+        //if section number parameter is 4, there will be a three col grid because there are three images for every section (2 x 4 = 8 total images)
+        //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
+        let arraySectionNumber = (props.gridSize ===6 ? 4 : 3);
+        let sectionedArrayData = splitAndSectionPhotoArray(arraySectionNumber);
         
         console.log("inside finalOuput function, logging sectionedArrayData");
         console.log(sectionedArrayData);
-        //if section number parameter is 4, there will be a three col grid because there are three images for every section (2 x 4 = 8 total images)
-        //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
                     
         return (
             <ColumnFourGrid 
                 sectionedArray={sectionedArrayData} 
-                gridSize = {this.props.gridSize}
+                gridSize = {props.gridSize}
             />
         );
     }
     
-    splitAndSectionPhotoArray(sectionNumber) {
+    function splitAndSectionPhotoArray(sectionNumber) {
         //splits the API call elements into sections for rows
         //takes in sectionNumber to account for the row number difference between the col6 and col4 grids (can be either 3 or 4)
         //creating three sections
@@ -56,7 +46,7 @@ class PhotoGrid extends React.Component {
                 //3. increment start and indexers outside of nested for loop
                 //4. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
         let sectionedImageArray;
-        const photoArray = this.props.photoArray;
+        const photoArray = props.photoArray;
         console.log("inside split and section method, logging photoArray");
         console.log(photoArray);
         
@@ -90,12 +80,9 @@ class PhotoGrid extends React.Component {
         return sectionedImageArray;
     }
     
-    render() {
-        //this.finalOutput()
-        return (
-            <h1>fix this bullshit</h1>
-        );
-    }
+    return (
+        finalOutput()
+    );
 }
 
 export default PhotoGrid;

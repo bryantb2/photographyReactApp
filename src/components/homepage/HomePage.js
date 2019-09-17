@@ -205,6 +205,8 @@ class HomePage extends React.Component {
         <PhotoRow key={"row1:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>
 
         <PhotoRow key={"row2:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>*/
+      
+      //<ColumnFourGrid sectionedArray={this.state.sectionedArray} gridSize={3}/>
       return (
     <div id="homepage-wrapper">
         <section id="page1">
@@ -294,7 +296,7 @@ class HomePage extends React.Component {
 
       
     <section id="page3">
-        <ColumnFourGrid sectionedArray={this.state.sectionedArray} gridSize={3}/>
+        <PhotoGrid photoArray={this.state.APIData} gridSize={this.state.columnSize}/>
     </section>  
 
 
