@@ -3,9 +3,9 @@ import React from 'react';
 function Col6Photo(props) {
     
     return (
-        <div id={props.imageNumber} className="col-lg-6 col-md-6 col-6">
-            <a href="#" className="d-block mb-4 h-100">
-                <img custom-orientation={props.orientation} className="imageAnchor img-thumbnail" src={props.URL} alt=""/>
+        <div key={props.key} id={props.id} className="col-lg-6 col-md-6 col-6">
+            <a href={props.fullImage} className="d-block mb-4 h-100">
+                <img customorientation={props.customorientation} className="imageAnchor img-thumbnail" src={props.src} alt=""/>
             </a>
         </div>
     );

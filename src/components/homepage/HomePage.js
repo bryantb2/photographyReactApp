@@ -281,21 +281,11 @@ class HomePage extends React.Component {
 
       
     <section id="page3">
-        <PhotoRow key={"row0:"} section={this.sectionedArray} sectionIndex={0}/>
-         <div className="row">
-            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+        <PhotoRow key={"row0:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
 
-            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
-                
-            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
-        </div>
-        <div className="row">
-            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
+        <PhotoRow key={"row1:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
 
-            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
-                
-            <Col4Photo id={this.state.APIData[0].imageNumber} customOrientation={this.state.APIData[0].orientation} src={this.state.APIData[0].thumbnail} fullImage={this.state.APIData[0].URL}/>
-        </div>
+        <PhotoRow key={"row2:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
     </section>  
 
 

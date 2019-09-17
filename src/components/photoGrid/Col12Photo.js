@@ -4,9 +4,9 @@ function Col12Photo(props) {
     
     
     return (
-        <div className="col-lg-12 col-md-12 col-12">
-            <a href="#" className="d-block mb-4 h-100">
-                <img custom-orientation={props.orientation} className="imageAnchor img-thumbnail" src={props.URL} alt=""/>
+        <div key={props.key} id={props.id} className="col-lg-12 col-md-12 col-12">
+            <a href={props.fullImage} className="d-block mb-4 h-100">
+                <img customorientation={props.customorientation} className="imageAnchor img-thumbnail" src={props.src} alt=""/>
             </a>
         </div>
     );
