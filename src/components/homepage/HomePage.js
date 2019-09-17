@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import '../../App.css';
-//import PhotoGrid from '../photoGrid/PhotoGrid.js';
+import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../../referenceImages/9DS_0353.JPG';
@@ -21,22 +21,20 @@ import PhotoRow from '../photoGrid/PhotoRow.js';
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
+        
+        //Local Constructor Variables
         let APIDataObject = TestAPI();
+    
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             APIData: APIDataObject.apiArray.genreType,
             columnSize: 3,
+            sectionedArray: null,
         };
         
         //GLOBAL VARIABLES
-        let navBar = null;
-        let navBarHeight = null;
-        
-        //TESTING
-        this.splitAndSectionPhotoArray = this.splitAndSectionPhotoArray.bind(this);
-        
-        this.sectionedArray = this.splitAndSectionPhotoArray(this.state.columnSize);
-        
+        this.navBar = null;
+        this.navBarHeight = null;
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
@@ -44,8 +42,15 @@ class HomePage extends React.Component {
         this.resizeEventHandler = this.resizeEventHandler.bind(this);
         this.addEventListeners = this.addEventListeners.bind(this);
         
+        //TESTING API and GRID SYSTEMS
+        this.splitAndSectionPhotoArray = this.splitAndSectionPhotoArray.bind(this);
+        let sectionedArrayData = this.splitAndSectionPhotoArray(this.state.columnSize);
+        this.state.sectionedArray=sectionedArrayData;
+        
         //METHOD CALLS AND EVENT ASSIGNMENT
-        window.addEventListener('load',this.addEventListeners);
+        window.addEventListener('load',this.addEventListeners); //assigs once window has loaded
+        console.log(`inside constructor for homePage, here is the sectioned array state data:`);
+        console.log(this.state.sectionedArray);
     }
     
     addEventListeners() {
@@ -59,6 +64,7 @@ class HomePage extends React.Component {
 
     //EVENT HANDLER METHODS
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    
     navbarScrollEventHandler() {
         //function will calculate navbar and pageOffset height to make the navbar stick or unstick to the top
         if(window.pageYOffset > this.navBarHeight) {
@@ -91,6 +97,7 @@ class HomePage extends React.Component {
       }
       return offsetTop;
     }
+    
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     /*Test methods */
@@ -287,7 +294,7 @@ class HomePage extends React.Component {
 
       
     <section id="page3">
-        <ColumnFourGrid sectionedArray={this.sectionedArray} />
+        <ColumnFourGrid sectionedArray={this.state.sectionedArray} gridSize={3}/>
     </section>  
 
 

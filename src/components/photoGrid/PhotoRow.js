@@ -3,6 +3,8 @@ import Col6Photo from './Col6Photo';
 import Col4Photo from './Col4Photo';
 
 function PhotoRow(props) {
+    console.log("inside Photorow, logging sectionedArray");
+        console.log(props.sectionedArray);
     //WORKING ASSUMPTION: row will take in a section of 2-3 photo objects that can then be indexed into
     const ColumnFourRow = () =>
     <div className="row">
@@ -50,9 +52,10 @@ function PhotoRow(props) {
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     //CONDITIONAL RENDER FUNCTION
-    function finaloutput(props) {
+    function finaloutput() {
         //returnedJSX will store the final output to be returned
         //conditionally render row based on gridSize
+        
         let finalJSX;
         if(props.gridSize === 6) {
             //fill the grid
@@ -66,7 +69,7 @@ function PhotoRow(props) {
     };
     
     return (
-        finaloutput(props)
+        finaloutput()
     );
 }
 

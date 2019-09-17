@@ -1,5 +1,5 @@
 import React from 'react';
-import PhotoRow from './PhotoGrid';
+import PhotoRow from './PhotoRow';
 
 
 //PHOTOGRID COLUMN FOUR (per image)

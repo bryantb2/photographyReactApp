@@ -23,8 +23,6 @@ class PhotoGrid extends React.Component {
     
     //Methods
     finalOutput() {
-        //returnedJSX will store the final output to be returned
-        //split the rawArray that was inputted so it can be passed as sections into the Grid
         let arraySectionNumber = (this.props.columnSize ===6 ? 4 : 3);
         let sectionedArrayData = this.splitAndSectionPhotoArray(arraySectionNumber);
         
@@ -44,45 +42,43 @@ class PhotoGrid extends React.Component {
     splitAndSectionPhotoArray(sectionNumber) {
         //splits the API call elements into sections for rows
         //takes in sectionNumber to account for the row number difference between the col6 and col4 grids (can be either 3 or 4)
+        //creating three sections
+         //1. index into image props array
+                //2. copy sets of THREE image objects from props into each spot of the sectionedImageArray
+                //3. continue until props array is fully copied
+                //REMEMBER: Each section of the array represents a row
+                //subArrayCounter ensures that the objects of each section start with index 0 and end with index 2
+        //OR
+        //creating four sections
+            //variables to track the changing start and end points of the nested for loop
+            //1. index into image props array
+                //2. copy sets of TWO image objects from props into each spot of the sectionedImageArray
+                //3. increment start and indexers outside of nested for loop
+                //4. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
         let sectionedImageArray;
         const photoArray = this.props.photoArray;
-        
         console.log("inside split and section method, logging photoArray");
         console.log(photoArray);
         
         if(sectionNumber === 3) {
-            sectionedImageArray = [[],[],[]]
-            //creating three sections
+            sectionedImageArray = [[],[],[]];
             for (let i = 0; i < 3; i++) {
-                //1. index into image props array
-                //2. copy sets of THREE image objects from props into each spot of the sectionedImageArray
-                //3. continue until props array is fully copied
-                //REMEMBER: Each section of the array represents a row
                 let subArrayCounter = 0;
-                //subArrayCounter ensures that the objects of each section start with index 0 and end with index 2
                 for (let j = (i*3); j < ((i*3)+3); j++) {
                     sectionedImageArray[i][subArrayCounter] = photoArray[j];
                     subArrayCounter++;
                 }
             }
-            
             console.log("inside split and section method, logging sectionedArray");
             console.log(sectionedImageArray);
         }
         else {
-            //creating four sections
-            sectionedImageArray = [[],[],[],[]]
-            //variables to track the changing start and end points of the nested for loop
+            sectionedImageArray = [[],[],[],[]];
             const STARTINDEXINCREMENTOR = 2;
             const ENDINDEXINCREMENTOR = 2;
             let startIndex = 1;
             let endIndex = 3;
-
             for (let i = 0; i < 4; i++) {
-                //1. index into image props array
-                //2. copy sets of TWO image objects from props into each spot of the sectionedImageArray
-                //3. increment start and indexers outside of nested for loop
-                //4. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
                 let subArrayCounter = 0;
                 for (let j = startIndex; j < endIndex; j++) {
                     sectionedImageArray[i][subArrayCounter] = photoArray[j];
@@ -95,8 +91,9 @@ class PhotoGrid extends React.Component {
     }
     
     render() {
+        //this.finalOutput()
         return (
-            this.finalOutput()
+            <h1>fix this bullshit</h1>
         );
     }
 }
