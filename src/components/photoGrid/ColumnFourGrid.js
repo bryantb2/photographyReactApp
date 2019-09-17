@@ -14,8 +14,9 @@ function ColumnFourGrid(props) {
             {
             props.sectionedArray.map((section,index) =>
                 <PhotoRow 
-                    key={row.toString() + index} 
-                    sectionIndex={index} section={section} 
+                    key={"row"+index} 
+                    sectionIndex={index} 
+                    section={section} 
                     gridSize={props.gridSize}
                 />)
             }

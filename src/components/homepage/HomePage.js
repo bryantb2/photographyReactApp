@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import '../../App.css';
-import PhotoGrid from '../photoGrid/PhotoGrid.js';
+//import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../../referenceImages/9DS_0353.JPG';
@@ -192,6 +192,12 @@ class HomePage extends React.Component {
     //<PhotoGrid photoArray={this.state.APIData} columnSize={this.state.columnSize} />
     
   render() {
+      /* Row testing components
+      <PhotoRow key={"row0:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
+
+        <PhotoRow key={"row1:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
+
+        <PhotoRow key={"row2:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>*/
       return (
     <div id="homepage-wrapper">
         <section id="page1">
@@ -281,11 +287,7 @@ class HomePage extends React.Component {
 
       
     <section id="page3">
-        <PhotoRow key={"row0:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
-
-        <PhotoRow key={"row1:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
-
-        <PhotoRow key={"row2:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
+        <ColumnFourGrid sectionedArray={this.sectionedArray} />
     </section>  
 
 
