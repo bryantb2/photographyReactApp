@@ -6,8 +6,6 @@ import PhotoRow from './PhotoRow';
     //map sectioned image collection to THREE photoRow(s)
             //takes a sectioned portion of the array and maps it to a photo component
 function ColumnFourGrid(props) {
-    console.log("inside colmnfourgrid, logging sectionedArray");
-    console.log(props.sectionedArray);
     const row = "row";
     return (
         <div className="gridSection">
@@ -15,7 +13,7 @@ function ColumnFourGrid(props) {
             props.sectionedArray.map((section,index) =>
                 <PhotoRow 
                     key={"row"+index} 
-                    sectionIndex={index} 
+                    sectionIndex={index} //this is for debugging
                     section={section} 
                     gridSize={props.gridSize}
                 />)

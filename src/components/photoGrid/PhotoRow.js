@@ -3,31 +3,29 @@ import Col6Photo from './Col6Photo';
 import Col4Photo from './Col4Photo';
 
 function PhotoRow(props) {
-    console.log("inside Photorow, logging sectionedArray");
-        console.log(props.sectionedArray);
     //WORKING ASSUMPTION: row will take in a section of 2-3 photo objects that can then be indexed into
     const ColumnFourRow = () =>
     <div className="row">
         <Col4Photo
             key={"photo0"}
-            id={props.section[props.sectionIndex][0].imageNumber}
-            customorientation= {props.section[props.sectionIndex][0].orientation}
-            src={props.section[props.sectionIndex][0].thumbnail}
-            fullImage={props.section[props.sectionIndex][0].URL}
+            id={props.section[0].imageNumber}
+            customorientation= {props.section[0].orientation}
+            src={props.section[0].thumbnail}
+            fullImage={props.section[0].URL}
         />
         <Col4Photo
             key={"photo1"}
-            id={props.section[props.sectionIndex][1].imageNumber}
-            customorientation= {props.section[props.sectionIndex][1].orientation}
-            src={props.section[props.sectionIndex][1].thumbnail}
-            fullImage={props.section[props.sectionIndex][1].URL}
+            id={props.section[1].imageNumber}
+            customorientation= {props.section[1].orientation}
+            src={props.section[1].thumbnail}
+            fullImage={props.section[1].URL}
         />
         <Col4Photo 
             key={"photo2"}
-            id={props.section[props.sectionIndex][2].imageNumber}
-            customorientation= {props.section[props.sectionIndex][2].orientation}
-            src={props.section[props.sectionIndex][2].thumbnail}
-            fullImage={props.section[props.sectionIndex][2].URL}
+            id={props.section[2].imageNumber}
+            customorientation= {props.section[2].orientation}
+            src={props.section[2].thumbnail}
+            fullImage={props.section[2].URL}
         />
     </div>;
     
@@ -35,17 +33,17 @@ function PhotoRow(props) {
     <div className="row">
         <Col6Photo 
             key={"photo0"}
-            id={props.section[props.sectionIndex][0].imageNumber}
-            customorientation= {props.section[props.sectionIndex][0].orientation}
-            src={props.section[props.sectionIndex][0].thumbnail}
-            fullImage={props.section[props.sectionIndex][0].URL}
+            id={props.section[0].imageNumber}
+            customorientation= {props.section[0].orientation}
+            src={props.section[0].thumbnail}
+            fullImage={props.section[0].URL}
         />
         <Col6Photo 
             key={"photo1"}
-            id={props.section[props.sectionIndex][1].imageNumber}
-            customorientation= {props.section[props.sectionIndex][1].orientation}
-            src={props.section[props.sectionIndex][1].thumbnail}
-            fullImage={props.section[props.sectionIndex][1].URL}
+            id={props.section[1].imageNumber}
+            customorientation= {props.section[1].orientation}
+            src={props.section[1].thumbnail}
+            fullImage={props.section[1].URL}
         />
     </div>;
     

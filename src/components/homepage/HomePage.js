@@ -200,11 +200,11 @@ class HomePage extends React.Component {
     
   render() {
       /* Row testing components
-      <PhotoRow key={"row0:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
+      <PhotoRow key={"row0:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>
 
-        <PhotoRow key={"row1:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>
+        <PhotoRow key={"row1:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>
 
-        <PhotoRow key={"row2:"} section={this.sectionedArray} sectionIndex={0} gridSize={3}/>*/
+        <PhotoRow key={"row2:"} section={this.state.sectionedArray} sectionIndex={0} gridSize={3}/>*/
       return (
     <div id="homepage-wrapper">
         <section id="page1">
