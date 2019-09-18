@@ -5,8 +5,8 @@ class Navbar extends React.Component {
         super(props);
         
         this.state = {
-            navBar: window.onload = () => document.getElementById("navigationBar"), //gets the navbar once page has loaded (preventing any DOM errors)
-            navBarHeight: window.onload = () => this.initializeNavbarHeight(),
+            navBar: window.onload = document.getElementById("navigationBar"), //gets the navbar once page has loaded (preventing any DOM errors)
+            navBarHeight: null,
             navBarSticking: false,
         }
         
@@ -17,6 +17,7 @@ class Navbar extends React.Component {
         this.eventListeners = this.eventListeners.bind(this);
         
         //METHOD CALLS
+        window.onload = this.initializeNavbarHeight();
         window.addEventListener('load',this.eventListeners); //load handler used to prevent DOM loading errors
     }
     
