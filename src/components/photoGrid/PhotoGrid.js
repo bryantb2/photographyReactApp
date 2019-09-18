@@ -14,19 +14,50 @@ function PhotoGrid(props) {
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
         let arraySectionNumber = (props.gridSize ===6 ? 4 : 3);
         let sectionedArrayData = splitAndSectionPhotoArray(arraySectionNumber);
-                    
+        
+        const finalOutput = () => {
+            if(props.gridSize===6) {
+                let firstSection = sectionedArrayData.shift();
+                return (
+                    //special case
+                    <div className="gridSection">
+                        <PhotoRow 
+                                key={"row0"} 
+                                sectionIndex={0} //this is for debugging
+                                section={firstSection} 
+                                gridSize={12} //forces a col12row to be rendered and returned
+                            />
+                        {
+                        sectionedArrayData.map((section,index) =>
+                            <PhotoRow 
+                                key={"row"+(index+1)} 
+                                sectionIndex={index+1} //this is for debugging
+                                section={section} 
+                                gridSize={props.gridSize}
+                            />)
+                        }
+                    </div>
+                );
+            }
+            else {
+                return(
+                    <div className="gridSection">
+                        {
+                        sectionedArrayData.map((section,index) =>
+                            <PhotoRow 
+                                key={"row"+index} 
+                                sectionIndex={index} //this is for debugging
+                                section={section} 
+                                gridSize={props.gridSize}
+                            />)
+                        }
+                    </div>
+                );
+            }
+        }
+        
         return (
-            <div className="gridSection">
-                {
-                sectionedArrayData.map((section,index) =>
-                    <PhotoRow 
-                        key={"row"+index} 
-                        sectionIndex={index} //this is for debugging
-                        section={section} 
-                        gridSize={props.gridSize}
-                    />)
-                }
-            </div>
+            finalOutput()
         );
     }
     
@@ -40,12 +71,12 @@ function PhotoGrid(props) {
                 //REMEMBER: Each section of the array represents a row
                 //subArrayCounter ensures that the objects of each section start with index 0 and end with index 2
         //OR
-        //creating four sections
+        //creating five sections
             //variables to track the changing start and end points of the nested for loop
             //1. index into image props array
                 //2. copy sets of TWO image objects from props into each spot of the sectionedImageArray
                 //3. increment start and indexers outside of nested for loop
-                //4. NOTE: col4grid ignores the first image from props since that is loaded directly into a special col12photo component (START AT INDEX 1!!!!)
+                //4. NOTE: will have 1,2,2,2,2 in each section respectively
         let sectionedImageArray;
         const photoArray = props.photoArray;
         
@@ -60,19 +91,21 @@ function PhotoGrid(props) {
             }
         }
         else {
-            sectionedImageArray = [[],[],[],[]];
+            sectionedImageArray = [[],[],[],[],[]];
+            sectionedImageArray[0][0]=photoArray[0];
             const STARTINDEXINCREMENTOR = 2;
             const ENDINDEXINCREMENTOR = 2;
             let startIndex = 1;
             let endIndex = 3;
-            for (let i = 0; i < 4; i++) {
+            for (let i = 1; i < 5; i++) {
                 let subArrayCounter = 0;
                 for (let j = startIndex; j < endIndex; j++) {
                     sectionedImageArray[i][subArrayCounter] = photoArray[j];
+                    subArrayCounter++;
                 }
                 startIndex += STARTINDEXINCREMENTOR;
                 endIndex += ENDINDEXINCREMENTOR;
-            }   
+            }
         }
         return sectionedImageArray;
     }

@@ -61,8 +61,6 @@ class HomePage extends React.Component {
         else {
             this.navBar.classList.remove("customNavStyles-Fixed");
         }
-        console.log(`this is the pageYoffset: ${window.pageYOffset}
-        this is the navBar off set from top: ${this.navBarHeight}`);
     }
     
     resizeEventHandler() {
@@ -73,7 +71,6 @@ class HomePage extends React.Component {
         //function accomodates for the fact that navBarHeight value CHANGES when window is RESIZED
         this.navBar = document.getElementById('navigationBar');
         this.navBarHeight = this.getOffsetTop(this.navBar);
-        console.log("hello there, I am inside the navbar height updater!");
     }
     
     getOffsetTop(element){
@@ -178,7 +175,7 @@ class HomePage extends React.Component {
 
       
     <section id="page3">
-        <PhotoGrid photoArray={this.state.APIData} gridSize={this.state.columnSize}/>
+        <PhotoGrid photoArray={this.state.APIData} gridSize={3}/>
     </section>  
 
 
