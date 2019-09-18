@@ -2,6 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import '../../App.css';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
+import Navbar from './Navbar.js';
 import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 import highlight1 from '../../referenceImages/9DS_0353.JPG';
@@ -28,60 +29,14 @@ class HomePage extends React.Component {
         };
         
         //GLOBAL VARIABLES
-        this.navBar = null;
-        this.navBarHeight = null;
         
         //BINDS
-        this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
-        this.updateNavbarHeight = this.updateNavbarHeight.bind(this);
-        this.resizeEventHandler = this.resizeEventHandler.bind(this);
-        this.addEventListeners = this.addEventListeners.bind(this);
         
         //METHOD CALLS AND EVENT ASSIGNMENT
-        window.addEventListener('load',this.addEventListeners); //assigs once window has loaded
-    }
-    
-    addEventListeners() {
-        //fills the navBar and navBarHeight variables
-        this.updateNavbarHeight();
-
-        //EVENT LISTENERS
-        window.addEventListener('scroll', this.navbarScrollEventHandler);
-        window.addEventListener('resize', this.resizeEventHandler);
     }
 
     //EVENT HANDLER METHODS
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
-    
-    navbarScrollEventHandler() {
-        //function will calculate navbar and pageOffset height to make the navbar stick or unstick to the top
-        if(window.pageYOffset > this.navBarHeight) {
-            this.navBar.classList.add("customNavStyles-Fixed");
-        }
-        else {
-            this.navBar.classList.remove("customNavStyles-Fixed");
-        }
-    }
-    
-    resizeEventHandler() {
-        this.updateNavbarHeight();
-    }
-    
-    updateNavbarHeight() {
-        //function accomodates for the fact that navBarHeight value CHANGES when window is RESIZED
-        this.navBar = document.getElementById('navigationBar');
-        this.navBarHeight = this.getOffsetTop(this.navBar);
-    }
-    
-    getOffsetTop(element){
-        //gets the offset height of the navbar by iterating through parent elements until it's null
-      let offsetTop = 0;
-      while(element) {
-        offsetTop += element.offsetTop;
-        element = element.parentElement;
-      }
-      return offsetTop;
-    }
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
@@ -106,35 +61,7 @@ class HomePage extends React.Component {
       
 
       <div className="page-divider">
-        <nav id="navigationBar" className="navbar navbar-expand-lg navbar-dark customNavStyles-unFixed">
-      
-          <a className="navbar-brand" href="#">Bryant Photography</a>
-
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                    <a className="nav-link" href="#page2">Home<span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item active">
-                    <a className="nav-link" href="#page3">Highlights<span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item active">
-                    <a className="nav-link" href="#">Portfolio<span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item active">
-                    <a className="nav-link" href="#page4">About<span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item active">
-                    <a className="nav-link" href="#contactInfo">Share<span className="sr-only">(current)</span></a>
-                </li>
-            </ul>
-          </div>
-    
-        </nav>
+          <Navbar />
       </div>
     
 
