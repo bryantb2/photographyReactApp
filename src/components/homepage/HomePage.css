@@ -156,7 +156,7 @@ nav.customNavStyles-Fixed {
 
 .navbar-brand {
     font-family: 'FuturaPT-Book';
-    font-size: 20pt;
+    font-size: 25pt;
     color: white;
 }
 
@@ -164,7 +164,7 @@ nav.customNavStyles-Fixed {
     /*spacing out nav items*/
     margin-left: 20%;
     color: white;
-    font-size: 13pt;
+    font-size: 15pt;
 }
 
 .nav-link:hover {
