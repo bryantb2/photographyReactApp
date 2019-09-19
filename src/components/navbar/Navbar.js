@@ -1,39 +1,49 @@
 import React from 'react';
+import './Navbar.css';
 
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            navBar: window.onload = document.getElementById("navigationBar"), //gets the navbar once page has loaded (preventing any DOM errors)
+            navBar: null, //gets the navbar once page has loaded (preventing any DOM errors)
             navBarHeight: null,
             navBarSticking: false,
         }
         
+        //CLASS VARIABLES
+        
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
-        this.initializeNavbarHeight = this.initializeNavbarHeight.bind(this);
-        this.resizeEventHandler = this.resizeEventHandler.bind(this);
+        this.updateNavbarHeight = this.updateNavbarHeight.bind(this);
+        this.updateNavbarData = this.updateNavbarData.bind(this);
         this.eventListeners = this.eventListeners.bind(this);
         
         //METHOD CALLS
-        window.onload = this.initializeNavbarHeight();
-        window.addEventListener('load',this.eventListeners); //load handler used to prevent DOM loading errors
+        
+    }
+    
+    /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    //LIFECYCLE METHODS
+    componentDidMount() {
+        //fill state navBar THEN navBar height
+        //proceed to assign event handlers
+        this.updateNavbarData();
+        this.updateNavbarHeight();
+        this.eventListeners();
     }
     
     //EVENT LISTENERS
     eventListeners() {
         //EVENT LISTENERS
         window.addEventListener('scroll', this.navbarScrollEventHandler);
-        window.addEventListener('resize', this.resizeEventHandler);
     }
-    
-    
-    /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     //EVENT HANDLERS AND METHODS
     navbarScrollEventHandler() {
         //function will calculate navbar and pageOffset height to make the navbar stick or unstick to the top
+        this.updateNavbarHeight(); //accounts for resizing of the window and the element being removed from the viewport
         if(window.pageYOffset > this.state.navBarHeight) {
             this.setState({
                 navBarSticking: true,
@@ -44,22 +54,18 @@ class Navbar extends React.Component {
                 navBarSticking: false,
             });
         }
-        console.log("TEST: INSIDE NAVBAR SCROLL EVENT HANDLER");
-        console.log(this.state);
+        console.log('SCROLL EVENT, navbar height is:');
+        console.log(this.state.navBarHeight);
     }
     
-    resizeEventHandler() {
-        //function accomodates for the fact that navBarHeight value CHANGES when window is RESIZED
-        this.setState({
-                navBarHeight: this.getOffsetTop(this.state.navBar),
-        });
+    updateNavbarData() {
+        //loads navbar element into the navbar property of state
+        this.state.navBar = document.getElementById("navigationBar");
     }
     
-    initializeNavbarHeight() {
+    updateNavbarHeight() {
         //loads height data into the height property of the state
-        this.setState({
-                navBarHeight: this.getOffsetTop(this.state.navBar),
-        });
+        this.state.navBarHeight = this.getOffsetTop(this.state.navBar);
     }
     
     getOffsetTop(element){
