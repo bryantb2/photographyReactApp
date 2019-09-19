@@ -27,6 +27,7 @@ class Navbar extends React.Component {
     
     //LIFECYCLE METHODS
     componentDidMount() {
+        //used to prevent premature loading of document elements into state before they have rendered
         //fill state navBar THEN navBar height
         //proceed to assign event handlers
         this.updateNavbarData();

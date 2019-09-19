@@ -102,7 +102,7 @@ class HomePage extends React.Component {
 
       
     <section id="page3">
-        <PhotoGrid photoArray={this.state.APIData} gridSize={3}/>
+        <PhotoGrid photoArray={this.state.APIData} gridSize={this.state.columnSize}/>
     </section>  
 
 
