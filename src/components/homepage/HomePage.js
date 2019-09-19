@@ -31,14 +31,55 @@ class HomePage extends React.Component {
         //GLOBAL VARIABLES
         
         //BINDS
+        this.eventListeners = this.eventListeners.bind(this);
+        this.photoGridResizeHandler = this.photoGridResizeHandler.bind(this);
         
-        //METHOD CALLS AND EVENT ASSIGNMENT
+        //METHOD CALLS
+        this.eventListeners();
     }
 
     //EVENT HANDLER METHODS
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
+    //LIFECYCLE METHODS
+    
+    //EVENT LISTENERS
+    eventListeners() {
+        window.addEventListener('resize', this.photoGridResizeHandler);
+    }
+    
+    
+    //EVENT HANDLERS
+    photoGridResizeHandler() {
+        let windowWidth = window.innerWidth;
+        //setState of colSize to 6 if below 800px
+        if(windowWidth < 800) {
+            this.setState({
+                columnSize: 6,
+            });
+        }
+        //setState of colSize to 3 if not below but still set to 6
+        else if(this.state.columnSize !== 3) {
+            this.setState({
+                columnSize: 3,
+            });
+        }
+    }
+    
+    
+    //METHODS
+    
+    
+    
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    /*
+    Dealing with resizing of photo grid
+    1. monitor window size
+    2. if window width goes below 800px, update the state so the columnSize is 6 instead of 3
+    3.
+    
+    */
     
   render() {
       return (

@@ -11,16 +11,11 @@ class Navbar extends React.Component {
             navBarSticking: false,
         }
         
-        //CLASS VARIABLES
-        
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
         this.updateNavbarHeight = this.updateNavbarHeight.bind(this);
         this.updateNavbarData = this.updateNavbarData.bind(this);
         this.eventListeners = this.eventListeners.bind(this);
-        
-        //METHOD CALLS
-        
     }
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -55,8 +50,6 @@ class Navbar extends React.Component {
                 navBarSticking: false,
             });
         }
-        console.log('SCROLL EVENT, navbar height is:');
-        console.log(this.state.navBarHeight);
     }
     
     updateNavbarData() {
