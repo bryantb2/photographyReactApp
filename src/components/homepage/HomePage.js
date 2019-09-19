@@ -45,7 +45,7 @@ class HomePage extends React.Component {
     
     //EVENT LISTENERS
     createEventListeners() {
-        window.addEventListener('resize', this.photoGridResizeHandler);
+        window.addEventListener('resize', this.debounce(this.photoGridResizeHandler,1000));
     }
     
     
@@ -69,24 +69,22 @@ class HomePage extends React.Component {
     
     
     //METHODS
-    debounce(func, wait=500, immediate) {
+    debounce(func, wait, immediate) {
+        //debounce function prevents overloaded client
+        //function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
         let timeout;
-
         return function executedFunction() {
             let context = this;
             let args = arguments;
-
+            
             let later = function() {
               timeout = null;
               if (!immediate) func.apply(context, args);
             };
 
             let callNow = immediate && !timeout;
-
             clearTimeout(timeout);
-
             timeout = setTimeout(later, wait);
-
             if (callNow) func.apply(context, args);
         };
     };
@@ -157,6 +155,7 @@ class HomePage extends React.Component {
 
 
         <section id="page3">
+            <PhotoGrid photoArray={this.state.APIData} gridSize={this.state.columnSize}/>
             <PhotoGrid photoArray={this.state.APIData} gridSize={this.state.columnSize}/>
         </section>  
 

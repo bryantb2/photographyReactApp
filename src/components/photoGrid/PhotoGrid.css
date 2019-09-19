@@ -10,7 +10,7 @@
     margin: 0 auto;
 }
 
-.gridSection>.row:first-of-type {
+.gridSection:first-of-type>.row:first-of-type {
     padding-top: 2%;
 }
 

@@ -33,7 +33,7 @@ class Navbar extends React.Component {
     //EVENT LISTENERS
     eventListeners() {
         //EVENT LISTENERS
-        window.addEventListener('scroll', this.navbarScrollEventHandler);
+        window.addEventListener('scroll', this.debounce(this.navbarScrollEventHandler,10));
     }
     
     //EVENT HANDLERS AND METHODS
@@ -50,7 +50,29 @@ class Navbar extends React.Component {
                 navBarSticking: false,
             });
         }
+        console.log("INSIDE NAVBAR SCROLL EVENT");
     }
+    
+    //METHODS
+    debounce(func, wait, immediate) {
+        //debounce function prevents overloaded client
+        //function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+        let timeout;
+        return function executedFunction() {
+            let context = this;
+            let args = arguments;
+            
+            let later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+            };
+            
+            let callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
     
     updateNavbarData() {
         //loads navbar element into the navbar property of state
