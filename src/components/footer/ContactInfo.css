@@ -1,0 +1,142 @@
+/* CONTACT INFO MEDIA QUERY OPTIMIZATION */
+@media (min-width: 1920px) {
+}
+
+@media (max-width: 1200px) {
+    .contactInfo-subHeaderText {
+        font-size: 25pt;
+    }
+    .customPadding {
+        padding-top: 15%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contactInfoHeader {
+        font-size: 40pt;
+    }
+    .contactInfo-subHeaderText {
+        font-size: 18.5pt;
+        padding-bottom: 3%;
+    }
+    .customPadding {
+        padding-top: 15%;
+    }
+}
+
+@media (max-width: 960px) {
+    .shareButton {
+        border-width:2px;
+        font-size: 15pt;
+        padding: 12px 29px;
+    }
+    .customPadding {
+        padding-top: 30%;
+    }
+}
+
+@media (max-width: 770px) {
+    .shareButton {
+        border-width:2px;
+        font-size: 13pt;
+        padding: 10px 27px;
+    }
+    .contactInfo-subHeaderText {
+        font-size: 14pt;
+    }
+    .contactInfoHeader {
+        font-size: 28pt;
+        padding-bottom: 1%;
+    }
+    .footer-subText {
+        font-size: 10pt;
+    }
+}
+
+@media (max-width: 550px) {
+    .shareButton {
+        border-width:1.75px;
+        font-size: 12pt;
+        padding: 8px 20px;
+    }
+    .contactInfo-subHeaderText {
+        font-size: 12pt;
+    }
+    .contactInfoHeader {
+        font-size: 25pt
+    }
+    .footer-subText {
+        font-size: 10pt;
+    }
+    .verticalLineStyle {
+        border-left: 3px solid #f4e0b9;
+    }
+    .customPadding {
+        margin-top: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .shareButton {
+        font-size: 10pt;
+        padding: 8px 20px;
+    }
+    .contactInfo-subHeaderText {
+        font-size: 9.5pt;
+    }
+    .contactInfoHeader {
+        font-size: 19pt;
+        padding-bottom: 2%;
+    }
+    .footer-subText {
+        font-size: 7pt;
+    }
+    .specialMaxIconWidth {
+        max-width: 12px;
+    }
+    .maxIconWidth {
+        max-width: 15px;
+    }
+    .customPadding {
+        margin-top: 35%;
+    }
+}
+
+@media (max-width: 380px) {
+    .shareButton {
+        font-size: 10pt;
+        padding: 6px 18px;
+    }
+    .contactInfo-subHeaderText {
+        font-size: 8pt;
+    }
+    .contactInfoHeader {
+        font-size: 15pt;
+        padding-bottom: 3%;
+    }
+    .footer-subText {
+        font-size: 6pt;
+    }
+    .specialMaxIconWidth {
+        max-width: 9px;
+    }
+    .maxIconWidth {
+        max-width: 12px;
+    }
+    .customPadding {
+        margin-top: 30%;
+    }
+    .verticalLineStyle {
+        border-left: 1px solid #f4e0b9;
+    }
+    .reducedPadding {
+        padding-right: -2px;
+    }
+}
+
+@media (max-width: 320px) {
+    .shareButton {
+        font-size: 9pt;
+        padding: 5px 15px;
+    }
+}

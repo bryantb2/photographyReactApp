@@ -21,7 +21,7 @@ function PhotoGrid(props) {
                 return (
                     //special case
                     <div className="gridSection">
-                        <PhotoRow 
+                        <PhotoRow
                                 key={"row0"} 
                                 sectionIndex={0} //this is for debugging
                                 section={firstSection} 
@@ -30,6 +30,8 @@ function PhotoGrid(props) {
                         {
                         sectionedArrayData.map((section,index) =>
                             <PhotoRow 
+                                customClassLeft={"photoCol6"}
+                                customClassRight={undefined} 
                                 key={"row"+(index+1)} 
                                 sectionIndex={index+1} //this is for debugging
                                 section={section} 

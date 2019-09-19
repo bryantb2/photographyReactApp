@@ -11,12 +11,16 @@
 }
 
 .gridSection>.row:first-of-type {
-    padding-top: 25px;
+    padding-top: 2%;
 }
 
 .customCol12Style {
     padding-top: 2%;
     margin-bottom: -1% !important;
+}
+
+.photoCol6 {
+    padding-right: 0;
 }
 
 .gridSection .imageAnchor {

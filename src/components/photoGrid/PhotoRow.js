@@ -43,7 +43,8 @@ function PhotoRow(props) {
     
     const ColumnSixRow = () =>
     <div className="row">
-        <Col6Photo 
+        <Col6Photo
+            customClass={props.customClassLeft}
             key={"photo0"}
             id={props.section[0].imageNumber}
             customorientation= {props.section[0].orientation}
@@ -51,6 +52,7 @@ function PhotoRow(props) {
             fullImage={props.section[0].URL}
         />
         <Col6Photo 
+            customClass={props.customClassRight}
             key={"photo1"}
             id={props.section[1].imageNumber}
             customorientation= {props.section[1].orientation}
