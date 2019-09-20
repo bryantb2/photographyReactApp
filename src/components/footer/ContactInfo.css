@@ -1,3 +1,79 @@
+/* Contact Info */
+#contactInfo {
+    width: 100%;
+    background-color: #5f703a;
+    color: #f4e0b9;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}
+
+.footer-contentContainer {
+    width: 100%;
+}
+
+/* header and sub header text styles and alignment */
+.customHeaderAlignText {
+    text-align: center;
+}
+
+.customContentJustify-center {
+    justify-content: center;
+}
+
+.contactInfoHeader {
+    font-family: 'FuturaPT-Medium';
+    font-size: 55pt;
+    color: #f4e0b9;
+    margin-bottom: -10px;
+}
+
+.contactInfo-subHeaderText {
+    min-width: 100%;
+    font-size: 30pt;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+/* contact information row text styling and alignment*/
+.row:last-of-type {
+    justify-content: center;
+    width: 100%;
+}
+
+.footerRightSection, .footerLeftSection {
+    height: 100%;
+}
+
+.footer-subText {
+    font-family: 'FuturaPT-Light';
+    font-size: 15pt;
+}
+
+.verticalLineStyle {
+    border-left: 4px solid #f4e0b9;
+}
+
+.customContentJustify-right {
+    justify-content: right;
+}
+
+/* share button styling and padding */
+.customPadding {
+    padding-top: 12%;
+}
+
+.shareButton {
+    background: transparent;
+    border-width:medium;
+    color: #f4e0b9;
+    border-color: #f4e0b9;
+    font-family: 'FuturaPT-Light';
+    font-size: 20pt;
+    padding: 15px 45px;
+    margin-top: 4%;
+}
+
 /* CONTACT INFO MEDIA QUERY OPTIMIZATION */
 @media (min-width: 1920px) {
 }

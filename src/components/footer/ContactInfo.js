@@ -20,10 +20,12 @@ class ContactInfo extends React.Component {
         this.createEventListeners = this.createEventListeners.bind(this);
         this.determineLayout = this.determineLayout.bind(this);
         this.footerResizeHandler = this.footerResizeHandler.bind(this);
+        this.initializeLayoutSize = this.initializeLayoutSize.bind(this);
         this.smallLayout = this.smallLayout.bind(this);
         this.largeLayout = this.largeLayout.bind(this);
         
         //METHOD CALLS
+        this.initializeLayoutSize();
         this.createEventListeners();
     }
     
@@ -34,15 +36,15 @@ class ContactInfo extends React.Component {
     
     //EVENT HANDLERS
     footerResizeHandler() {
-        let windowWidth = window.innerWidth;
+        let windowWidth = window.outerWidth;
         //setState of layoutSize to "small" if below 575px
         if(windowWidth < 575) {
             this.setState({
                 layoutSize: "small",
             });
         }
-        //setState of colSize to 3 if not below but still set to 6
-        else if(this.state.layoutSize !== "large") {
+        //setState of layout to "large" if the size is above 575 but hasn't switched
+        else if(this.state.layoutSize === "small") {
             this.setState({
                 layoutSize: "large",
             });
@@ -50,6 +52,19 @@ class ContactInfo extends React.Component {
     }
     
     //METHODS
+    initializeLayoutSize() {
+        //fills the state's layoutSize property with data (setState not used because this is a pre-render function)
+        let windowWidth = window.outerWidth;
+        //setState of layoutSize to "small" if below 575px
+        if(windowWidth < 575) {
+            this.state.layoutSize = "small";
+        }
+        //setState of layout to "large" if the size is above 575 but hasn't switched
+        else if(this.state.layoutSize === "small") {
+            this.state.layoutSize = "large";
+        }
+    }
+    
     determineLayout(layoutSize) {
         //use layout state to conditionally reder the footer layout
         if(layoutSize==="large") {
@@ -94,49 +109,58 @@ class ContactInfo extends React.Component {
                     </div>
                 </div>
             
-                <div className="row customContentJustify-center">
+                <div className="row">
                     <div className="col-lg-8 col-md-8 col-8 dividerSubText contactInfo-subHeaderText">
                         For business inquires, comments, or questions about my work:
                     </div>
                 </div>
             
-                <div className="row">
-                    <div className="col-lg-4 col-md-4 col-4 footerLeftSection footer-subText">
+                <div className="row customContentJustify-center">
+                    <div className="col-lg-4 col-md-4 col-4 footer-subText">
                         <div className="d-flex justify-content-left">
                             <div className="p-2">
-                                <img className="icon specialMaxIconWidth" width="16" src={locationIcon}/>
+                                <img className="icon specialMaxIconWidth" width="11" src={locationIcon}/>
                             </div>
                             <div className="p-2">Eugene, Oregon, USA</div>
                         </div>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-4 footer-subText">
                         <div className="d-flex justify-content-left">
                             <div className="p-2">
-                                <img className="icon maxIconWidth" width="20" src={emailIcon}/>
+                                <img className="icon maxIconWidth" width="15" src={emailIcon}/>
                             </div>
                             <div className="p-2">bryantb2@my.lanecc.edu</div>
                         </div>
-                        <div className="d-flex justify-content-left">
+                    </div>
+                </div>
+                
+                <div className="row customContentJustify-center">
+                    <div className="col-lg-4 col-md-4 col-4 footer-subText">
+                        <div className="d-flex ">
                             <div className="p-2">
-                                <img className="icon maxIconWidth" width="20" src={phoneIcon}/>
+                                <img className="icon maxIconWidth" width="15" src={phoneIcon}/>
                             </div>
                             <div className="p-2">541-505-0520</div>
                         </div>
-                        <div className="d-flex justify-content-left">
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-4 footer-subText">
+                        <div className="d-flex ">
                             <div className="p-2">
-                                <img className="icon maxIconWidth" width="20" src={socialMediaIcon}/>
+                                <img className="icon maxIconWidth" width="16" src={socialMediaIcon}/>
                             </div>
                             <div className="p-2">bryantb2</div>
                         </div>
                     </div>
+                </div>
             
-                    <div className="col-lg-1 col-md-1 col-1 m-1">
-                    </div>
-                    <div className="col-lg-1 col-md-1 col-1 m-1 verticalLineStyle">
-                    </div>
+                <div className="row">
                     <div className="col-lg-4 col-md-4 col-4 footerRightSection">
                         <div className="d-flex customContentJustify-right">
                             <div className="p-2 footer-subText">Please consider sharing this site:</div>
                         </div>
-                        <div className="d-flex customContentJustify-right customPadding">
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-4">
+                        <div className="d-flex">
                               <button type="button" className="shareButton text-center btn btn-lg btn-light ">Share</button>
                         </div>
                     </div>
@@ -162,7 +186,7 @@ class ContactInfo extends React.Component {
                     <div className="col-lg-4 col-md-4 col-4 footerLeftSection footer-subText">
                         <div className="d-flex justify-content-left">
                             <div className="p-2">
-                                <img className="icon specialMaxIconWidth" width="16" src={locationIcon}/>
+                                <img className="icon specialMaxIconWidth" width="15" src={locationIcon}/>
                             </div>
                             <div className="p-2">Eugene, Oregon, USA</div>
                         </div>

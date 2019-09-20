@@ -33,7 +33,7 @@ class Navbar extends React.Component {
     //EVENT LISTENERS
     eventListeners() {
         //EVENT LISTENERS
-        window.addEventListener('scroll', this.debounce(this.navbarScrollEventHandler,10));
+        window.addEventListener('scroll', this.debounce(this.navbarScrollEventHandler,1));
     }
     
     //EVENT HANDLERS AND METHODS

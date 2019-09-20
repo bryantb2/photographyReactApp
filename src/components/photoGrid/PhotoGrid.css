@@ -11,11 +11,10 @@
 }
 
 .gridSection:first-of-type>.row:first-of-type {
-    padding-top: 2%;
+    padding-top: 2.5%;
 }
 
 .customCol12Style {
-    padding-top: 2%;
     margin-bottom: -1% !important;
 }
 
