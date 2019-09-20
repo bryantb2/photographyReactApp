@@ -79,14 +79,14 @@
 }
 
 /*SMALL LAYOUT SPECIFIC STYLES */
-.customPadding-left {
-    padding-left: 10%;
-}
-
 .customPadding-Left-None {
     padding-left: 0;
 }
 
+.shareTextCustom {
+    font-family: 'FuturaPT-Light';
+    font-size: 11pt;
+}
 
 /* CONTACT INFO MEDIA QUERY OPTIMIZATION */
 @media (min-width: 1920px) {
@@ -158,16 +158,17 @@
     .footer-subText {
         font-size: 9pt;
     }
-    .verticalLineStyle {
-        border-left: 3px solid #f4e0b9;
+    .shareTextCustom {
+        font-size: 10pt;
     }
-    .customPadding {
-        margin-top: 20%;
+    .shareTextCustom {
+        font-size: 11pt;
     }
 }
 
 @media (max-width: 480px) {
     .shareButton {
+        border-width: thin;
         font-size: 10pt;
         padding: 8px 20px;
     }
@@ -181,17 +182,14 @@
     .footer-subText {
         font-size: 7pt;
     }
+    .shareTextCustom {
+        font-size: 9pt;
+    }
     .specialMaxIconWidth {
         max-width: 12px;
     }
     .maxIconWidth {
         max-width: 15px;
-    }
-    .customPadding {
-        margin-top: 35%;
-    }
-    .shareTextCustom {
-        font-size: 9pt;
     }
     .shareButtonCustomPadding {
         padding-top: 2%;
@@ -213,17 +211,17 @@
     .footer-subText {
         font-size: 6pt;
     }
+    .shareTextCustom {
+        padding: 0 !important;
+        padding-top: 7% !important;
+        padding-left: 10% !important;
+        font-size: 7pt;
+    }
     .specialMaxIconWidth {
         max-width: 9px;
     }
     .maxIconWidth {
         max-width: 12px;
-    }
-    .customPadding {
-        margin-top: 30%;
-    }
-    .verticalLineStyle {
-        border-left: 1px solid #f4e0b9;
     }
     .reducedPadding {
         padding-right: -2px;

@@ -115,20 +115,18 @@ class ContactInfo extends React.Component {
                 <div className="row customContentJustify-center">
                     <div className="col-lg-4 col-md-4 col-4 footer-subText">
                         <div className="d-flex justify-content-left">
-                            <div className="p-2">
+                            <div className="p-1">
                                 <img className="icon specialMaxIconWidth" width="11" src={locationIcon}/>
                             </div>
-                            <div className="p-2">Eugene, Oregon, USA</div>
+                            <div className="p-1">Eugene, Oregon, USA</div>
                         </div>
-                    </div>
-                    <div className="col-lg-1 col-md-1 col-1 m-1 customPadding-left">
                     </div>
                     <div className="col-lg-4 col-md-4 col-4 footer-subText customPadding-Left-None">
                         <div className="d-flex justify-content-left">
-                            <div className="p-2">
+                            <div className="p-1">
                                 <img className="icon maxIconWidth" width="15" src={emailIcon}/>
                             </div>
-                            <div className="p-2">bryantb2@my.lanecc.edu</div>
+                            <div className="p-1">bryantb2@my.lanecc.edu</div>
                         </div>
                     </div>
                 </div>
@@ -136,20 +134,18 @@ class ContactInfo extends React.Component {
                 <div className="row customContentJustify-center">
                     <div className="col-lg-4 col-md-4 col-4 footer-subText">
                         <div className="d-flex ">
-                            <div className="p-2">
+                            <div className="p-1">
                                 <img className="icon maxIconWidth" width="15" src={phoneIcon}/>
                             </div>
-                            <div className="p-2">541-505-0520</div>
+                            <div className="p-1">541-505-0520</div>
                         </div>
-                    </div>
-                    <div className="col-lg-1 col-md-1 col-1 m-1 customPadding-left">
                     </div>
                     <div className="col-lg-4 col-md-4 col-4 footer-subText customPadding-Left-None">
                         <div className="d-flex ">
-                            <div className="p-2">
+                            <div className="p-1">
                                 <img className="icon maxIconWidth" width="16" src={socialMediaIcon}/>
                             </div>
-                            <div className="p-2">bryantb2</div>
+                            <div className="p-1">bryantb2</div>
                         </div>
                     </div>
                 </div>
@@ -157,13 +153,11 @@ class ContactInfo extends React.Component {
                 <div className="row">
                     <div className="col-lg-4 col-md-4 col-4 footerRightSection">
                         <div className="d-flex customContentJustify-right">
-                            <div className="p-2 footer-subText shareTextCustom">Please consider sharing this site:</div>
+                            <div className="p-2 shareTextCustom">Please consider sharing this site:</div>
                         </div>
                     </div>
-                    <div className="col-lg-1 col-md-1 col-1 m-1 customPadding-left">
-                    </div>
-                    <div className="col-lg-4 col-md-4 col-4 shareButtonCustomPadding">
-                        <div className="d-flex">
+                    <div className="col-lg-4 col-md-4 col-4">
+                        <div className="d-flex p-1">
                               <button type="button" className="shareButton text-center btn btn-lg btn-light ">Share</button>
                         </div>
                     </div>
