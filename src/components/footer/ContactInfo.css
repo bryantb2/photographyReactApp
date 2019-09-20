@@ -1,4 +1,4 @@
-/* Contact Info */
+/* CONTACT INFO STYLES (these are used for both large AND small layouts) */
 #contactInfo {
     width: 100%;
     background-color: #5f703a;
@@ -58,6 +58,10 @@
     justify-content: right;
 }
 
+.customContentJustify-left {
+    justify-content: right;
+}
+
 /* share button styling and padding */
 .customPadding {
     padding-top: 12%;
@@ -73,6 +77,16 @@
     padding: 15px 45px;
     margin-top: 4%;
 }
+
+/*SMALL LAYOUT SPECIFIC STYLES */
+.customPadding-left {
+    padding-left: 10%;
+}
+
+.customPadding-Left-None {
+    padding-left: 0;
+}
+
 
 /* CONTACT INFO MEDIA QUERY OPTIMIZATION */
 @media (min-width: 1920px) {
@@ -142,7 +156,7 @@
         font-size: 25pt
     }
     .footer-subText {
-        font-size: 10pt;
+        font-size: 9pt;
     }
     .verticalLineStyle {
         border-left: 3px solid #f4e0b9;
@@ -175,6 +189,12 @@
     }
     .customPadding {
         margin-top: 35%;
+    }
+    .shareTextCustom {
+        font-size: 9pt;
+    }
+    .shareButtonCustomPadding {
+        padding-top: 2%;
     }
 }
 

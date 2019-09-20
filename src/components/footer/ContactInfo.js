@@ -59,10 +59,7 @@ class ContactInfo extends React.Component {
         if(windowWidth < 575) {
             this.state.layoutSize = "small";
         }
-        //setState of layout to "large" if the size is above 575 but hasn't switched
-        else if(this.state.layoutSize === "small") {
-            this.state.layoutSize = "large";
-        }
+        //no need for else statement to switch to large because layoutSize is already set to large by default
     }
     
     determineLayout(layoutSize) {
@@ -124,7 +121,9 @@ class ContactInfo extends React.Component {
                             <div className="p-2">Eugene, Oregon, USA</div>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-4 col-4 footer-subText">
+                    <div className="col-lg-1 col-md-1 col-1 m-1 customPadding-left">
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-4 footer-subText customPadding-Left-None">
                         <div className="d-flex justify-content-left">
                             <div className="p-2">
                                 <img className="icon maxIconWidth" width="15" src={emailIcon}/>
@@ -143,7 +142,9 @@ class ContactInfo extends React.Component {
                             <div className="p-2">541-505-0520</div>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-4 col-4 footer-subText">
+                    <div className="col-lg-1 col-md-1 col-1 m-1 customPadding-left">
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-4 footer-subText customPadding-Left-None">
                         <div className="d-flex ">
                             <div className="p-2">
                                 <img className="icon maxIconWidth" width="16" src={socialMediaIcon}/>
@@ -156,10 +157,12 @@ class ContactInfo extends React.Component {
                 <div className="row">
                     <div className="col-lg-4 col-md-4 col-4 footerRightSection">
                         <div className="d-flex customContentJustify-right">
-                            <div className="p-2 footer-subText">Please consider sharing this site:</div>
+                            <div className="p-2 footer-subText shareTextCustom">Please consider sharing this site:</div>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-4 col-4">
+                    <div className="col-lg-1 col-md-1 col-1 m-1 customPadding-left">
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-4 shareButtonCustomPadding">
                         <div className="d-flex">
                               <button type="button" className="shareButton text-center btn btn-lg btn-light ">Share</button>
                         </div>

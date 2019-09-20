@@ -31,9 +31,11 @@ class HomePage extends React.Component {
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
         this.photoGridResizeHandler = this.photoGridResizeHandler.bind(this);
+        this.initializeColmnSize = this.initializeColmnSize.bind(this);
         this.debounce = this.debounce.bind(this);
         
         //METHOD CALLS
+        this.initializeColmnSize();
         this.createEventListeners();
     }
 
@@ -69,6 +71,16 @@ class HomePage extends React.Component {
     
     
     //METHODS
+    initializeColmnSize() {
+        //fills the state's columnSize property with data (setState not used because this is a pre-render function)
+        let windowWidth = window.outerWidth;
+        //setState of layoutSize to "small" if below 575px
+        if(windowWidth < 1050) {
+            this.state.columnSize = 6;
+        }
+        //no need for else statement to switch to 3 because layoutSize is already set to 3 by default
+    }
+    
     debounce(func, wait, immediate) {
         //debounce function prevents overloaded client
         //function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
