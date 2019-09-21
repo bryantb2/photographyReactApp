@@ -85,7 +85,9 @@
 @media (max-width: 960px) {
     .titleOblique-text {
         font-size: 19pt;
-        transform: scaleY(1.2);
+        -webkit-transform: scaleY(1.2);
+            -ms-transform: scaleY(1.2);
+                transform: scaleY(1.2);
     }
 }
 
@@ -146,15 +148,23 @@
 .imageContainer { /* Background Image Styles */
     position: relative;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     overflow: hidden;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     z-index: -100;
 }
 
 img.mainImage {
-    transform: rotate(90deg);
-    min-width: 150%;
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-width:170%;
+    -ms-min-width:170%;
+    width: 170%;
     opacity: 0.85;
 }
 
@@ -247,6 +257,8 @@ img.mainImage {
 
 @media (max-width: 760px) {
     img.mainImage {
+        -webkit-width: 220%;
+        -ms-min-width:220%;
         min-width: 220%;
     }
     .contentContainer {
@@ -413,6 +425,8 @@ img.mainImage {
     position: relative;
     background-color: #8e7d69;
     display: block;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -503,9 +517,13 @@ img.mainImage {
 .imageContainer2 { /* Background Image Styles */
     position: relative;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     overflow: hidden;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     z-index: -101;
 }
 
@@ -517,8 +535,12 @@ img.mainImage {
 }
 
 .mainImage2 {
-    transform: rotate(90deg);
-    min-width: 150%;
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-width:150%;
+    -ms-min-width:150%;
+    width: 150%;
     opacity: 0.9;
 }
 
@@ -586,7 +608,9 @@ img.mainImage {
 }
 @media (max-width:760px) {
     .mainImage2 { /* expanding background image for mobile */
-        min-width: 220%;
+        -webkit-width:220%;
+        -ms-min-width:220%;
+        width: 220%;
     }
     .contentBoxRestricted {
         margin-top: 25%;
