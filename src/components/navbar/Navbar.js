@@ -16,6 +16,9 @@ class Navbar extends React.Component {
         this.updateNavbarHeight = this.updateNavbarHeight.bind(this);
         this.updateNavbarData = this.updateNavbarData.bind(this);
         this.eventListeners = this.eventListeners.bind(this);
+        this.fluidNavbar = this.fluidNavbar.bind(this);
+        this.fixedNavbar = this.fixedNavbar.bind(this);
+        this.determineLayout = this.determineLayout.bind(this);
     }
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -25,9 +28,11 @@ class Navbar extends React.Component {
         //used to prevent premature loading of document elements into state before they have rendered
         //fill state navBar THEN navBar height
         //proceed to assign event handlers
-        this.updateNavbarData();
-        this.updateNavbarHeight();
-        this.eventListeners();
+        if(this.props.alwaysFixed === (false || undefined)) {
+            this.updateNavbarData();
+            this.updateNavbarHeight();
+            this.eventListeners();
+         }
     }
     
     //EVENT LISTENERS
@@ -95,8 +100,38 @@ class Navbar extends React.Component {
     }
     
     
-    render() {
-        
+    fixedNavbar() {
+        return (
+        <nav id="navigationBar" className={("customNavStyles-Fixed")+ " navbar navbar-expand-lg navbar-dark"}>
+          <a className="navbar-brand" href="#">Bryant Photography</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="#page2">Home<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#page3">Highlights<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">Portfolio<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#page4">About<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="#contactInfo">Share<span className="sr-only">(current)</span></a>
+                </li>
+            </ul>
+          </div>
+        </nav>
+        )
+    }
+    
+    fluidNavbar() {
         return (
         <nav id="navigationBar" className={(this.state.navBarSticking===true ? "customNavStyles-Fixed" : "customNavStyles-unFixed" )+ " navbar navbar-expand-lg navbar-dark customNavStyles-unFixed"}>
           <a className="navbar-brand" href="#">Bryant Photography</a>
@@ -124,6 +159,22 @@ class Navbar extends React.Component {
             </ul>
           </div>
         </nav>
+        )
+    }
+    
+    determineLayout() {
+        //function is used to conditionally render two separate navbar styles
+        if(this.props.alwaysFixed === true ) {
+            return this.fixedNavbar();
+        }
+        else {
+            return this.fluidNavbar();
+        }
+    }
+    
+    render() {
+        return (
+            this.determineLayout(this.props.alwaysFixed)
         );
     }
 }

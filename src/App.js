@@ -29,10 +29,11 @@ class App extends React.Component {
         
 render() {
     //props will be passed down into HomePage (will contain )
-    //<PortfolioPage />
+    //<HomePage />
+      //
     //
   return (
-      <HomePage />
+      <PortfolioPage alwaysFixed={true} />
     );
   }
 }
