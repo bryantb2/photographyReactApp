@@ -109,20 +109,18 @@ class HomePage extends React.Component {
       return (
         <div id="homepage-wrapper">
             <section id="page1">
-                <div className="titleContentContainer">
-                    <img className="titleImage d-block img-fluid mx-auto" src={textBoxVector}/>
+                <img className="titleImage d-block img-fluid mx-auto" src={textBoxVector}/>
 
-                    <div className="d-flex justify-content-center">
-                          <div className="p-2 titleOblique-text">So it would be a shame to not share a good story, right?</div>
-                    </div>
+                <div className="d-flex justify-content-center">
+                      <div className="p-2 titleOblique-text">So it would be a shame to not share a good story, right?</div>
+                </div>
 
-                    <div className="d-flex justify-content-center">
-                          <div className="p-2 title-lineStyle"></div>
-                    </div>
+                <div className="d-flex justify-content-center">
+                      <div className="p-2 title-lineStyle"></div>
+                </div>
 
-                    <div className="d-flex scroll-info justify-content-center scroll-text">
-                        <div className="p-2">Scroll Down for Mainpage</div>
-                    </div>
+                <div className="d-flex scroll-info justify-content-center scroll-text">
+                    <div className="p-2">Scroll Down for Mainpage</div>
                 </div>
             </section>
       
