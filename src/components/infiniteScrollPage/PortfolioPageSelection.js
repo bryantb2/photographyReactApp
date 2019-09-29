@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 import './PortfolioPage.css';
 
-function PortfolioPage() {
+function PortfolioPageSelection() {
     
     
     return (
@@ -68,4 +68,4 @@ function PortfolioPage() {
     );
 }
 
-export default PortfolioPage;
+export default PortfolioPageSelection;

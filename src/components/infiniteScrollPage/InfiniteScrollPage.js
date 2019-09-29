@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import './InfiniteScrollPage.css';
+import Navbar from '../navbar/Navbar.js';
 
-function InfiniteScrollPage() {
+class InfiniteScrollPage extends React.Component() {
     
     
     return (
-        
+        <Navbar />
     );
 }
 

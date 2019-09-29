@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import HomePage from '../src/components/homepage/HomePage.js';
-import PortfolioPage from '../src/components/infiniteScrollPage/PortfolioPage.js';
+import PortfolioPageSelection from '../src/components/infiniteScrollPage/PortfolioPageSelection.js';
 
 
 
@@ -32,7 +32,7 @@ render() {
     //
     //<HomePage />
   return (
-      <PortfolioPage />
+      <PortfolioPageSelection />
     );
   }
 }
