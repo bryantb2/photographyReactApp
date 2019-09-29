@@ -56,6 +56,7 @@
     border-top: none;
     border-radius: 0px 0px 3px 3px;
     text-align: center;
+    min-width: 100%;
 }
 
 .portfolioDropdown .dropdown-item {
@@ -73,19 +74,22 @@
 
 /* PORTFOLIO PAGE MEDIA QUERY OPTIMIZATION */
 @media(min-width: 2000px) {
+    .customPortfolioContainer {
+        margin-top: 5%;
+    }
     .headerStyle-GenrePage {
         font-size: 90pt;
         margin-bottom: -1%;
     }
     .infoStyle-GenrePage {
         font-size: 44.7pt;
-        margin-bottom: 0.7%;
+        margin-bottom: 0.2%;
     }
     .genreSelectButton1 {
         border-width:3px;
         font-size: 32pt;
         padding: 17px 47px;
-        margin-top: 4%;
+        margin-top: 30%;
     }
 }
 
