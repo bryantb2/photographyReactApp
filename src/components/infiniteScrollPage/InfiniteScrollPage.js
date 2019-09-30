@@ -4,7 +4,7 @@ import Navbar from '../navbar/Navbar.js';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
 
 //imports for testing API system:
-import TestAPI from '../../server/TestAPI.js';
+import PhotoAPI from '../../server/PhotoAPIWrapper.js';
 
 class InfiniteScrollPage extends React.Component {
     //INPUT: takes in a genre name and makes a fetch call to the server for the photo data
@@ -13,11 +13,11 @@ class InfiniteScrollPage extends React.Component {
         super(props);
         
         //Local Constructor Variables
-        let APIDataObject = TestAPI.TestAPI();
+        let APIDataObject = PhotoAPI.GetAPIData();
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
-            APIData: APIDataObject.apiArray.genreType,
+            APIData: APIDataObject.genreType,
             columnSize: 3,
         };
     }
@@ -25,7 +25,7 @@ class InfiniteScrollPage extends React.Component {
     render() {
         return (
         <div id="InfiniteScrollPage">
-            <Navbar />
+            <Navbar alwaysFixed={true} />
             
             <div className="d-flex justify-content-left photoSelectorGroup">
                 <div className="p-2 infoStyle-GenrePage customGenreStyle-InfiniteScrollPage">
@@ -49,7 +49,7 @@ class InfiniteScrollPage extends React.Component {
                 </div>
             </div>
             
-            <PhotoGrid />
+            <PhotoGrid photoArray={this.state.APIData} />
             
             
             

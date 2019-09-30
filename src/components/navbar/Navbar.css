@@ -13,11 +13,10 @@ nav.customNavStyles-unFixed {
 
 nav.customNavStyles-Fixed {
     /*affixes nav bar to top of page once scrolled past*/
-    background-color: rgba(128,128,128,0.8);
+    background-color: rgba(128,128,128,0.9);
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 200;
 }
 
 .navbar-brand {

@@ -11,18 +11,18 @@ import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
 
 //imports for testing API system:
-import PhotoAPI from '../../server/TestAPI.js';
+import PhotoAPI from '../../server/PhotoAPIWrapper.js';
 
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
         
         //Local Constructor Variables
-        let APIDataObject = PhotoAPI();
-    
+        let APIDataObject = PhotoAPI.GetAPIData("highlights");
+        
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
-            APIData: APIDataObject.apiArray.genreType,
+            APIData: APIDataObject.genreType,
             columnSize: 3,
         };
         

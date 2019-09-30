@@ -11,7 +11,6 @@ function PhotoGrid(props) {
     //WORKING ASSUMPTION: gridSize is an integer that is either 4 or 6
     //WORKING ASSUMPTION: props is an array of NINE image objects
     //WORKING ASSUMPTION: each object will, AT LEAST, contain an imageNumber, URL, and orientation key:value pair
-
     function finalOutput() {
         //if section number parameter is 4, there will be a three col grid because there are three images for every section (2 x 4 = 8 total images)
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
