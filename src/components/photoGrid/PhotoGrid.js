@@ -2,9 +2,12 @@ import React from 'react';
 import '../../App.css';
 import './PhotoGrid.css';
 import PhotoRow from './PhotoRow';
+import Col6Photo from './Col6Photo';
+import Col4Photo from './Col4Photo';
+import Col12Photo from './Col12Photo';
 
 function PhotoGrid(props) {
-    //INPUT: will take in photoArray and gridSize
+    //INPUT: will take in photoArray, photoArray SIZE, and gridSize
     //WORKING ASSUMPTION: gridSize is an integer that is either 4 or 6
     //WORKING ASSUMPTION: props is an array of NINE image objects
     //WORKING ASSUMPTION: each object will, AT LEAST, contain an imageNumber, URL, and orientation key:value pair
@@ -14,19 +17,23 @@ function PhotoGrid(props) {
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
         let arraySectionNumber = (props.gridSize ===6 ? 4 : 3);
         let sectionedArrayData = splitAndSectionPhotoArray(arraySectionNumber);
+        //let size = props.photoArraySize;
         
         const finalOutput = () => {
+        //two main conditional blocks for photoGrird: if the photoArray is full (9 items) OR incomplete (less than 9 items)
+        //if(size===9) {
+            //complete photoArray conditional block
             if(props.gridSize===6) {
                 let firstSection = sectionedArrayData.shift();
                 return (
                     //special case
                     <div className="gridSection">
                         <PhotoRow
-                                key={"row0"} 
-                                sectionIndex={0} //this is for debugging
-                                section={firstSection} 
-                                gridSize={12} //forces a col12row to be rendered and returned
-                            />
+                            key={"row0"} 
+                            sectionIndex={0} //this is for debugging
+                            section={firstSection} 
+                            gridSize={12} //forces a col12row to be rendered and returned
+                        />
                         {
                         sectionedArrayData.map((section,index) =>
                             <PhotoRow 

@@ -5,30 +5,38 @@ import Col12Photo from './Col12Photo';
 
 function PhotoRow(props) {
     //WORKING ASSUMPTION: row will take in a section of 2-3 photo objects that can then be indexed into
-    const ColumnFourRow = () =>
-    <div className="row">
-        <Col4Photo
-            key={"photo0"}
-            id={props.section[0].imageNumber}
-            customorientation= {props.section[0].orientation}
-            src={props.section[0].thumbnail}
-            fullImage={props.section[0].URL}
-        />
-        <Col4Photo
-            key={"photo1"}
-            id={props.section[1].imageNumber}
-            customorientation= {props.section[1].orientation}
-            src={props.section[1].thumbnail}
-            fullImage={props.section[1].URL}
-        />
-        <Col4Photo 
-            key={"photo2"}
-            id={props.section[2].imageNumber}
-            customorientation= {props.section[2].orientation}
-            src={props.section[2].thumbnail}
-            fullImage={props.section[2].URL}
-        />
-    </div>;
+    //rows now have conditional rendering capabilities, allowing for incomplete sections to render parts of the row
+    const ColumnFourRow = () => {
+      return (
+        <div className="row">
+            <Col4Photo
+                key={"photo0"}
+                id={props.section[0].imageNumber}
+                customorientation= {props.section[0].orientation}
+                src={props.section[0].thumbnail}
+                fullImage={props.section[0].URL}
+            />
+            {(props.section[1] !== undefined)? 
+                 <Col4Photo
+                    key={"photo1"}
+                    id={props.section[1].imageNumber}
+                    customorientation= {props.section[1].orientation}
+                    src={props.section[1].thumbnail}
+                    fullImage={props.section[1].URL}
+                /> : null}
+            {(props.section[2] !== undefined)? 
+                <Col4Photo 
+                    key={"photo2"}
+                    id={props.section[2].imageNumber}
+                    customorientation= {props.section[2].orientation}
+                    src={props.section[2].thumbnail}
+                    fullImage={props.section[2].URL}
+                /> : null
+            }
+        </div>
+      );  
+    }
+    
     
     const ColumnTwelveRow = () =>
     <div className="row customCol12Style">
@@ -41,25 +49,32 @@ function PhotoRow(props) {
         />
     </div>;
     
-    const ColumnSixRow = () =>
-    <div className="row">
-        <Col6Photo
-            customClass={props.customClassLeft}
-            key={"photo0"}
-            id={props.section[0].imageNumber}
-            customorientation= {props.section[0].orientation}
-            src={props.section[0].thumbnail}
-            fullImage={props.section[0].URL}
-        />
-        <Col6Photo 
-            customClass={props.customClassRight}
-            key={"photo1"}
-            id={props.section[1].imageNumber}
-            customorientation= {props.section[1].orientation}
-            src={props.section[1].thumbnail}
-            fullImage={props.section[1].URL}
-        />
-    </div>;
+      
+    const ColumnSixRow = () => {
+      return (
+          <div className="row">
+            <Col6Photo
+                customClass={props.customClassLeft}
+                key={"photo0"}
+                id={props.section[0].imageNumber}
+                customorientation= {props.section[0].orientation}
+                src={props.section[0].thumbnail}
+                fullImage={props.section[0].URL}
+            />
+            {(props.section[1] !== undefined)? 
+                <Col6Photo 
+                    customClass={props.customClassRight}
+                    key={"photo1"}
+                    id={props.section[1].imageNumber}
+                    customorientation= {props.section[1].orientation}
+                    src={props.section[1].thumbnail}
+                    fullImage={props.section[1].URL}
+                /> : null
+            }
+        </div>
+      );
+    }
+    
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
@@ -83,6 +98,9 @@ function PhotoRow(props) {
         return finalJSX;
     };
     
+      
+      
+    //function's final return  
     return (
         finaloutput()
     );
