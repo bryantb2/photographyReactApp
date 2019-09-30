@@ -4,7 +4,7 @@ function Col6Photo(props) {
     return (
         <div key={props.id} id={props.id} className={(props.customClass === undefined ? ' ' : props.customClass) + " col-lg-6 col-md-6 col-6"}>
             <a href={props.fullImage} className="d-block mb-4 h-100">
-                <img customorientation={props.customorientation} className="imageAnchor img-thumbnail" src={props.src} alt=""/>
+                <img customorientation={props.customorientation} className="loadingColor imageAnchor img-thumbnail" src={props.src} alt=""/>
             </a>
         </div>
     );
