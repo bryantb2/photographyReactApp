@@ -23,10 +23,7 @@ class HomePage extends React.Component {
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             APIData: APIDataObject.apiArray.genreType,
             columnSize: 3,
-            footerSize: "large",
         };
-        
-        //GLOBAL VARIABLES
         
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
@@ -73,7 +70,7 @@ class HomePage extends React.Component {
     //METHODS
     initializeColmnSize() {
         //fills the state's columnSize property with data (setState not used because this is a pre-render function)
-        let windowWidth = window.outerWidth;
+        let windowWidth = window.innerWidth;
         //setState of layoutSize to "small" if below 575px
         if(windowWidth < 1050) {
             this.state.columnSize = 6;
