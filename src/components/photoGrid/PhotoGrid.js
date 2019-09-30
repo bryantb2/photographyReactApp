@@ -17,12 +17,8 @@ function PhotoGrid(props) {
         //section number parameter is 6, there will be a six col grid because there are two images for every section (2 x 4 = 8 total images) 
         let arraySectionNumber = (props.gridSize ===6 ? 4 : 3);
         let sectionedArrayData = splitAndSectionPhotoArray(arraySectionNumber);
-        //let size = props.photoArraySize;
         
         const finalOutput = () => {
-        //two main conditional blocks for photoGrird: if the photoArray is full (9 items) OR incomplete (less than 9 items)
-        //if(size===9) {
-            //complete photoArray conditional block
             if(props.gridSize===6) {
                 let firstSection = sectionedArrayData.shift();
                 return (

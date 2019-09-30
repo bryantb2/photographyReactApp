@@ -9,13 +9,15 @@ function PhotoRow(props) {
     const ColumnFourRow = () => {
       return (
         <div className="row">
-            <Col4Photo
-                key={"photo0"}
-                id={props.section[0].imageNumber}
-                customorientation= {props.section[0].orientation}
-                src={props.section[0].thumbnail}
-                fullImage={props.section[0].URL}
-            />
+            {(props.section[0] !== undefined)? 
+                <Col4Photo
+                    key={"photo0"}
+                    id={props.section[0].imageNumber}
+                    customorientation= {props.section[0].orientation}
+                    src={props.section[0].thumbnail}
+                    fullImage={props.section[0].URL}
+                /> : null
+            }
             {(props.section[1] !== undefined)? 
                  <Col4Photo
                     key={"photo1"}
@@ -53,14 +55,16 @@ function PhotoRow(props) {
     const ColumnSixRow = () => {
       return (
           <div className="row">
-            <Col6Photo
-                customClass={props.customClassLeft}
-                key={"photo0"}
-                id={props.section[0].imageNumber}
-                customorientation= {props.section[0].orientation}
-                src={props.section[0].thumbnail}
-                fullImage={props.section[0].URL}
-            />
+            {(props.section[0] !== undefined)? 
+                <Col6Photo
+                    customClass={props.customClassLeft}
+                    key={"photo0"}
+                    id={props.section[0].imageNumber}
+                    customorientation= {props.section[0].orientation}
+                    src={props.section[0].thumbnail}
+                    fullImage={props.section[0].URL}
+                /> : null
+            }
             {(props.section[1] !== undefined)? 
                 <Col6Photo 
                     customClass={props.customClassRight}
