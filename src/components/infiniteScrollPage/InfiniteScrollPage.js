@@ -1,12 +1,25 @@
 import React from 'react';
 import './InfiniteScrollPage.css';
 import Navbar from '../navbar/Navbar.js';
+import PhotoGrid from '../photoGrid/PhotoGrid.js';
+
+//imports for testing API system:
+import TestAPI from '../../server/TestAPI.js';
 
 class InfiniteScrollPage extends React.Component {
     //INPUT: takes in a genre name and makes a fetch call to the server for the photo data
     //page is loaded once the API call has completed
     constructor(props) {
         super(props);
+        
+        //Local Constructor Variables
+        let APIDataObject = TestAPI.TestAPI();
+    
+        this.state={
+            //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
+            APIData: APIDataObject.apiArray.genreType,
+            columnSize: 3,
+        };
     }
 
     render() {
@@ -14,10 +27,13 @@ class InfiniteScrollPage extends React.Component {
         <div id="InfiniteScrollPage">
             <Navbar />
             
-            <div className="d-flex justify-content-left">
-                <div className="p-2 infoStyle-GenrePage">
+            <div className="d-flex justify-content-left photoSelectorGroup">
+                <div className="p-2 infoStyle-GenrePage customGenreStyle-InfiniteScrollPage">
                     {this.props.genre}
                 </div>
+            
+                <div className="p-2 verticalLineStyle-InfiniteScrollPage"></div>
+            
                 <div className="p-2">
                     <div className="portfolioDropdown dropdown">
                         <button className="genreSelectButton2 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,7 +47,12 @@ class InfiniteScrollPage extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
+            
+            <PhotoGrid />
+            
+            
+            
          </div>
         );
     }

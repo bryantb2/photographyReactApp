@@ -1,15 +1,30 @@
 /* INFINITE SCROLL PAGE STYLES */
+.customGenreStyle-InfiniteScrollPage {
+    color: #454231;
+    font-family:'FuturaPT-Light';
+    margin-left: 1%;
+}
 
+.verticalLineStyle-InfiniteScrollPage {
+    border-left: 3px solid #454231;
+    max-height: 0%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.photoSelectorGroup {
+    margin-top: 2.5%;
+}
 
 /* dropdown menu button styles */
 .genreSelectButton2 {
     background: transparent;
     border-width:thin;
-    color: #f4e0b9;
-    border-color: #f4e0b9;
+    color: #454231;
+    border-color: #454231;
     font-family: 'FuturaPT-Light';
     font-size: 20pt;
-    padding: 10px 45px;
+    padding: 10px 40px;
 }
 
 .genreSelectButton2:hover {
@@ -19,7 +34,7 @@
 .portfolioDropdown>.dropdown-menu {
     background-color: transparent;
     width: 100%;
-    border: 2px solid #f4e0b9;
+    border: 2px solid #454231;
     border-top: none;
     border-radius: 0px 0px 3px 3px;
     text-align: center;
@@ -27,7 +42,7 @@
 }
 
 .portfolioDropdown .dropdown-item {
-    color: #f4e0b9;
+    color: #454231;
     font-family:'FuturaPT-Light';
     font-size: 15pt;
     padding-bottom: 5%;
@@ -35,7 +50,8 @@
 }
 
 .portfolioDropdown .dropdown-item:hover {
-    color: #454231;
+    color: white;
+    background-color: #454231;
 }
 
 /* INFINITE SCROLL PAGE PAGE MEDIA QUERY OPTIMIZATION */
