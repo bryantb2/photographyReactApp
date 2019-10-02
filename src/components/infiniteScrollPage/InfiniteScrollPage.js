@@ -50,10 +50,22 @@ class InfiniteScrollPage extends React.Component {
     //EVENT HANDLERS
     handleDropdownLayout(e) {
         //this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
+        let button = e.target;
+        let timer;
         if(this.state.currentDropDownClass === "photoSelectorGroup-noDropDown") {
+            //adds the expanded styles if the current styling is not expanded
             this.expandGenreSelectorSpacing();
+            //then run a timer that checks every second if the button still has the user's focus
+            timer = setInterval(()=> {
+                if(document.activeElement !== button) {
+                    clearInterval(timer);
+                    this.collapseGenreSelectorSpacing();
+                }
+            },200);
         }
         else if(this.state.currentDropDownClass === "photoSelectorGroup-dropDown") {
+            //removes the expanded styles if the current styling is expanded
+            clearInterval(timer);
             this.collapseGenreSelectorSpacing();
         }
     }
