@@ -19,15 +19,64 @@ class InfiniteScrollPage extends React.Component {
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             APIData: APIDataObject.genreType,
             columnSize: 3,
+            currentDropDownClass: "photoSelectorGroup-noDropDown",
         };
+        
+        //BINDS
+        this.createEventListeners = this.createEventListeners.bind(this);
+        this.handleDropdownLayout = this.handleDropdownLayout.bind(this);
+        this.collapseGenreSelectorSpacing = this.collapseGenreSelectorSpacing.bind(this);
+        this.expandGenreSelectorSpacing = this.expandGenreSelectorSpacing.bind(this);
+        
+        //METHOD CALLS
+        
+        
+    }
+    
+    
+    //LIFECYCLE METHODS
+    componentDidMount() {
+       //used to prevent premature collection of non-existent DOM elements
+        this.createEventListeners();
     }
 
+    
+    //EVENT LISTENERS
+    createEventListeners() {
+        document.getElementById("dropdownMenuButton").addEventListener('click', this.handleDropdownLayout);
+    }
+    
+    
+    //EVENT HANDLERS
+    handleDropdownLayout(e) {
+        //this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
+        if(this.state.currentDropDownClass === "photoSelectorGroup-noDropDown") {
+            this.expandGenreSelectorSpacing();
+        }
+        else if(this.state.currentDropDownClass === "photoSelectorGroup-dropDown") {
+            this.collapseGenreSelectorSpacing();
+        }
+    }
+    
+    //METHODS
+    expandGenreSelectorSpacing() {
+        this.setState({
+                currentDropDownClass: "photoSelectorGroup-dropDown",
+            });
+    }
+    
+    collapseGenreSelectorSpacing() {
+        this.setState({
+                currentDropDownClass: "photoSelectorGroup-noDropDown",
+            });
+    }
+    
     render() {
         return (
         <div id="InfiniteScrollPage">
             <Navbar alwaysFixed={true} />
             
-            <div className="d-flex justify-content-left photoSelectorGroup">
+            <div className={"d-flex justify-content-left " + this.state.currentDropDownClass}>
                 <div className="p-2 infoStyle-GenrePage customGenreStyle-InfiniteScrollPage">
                     {this.props.genre}
                 </div>
@@ -49,9 +98,9 @@ class InfiniteScrollPage extends React.Component {
                 </div>
             </div>
             
-            <PhotoGrid photoArray={this.state.APIData} />
-            
-            
+            <section id="photos">
+                <PhotoGrid photoArray={this.state.APIData} />
+            </section>
             
          </div>
         );

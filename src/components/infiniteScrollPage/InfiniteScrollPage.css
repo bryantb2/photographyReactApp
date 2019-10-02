@@ -12,9 +12,14 @@
     margin-right: 3%;
 }
 
-.photoSelectorGroup {
-    margin-top: 8%;
-    margin-bottom: 2.5%;
+.photoSelectorGroup-noDropDown {
+    padding-top: 7%;
+    margin-bottom: 0.5%;
+}
+
+.photoSelectorGroup-dropDown {
+    padding-top: 7%;
+    margin-bottom: 15%;
 }
 
 /* dropdown menu button styles */
