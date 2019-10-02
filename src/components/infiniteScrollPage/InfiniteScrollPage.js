@@ -30,7 +30,6 @@ class InfiniteScrollPage extends React.Component {
         
         //METHOD CALLS
         
-        
     }
     
     
@@ -56,6 +55,7 @@ class InfiniteScrollPage extends React.Component {
             //adds the expanded styles if the current styling is not expanded
             this.expandGenreSelectorSpacing();
             //then run a timer that checks every second if the button still has the user's focus
+                //if focus is lost, clear the timer (prevent performance bugs) and then collapse the selector UI container
             timer = setInterval(()=> {
                 if(document.activeElement !== button) {
                     clearInterval(timer);
@@ -111,7 +111,7 @@ class InfiniteScrollPage extends React.Component {
             </div>
             
             <section id="photos">
-                <PhotoGrid photoArray={this.state.APIData} />
+                <PhotoGrid photoArray={this.state.APIData} gridSize={this.state.columnSize}/>
             </section>
             
          </div>

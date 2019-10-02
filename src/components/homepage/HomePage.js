@@ -36,9 +36,6 @@ class HomePage extends React.Component {
         this.initializeColmnSize();
         this.createEventListeners();
     }
-
-    //EVENT HANDLER METHODS
-    /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     //LIFECYCLE METHODS
     
