@@ -60,6 +60,12 @@ class InfiniteScrollPage extends React.Component {
                 if(document.activeElement !== button) {
                     clearInterval(timer);
                     this.collapseGenreSelectorSpacing();
+                    //special case: force the dropdown menu to close
+                    let dropDown = document.getElementById("dropdown-menuID").classList;
+                    dropDown.forEach((pageClass)=>{
+                        if(pageClass=="show")
+                            document.getElementById("dropdown-menuID").classList.remove("show");
+                    });
                 }
             },200);
         }
@@ -100,7 +106,7 @@ class InfiniteScrollPage extends React.Component {
                         <button className="genreSelectButton2 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Genre
                         </button>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div id="dropdown-menuID" className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a className="dropdown-item" href="#">Urban</a>
                             <a className="dropdown-item" href="#">Natural</a>
                             <a className="dropdown-item" href="#">Aerial</a>
