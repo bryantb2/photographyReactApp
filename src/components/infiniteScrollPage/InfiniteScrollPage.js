@@ -14,6 +14,11 @@ class InfiniteScrollPage extends React.Component {
         
         //Local Constructor Variables
         let APIDataObject = PhotoAPI.GetAPIData();
+        
+        //Global variables
+        //sotred the sectioned version of the APIDataObject data
+        this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
+        this.currentSectionNumber = 0;
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
@@ -27,6 +32,7 @@ class InfiniteScrollPage extends React.Component {
         this.handleDropdownLayout = this.handleDropdownLayout.bind(this);
         this.collapseGenreSelectorSpacing = this.collapseGenreSelectorSpacing.bind(this);
         this.expandGenreSelectorSpacing = this.expandGenreSelectorSpacing.bind(this);
+        this.parseAndSection = this.parseAndSection.bind(this);
         
         //METHOD CALLS
         
@@ -37,6 +43,8 @@ class InfiniteScrollPage extends React.Component {
     componentDidMount() {
        //used to prevent premature collection of non-existent DOM elements
         this.createEventListeners();
+        console.log("Here is the parsed API dat: ");
+        console.log(this.parsedAPIObjectData);
     }
 
     
@@ -77,6 +85,23 @@ class InfiniteScrollPage extends React.Component {
     }
     
     //METHODS
+    parseAndSection(apiData) {
+        //method will loop through the entire array of API objects
+        //create a 2-D array
+        //sub-elements will be arrays contains 9 image objects
+        apiData = apiData.genreType;
+        let mainDataArray = new Array();
+        for(let i=0; i<apiData.length; (i=i+9)) {
+            let subArray = new Array();
+            for(let j=i; j<(i+9); j++) {
+                //grabs image object from main array and pushes it to subarray
+                subArray.push(apiData[j]);
+            }
+            mainDataArray.push(subArray);
+        }
+        return mainDataArray;
+    }
+    
     expandGenreSelectorSpacing() {
         this.setState({
                 currentDropDownClass: "photoSelectorGroup-dropDown",
