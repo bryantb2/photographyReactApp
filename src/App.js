@@ -34,6 +34,7 @@ render() {
     //props will be passed down into HomePage (will contain )
       //<PortfolioPageSelection />
       //
+    //<HomePage />
     //
   return (
       <PhotoPage genre="Natural"/>

@@ -15,24 +15,26 @@ class InfiniteScrollPage extends React.Component {
         //Local Constructor Variables
         let APIDataObject = PhotoAPI.GetAPIData();
         
-        //Global variables
+        //GLOABAL VARIABLES
         //sotred the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
         this.currentSectionNumber = 0;
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
-            APIData: APIDataObject.genreType,
             columnSize: 3,
             currentDropDownClass: "photoSelectorGroup-noDropDown",
+            isUserAtBottom: false,
         };
         
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
-        this.handleDropdownLayout = this.handleDropdownLayout.bind(this);
+        this.dropdownLayoutHandler = this.dropdownLayoutHandler.bind(this);
         this.collapseGenreSelectorSpacing = this.collapseGenreSelectorSpacing.bind(this);
         this.expandGenreSelectorSpacing = this.expandGenreSelectorSpacing.bind(this);
         this.parseAndSection = this.parseAndSection.bind(this);
+        this.debounce = this.debounce.bind(this);
+        this.userScrollHandler = this.userScrollHandler.bind(this);
         
         //METHOD CALLS
         
@@ -50,12 +52,19 @@ class InfiniteScrollPage extends React.Component {
     
     //EVENT LISTENERS
     createEventListeners() {
-        document.getElementById("dropdownMenuButton").addEventListener('click', this.handleDropdownLayout);
+        document.getElementById("dropdownMenuButton").addEventListener('click', this.dropdownLayoutHandler);
+        window.addEventListener('scroll',this.debounce(this.userScrollHandler,500));
     }
     
     
     //EVENT HANDLERS
-    handleDropdownLayout(e) {
+    userScrollHandler() {
+        //check to see if user is at bottom of page
+        
+        //if so, call
+    }
+    
+    dropdownLayoutHandler(e) {
         //this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
         let button = e.target;
         let timer;
@@ -85,6 +94,26 @@ class InfiniteScrollPage extends React.Component {
     }
     
     //METHODS
+    debounce(func, wait, immediate) {
+        //debounce function prevents overloaded client
+        //function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+        let timeout;
+        return function executedFunction() {
+            let context = this;
+            let args = arguments;
+            
+            let later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+            };
+            
+            let callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+    
     parseAndSection(apiData) {
         //method will loop through the entire array of API objects
         //create a 2-D array
@@ -142,7 +171,7 @@ class InfiniteScrollPage extends React.Component {
             </div>
             
             <section id="photos">
-                <PhotoGrid photoArray={this.state.APIData} gridSize={this.state.columnSize}/>
+                <PhotoGrid photoArray={this.parsedAPIObjectData[this.currentSectionNumber]} gridSize={this.state.columnSize}/>
             </section>
             
          </div>

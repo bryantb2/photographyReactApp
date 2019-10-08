@@ -6,10 +6,13 @@ class Navbar extends React.Component {
         super(props);
         
         this.state = {
-            navBar: null, //gets the navbar once page has loaded (preventing any DOM errors)
-            navBarHeight: null,
             navBarSticking: false,
         }
+        
+        //these are not part of state because they are not part of any rendered JSX
+        this.navBar = null;
+        //this variable exists to counteract the effects of resizing the window, which changes the offset height of the parent elements
+        this.navBarHeight = null;
         
         //BINDS
         this.navbarScrollEventHandler = this.navbarScrollEventHandler.bind(this);
@@ -40,7 +43,7 @@ class Navbar extends React.Component {
     navbarScrollEventHandler() {
         //function will calculate navbar and pageOffset height to make the navbar stick or unstick to the top
         this.updateNavbarHeight(); //accounts for resizing of the window and the element being removed from the viewport
-        if(window.pageYOffset > this.state.navBarHeight) {
+        if(window.pageYOffset > this.navBarHeight) {
             this.setState({
                 navBarSticking: true,
             });
@@ -75,13 +78,13 @@ class Navbar extends React.Component {
     };
     
     updateNavbarData() {
-        //loads navbar element into the navbar property of state
-        this.state.navBar = document.getElementById("navigationBar");
+        //loads navbar element into the navbar class variable
+        this.navBar = document.getElementById("navigationBar");
     }
     
     updateNavbarHeight() {
-        //loads height data into the height property of the state
-        this.state.navBarHeight = this.getOffsetTop(this.state.navBar);
+        //loads height data into the height class variable
+        this.navBarHeight = this.getOffsetTop(this.navBar);
     }
     
     getOffsetTop(element){
