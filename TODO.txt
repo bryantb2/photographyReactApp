@@ -1,0 +1,7 @@
+1. Create a scrolling system that tracks the last known photo component and hold the focus there until the user scrolls
+    https://www.robinwieruch.de/react-scroll-to-item
+2. Finish scaling system for infinite scroll page (allows photos to enlarge onResize)
+3. React routing system
+4. Revise CSS for portfolio page and optimize for browsers once more
+5. Go back over the code and add error exception handlers
+6. Begin working on MongoDB and Node.js express
