@@ -18,13 +18,15 @@ class InfiniteScrollPage extends React.Component {
         //GLOABAL VARIABLES
         //stored the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
-        this.currentSectionNumber = 0;
+        //section number set to 3 because the first 3 sections are always generated unconditionally
+        this.currentSectionNumber = 3;
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             columnSize: 3,
             currentDropDownClass: "photoSelectorGroup-noDropDown",
-            isUserAtBottom: false,
+            sectionNumberArray: new Array(),
+            //isUserAtBottom: false,
         };
         
         //Global variables
@@ -70,9 +72,17 @@ class InfiniteScrollPage extends React.Component {
         //this method controls when sections from the API call are rendered
         //if user gets 75% of the way down the page:
             //display a circlular loading icon
-            //call photoGridGenerator
+            //push currentSectionCounter value to state counter collection
+            //call photoGridGenerator and pass in state counter collection
             //disable loading icon
-        this.isUserAtBottom();
+            //increment section counter
+        if(this.isUserAtBottom() == true) {
+            //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
+            this.setState(state => ({
+                sectionedNumberArray: [...state.sectionedNumberArray, this.currentSectionNumber]
+            }))
+        }
+        this.currentSectionNumber = this.currentSectionNumber++;
     }
     
     dropdownLayoutHandler(e) {
@@ -106,19 +116,28 @@ class InfiniteScrollPage extends React.Component {
     
     //METHODS
     isUserAtBottom() {
+        //RETURNS TRUE OR FALSE
         //this function checks how close the user is the bottom of the page
         //an additional 300px has been added to the calculation to ensure that there is enough room for the photos to get fetched and rendered without the usering knowing
         if ((window.innerHeight + window.scrollY)+300 >= (document.getElementById("InfiniteScrollPage").offsetHeight)) {
-            console.log("scrolled: " + (window.innerHeight + window.scrollY))
+            /*console.log("scrolled: " + (window.innerHeight + window.scrollY))
             console.log("total height: " + document.getElementById("InfiniteScrollPage").offsetHeight)
-           console.log("bottom");
+            console.log("bottom");*/
+            return true;
+        }
+        else {
+            return false;
         }
     }
     
-    photoGridGenerator(photoArraySection) {
+    photoGridGenerator(counterArray) {
+        console.log("GRID WAS GENERATED!")
+        //in the case of the sectionNumberArray, the element values themselves are the indexes
         return (
-            <PhotoGrid photoArray={photoArraySection} gridSize={this.state.columnSize}/>
-        )
+            counterArray.map((sectionNumber) =>
+                <PhotoGrid photoArray={sectionNumber} gridSize={this.state.columnSize}/>
+            )
+        )    
     }
     
     getDocHeight() {
@@ -191,6 +210,8 @@ class InfiniteScrollPage extends React.Component {
     }
     
     render() {
+        /*
+                */
         return (
         <div id="InfiniteScrollPage">
             <Navbar alwaysFixed={true} />
@@ -219,11 +240,15 @@ class InfiniteScrollPage extends React.Component {
             
             <section id="photos">
                 <PhotoGrid photoArray={this.parsedAPIObjectData[0]} gridSize={this.state.columnSize}/>
-                <PhotoGrid photoArray={this.parsedAPIObjectData[0]} gridSize={this.state.columnSize}/>
-                <PhotoGrid photoArray={this.parsedAPIObjectData[0]} gridSize={this.state.columnSize}/>
+                <PhotoGrid photoArray={this.parsedAPIObjectData[1]} gridSize={this.state.columnSize}/>
+                <PhotoGrid photoArray={this.parsedAPIObjectData[2]} gridSize={this.state.columnSize}/>
+            
+                {
+                this.photoGridGenerator(this.state.sectionNumberArray)
+                }
             </section>
             
-            <div className="spinner-border text-primary" role="status">
+            <div className="d-flex justify-content-center spinner-border text-primary" role="status">
                 <span className="sr-only">Loading...</span>
             </div>
             
