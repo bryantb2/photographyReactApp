@@ -16,7 +16,7 @@ class InfiniteScrollPage extends React.Component {
         let APIDataObject = PhotoAPI.GetAPIData();
         
         //GLOABAL VARIABLES
-        //sotred the sectioned version of the APIDataObject data
+        //stored the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
         this.currentSectionNumber = 0;
     
@@ -27,6 +27,11 @@ class InfiniteScrollPage extends React.Component {
             isUserAtBottom: false,
         };
         
+        //Global variables
+        //these exist because setState cannot be called to update the column size when the page has not fully loaded
+        this.initialColumnSize = 3;
+        this.renderedOnce = false;
+        
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
         this.dropdownLayoutHandler = this.dropdownLayoutHandler.bind(this);
@@ -35,6 +40,9 @@ class InfiniteScrollPage extends React.Component {
         this.parseAndSection = this.parseAndSection.bind(this);
         this.debounce = this.debounce.bind(this);
         this.userScrollHandler = this.userScrollHandler.bind(this);
+        this.photoGridGenerator = this.photoGridGenerator.bind(this);
+        this.getDocHeight = this.getDocHeight.bind(this);
+        this.isUserAtBottom = this.isUserAtBottom.bind(this);
         
         //METHOD CALLS
         
@@ -43,10 +51,10 @@ class InfiniteScrollPage extends React.Component {
     
     //LIFECYCLE METHODS
     componentDidMount() {
+        this.renderedOnce = true; //this controls which column variable is used in the returned JSX
+        //true for renderedOnce means that the state variable will dictate how big the photogrid needs to be
        //used to prevent premature collection of non-existent DOM elements
         this.createEventListeners();
-        console.log("Here is the parsed API dat: ");
-        console.log(this.parsedAPIObjectData);
     }
 
     
@@ -59,9 +67,12 @@ class InfiniteScrollPage extends React.Component {
     
     //EVENT HANDLERS
     userScrollHandler() {
-        //check to see if user is at bottom of page
-        
-        //if so, call
+        //this method controls when sections from the API call are rendered
+        //if user gets 75% of the way down the page:
+            //display a circlular loading icon
+            //call photoGridGenerator
+            //disable loading icon
+        this.isUserAtBottom();
     }
     
     dropdownLayoutHandler(e) {
@@ -94,6 +105,42 @@ class InfiniteScrollPage extends React.Component {
     }
     
     //METHODS
+    isUserAtBottom() {
+        //this function checks how close the user is the bottom of the page
+        //an additional 300px has been added to the calculation to ensure that there is enough room for the photos to get fetched and rendered without the usering knowing
+        if ((window.innerHeight + window.scrollY)+300 >= (document.getElementById("InfiniteScrollPage").offsetHeight)) {
+            console.log("scrolled: " + (window.innerHeight + window.scrollY))
+            console.log("total height: " + document.getElementById("InfiniteScrollPage").offsetHeight)
+           console.log("bottom");
+        }
+    }
+    
+    photoGridGenerator(photoArraySection) {
+        return (
+            <PhotoGrid photoArray={photoArraySection} gridSize={this.state.columnSize}/>
+        )
+    }
+    
+    getDocHeight() {
+        let D = document;
+        return Math.max(
+            D.body.scrollHeight, D.documentElement.scrollHeight,
+            D.body.offsetHeight, D.documentElement.offsetHeight,
+            D.body.clientHeight, D.documentElement.clientHeight
+        );
+    }
+    
+    initializeColmnSize() {
+        //fills the state's columnSize property with data (setState not used because this is a pre-render function)
+        let windowWidth = window.innerWidth;
+        //setState of layoutSize to "small" if below 575px
+        if(windowWidth < 1050) {
+            this.initialColumnSize = 6;
+            //this.state.columnSize = 6;
+        }
+        //no need for else statement to switch to 3 because layoutSize is already set to 3 by default
+    }
+    
     debounce(func, wait, immediate) {
         //debounce function prevents overloaded client
         //function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
@@ -171,8 +218,14 @@ class InfiniteScrollPage extends React.Component {
             </div>
             
             <section id="photos">
-                <PhotoGrid photoArray={this.parsedAPIObjectData[this.currentSectionNumber]} gridSize={this.state.columnSize}/>
+                <PhotoGrid photoArray={this.parsedAPIObjectData[0]} gridSize={this.state.columnSize}/>
+                <PhotoGrid photoArray={this.parsedAPIObjectData[0]} gridSize={this.state.columnSize}/>
+                <PhotoGrid photoArray={this.parsedAPIObjectData[0]} gridSize={this.state.columnSize}/>
             </section>
+            
+            <div className="spinner-border text-primary" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
             
          </div>
         );
