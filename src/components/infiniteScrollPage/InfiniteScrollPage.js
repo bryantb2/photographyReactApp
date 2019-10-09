@@ -59,10 +59,16 @@ class InfiniteScrollPage extends React.Component {
         if(this.state.sectionNumberArray.length === 0) {
             //prevents runtime crashing or errors by manually setting the first value
             this.canRender = true;
+            /*let newState = this.state.sectionNumberArray.slice();
+            newState.push(this.currecntSectionNumber);
             this.setState({
-                sectionedNumberArray:[this.currentSectionNumber],
-            })
+                sectionNumberArray: newState,
+            })*/
+            this.setState(prevState => ({
+                sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
+            }))
         }
+        this.currentSectionNumber = this.currentSectionNumber++;
        //used to prevent premature collection of non-existent DOM elements
         this.createEventListeners();
     }
@@ -94,11 +100,9 @@ class InfiniteScrollPage extends React.Component {
             }*/
             //else {
                 //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
-                let newState = this.state.sectionNumberArray.slice();
-                newState.push(this.currecntSectionNumber);
-                this.setState({
-                    sectionedNumberArray: newState,
-                })
+                this.setState(prevState => ({
+                    sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
+                }))
             //}
         //}
         this.currentSectionNumber = this.currentSectionNumber++;
