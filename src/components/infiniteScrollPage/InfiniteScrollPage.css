@@ -60,6 +60,10 @@
     background-color: #454231;
 }
 
+div#photoPageLoadingIcon {
+    display: none !important;
+}
+
 /* INFINITE SCROLL PAGE PAGE MEDIA QUERY OPTIMIZATION */
 @media(min-width: 2000px) {
     .customPortfolioContainer {

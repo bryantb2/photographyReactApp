@@ -18,15 +18,15 @@ class InfiniteScrollPage extends React.Component {
         //GLOABAL VARIABLES
         //stored the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
-        //section number set to 3 because the first 3 sections are always generated unconditionally
-        this.currentSectionNumber = 3;
+        //section number set to 0
+        this.currentSectionNumber = 0;
+        this.canRender = false;
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             columnSize: 3,
             currentDropDownClass: "photoSelectorGroup-noDropDown",
             sectionNumberArray: new Array(),
-            //isUserAtBottom: false,
         };
         
         //Global variables
@@ -43,8 +43,9 @@ class InfiniteScrollPage extends React.Component {
         this.debounce = this.debounce.bind(this);
         this.userScrollHandler = this.userScrollHandler.bind(this);
         this.photoGridGenerator = this.photoGridGenerator.bind(this);
-        this.getDocHeight = this.getDocHeight.bind(this);
         this.isUserAtBottom = this.isUserAtBottom.bind(this);
+        this.showLoadingIcon = this.showLoadingIcon.bind(this);
+        this.hideLoadingIcon = this.hideLoadingIcon.bind(this);
         
         //METHOD CALLS
         
@@ -55,6 +56,13 @@ class InfiniteScrollPage extends React.Component {
     componentDidMount() {
         this.renderedOnce = true; //this controls which column variable is used in the returned JSX
         //true for renderedOnce means that the state variable will dictate how big the photogrid needs to be
+        if(this.state.sectionNumberArray.length === 0) {
+            //prevents runtime crashing or errors by manually setting the first value
+            this.canRender = true;
+            this.setState({
+                sectionedNumberArray:[this.currentSectionNumber],
+            })
+        }
        //used to prevent premature collection of non-existent DOM elements
         this.createEventListeners();
     }
@@ -76,13 +84,25 @@ class InfiniteScrollPage extends React.Component {
             //call photoGridGenerator and pass in state counter collection
             //disable loading icon
             //increment section counter
-        if(this.isUserAtBottom() == true) {
-            //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
-            this.setState(state => ({
-                sectionedNumberArray: [...state.sectionedNumberArray, this.currentSectionNumber]
-            }))
-        }
+        this.showLoadingIcon();
+        //if(this.isUserAtBottom() == true) {
+            /*if(this.state.sectionNumberArray.length === 0) {
+                //prevents runtime crashing or errors by manually setting the first value
+                this.setState({
+                    sectionedNumberArray:[this.currentSectionNumber],
+                })
+            }*/
+            //else {
+                //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
+                let newState = this.state.sectionNumberArray.slice();
+                newState.push(this.currecntSectionNumber);
+                this.setState({
+                    sectionedNumberArray: newState,
+                })
+            //}
+        //}
         this.currentSectionNumber = this.currentSectionNumber++;
+        this.hideLoadingIcon();
     }
     
     dropdownLayoutHandler(e) {
@@ -129,13 +149,18 @@ class InfiniteScrollPage extends React.Component {
             return false;
         }
     }
-    
+        
     photoGridGenerator(counterArray) {
-        console.log("GRID WAS GENERATED!")
+        console.log("GRID WAS GENERATED!");
+        console.log("logging sectionCounterArray: ")
+        console.log(counterArray);
+        console.log("logging state: ")
+        console.log(this.state);
+        console.log("canRender= " + this.canRender);
         //in the case of the sectionNumberArray, the element values themselves are the indexes
         return (
-            counterArray.map((sectionNumber) =>
-                <PhotoGrid photoArray={sectionNumber} gridSize={this.state.columnSize}/>
+            counterArray.map((sectionNumber,index) =>
+                <PhotoGrid key={index} photoArray={this.parsedAPIObjectData[sectionNumber]} gridSize={this.state.columnSize}/>
             )
         )    
     }
@@ -200,9 +225,15 @@ class InfiniteScrollPage extends React.Component {
             });
     }
     
+    showLoadingIcon() {
+        document.getElementById("photoPageLoadingIcon").style.display = "relative";
+    }
+    
+    hideLoadingIcon() {
+        document.getElementById("photoPageLoadingIcon").style.display = "none";
+    }
+    
     render() {
-        /*
-                */
         return (
         <div id="InfiniteScrollPage">
             <Navbar alwaysFixed={true} />
@@ -230,17 +261,13 @@ class InfiniteScrollPage extends React.Component {
             </div>
             
             <section id="photos">
-                <PhotoGrid photoArray={this.parsedAPIObjectData[0]} gridSize={this.state.columnSize}/>
-                <PhotoGrid photoArray={this.parsedAPIObjectData[1]} gridSize={this.state.columnSize}/>
-                <PhotoGrid photoArray={this.parsedAPIObjectData[2]} gridSize={this.state.columnSize}/>
-            
-                {
-                this.photoGridGenerator(this.state.sectionNumberArray)
-                }
+                {this.canRender==true?this.photoGridGenerator(this.state.sectionNumberArray) : null}
             </section>
             
-            <div className="d-flex justify-content-center spinner-border text-primary" role="status">
-                <span className="sr-only">Loading...</span>
+            <div id="photoPageLoadingIcon" className="d-flex justify-content-center p-4" >
+                <div className="p-4 spinner-border text-primary" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
             </div>
             
          </div>
