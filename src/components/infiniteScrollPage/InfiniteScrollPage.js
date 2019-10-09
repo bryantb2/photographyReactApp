@@ -59,11 +59,6 @@ class InfiniteScrollPage extends React.Component {
         if(this.state.sectionNumberArray.length === 0) {
             //prevents runtime crashing or errors by manually setting the first value
             this.canRender = true;
-            /*let newState = this.state.sectionNumberArray.slice();
-            newState.push(this.currecntSectionNumber);
-            this.setState({
-                sectionNumberArray: newState,
-            })*/
             this.setState(prevState => ({
                 sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
             }))
@@ -90,23 +85,19 @@ class InfiniteScrollPage extends React.Component {
             //call photoGridGenerator and pass in state counter collection
             //disable loading icon
             //increment section counter
-        this.showLoadingIcon();
-        //if(this.isUserAtBottom() == true) {
-            /*if(this.state.sectionNumberArray.length === 0) {
-                //prevents runtime crashing or errors by manually setting the first value
-                this.setState({
-                    sectionedNumberArray:[this.currentSectionNumber],
-                })
-            }*/
-            //else {
-                //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
+        //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
+        if(this.isUserAtBottom() === true) {
+            let timout;
+            this.showLoadingIcon();
+            timout = setTimeout(()=>{
+                this.hideLoadingIcon();
                 this.setState(prevState => ({
                     sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
                 }))
-            //}
-        //}
-        this.currentSectionNumber = this.currentSectionNumber++;
-        this.hideLoadingIcon();
+                this.currentSectionNumber = this.currentSectionNumber++;
+            }, 2000);
+            
+        }
     }
     
     dropdownLayoutHandler(e) {
@@ -230,7 +221,7 @@ class InfiniteScrollPage extends React.Component {
     }
     
     showLoadingIcon() {
-        document.getElementById("photoPageLoadingIcon").style.display = "relative";
+        document.getElementById("photoPageLoadingIcon").style.display = "flex";
     }
     
     hideLoadingIcon() {
@@ -268,7 +259,7 @@ class InfiniteScrollPage extends React.Component {
                 {this.canRender==true?this.photoGridGenerator(this.state.sectionNumberArray) : null}
             </section>
             
-            <div id="photoPageLoadingIcon" className="d-flex justify-content-center p-4" >
+            <div id="photoPageLoadingIcon" className="justify-content-center p-4" >
                 <div className="p-4 spinner-border text-primary" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>

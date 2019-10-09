@@ -61,7 +61,7 @@
 }
 
 div#photoPageLoadingIcon {
-    display: none !important;
+    display: none;
 }
 
 /* INFINITE SCROLL PAGE PAGE MEDIA QUERY OPTIMIZATION */
