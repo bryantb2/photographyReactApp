@@ -140,15 +140,6 @@ class InfiniteScrollPage extends React.Component {
         )    
     }
     
-    getDocHeight() {
-        let D = document;
-        return Math.max(
-            D.body.scrollHeight, D.documentElement.scrollHeight,
-            D.body.offsetHeight, D.documentElement.offsetHeight,
-            D.body.clientHeight, D.documentElement.clientHeight
-        );
-    }
-    
     initializeColmnSize() {
         //fills the state's columnSize property with data (setState not used because this is a pre-render function)
         let windowWidth = window.innerWidth;
