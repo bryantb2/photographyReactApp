@@ -2,6 +2,7 @@ import React from 'react';
 import './InfiniteScrollPage.css';
 import Navbar from '../navbar/Navbar.js';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
+import SmartScoller from '../utilityComponents/SmartScroll.js';
 
 //imports for testing API system:
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
@@ -21,12 +22,13 @@ class InfiniteScrollPage extends React.Component {
         //section number set to 0
         this.currentSectionNumber = 0;
         this.canRender = false;
+        this.autoScrollControl = null;
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             columnSize: 3,
             currentDropDownClass: "photoSelectorGroup-noDropDown",
-            sectionNumberArray: new Array(),
+            sectionNumberArray: new Array(), //stores an array of section indexes
         };
         
         //Global variables
@@ -46,26 +48,24 @@ class InfiniteScrollPage extends React.Component {
         this.isUserAtBottom = this.isUserAtBottom.bind(this);
         this.showLoadingIcon = this.showLoadingIcon.bind(this);
         this.hideLoadingIcon = this.hideLoadingIcon.bind(this);
-        
-        //METHOD CALLS
-        
     }
     
     
     //LIFECYCLE METHODS
     componentDidMount() {
-        this.renderedOnce = true; //this controls which column variable is used in the returned JSX
-        //true for renderedOnce means that the state variable will dictate how big the photogrid needs to be
-        if(this.state.sectionNumberArray.length === 0) {
-            //prevents runtime crashing or errors by manually setting the first value
-            this.canRender = true;
-            this.setState(prevState => ({
-                sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
-            }))
-        }
+        console.log("inside compMount");
+        //THIS METHOD IS used to prevent premature collection of non-existent DOM elements
+        //preventing runtime crashing or errors by manually setting the first value
+        this.canRender = true;
+        this.setState(prevState => ({
+            sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
+        }))
         this.currentSectionNumber = this.currentSectionNumber++;
-       //used to prevent premature collection of non-existent DOM elements
+        this.autoScrollControl = new SmartScoller(document.getElementById("InfiniteScrollPage"));
         this.createEventListeners();
+        console.log("logging current section number and autoscrolling controller: ");
+        console.log(this.currentSectionNumber);
+        console.log(this.autoScrollControl);
     }
 
     

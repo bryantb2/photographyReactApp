@@ -19,7 +19,7 @@
 
 .photoSelectorGroup-dropDown {
     padding-top: 7%;
-    margin-bottom: 170px;
+    margin-bottom: 220px;
 }
 
 /* dropdown menu button styles */
@@ -50,7 +50,7 @@
 .portfolioDropdown .dropdown-item {
     color: #454231;
     font-family:'FuturaPT-Light';
-    font-size: 15pt;
+    font-size: 20pt;
     padding-bottom: 5%;
     letter-spacing: 0.5px;
 }
