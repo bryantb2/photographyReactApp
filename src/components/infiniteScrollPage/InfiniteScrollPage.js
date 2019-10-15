@@ -44,6 +44,8 @@ class InfiniteScrollPage extends React.Component {
         this.parseAndSection = this.parseAndSection.bind(this);
         this.debounce = this.debounce.bind(this);
         this.userScrollHandler = this.userScrollHandler.bind(this);
+        this.disablePhotoScrollListener = this.disablePhotoScrollListener.bind(this);
+        this.enablePhltoScrollListener = this.enablePhltoScrollListener.bind(this);
         this.photoGridGenerator = this.photoGridGenerator.bind(this);
         this.isUserAtBottom = this.isUserAtBottom.bind(this);
         this.showLoadingIcon = this.showLoadingIcon.bind(this);
@@ -70,9 +72,27 @@ class InfiniteScrollPage extends React.Component {
 
     
     //EVENT LISTENERS
-    createEventListeners() {
+    createEventListeners() { 
+        //this is for non-scrolling event listeners
         document.getElementById("dropdownMenuButton").addEventListener('click', this.dropdownLayoutHandler);
-        window.addEventListener('scroll',this.debounce(this.userScrollHandler,500));
+        this.enablePhltoScrollListener();
+    }
+    
+    enablePhltoScrollListener() {
+        //this function uses a timed enabling of the photoScroll listener function, prevents spamming
+        let timer = setTimeout(()=> {
+                //enable the userScroll listener function
+                window.addEventListener('scroll',this.debounce(this.userScrollHandler,500));
+            },400);
+        console.log("inside enablePhotoScollerevent, logging the event list: ")
+        console.log(window.Event);
+    }
+    
+    disablePhotoScrollListener() {
+       //will help to prevent against a situation where the user is sitting at the bottom of the page making calls to photoScroll before the photos have actually updated on the UI
+        window.removeEventListener('scroll',this.debounce(this.userScrollHandler,500));
+        console.log("inside disablePhotoScollerEvent, logging the event list: ")
+        console.log(window.Event);
     }
     
     
@@ -80,6 +100,7 @@ class InfiniteScrollPage extends React.Component {
     userScrollHandler() {
         //this method controls when sections from the API call are rendered
         //if user gets 75% of the way down the page:
+            //disable the userScrollHandler (to prevent excessive function calls)
             //display a circlular loading icon
             //push currentSectionCounter value to state counter collection
             //call photoGridGenerator and pass in state counter collection
@@ -88,44 +109,18 @@ class InfiniteScrollPage extends React.Component {
         //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
         if(this.isUserAtBottom() === true) {
             let timout;
+            this.disablePhotoScrollListener();
             this.showLoadingIcon();
+            this.autoScrollControl.prepareFor("down");
             timout = setTimeout(()=>{
                 this.hideLoadingIcon();
                 this.setState(prevState => ({
                     sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
                 }))
-                this.currentSectionNumber = this.currentSectionNumber++;
-            }, 2000);
-            
-        }
-    }
-    
-    dropdownLayoutHandler(e) {
-        //this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
-        let button = e.target;
-        let timer;
-        if(this.state.currentDropDownClass === "photoSelectorGroup-noDropDown") {
-            //adds the expanded styles if the current styling is not expanded
-            this.expandGenreSelectorSpacing();
-            //then run a timer that checks every second if the button still has the user's focus
-                //if focus is lost, clear the timer (prevent performance bugs) and then collapse the selector UI container
-            timer = setInterval(()=> {
-                if(document.activeElement !== button) {
-                    clearInterval(timer);
-                    this.collapseGenreSelectorSpacing();
-                    //special case: force the dropdown menu to close
-                    let dropDown = document.getElementById("dropdown-menuID").classList;
-                    dropDown.forEach((pageClass)=>{
-                        if(pageClass=="show")
-                            document.getElementById("dropdown-menuID").classList.remove("show");
-                    });
-                }
-            },200);
-        }
-        else if(this.state.currentDropDownClass === "photoSelectorGroup-dropDown") {
-            //removes the expanded styles if the current styling is expanded
-            clearInterval(timer);
-            this.collapseGenreSelectorSpacing();
+                this.currentSectionNumber = this.currentSectionNumber+1;
+            }, 1000);
+            this.autoScrollControl.restorePosition();
+            this.enablePhltoScrollListener();
         }
     }
     
@@ -206,6 +201,37 @@ class InfiniteScrollPage extends React.Component {
             mainDataArray.push(subArray);
         }
         return mainDataArray;
+    }
+    
+    
+    //UI METHODS
+    dropdownLayoutHandler(e) {
+        //this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
+        let button = e.target;
+        let timer;
+        if(this.state.currentDropDownClass === "photoSelectorGroup-noDropDown") {
+            //adds the expanded styles if the current styling is not expanded
+            this.expandGenreSelectorSpacing();
+            //then run a timer that checks every second if the button still has the user's focus
+                //if focus is lost, clear the timer (prevent performance bugs) and then collapse the selector UI container
+            timer = setInterval(()=> {
+                if(document.activeElement !== button) {
+                    clearInterval(timer);
+                    this.collapseGenreSelectorSpacing();
+                    //special case: force the dropdown menu to close
+                    let dropDown = document.getElementById("dropdown-menuID").classList;
+                    dropDown.forEach((pageClass)=>{
+                        if(pageClass=="show")
+                            document.getElementById("dropdown-menuID").classList.remove("show");
+                    });
+                }
+            },200);
+        }
+        else if(this.state.currentDropDownClass === "photoSelectorGroup-dropDown") {
+            //removes the expanded styles if the current styling is expanded
+            clearInterval(timer);
+            this.collapseGenreSelectorSpacing();
+        }
     }
     
     expandGenreSelectorSpacing() {
