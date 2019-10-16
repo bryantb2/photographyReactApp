@@ -16,6 +16,7 @@ class SmartScroller {
     restorePosition() {
         if(this.readFor === 'up')
             this.node.scrollTop = this.node.scrollHeight - this.previousScrollHeightMinusTop;
+        console.log("inside restorePosition method of smartScroller");
     }
     
     prepareFor(direction) {
@@ -24,6 +25,7 @@ class SmartScroller {
         //will then calculate the 
         this.readFor = direction==undefined ? 'up' : direction;
         this.previousScrollHeightMinusTop = this.node.scrollHeight - this.node.scrollTop;
+        console.log("inside prepareFor method of smartScroller");
     }
 }
 export default SmartScroller;

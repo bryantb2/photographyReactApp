@@ -118,9 +118,9 @@ class InfiniteScrollPage extends React.Component {
                     sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
                 }))
                 this.currentSectionNumber = this.currentSectionNumber+1;
+                this.autoScrollControl.restorePosition();
+                this.enablePhltoScrollListener();
             }, 1000);
-            this.autoScrollControl.restorePosition();
-            this.enablePhltoScrollListener();
         }
     }
     
@@ -152,6 +152,8 @@ class InfiniteScrollPage extends React.Component {
             counterArray.map((sectionNumber,index) =>
                 <PhotoGrid key={index} photoArray={this.parsedAPIObjectData[sectionNumber]} gridSize={this.state.columnSize}/>
             )
+            /*
+            <PhotoGrid key={this.currentSectionNumber} photoArray={this.parsedAPIObjectData[this.currentSectionNumber   ]} gridSize={this.state.columnSize}/>*/
         )    
     }
     
