@@ -24,6 +24,7 @@ class InfiniteScrollPage extends React.Component {
         this.initialColumnSize = 3;
         //loading icon reference is here
         this.loadingIcon = null;
+        this.scrollHandlerActive = false;
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
@@ -78,8 +79,9 @@ class InfiniteScrollPage extends React.Component {
     }
     
     enablePhotoScrollListener() {
-        //window.addEventListener('scroll',this.debounce(this.userScrollHandler,500));
-        window.addEventListener('scroll',this.userScrollHandler);
+        this.scrollHandlerActive = true;
+        window.addEventListener('scroll',this.debounce(this.userScrollHandler,1000));
+        //window.addEventListener('scroll',this.userScrollHandler);
         //this function uses a timed enabling of the photoScroll listener function, prevents spamming
         /*let timer = setTimeout(()=> {
                 //enable the userScroll listener function
@@ -91,8 +93,9 @@ class InfiniteScrollPage extends React.Component {
     
     disablePhotoScrollListener() {
        //will help to prevent against a situation where the user is sitting at the bottom of the page making calls to photoScroll before the photos have actually updated on the UI
-        //window.removeEventListener('scroll',this.debounce(this.userScrollHandler,500));
-        window.removeEventListener('scroll',this.userScrollHandler);
+        this.scrollHandlerActive = false;
+        window.removeEventListener('scroll',this.debounce(this.userScrollHandler,1000));
+        //window.removeEventListener('scroll',this.userScrollHandler);
         /*console.log("inside disablePhotoScollerEvent, logging the event list: ")
         console.log(window.Event);*/
     }
@@ -109,38 +112,43 @@ class InfiniteScrollPage extends React.Component {
             //disable loading icon
             //increment section counter
         //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
-        console.log("Inside userScrollHanlder, logging data before render");
-        console.log("api data length, before render: " + this.parsedAPIObjectData.length);
-        console.log("currentSectionNumber, before render: " + this.state.currentSectionNumber);
-        
         
         this.disablePhotoScrollListener();
         if(this.isUserAtBottom() === true) {
             if(!((this.parsedAPIObjectData.length-1) === this.state.currentSectionNumber)) { 
+                console.log("Inside userScrollHanlder, logging before section increment");
+                console.log("api data length, before render: " + this.parsedAPIObjectData.length);
+                console.log("currentSectionNumber, before render: " + this.state.currentSectionNumber);
+                
                 let timout;
                 this.showLoadingIcon();
                 this.autoScrollControl.prepareFor("up");
-                timout = setTimeout(()=>{
+                //timout = setTimeout(()=>{
                     this.hideLoadingIcon();
                     this.updateCurrentSectionCounter();
                     this.autoScrollControl.restorePosition();
-                }, 1000);
+                    //clearTimeout(timout);
+                //}, 1000);
+                console.log(this.parsedAPIObjectData);
+                console.log("Inside userScrollHanlder, logging data after section increment and render");
+                console.log("api data length, after render: " + this.parsedAPIObjectData.length);
+                console.log("currentSectionNumber, after render: " + this.state.currentSectionNumber);
+                console.log("-----------------------------------------------------------------------");
             }
         }
         this.enablePhotoScrollListener();
-        console.log(this.parsedAPIObjectData);
-        console.log("Inside userScrollHanlder, logging data after render");
-        console.log("api data length, after render: " + this.parsedAPIObjectData.length);
-        console.log("currentSectionNumber, after render: " + this.state.currentSectionNumber);
-        console.log("-----------------------------------------------------------------------");
     }
     
     //METHODS
     updateCurrentSectionCounter() {
-        let newNumber = (this.state.currentSectionNumber+1);
+        console.log("updateCurrentSectionCounter called, before increment");
+        console.log(this.state.currentSectionNumber);
+        let newNumber = (this.state.currentSectionNumber)+1;
         this.setState({
             currentSectionNumber: newNumber,
         });
+        console.log("updateCurrentSectionCounter called, after increment");
+        console.log(this.state.currentSectionNumber);
     }
     
     getLoadingIcon() {
@@ -205,7 +213,7 @@ class InfiniteScrollPage extends React.Component {
               if (!immediate) func.apply(context, args);
             };
             
-            let callNow = immediate && !timeout;
+            let callNow = immediate && !timeout && this.scrollhandlerActive;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
             if (callNow) func.apply(context, args);
