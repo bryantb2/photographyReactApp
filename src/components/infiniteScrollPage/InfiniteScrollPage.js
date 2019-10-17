@@ -19,8 +19,6 @@ class InfiniteScrollPage extends React.Component {
         //GLOABAL VARIABLES
         //stored the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
-        //section number set to 0
-        //this.currentSectionNumber = 0;
         this.canRender = false;
         this.autoScrollControl = null;
     
@@ -29,7 +27,6 @@ class InfiniteScrollPage extends React.Component {
             columnSize: 3,
             currentSectionNumber: 0,
             currentDropDownClass: "photoSelectorGroup-noDropDown",
-            //sectionNumberArray: new Array(), //stores an array of section indexes
         };
         
         //Global variables
@@ -55,13 +52,6 @@ class InfiniteScrollPage extends React.Component {
     }
     
     
-    updateCurrentSectionCounter() {
-        let currentNumber = this.state.currentSectionNumber;
-        this.setState({
-            currentSectionNumber: (currentNumber+1),
-        });
-    }
-    
     //LIFECYCLE METHODS
     componentDidMount() {
         //console.log("inside compMount");
@@ -69,13 +59,7 @@ class InfiniteScrollPage extends React.Component {
         //preventing runtime crashing or errors by manually setting the first value
         this.canRender = true;
         
-        /*this.setState(prevState => ({
-            sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
-        }))*/
-        
-        //this.currentSectionNumber = this.currentSectionNumber++;
-        
-        this.updateCurrentSectionCounter();
+        //this.updateCurrentSectionCounter();
         
         this.autoScrollControl = new SmartScoller(document.getElementById("InfiniteScrollPage"));
         
@@ -140,6 +124,13 @@ class InfiniteScrollPage extends React.Component {
     }
     
     //METHODS
+    updateCurrentSectionCounter() {
+        let currentNumber = this.state.currentSectionNumber;
+        this.setState({
+            currentSectionNumber: (currentNumber+1),
+        });
+    }
+    
     isUserAtBottom() {
         //RETURNS TRUE OR FALSE
         //this function checks how close the user is the bottom of the page
@@ -155,24 +146,23 @@ class InfiniteScrollPage extends React.Component {
         }
     }
         
-    photoGridGenerator(counterArray) {
+    photoGridGenerator(sectionNumber) {
         /*console.log("GRID WAS GENERATED!");
         console.log("logging sectionCounterArray: ")
         console.log(counterArray);
         console.log("logging state: ")
         console.log(this.state);
         console.log("canRender= " + this.canRender);*/
-        //in the case of the sectionNumberArray, the element values themselves are the indexes
+        
+        //method takes in the state section number
+        //loops +1 each time until the counter equals the inputted section number
+        //will store JSX components in an array for temp storage
+        //array of components will be returned once loop is complete... those elements will then be rendered on the page
         let tempCompArray = new Array();
-        for(let i =0; i< this.state.currentSectionNumber; i++) {
-            tempCompArray.push(<PhotoGrid key={i} photoArray={this.parsedAPIObjectData[i]} gridSize={this.state.columnSize}/>);
+        for(let i =0; i<= sectionNumber; i++) {
+            tempCompArray.push(<PhotoGrid key={i} photoArray={this.parsedAPIObjectData[i]} gridSize={this.state.columnSize}/>)
         }
-        return ( tempCompArray
-            /*counterArray.map((sectionNumber,index) =>
-                <PhotoGrid key={index} photoArray={this.parsedAPIObjectData[sectionNumber]} gridSize={this.state.columnSize}/>*/
-            )
-            /*
-            <PhotoGrid key={this.currentSectionNumber} photoArray={this.parsedAPIObjectData[this.currentSectionNumber   ]} gridSize={this.state.columnSize}/>*/
+        return (tempCompArray)
     }
     
     initializeColmnSize() {
@@ -302,7 +292,7 @@ class InfiniteScrollPage extends React.Component {
             </div>
             
             <section id="photos">
-                {this.canRender==true?this.photoGridGenerator(this.state.sectionNumberArray) : null}
+                {this.photoGridGenerator(this.state.currentSectionNumber)}
             </section>
             
             <div id="photoPageLoadingIcon" className="justify-content-center p-4" >
