@@ -20,15 +20,16 @@ class InfiniteScrollPage extends React.Component {
         //stored the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
         //section number set to 0
-        this.currentSectionNumber = 0;
+        //this.currentSectionNumber = 0;
         this.canRender = false;
         this.autoScrollControl = null;
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             columnSize: 3,
+            currentSectionNumber: 0,
             currentDropDownClass: "photoSelectorGroup-noDropDown",
-            sectionNumberArray: new Array(), //stores an array of section indexes
+            //sectionNumberArray: new Array(), //stores an array of section indexes
         };
         
         //Global variables
@@ -50,24 +51,38 @@ class InfiniteScrollPage extends React.Component {
         this.isUserAtBottom = this.isUserAtBottom.bind(this);
         this.showLoadingIcon = this.showLoadingIcon.bind(this);
         this.hideLoadingIcon = this.hideLoadingIcon.bind(this);
+        this.updateCurrentSectionCounter = this.updateCurrentSectionCounter.bind(this);
     }
     
     
+    updateCurrentSectionCounter() {
+        let currentNumber = this.state.currentSectionNumber;
+        this.setState({
+            currentSectionNumber: (currentNumber+1),
+        });
+    }
+    
     //LIFECYCLE METHODS
     componentDidMount() {
-        console.log("inside compMount");
+        //console.log("inside compMount");
         //THIS METHOD IS used to prevent premature collection of non-existent DOM elements
         //preventing runtime crashing or errors by manually setting the first value
         this.canRender = true;
-        this.setState(prevState => ({
+        
+        /*this.setState(prevState => ({
             sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
-        }))
-        this.currentSectionNumber = this.currentSectionNumber++;
+        }))*/
+        
+        //this.currentSectionNumber = this.currentSectionNumber++;
+        
+        this.updateCurrentSectionCounter();
+        
         this.autoScrollControl = new SmartScoller(document.getElementById("InfiniteScrollPage"));
-        this.createEventListeners();
+        
+        this.createEventListeners(); /*
         console.log("logging current section number and autoscrolling controller: ");
         console.log(this.currentSectionNumber);
-        console.log(this.autoScrollControl);
+        console.log(this.autoScrollControl);*/
     }
 
     
@@ -84,15 +99,15 @@ class InfiniteScrollPage extends React.Component {
                 //enable the userScroll listener function
                 window.addEventListener('scroll',this.debounce(this.userScrollHandler,500));
             },400);
-        console.log("inside enablePhotoScollerevent, logging the event list: ")
-        console.log(window.Event);
+        /*console.log("inside enablePhotoScollerevent, logging the event list: ")
+        console.log(window.Event);*/
     }
     
     disablePhotoScrollListener() {
        //will help to prevent against a situation where the user is sitting at the bottom of the page making calls to photoScroll before the photos have actually updated on the UI
         window.removeEventListener('scroll',this.debounce(this.userScrollHandler,500));
-        console.log("inside disablePhotoScollerEvent, logging the event list: ")
-        console.log(window.Event);
+        /*console.log("inside disablePhotoScollerEvent, logging the event list: ")
+        console.log(window.Event);*/
     }
     
     
@@ -108,19 +123,19 @@ class InfiniteScrollPage extends React.Component {
             //increment section counter
         //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
         if(this.isUserAtBottom() === true) {
-            let timout;
-            this.disablePhotoScrollListener();
-            this.showLoadingIcon();
-            this.autoScrollControl.prepareFor("down");
-            timout = setTimeout(()=>{
-                this.hideLoadingIcon();
-                this.setState(prevState => ({
-                    sectionNumberArray: [...prevState.sectionNumberArray, this.currentSectionNumber]
-                }))
-                this.currentSectionNumber = this.currentSectionNumber+1;
-                this.autoScrollControl.restorePosition();
-                this.enablePhltoScrollListener();
-            }, 1000);
+            if(!(this.parsedAPIObjectData.length == this.state.currentSectionNumber)) {
+                let timout;
+                this.disablePhotoScrollListener();
+                this.showLoadingIcon();
+                this.autoScrollControl.prepareFor("up");
+                timout = setTimeout(()=>{
+                    this.hideLoadingIcon();
+                    this.updateCurrentSectionCounter();
+                    this.currentSectionNumber = this.currentSectionNumber+1;
+                    this.autoScrollControl.restorePosition();
+                    this.enablePhltoScrollListener();
+                }, 1000);
+            }
         }
     }
     
@@ -141,20 +156,23 @@ class InfiniteScrollPage extends React.Component {
     }
         
     photoGridGenerator(counterArray) {
-        console.log("GRID WAS GENERATED!");
+        /*console.log("GRID WAS GENERATED!");
         console.log("logging sectionCounterArray: ")
         console.log(counterArray);
         console.log("logging state: ")
         console.log(this.state);
-        console.log("canRender= " + this.canRender);
+        console.log("canRender= " + this.canRender);*/
         //in the case of the sectionNumberArray, the element values themselves are the indexes
-        return (
-            counterArray.map((sectionNumber,index) =>
-                <PhotoGrid key={index} photoArray={this.parsedAPIObjectData[sectionNumber]} gridSize={this.state.columnSize}/>
+        let tempCompArray = new Array();
+        for(let i =0; i< this.state.currentSectionNumber; i++) {
+            tempCompArray.push(<PhotoGrid key={i} photoArray={this.parsedAPIObjectData[i]} gridSize={this.state.columnSize}/>);
+        }
+        return ( tempCompArray
+            /*counterArray.map((sectionNumber,index) =>
+                <PhotoGrid key={index} photoArray={this.parsedAPIObjectData[sectionNumber]} gridSize={this.state.columnSize}/>*/
             )
             /*
             <PhotoGrid key={this.currentSectionNumber} photoArray={this.parsedAPIObjectData[this.currentSectionNumber   ]} gridSize={this.state.columnSize}/>*/
-        )    
     }
     
     initializeColmnSize() {
