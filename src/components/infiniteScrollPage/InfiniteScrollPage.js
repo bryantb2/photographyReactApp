@@ -19,7 +19,6 @@ class InfiniteScrollPage extends React.Component {
         //GLOABAL VARIABLES
         //stored the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
-        //this.autoScrollControl = null;
         //these exist because setState cannot be called to update the column size when the page has not fully loaded
         this.initialColumnSize = 3;
         //loading icon reference is here
@@ -55,11 +54,9 @@ class InfiniteScrollPage extends React.Component {
     
     //LIFECYCLE METHODS
     componentDidMount() {
-        //console.log("inside compMount");
         //THIS METHOD IS used to prevent premature collection of non-existent DOM elements
         //preventing runtime crashing or errors by manually setting the first value
         this.getLoadingIcon();
-        //this.autoScrollControl = new SmartScoller(document.getElementById("InfiniteScrollPage"));
         this.createEventListeners();
     }
 
@@ -75,7 +72,6 @@ class InfiniteScrollPage extends React.Component {
     enablePhotoScrollListener() {
         this.scrollHandlerActive = true;
         window.addEventListener('scroll',this.debounce(this.userScrollHandler,1000));
-        //window.addEventListener('scroll',this.userScrollHandler);
         //this function uses a timed enabling of the photoScroll listener function, prevents spamming
     }
     
@@ -101,32 +97,13 @@ class InfiniteScrollPage extends React.Component {
         this.disablePhotoScrollListener();
         if(this.isUserAtBottom() === true) {
             if(!((this.parsedAPIObjectData.length-1) === this.state.currentSectionNumber)) { 
-               
-                /*console.log("total scroll height of the infinite scroll page " + document.getElementById("InfiniteScrollPage").scrollHeight);
-                console.log("photo sections offsetTop from the page div " + document.getElementById("photos").offsetTop);
-                console.log("current position of scrollbar " + window.pageYOffset );*/
-                /*console.log("Inside userScrollHanlder, logging before section increment");
-                console.log("api data length, before render: " + this.parsedAPIObjectData.length);
-                console.log("currentSectionNumber, before render: " + this.state.currentSectionNumber);*/
-                
-                
                 this.showLoadingIcon();
                 setTimeout(() => {
                     this.hideLoadingIcon();
                 }, 1000);
                 SmartScroller.prepareFor(window.pageYOffset);
                 this.updateCurrentSectionCounter();
-                if(!('scrollRestoration' in window.history)) {
-                    setTimeout(() => window.scrollTo(0,SmartScroller.restorePosition()), 100)
-                }
-                
-                
-                
-                /*console.log(this.parsedAPIObjectData);
-                console.log("Inside userScrollHanlder, logging data after section increment and render");
-                console.log("api data length, after render: " + this.parsedAPIObjectData.length);
-                console.log("currentSectionNumber, after render: " + this.state.currentSectionNumber);
-                console.log("-----------------------------------------------------------------------");*/
+                setTimeout(() => window.scrollTo(0,SmartScroller.restorePosition()), 100)
             }
         }
         this.enablePhotoScrollListener();
@@ -134,14 +111,10 @@ class InfiniteScrollPage extends React.Component {
     
     //METHODS
     updateCurrentSectionCounter() {
-        /*console.log("updateCurrentSectionCounter called, before increment");
-        console.log(this.state.currentSectionNumber);*/
         let newNumber = (this.state.currentSectionNumber)+1;
         this.setState({
             currentSectionNumber: newNumber,
         });
-        /*console.log("updateCurrentSectionCounter called, after increment");
-        console.log(this.state.currentSectionNumber);*/
     }
     
     getLoadingIcon() {
