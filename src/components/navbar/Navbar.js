@@ -53,7 +53,7 @@ class Navbar extends React.Component {
                 navBarSticking: false,
             });
         }
-        console.log("INSIDE NAVBAR SCROLL EVENT");
+        //console.log("INSIDE NAVBAR SCROLL EVENT");
     }
     
     //METHODS

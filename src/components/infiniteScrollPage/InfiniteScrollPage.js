@@ -122,13 +122,16 @@ class InfiniteScrollPage extends React.Component {
                 
                 let timout;
                 this.showLoadingIcon();
-                this.autoScrollControl.prepareFor("up");
-                //timout = setTimeout(()=>{
+                timout = setTimeout(() => {
                     this.hideLoadingIcon();
-                    this.updateCurrentSectionCounter();
-                    this.autoScrollControl.restorePosition();
-                    //clearTimeout(timout);
-                //}, 1000);
+                    this.autoScrollControl.prepareFor("up");
+                }, 1000);
+                
+                this.updateCurrentSectionCounter();
+                this.autoScrollControl.restorePosition();
+                
+                
+                    
                 console.log(this.parsedAPIObjectData);
                 console.log("Inside userScrollHanlder, logging data after section increment and render");
                 console.log("api data length, after render: " + this.parsedAPIObjectData.length);
@@ -213,7 +216,7 @@ class InfiniteScrollPage extends React.Component {
               if (!immediate) func.apply(context, args);
             };
             
-            let callNow = immediate && !timeout && this.scrollhandlerActive;
+            let callNow = immediate && !timeout;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
             if (callNow) func.apply(context, args);
