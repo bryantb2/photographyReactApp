@@ -8,8 +8,11 @@ node_modules
 # testing
 /coverage
 
+#development
+.env
+
 # production
-/build
+build
 
 # misc
 .DS_Store
