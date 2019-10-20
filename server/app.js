@@ -8,6 +8,9 @@ require('dotenv/config');
 functions that are executed along with certain routes
 */
 
+//IMPORT ROUTES
+const postRoute = require('./routes/image'); 
+app.use('/image', postRoute); //middleware example
 
 
 //ROUTES
@@ -18,13 +21,11 @@ get to retrieve info
 post to send info
 */
 
-app.get("/home", (req,res) => {
+app.get("/", (req,res) => {
     res.send("HOME");
 });
 
-app.get("/posts", (req,res) => {
-    res.send("POSTS");
-});
+
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true }, () => console.log('connected to DB!')
