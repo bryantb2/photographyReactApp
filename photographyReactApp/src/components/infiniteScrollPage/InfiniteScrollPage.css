@@ -1,0 +1,173 @@
+/* INFINITE SCROLL PAGE STYLES */
+.customGenreStyle-InfiniteScrollPage {
+    color: #454231;
+    font-family:'FuturaPT-Light';
+    margin-left: 1%;
+}
+
+.verticalLineStyle-InfiniteScrollPage {
+    border-left: 3px solid #454231;
+    max-height: 0%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.photoSelectorGroup-noDropDown {
+    padding-top: 7%;
+    margin-bottom: 0.5%;
+}
+
+.photoSelectorGroup-dropDown {
+    padding-top: 7%;
+    margin-bottom: 220px;
+}
+
+/* dropdown menu button styles */
+.genreSelectButton2 {
+    background: transparent;
+    border-width:thin;
+    color: #454231;
+    border-color: #454231;
+    font-family: 'FuturaPT-Light';
+    font-size: 20pt;
+    padding: 10px 40px;
+}
+
+.genreSelectButton2:hover {
+    background-color: dimgrey;
+}
+
+.portfolioDropdown>.dropdown-menu {
+    background-color: transparent;
+    width: 100%;
+    border: 2px solid #454231;
+    border-top: none;
+    border-radius: 0px 0px 3px 3px;
+    text-align: center;
+    min-width: 100%;
+}
+
+.portfolioDropdown .dropdown-item {
+    color: #454231;
+    font-family:'FuturaPT-Light';
+    font-size: 20pt;
+    padding-bottom: 5%;
+    letter-spacing: 0.5px;
+}
+
+.portfolioDropdown .dropdown-item:hover {
+    color: white;
+    background-color: #454231;
+}
+
+div#photoPageLoadingIcon {
+    display: none;
+}
+
+/* INFINITE SCROLL PAGE PAGE MEDIA QUERY OPTIMIZATION */
+@media(min-width: 2000px) {
+    .customPortfolioContainer {
+        margin-top: 5%;
+    }
+    .infoStyle-GenrePage {
+        font-size: 44.7pt;
+        margin-bottom: 0.2%;
+    }
+    .genreSelectButton2 {
+        border-width:3px;
+        font-size: 32pt;
+        padding: 17px 47px;
+    }
+}
+
+@media (max-width: 1920px) {
+    
+}
+
+@media (max-width: 1200px) {
+    
+}
+
+@media (max-width: 1000px) {
+    
+}
+
+@media (max-width: 960px) {
+    .customPortfolioContainer {
+        margin-top: 20%;
+    }
+    .infoStyle-GenrePage {
+        font-size: 28pt;
+        margin-bottom: -2%;
+    }
+}
+
+@media (max-width: 760px) {
+    .customPortfolioContainer {
+        margin-top: 30%;
+    }
+    .infoStyle-GenrePage {
+        font-size: 22pt;
+        margin-bottom: -4%;
+    }
+    .genreSelectButton2 {
+        border-width:2px;
+        font-size: 16pt;
+        padding: 13px 35px;
+    }
+    .portfolioDropdown>.dropdown-menu {
+        /*max-width: 90%;*/
+    }
+    
+}
+
+@media (max-width: 550px) {
+    .customPortfolioContainer {
+        margin-top: 35%;
+    }
+    .infoStyle-GenrePage {
+        font-size: 19pt;
+        margin-bottom: -7%;
+    }
+    /*.genreSelectButton1 {
+        border-width:1.75px;
+        font-size: 12pt;
+        padding: 8px 20px;
+    }*/
+}
+
+@media (max-width: 480px) {
+    .customPortfolioContainer {
+        margin-top: 45%;
+    }
+    .infoStyle-GenrePage {
+        font-size: 16pt;
+        margin-bottom: -8%;
+    }
+    /*.genreSelectButton1 {
+        font-size: 10pt;
+        padding: 8px 20px;
+    }*/
+}
+
+@media (max-width: 380px) {
+    .infoStyle-GenrePage {
+        font-size: 13pt;
+        margin-bottom: -11%;
+    }
+    /*.genreSelectButton1 {
+        font-size: 10pt;
+        padding: 6px 18px;
+    }*/
+}
+
+@media (max-width: 320px) {
+    .infoStyle-GenrePage {
+        font-size: 13pt;
+        margin-bottom: -12%;
+    }
+    .genreSelectButton2 {
+        font-size: 9pt;
+        padding: 5px 15px;
+    }
+}

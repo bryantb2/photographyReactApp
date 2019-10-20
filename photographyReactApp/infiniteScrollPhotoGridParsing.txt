@@ -1,0 +1,10 @@
+GENERAL STEPS FOR BREAKING DOWN API DATA
+1. Fetch API data 
+2. Declare state variable
+2. Split API into sections of 9-max
+3. Pass split API array with corresponding index into photogrid
+
+----------------------------------------------------------------------------
+
+Implementation of data feeding system
+1. State-level array
