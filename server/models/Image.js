@@ -3,24 +3,28 @@ const mongoose = require('mongoose');
 
 //this creates a mongoose schema that will setup the data object model
 const ImageSchema = mongoose.Schema({
+    genre: {
+        type: String,
+        required: true
+    },
     imageName: {
         type: String,
         required: true
     },
     imageNumber: {
-        type: int,
+        type: Number,
         required: true
     },
     thumbnail: {
-        type: URL,
+        type: String,
         required: true
     },
     fullSizeImage: {
-        type: URL,
+        type: String,
         required: true
     },
     orientation: {
-        type: URL,
+        type: String,
         required: true
     },
     timeStamp: {
@@ -29,4 +33,4 @@ const ImageSchema = mongoose.Schema({
     }
 });
 
-modules.exports = mongoose.model('Image', ImageSchema);
+module.exports = mongoose.model('Image', ImageSchema);

@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv/config');
 
 //Middlewars
 /*
 functions that are executed along with certain routes
 */
+
+app.use(bodyParser.json());
 
 //IMPORT ROUTES
 const postRoute = require('./routes/image'); 
@@ -21,8 +24,8 @@ get to retrieve info
 post to send info
 */
 
-app.get("/", (req,res) => {
-    res.send("HOME");
+app.get('/', (req,res) => {
+    res.send('HOME');
 });
 
 
