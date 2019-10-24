@@ -7,8 +7,25 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) => {
-    console.log(req.body);
-})
+    const image = new Image({
+        genre: req.body.genre,
+        imageName: req.body.imageNumber,
+        imageNumber: req.body.imageNumber,
+        thumbnail: req.body.thumbnail,
+        fullSizeImage: req.body.fullSizeImage,
+        orientation: req.body.orientation,
+        timeStamp: req.body.timeStamp
+    });
+    
+    image.save()
+    .exec()
+    .then(data => {
+        res.json(data);
+    })
+    .catch(err => {
+        res.status(200);
+    })
+});
 
 
 module.exports = router;

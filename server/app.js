@@ -31,7 +31,7 @@ app.get('/', (req,res) => {
 
 
 //Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true }, () => console.log('connected to DB!')
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => console.log('connected to DB!')
 );
 
 //tells express which port to listen on
