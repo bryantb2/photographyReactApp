@@ -7,10 +7,6 @@ const ImageSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    imageName: {
-        type: String,
-        required: true
-    },
     imageNumber: {
         type: Number,
         required: true
@@ -33,4 +29,4 @@ const ImageSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Image',ImageSchema);
+module.exports = mongoose.model('Image', ImageSchema);

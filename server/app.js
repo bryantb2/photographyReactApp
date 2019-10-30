@@ -12,8 +12,8 @@ functions that are executed along with certain routes
 app.use(bodyParser.json());
 
 //IMPORT ROUTES
-const postRoute = require('./routes/image'); 
-app.use('/image', postRoute); //middleware example
+const imageRoute = require('./routes/image'); 
+app.use('/image', imageRoute); //middleware example
 
 
 //ROUTES
