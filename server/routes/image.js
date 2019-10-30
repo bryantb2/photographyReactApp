@@ -6,25 +6,27 @@ router.get('/', (req,res) => {
     res.send('Image');
 });
 
-router.post('/', (req,res) => {
+//using async and await key words removes the need to use extra syntax like .then and arrow functions
+router.post('/', async (req,res) => {
     const image = new Image({
         genre: req.body.genre,
         imageName: req.body.imageNumber,
         imageNumber: req.body.imageNumber,
         thumbnail: req.body.thumbnail,
         fullSizeImage: req.body.fullSizeImage,
-        orientation: req.body.orientation,
-        timeStamp: req.body.timeStamp
+        orientation: req.body.orientation
     });
     
-    image.save()
-    .exec()
-    .then(data => {
-        res.json(data);
-    })
-    .catch(err => {
-        res.status(200);
-    })
+    try{
+        console.log(image);
+        const savedImage = await image.save();
+        res.json(savedImage);
+    }
+    catch(err) {
+        res.json({message: err});
+    }
+    
+    
 });
 
 
