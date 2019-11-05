@@ -1,7 +1,8 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import history from './History.js';
+import History from './History.js';
 import './App.css';
+
 import HomePage from '../src/components/homepage/HomePage.js';
 import PortfolioSelection from '../src/components/infiniteScrollPage/PortfolioPageSelection.js';
 import InfiniteScrollPage from './components/infiniteScrollPage/InfiniteScrollPage.js';
@@ -23,7 +24,6 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="ui container">
             <Router history={History}>
                 <div>
                     <Switch>
@@ -33,7 +33,6 @@ class App extends React.Component {
                     </Switch>
                 </div>
             </Router>
-            </div>
         );
     }
 }

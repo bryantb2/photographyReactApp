@@ -435,7 +435,7 @@ img.mainImage {
 
 /* More Info Divider */
 #moreInfoDivider {
-    z-index: 100;
+    z-index: 0;
     padding-top: 1.5%;
     width: 100%;
     background: #454231;
