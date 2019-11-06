@@ -61,6 +61,15 @@ class InfiniteScrollPage extends React.Component {
         this.getLoadingIcon();
         this.createEventListeners();
     }
+    
+    componentWillUnmount() {
+        // THIS METHOD will be used to remove event listeners and clear timers
+        // prevents runtiume crashing when the page switches
+        setTimeout(function(){}, 1001);
+        this.disablePhotoScrollListener();
+        console.log("inside COMPONENT WILL UNMOUNT, testing to see if window STILL has the event listener hooked in: ");
+        console.log();
+    }
 
     
     //EVENT LISTENERS
@@ -78,7 +87,7 @@ class InfiniteScrollPage extends React.Component {
     }
     
     disablePhotoScrollListener() {
-       //will help to prevent against a situation where the user is sitting at the bottom of the page making calls to photoScroll before the photos have actually updated on the UI
+       // will help to prevent against a situation where the user is sitting at the bottom of the page making calls to photoScroll before the photos have actually updated on the UI
         this.scrollHandlerActive = false;
         window.removeEventListener('scroll',this.debounce(this.userScrollHandler,1000));
     }

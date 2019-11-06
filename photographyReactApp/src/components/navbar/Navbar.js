@@ -115,7 +115,7 @@ class Navbar extends React.Component {
                     <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item active">
-                    <Link className="nav-link" to="#">Highlights<span className="sr-only">(current)</span></Link>
+                    <Link className="nav-link" to="/" >Highlights<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item active">
                     <Link className="nav-link" to="/selectportfolio">Portfolio<span className="sr-only">(current)</span></Link>
