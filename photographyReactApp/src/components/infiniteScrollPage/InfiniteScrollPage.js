@@ -1,5 +1,5 @@
 import React from 'react';
-import './InfiniteScrollPage.css';
+// import './InfiniteScrollPage.css';
 import Navbar from '../navbar/Navbar.js';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import SmartScroller from '../utilityComponents/SmartScroll.js';

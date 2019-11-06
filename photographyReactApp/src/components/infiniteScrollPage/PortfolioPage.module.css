@@ -18,14 +18,14 @@
 }
 
 /* header and text info styles */
-.headerStyle-GenrePage {
+.headerStyleGenrePage {
     font-family: 'FuturaPT-Bold';
     font-size: 60pt;
     color: #f4e0b9;
     margin-bottom: -1.5%;
 }
 
-.infoStyle-GenrePage {
+.infoStyleGenrePage {
     font-family: "FuturaPT-Light";
     font-size: 29.5pt;
     color: #f4e0b9;
@@ -34,7 +34,7 @@
 }
 
 /* dropdown menu button styles */
-.genreSelectButton1 {
+.genreSelectButton {
     background: transparent;
     border-width:medium;
     color: #f4e0b9;
@@ -45,11 +45,11 @@
     margin-top: 20%;
 }
 
-.genreSelectButton1:hover {
+.genreSelectButton:hover {
     background-color: dimgrey;
 }
 
-.portfolioDropdown>.dropdown-menu {
+.customPortfolioDropdownMenu {
     background-color: transparent;
     width: 100%;
     border: 2px solid #f4e0b9;
@@ -59,7 +59,7 @@
     min-width: 100%;
 }
 
-.portfolioDropdown .dropdown-item {
+.customPortfolioDropdownItem {
     color: #f4e0b9;
     font-family:'FuturaPT-Light';
     font-size: 15pt;
@@ -67,7 +67,7 @@
     letter-spacing: 0.5px;
 }
 
-.portfolioDropdown .dropdown-item:hover {
+.customPortfolioDropdownItem:hover {
     color: #454231;
 }
 
@@ -77,15 +77,15 @@
     .customPortfolioContainer {
         margin-top: 5%;
     }
-    .headerStyle-GenrePage {
+    .headerStyleGenrePage {
         font-size: 90pt;
         margin-bottom: -1%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 44.7pt;
         margin-bottom: 0.2%;
     }
-    .genreSelectButton1 {
+    .genreSelectButton {
         border-width:3px;
         font-size: 32pt;
         padding: 17px 47px;
@@ -109,11 +109,11 @@
     .customPortfolioContainer {
         margin-top: 20%;
     }
-    .headerStyle-GenrePage {
+    .headerStyleGenrePage {
         font-size: 55pt;
         margin-bottom: -2%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 28pt;
         margin-bottom: -2%;
     }
@@ -123,15 +123,15 @@
     .customPortfolioContainer {
         margin-top: 30%;
     }
-    .headerStyle-GenrePage {
+    .headerStyleGenrePage {
         font-size: 40pt;
         margin-bottom: -3%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 22pt;
         margin-bottom: -4%;
     }
-    .genreSelectButton1 {
+    .genreSelectButton {
         border-width:2px;
         font-size: 16pt;
         padding: 13px 35px;
@@ -146,11 +146,11 @@
     .customPortfolioContainer {
         margin-top: 35%;
     }
-    .headerStyle-GenrePage {
+    .headerStyleGenrePage {
         font-size: 37pt;
         margin-bottom: -3.5%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 19pt;
         margin-bottom: -7%;
     }
@@ -165,11 +165,11 @@
     .customPortfolioContainer {
         margin-top: 45%;
     }
-    .headerStyle-GenrePage {
+    .headerStyleGenrePage {
         font-size: 30pt;
         margin-bottom: -4%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 16pt;
         margin-bottom: -8%;
     }
@@ -180,11 +180,11 @@
 }
 
 @media (max-width: 380px) {
-    .headerStyle-GenrePage {
+    .headerStyleGenrePage {
         font-size: 25pt;
         margin-bottom: -4.5%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 13pt;
         margin-bottom: -11%;
     }
@@ -195,15 +195,15 @@
 }
 
 @media (max-width: 320px) {
-    .headerStyle-GenrePage {
+    .headerStyleGenrePage {
         font-size: 23pt;
         margin-bottom: -5%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 13pt;
         margin-bottom: -12%;
     }
-    .genreSelectButton1 {
+    .genreSelectButton {
         font-size: 9pt;
         padding: 5px 15px;
     }
