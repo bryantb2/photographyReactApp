@@ -28,6 +28,7 @@ class InfiniteScrollPage extends React.Component {
     
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
+            genre: props.match.params.genre,
             columnSize: 3,
             currentSectionNumber: 0,
             currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
@@ -251,8 +252,8 @@ class InfiniteScrollPage extends React.Component {
             <Navbar alwaysFixed={true} />
             
             <div className={"d-flex justify-content-left " + this.state.currentDropDownClass}>
-                <div className={Styles.infoStyleGenrePage + Styles.customGenreStyle + " p-2"}>
-                    {this.props.genre}
+                <div className={Styles.infoStyleGenrePage + " p-2 " + Styles.customGenreStyle}>
+                    {this.state.genre}
                 </div>
             
                 <div className={Styles.verticalLine + " p-2"}></div>
