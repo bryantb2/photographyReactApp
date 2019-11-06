@@ -3,6 +3,7 @@ import Styles from './InfiniteScrollPage.module.css';
 import Navbar from '../navbar/Navbar.js';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import SmartScroller from '../utilityComponents/SmartScroll.js';
+import { Link } from 'react-router-dom';
 
 //imports for testing API system:
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
@@ -262,10 +263,10 @@ class InfiniteScrollPage extends React.Component {
                         Genre
                         </button>
                         <div id="dropdown-menuID" className={Styles.customDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
-                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Urban</a>
-                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Natural</a>
-                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Aerial</a>
-                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Portraits</a>
+                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/urban">Urban</Link>
+                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/natural">Natural</Link>
+                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/aerial">Aerial</Link>
+                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/portraits">Portraits</Link>
                         </div>
                     </div>
                 </div>
