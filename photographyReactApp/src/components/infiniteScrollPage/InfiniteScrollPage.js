@@ -1,5 +1,5 @@
 import React from 'react';
-// import './InfiniteScrollPage.css';
+import Styles from './InfiniteScrollPage.module.css';
 import Navbar from '../navbar/Navbar.js';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import SmartScroller from '../utilityComponents/SmartScroll.js';
@@ -29,7 +29,7 @@ class InfiniteScrollPage extends React.Component {
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             columnSize: 3,
             currentSectionNumber: 0,
-            currentDropDownClass: "photoSelectorGroup-noDropDown",
+            currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
         };
         
         
@@ -199,7 +199,7 @@ class InfiniteScrollPage extends React.Component {
         //this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
         let button = e.target;
         let timer;
-        if(this.state.currentDropDownClass === "photoSelectorGroup-noDropDown") {
+        if(this.state.currentDropDownClass === Styles.photoSelectorGroupnoDropDown) {
             //adds the expanded styles if the current styling is not expanded
             this.expandGenreSelectorSpacing();
             //then run a timer that checks every second if the button still has the user's focus
@@ -217,7 +217,7 @@ class InfiniteScrollPage extends React.Component {
                 }
             },200);
         }
-        else if(this.state.currentDropDownClass === "photoSelectorGroup-dropDown") {
+        else if(this.state.currentDropDownClass === Styles.photoSelectorGroupdropDown) {
             //removes the expanded styles if the current styling is expanded
             clearInterval(timer);
             this.collapseGenreSelectorSpacing();
@@ -226,13 +226,13 @@ class InfiniteScrollPage extends React.Component {
     
     expandGenreSelectorSpacing() {
         this.setState({
-                currentDropDownClass: "photoSelectorGroup-dropDown",
+                currentDropDownClass: Styles.photoSelectorGroupdropDown,
             });
     }
     
     collapseGenreSelectorSpacing() {
         this.setState({
-                currentDropDownClass: "photoSelectorGroup-noDropDown",
+                currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
             });
     }
     
@@ -250,22 +250,22 @@ class InfiniteScrollPage extends React.Component {
             <Navbar alwaysFixed={true} />
             
             <div className={"d-flex justify-content-left " + this.state.currentDropDownClass}>
-                <div className="p-2 infoStyle-GenrePage customGenreStyle-InfiniteScrollPage">
+                <div className={Styles.infoStyleGenrePage + Styles.customGenreStyle + " p-2"}>
                     {this.props.genre}
                 </div>
             
-                <div className="p-2 verticalLineStyle-InfiniteScrollPage"></div>
+                <div className={Styles.verticalLine + " p-2"}></div>
             
                 <div className="p-2">
                     <div className="portfolioDropdown dropdown">
-                        <button className="genreSelectButton2 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button className={Styles.genreSelectButton + " btn btn-secondary dropdown-toggle"} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Genre
                         </button>
-                        <div id="dropdown-menuID" className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" href="#">Urban</a>
-                            <a className="dropdown-item" href="#">Natural</a>
-                            <a className="dropdown-item" href="#">Aerial</a>
-                            <a className="dropdown-item" href="#">Portraits</a>
+                        <div id="dropdown-menuID" className={Styles.customDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
+                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Urban</a>
+                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Natural</a>
+                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Aerial</a>
+                            <a className={Styles.customDropdownItem + " dropdown-item"} href="#">Portraits</a>
                         </div>
                     </div>
                 </div>

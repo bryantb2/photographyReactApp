@@ -1,29 +1,29 @@
 /* INFINITE SCROLL PAGE STYLES */
-.customGenreStyle-InfiniteScrollPage {
+.customGenreStyle {
     color: #454231;
     font-family:'FuturaPT-Light';
     margin-left: 1%;
 }
 
-.verticalLineStyle-InfiniteScrollPage {
+.verticalLine {
     border-left: 3px solid #454231;
     max-height: 0%;
     margin-left: 3%;
     margin-right: 3%;
 }
 
-.photoSelectorGroup-noDropDown {
+.photoSelectorGroupnoDropDown {
     padding-top: 7%;
     margin-bottom: 0.5%;
 }
 
-.photoSelectorGroup-dropDown {
+.photoSelectorGroupdropDown {
     padding-top: 7%;
     margin-bottom: 220px;
 }
 
 /* dropdown menu button styles */
-.genreSelectButton2 {
+.genreSelectButton {
     background: transparent;
     border-width:thin;
     color: #454231;
@@ -33,11 +33,11 @@
     padding: 10px 40px;
 }
 
-.genreSelectButton2:hover {
+.genreSelectButton:hover {
     background-color: dimgrey;
 }
 
-.portfolioDropdown>.dropdown-menu {
+.customDropdownMenu {
     background-color: transparent;
     width: 100%;
     border: 2px solid #454231;
@@ -47,7 +47,7 @@
     min-width: 100%;
 }
 
-.portfolioDropdown .dropdown-item {
+.customDropdownItem {
     color: #454231;
     font-family:'FuturaPT-Light';
     font-size: 20pt;
@@ -55,7 +55,7 @@
     letter-spacing: 0.5px;
 }
 
-.portfolioDropdown .dropdown-item:hover {
+.customDropdownItem:hover {
     color: white;
     background-color: #454231;
 }
@@ -69,11 +69,11 @@ div#photoPageLoadingIcon {
     .customPortfolioContainer {
         margin-top: 5%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 44.7pt;
         margin-bottom: 0.2%;
     }
-    .genreSelectButton2 {
+    .genreSelectButton {
         border-width:3px;
         font-size: 32pt;
         padding: 17px 47px;
@@ -96,7 +96,7 @@ div#photoPageLoadingIcon {
     .customPortfolioContainer {
         margin-top: 20%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 28pt;
         margin-bottom: -2%;
     }
@@ -110,7 +110,7 @@ div#photoPageLoadingIcon {
         font-size: 22pt;
         margin-bottom: -4%;
     }
-    .genreSelectButton2 {
+    .genreSelectButton {
         border-width:2px;
         font-size: 16pt;
         padding: 13px 35px;
@@ -125,7 +125,7 @@ div#photoPageLoadingIcon {
     .customPortfolioContainer {
         margin-top: 35%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 19pt;
         margin-bottom: -7%;
     }
@@ -140,7 +140,7 @@ div#photoPageLoadingIcon {
     .customPortfolioContainer {
         margin-top: 45%;
     }
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 16pt;
         margin-bottom: -8%;
     }
@@ -151,7 +151,7 @@ div#photoPageLoadingIcon {
 }
 
 @media (max-width: 380px) {
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 13pt;
         margin-bottom: -11%;
     }
@@ -162,11 +162,11 @@ div#photoPageLoadingIcon {
 }
 
 @media (max-width: 320px) {
-    .infoStyle-GenrePage {
+    .infoStyleGenrePage {
         font-size: 13pt;
         margin-bottom: -12%;
     }
-    .genreSelectButton2 {
+    .genreSelectButton {
         font-size: 9pt;
         padding: 5px 15px;
     }

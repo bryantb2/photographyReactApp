@@ -30,10 +30,10 @@ function PortfolioPageSelection() {
                         Genre
                         </button>
                         <div className={styles.customPortfolioDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
-                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/urban">Urban</Link>
-                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/natural">Natural</Link>
-                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/aerial">Aerial</Link>
-                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/portraits">Portraits</Link>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/selectportfolio/urban">Urban</Link>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/selectportfolio/natural">Natural</Link>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/selectportfolio/aerial">Aerial</Link>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/selectportfolio/portraits">Portraits</Link>
                         </div>
                     </div>
                 </div>

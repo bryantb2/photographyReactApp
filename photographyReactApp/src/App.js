@@ -12,17 +12,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            greeting: "hello there",
-        }
-
-
-        //BINDS
+        this.state = {}
     }
-
-
-    //METHODS
-
     render() {
         return (
             <Router history={History}>
