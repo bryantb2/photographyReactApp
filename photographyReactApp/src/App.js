@@ -1,11 +1,12 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import History from './History.js';
-import './App.css';
 
+// Importing componenets and stylesheets
 import HomePage from '../src/components/homepage/HomePage.js';
 import PortfolioSelection from '../src/components/infiniteScrollPage/PortfolioPageSelection.js';
 import InfiniteScrollPage from './components/infiniteScrollPage/InfiniteScrollPage.js';
+import './App.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class App extends React.Component {
             <Router history={History}>
                 <div>
                     <Switch>
-                        <Route path="/" component={HomePage} />
+                        <Route path="/" exact component={HomePage}/>
                         <Route path="/portfolioselection" exact component={PortfolioSelection} />
                         <Route path="/gallery" exact component={InfiniteScrollPage} />
                     </Switch>

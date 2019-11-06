@@ -1,5 +1,7 @@
 import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
+import { Nav, NavItem, NavLink, NavBarBrand } from 'reactstrap';
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -99,11 +101,10 @@ class Navbar extends React.Component {
     
     
     render() {
-        
         return (
         <nav id="navigationBar" className={
             ((this.props.alwaysFixed===true) ? "customNavStyles-Fixed" : (this.state.navBarSticking===true ? "customNavStyles-Fixed" : "customNavStyles-unFixed")) + " navbar navbar-expand-lg navbar-dark customNavStyles-unFixed"}>
-          <a className="navbar-brand" href="#">Bryant Photography</a>
+          <Link className="navbar-brand" to="#">Bryant Photography</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -111,19 +112,19 @@ class Navbar extends React.Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                    <a className="nav-link" href="#page2">Home<span className="sr-only">(current)</span></a>
+                    <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#page3">Highlights<span className="sr-only">(current)</span></a>
+                    <Link className="nav-link" to="#">Highlights<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#">Portfolio<span className="sr-only">(current)</span></a>
+                    <Link className="nav-link" to="/portfolioselection">Portfolio<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#page4">About<span className="sr-only">(current)</span></a>
+                    <Link className="nav-link" to="#">About<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#contactInfo">Share<span className="sr-only">(current)</span></a>
+                    <Link className="nav-link" to="#contactInfo">Share<span className="sr-only">(current)</span></Link>
                 </li>
             </ul>
           </div>
