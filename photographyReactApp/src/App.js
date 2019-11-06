@@ -29,8 +29,8 @@ class App extends React.Component {
                 <div>
                     <Switch>
                         <Route path="/" exact component={HomePage}/>
-                        <Route path="/portfolioselection" exact component={PortfolioSelection} />
-                        <Route path="/gallery" exact component={InfiniteScrollPage} />
+                        <Route path="/selectportfolio" exact component={PortfolioSelection} />
+                        <Route path="/selectportfolio/:genre" exact component={InfiniteScrollPage} />
                     </Switch>
                 </div>
             </Router>

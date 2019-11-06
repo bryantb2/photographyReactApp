@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 import styles from './PortfolioPage.module.css';
 import Navbar from '../navbar/Navbar.js';
+import { Link } from 'react-router-dom';
 
 function PortfolioPageSelection() {
     
@@ -29,10 +30,10 @@ function PortfolioPageSelection() {
                         Genre
                         </button>
                         <div className={styles.customPortfolioDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
-                            <a className={styles.customPortfolioDropdownItem + " dropdown-item"} href="#">Urban</a>
-                            <a className={styles.customPortfolioDropdownItem + " dropdown-item"} href="#">Natural</a>
-                            <a className={styles.customPortfolioDropdownItem + " dropdown-item"} href="#">Aerial</a>
-                            <a className={styles.customPortfolioDropdownItem + " dropdown-item"} href="#">Portraits</a>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/urban">Urban</Link>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/natural">Natural</Link>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/aerial">Aerial</Link>
+                            <Link className={styles.customPortfolioDropdownItem + " dropdown-item"} to="/gallery/portraits">Portraits</Link>
                         </div>
                     </div>
                 </div>
