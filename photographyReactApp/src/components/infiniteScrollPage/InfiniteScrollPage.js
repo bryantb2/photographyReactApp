@@ -140,6 +140,7 @@ class InfiniteScrollPage extends React.Component {
         console.log(target);
         console.log("logging genre of target: ");
         console.log(genreProperty);
+        this.props.history.push('/selectportfolio/' + genreProperty);
         this.setState({
             genre: genreProperty,
         });
@@ -297,10 +298,10 @@ class InfiniteScrollPage extends React.Component {
                         <button className={Styles.genreSelectButton + " btn btn-secondary dropdown-toggle"} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Genre</button>
                         <div id="dropdown-menuID" className={Styles.customDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
-                            <a id="urban" className={Styles.customDropdownItem + " dropdown-item"} >Urban</a>
-                            <a id="natural" className={Styles.customDropdownItem + " dropdown-item"} >Natural</a>
-                            <a id="aerial" className={Styles.customDropdownItem + " dropdown-item"} >Aerial</a>
-                            <a id="portraits" className={Styles.customDropdownItem + " dropdown-item"} >Portraits</a>
+                            <button id="urban" className={Styles.customDropdownItem + " dropdown-item"}>Urban</button>
+                            <button id="natural" className={Styles.customDropdownItem + " dropdown-item"} >Natural</button>
+                            <button id="aerial" className={Styles.customDropdownItem + " dropdown-item"} >Aerial</button>
+                            <button id="portraits" className={Styles.customDropdownItem + " dropdown-item"} >Portraits</button>
                         </div>
                     </div>
                 </div>
