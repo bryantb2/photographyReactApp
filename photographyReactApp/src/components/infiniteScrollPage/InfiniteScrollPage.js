@@ -3,7 +3,6 @@ import Styles from './InfiniteScrollPage.module.css';
 import Navbar from '../navbar/Navbar.js';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import SmartScroller from '../utilityComponents/SmartScroll.js';
-import { Link } from 'react-router-dom';
 
 //imports for testing API system:
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
@@ -51,6 +50,8 @@ class InfiniteScrollPage extends React.Component {
         this.hideLoadingIcon = this.hideLoadingIcon.bind(this);
         this.updateCurrentSectionCounter = this.updateCurrentSectionCounter.bind(this);
         this.getLoadingIcon = this.getLoadingIcon.bind(this);
+        this.genreClickHandler = this.genreClickHandler.bind(this);
+        this.enableGenreClickListeners = this.enableGenreClickListeners.bind(this);
     }
     
     
@@ -78,6 +79,14 @@ class InfiniteScrollPage extends React.Component {
         document.getElementById("dropdownMenuButton").addEventListener('click', this.dropdownLayoutHandler);
         //initialized an event listener for the userScrollHandler
         this.enablePhotoScrollListener();
+        this.enableGenreClickListeners();
+    }
+    
+    enableGenreClickListeners() {
+        let anchorNodes = document.getElementsByClassName("dropdown-item");
+        for(let i = 0; i < anchorNodes.length; i++) {
+            anchorNodes[i].addEventListener('click',this.genreClickHandler);
+        }
     }
     
     enablePhotoScrollListener() {
@@ -118,6 +127,22 @@ class InfiniteScrollPage extends React.Component {
             }
         }
         this.enablePhotoScrollListener();
+    }
+    
+    genreClickHandler(e) {
+        // get the target element that triggered the event
+        // store the element's value property
+        // call setState
+        console.log("Inside GENRE CLICK HANDLER");
+        let target = e.target;
+        let genreProperty = target.id;
+        console.log("logging target element: ");
+        console.log(target);
+        console.log("logging genre of target: ");
+        console.log(genreProperty);
+        this.setState({
+            genre: genreProperty,
+        });
     }
     
     //METHODS
@@ -270,13 +295,12 @@ class InfiniteScrollPage extends React.Component {
                 <div className="p-2">
                     <div className="portfolioDropdown dropdown">
                         <button className={Styles.genreSelectButton + " btn btn-secondary dropdown-toggle"} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Genre
-                        </button>
+                        Genre</button>
                         <div id="dropdown-menuID" className={Styles.customDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
-                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/urban">Urban</Link>
-                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/natural">Natural</Link>
-                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/aerial">Aerial</Link>
-                            <Link className={Styles.customDropdownItem + " dropdown-item"} to="/selectportfolio/portraits">Portraits</Link>
+                            <a id="urban" className={Styles.customDropdownItem + " dropdown-item"} >Urban</a>
+                            <a id="natural" className={Styles.customDropdownItem + " dropdown-item"} >Natural</a>
+                            <a id="aerial" className={Styles.customDropdownItem + " dropdown-item"} >Aerial</a>
+                            <a id="portraits" className={Styles.customDropdownItem + " dropdown-item"} >Portraits</a>
                         </div>
                     </div>
                 </div>
