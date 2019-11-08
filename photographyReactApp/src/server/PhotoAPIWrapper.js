@@ -92,6 +92,48 @@ class PhotoAPI {
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
+                    {
+                       "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                       "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                       "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                       "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                       "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                       "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                       "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    }
                 ]
             }
         }

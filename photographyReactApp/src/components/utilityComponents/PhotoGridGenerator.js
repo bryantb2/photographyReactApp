@@ -12,11 +12,11 @@ function PhotoGridGenerator(props) {
     //will store JSX components in an array for temp storage
     //array of components will be returned once loop is complete... those elements will then be rendered on the page
     let tempCompArray = new Array();
-    for(let i =0; i<= numberOfSectionsToRender; i++) {
+    for(let i =1; i<= numberOfSectionsToRender; i++) {
         tempCompArray.push(
             <PhotoGrid 
-                key={i} 
-                photoArray={formattedImageObjectArray[i]} 
+                key={i-1} 
+                photoArray={formattedImageObjectArray[i-1]} 
                 gridSize={columnSize}
             />
         )

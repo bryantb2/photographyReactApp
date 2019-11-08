@@ -17,8 +17,6 @@ class APIDataParser {
             }
             mainDataArray.push(subArray);
         }
-        console.log("logging sectioned image object array inside APIDataParser: ");
-        console.log(mainDataArray);
         return mainDataArray;
     }
 }

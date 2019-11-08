@@ -27,29 +27,18 @@ class HomePage extends React.Component {
             APIData: APIDataParser.parseAndSection(this.APIDataObject),
             columnSize: 3,
         };
-        console.log("logging API data inside home: ");
-        console.log(this.state.APIData);
-        
-        //Global variables
-        //these exist because setState cannot be called to update the column size when the page has not fully loaded
-        this.initialColumnSize = 3;
-        this.renderedOnce = false;
         
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
         this.photoGridResizeHandler = this.photoGridResizeHandler.bind(this);
         this.initializeColmnSize = this.initializeColmnSize.bind(this);
         this.debounce = this.debounce.bind(this);
-        
-        //METHOD CALLS
-        this.initializeColmnSize();
     }
     
     //LIFECYCLE METHODS
     componentDidMount() {
-        this.renderedOnce = true; //this controls which column variable is used in the returned JSX
-        //true for renderedOnce means that the state variable will dictate how big the photogrid needs to be
         this.createEventListeners();
+        this.initializeColmnSize();
     }
     
     //EVENT LISTENERS
@@ -83,8 +72,9 @@ class HomePage extends React.Component {
         let windowWidth = window.innerWidth;
         //setState of layoutSize to "small" if below 575px
         if(windowWidth < 1050) {
-            this.initialColumnSize = 6;
-            //this.state.columnSize = 6;
+            this.setState({
+                columnSize: 6,
+            });
         }
         //no need for else statement to switch to 3 because layoutSize is already set to 3 by default
     }
@@ -175,7 +165,7 @@ class HomePage extends React.Component {
 
 
         <section id="page3">
-            <PhotoGridGenerator columnSize={this.state.columnSize} formattedImageObjectArray={this.state.APIData} numberOfSectionsToRender={1}/>
+            <PhotoGridGenerator columnSize={this.state.columnSize} formattedImageObjectArray={this.state.APIData} numberOfSectionsToRender={3}/>
         </section>  
 
 
