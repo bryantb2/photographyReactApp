@@ -61,7 +61,7 @@
     background-color: #454231;
 }
 
-div#photoPageLoadingIcon {
+.loadingIconDisplay {
     display: none;
 }
 

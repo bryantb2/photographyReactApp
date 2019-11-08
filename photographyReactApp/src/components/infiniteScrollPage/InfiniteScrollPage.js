@@ -8,27 +8,27 @@ import SmartScroller from '../utilityComponents/SmartScroll.js';
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
 
 class InfiniteScrollPage extends React.Component {
-    //INPUT: takes in a genre name and makes a fetch call to the server for the photo data
-    //page is loaded once the API call has completed
+    // INPUT: takes in a genre name and makes a fetch call to the server for the photo data
     constructor(props) {
         super(props);
         
-        //Local Constructor Variables
+        // Local Constructor Variables
         let APIDataObject = PhotoAPI.GetAPIData();
         
-        //GLOABAL VARIABLES
-        //stored the sectioned version of the APIDataObject data
+        // GLOABAL VARIABLES
+        // stored the sectioned version of the APIDataObject data
         this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
-        //these exist because setState cannot be called to update the column size when the page has not fully loaded
+        
+        // these exist because setState cannot be called to update the column size when the page has not fully loaded
         this.initialColumnSize = 3;
-        //loading icon reference is here
+        
+        // loading icon reference is here
         this.loadingIcon = null;
         this.scrollHandlerActive = false;
     
         this.state={
-            //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             genre: props.match.params.genre,
-            columnSize: 3,
+            columnSize: this.initialColumnSize,
             currentSectionNumber: 0,
             currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
         };
@@ -130,15 +130,11 @@ class InfiniteScrollPage extends React.Component {
     
     genreClickHandler(e) {
         // get the target element that triggered the event
-        // store the element's value property
-        // call setState
-        console.log("Inside GENRE CLICK HANDLER");
+        // store the element's id property
+        // manually modify the component history and add a path to the genre
+        // call setState, set it to the genre stored in the id
         let target = e.target;
         let genreProperty = target.id;
-        console.log("logging target element: ");
-        console.log(target);
-        console.log("logging genre of target: ");
-        console.log(genreProperty);
         this.props.history.push('/selectportfolio/' + genreProperty);
         this.setState({
             genre: genreProperty,
@@ -316,7 +312,7 @@ class InfiniteScrollPage extends React.Component {
                 {this.photoGridGenerator(this.state.currentSectionNumber)}
             </section>
             
-            <div id="photoPageLoadingIcon" className="justify-content-center p-4" >
+            <div id="photoPageLoadingIcon" className={Styles.loadingIconDisplay + " justify-content-center p-4"} >
                 <div className="p-4 spinner-border text-primary" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
