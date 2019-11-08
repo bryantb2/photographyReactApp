@@ -4,7 +4,7 @@ class SmartScroller {
     }
     //METHODS
     restorePosition() {
-        return (SmartScroller.previousScrollPosition);
+        return (this.previousScrollPosition);
     }
     
     prepareFor(windowYOffset) {
