@@ -37,8 +37,8 @@ class InfiniteScrollPage extends React.Component {
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
         this.dropdownLayoutHandler = this.dropdownLayoutHandler.bind(this);
-        this.collapseGenreSelectorSpacing = this.collapseGenreSelectorSpacing.bind(this);
-        this.expandGenreSelectorSpacing = this.expandGenreSelectorSpacing.bind(this);
+        this.collapseGenreSelector = this.collapseGenreSelector.bind(this);
+        this.expandGenreSelector = this.expandGenreSelector.bind(this);
         this.parseAndSection = this.parseAndSection.bind(this);
         this.debounce = this.debounce.bind(this);
         this.userScrollHandler = this.userScrollHandler.bind(this);
@@ -55,10 +55,10 @@ class InfiniteScrollPage extends React.Component {
     }
     
     
-    //LIFECYCLE METHODS
+    // LIFECYCLE METHODS
     componentDidMount() {
-        //THIS METHOD IS used to prevent premature collection of non-existent DOM elements
-        //preventing runtime crashing or errors by manually setting the first value
+        // THIS METHOD IS used to prevent premature collection of non-existent DOM elements
+        // preventing runtime crashing or errors by manually setting the first value
         this.getLoadingIcon();
         this.createEventListeners();
     }
@@ -66,14 +66,13 @@ class InfiniteScrollPage extends React.Component {
     componentWillUnmount() {
         // THIS METHOD will be used to remove event listeners and clear timers
         // prevents runtiume crashing when the page switches
-        setTimeout(function(){}, 1001);
         this.disablePhotoScrollListener();
         console.log("inside COMPONENT WILL UNMOUNT, testing to see if window STILL has the event listener hooked in: ");
         console.log();
     }
 
     
-    //EVENT LISTENERS
+    // EVENT LISTENERS
     createEventListeners() { 
         //this is for non-scrolling event listeners
         document.getElementById("dropdownMenuButton").addEventListener('click', this.dropdownLayoutHandler);
@@ -233,44 +232,50 @@ class InfiniteScrollPage extends React.Component {
     
     //UI METHODS
     dropdownLayoutHandler(e) {
-        //this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
+        // this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
         let button = e.target;
         let timer;
         if(this.state.currentDropDownClass === Styles.photoSelectorGroupnoDropDown) {
-            //adds the expanded styles if the current styling is not expanded
-            this.expandGenreSelectorSpacing();
-            //then run a timer that checks every second if the button still has the user's focus
-                //if focus is lost, clear the timer (prevent performance bugs) and then collapse the selector UI container
+            // adds the expanded styles if the current styling is not expanded
+            this.expandGenreSelector();
+            // then run a timer that checks every second if the button still has the user's focus
+                // if focus is lost, clear the timer (prevent performance bugs) and then collapse the selector UI container
             timer = setInterval(()=> {
                 if(document.activeElement !== button) {
                     clearInterval(timer);
-                    this.collapseGenreSelectorSpacing();
-                    //special case: force the dropdown menu to close
-                    let dropDown = document.getElementById("dropdown-menuID").classList;
-                    dropDown.forEach((pageClass)=>{
-                        if(pageClass=="show")
-                            document.getElementById("dropdown-menuID").classList.remove("show");
-                    });
+                    this.collapseGenreSelector();
                 }
             },200);
         }
         else if(this.state.currentDropDownClass === Styles.photoSelectorGroupdropDown) {
-            //removes the expanded styles if the current styling is expanded
-            clearInterval(timer);
-            this.collapseGenreSelectorSpacing();
+            // removes the expanded styles if the current styling is expanded
+            this.collapseGenreSelector();
         }
     }
     
-    expandGenreSelectorSpacing() {
+    expandGenreSelector() {
         this.setState({
                 currentDropDownClass: Styles.photoSelectorGroupdropDown,
             });
     }
     
-    collapseGenreSelectorSpacing() {
-        this.setState({
+    collapseGenreSelector() {
+        // special case: force the dropdown menu to close if it is actived by the bootstrap JS library
+        let dropDown = document.getElementById("dropdown-menuID").classList;
+        let isBootstrapDropdownActivated = false;
+        dropDown.forEach((pageClass)=>{
+            // these are the custom bootstrap classes that are auto-applied to the dropdown menu when it is clicked
+            if(pageClass=="show") {
+                isBootstrapDropdownActivated = true;
+            }
+        });
+        setTimeout(() => {
+            if(isBootstrapDropdownActivated == true)
+                document.getElementById("dropdown-menuID").classList.remove("show");
+            this.setState({
                 currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
             });
+        }, 500);
     }
     
     showLoadingIcon() {
