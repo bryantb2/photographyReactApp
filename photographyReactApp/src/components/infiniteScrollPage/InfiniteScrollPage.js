@@ -20,7 +20,7 @@ class InfiniteScrollPage extends React.Component {
         this.loadingIcon = null;
         
         // TODO: REPLACE THIS WITH A FETCH TO MONGO
-        this.APIDataObject = PhotoAPI.GetAPIData(props.match.params.genre);
+        this.APIDataObject = PhotoAPI.GetAPIData(this.props.match.params.genre);
     
         this.state={
             genre: props.match.params.genre,
@@ -93,7 +93,7 @@ class InfiniteScrollPage extends React.Component {
     }
     
     
-    //EVENT HANDLERS
+    // EVENT HANDLERS
     userScrollHandler() {
         //this method controls when sections from the API call are rendered
         //if user gets 75% of the way down the page:
@@ -124,16 +124,20 @@ class InfiniteScrollPage extends React.Component {
         // get the target element that triggered the event
         // store the element's id property
         // manually modify the component history and add a path to the genre
-        // call setState, set it to the genre stored in the id
+        // fetch new set of images
+        // call setState, genre and APIData properties
         let target = e.target;
         let genreProperty = target.id;
-        this.props.history.push('/selectportfolio/' + genreProperty);
+        // TODO: replace this with a fetch to mongoDB
+        let APIDataObject = PhotoAPI.GetAPIData(this.props.match.params.genre);
         this.setState({
             genre: genreProperty,
+            APIData: APIDataParser.parseAndSection(APIDataObject),
         });
     }
     
-    //METHODS
+    
+    // METHODS
     updateCurrentSectionCounter() {
         let newNumber = (this.state.currentSectionNumber)+1;
         this.setState({
@@ -190,7 +194,7 @@ class InfiniteScrollPage extends React.Component {
     };
     
     
-    //UI METHODS
+    // UI METHODS
     dropdownLayoutHandler(e) {
         // this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
         let button = e.target;
