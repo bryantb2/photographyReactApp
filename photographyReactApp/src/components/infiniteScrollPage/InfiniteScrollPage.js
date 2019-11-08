@@ -12,12 +12,7 @@ class InfiniteScrollPage extends React.Component {
     constructor(props) {
         super(props);
         
-        // Local Constructor Variables
-        let APIDataObject = PhotoAPI.GetAPIData();
-        
         // GLOABAL VARIABLES
-        // stored the sectioned version of the APIDataObject data
-        this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
         
         // these exist because setState cannot be called to update the column size when the page has not fully loaded
         this.initialColumnSize = 3;
@@ -33,6 +28,11 @@ class InfiniteScrollPage extends React.Component {
             currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
         };
         
+         // Local Constructor Variables
+        let APIDataObject = PhotoAPI.GetAPIData("portraits");
+        
+        // stored the sectioned version of the APIDataObject data
+        this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
         
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
