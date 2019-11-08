@@ -19,7 +19,7 @@ class HomePage extends React.Component {
     constructor(props) {
         super(props);
         
-        //Local Constructor Variables
+        // TODO: REPLACE THIS WITH A FETCH TO MONGO
         this.APIDataObject = PhotoAPI.GetAPIData("highlights");
         
         this.state={

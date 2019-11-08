@@ -19,7 +19,7 @@ class InfiniteScrollPage extends React.Component {
         // loading icon reference is here
         this.loadingIcon = null;
         
-        // Local Constructor Variables
+        // TODO: REPLACE THIS WITH A FETCH TO MONGO
         this.APIDataObject = PhotoAPI.GetAPIData(props.match.params.genre);
     
         this.state={
@@ -107,7 +107,7 @@ class InfiniteScrollPage extends React.Component {
         
         this.disablePhotoScrollListener();
         if(this.isUserAtBottom() === true) {
-            if(!((this.state.APIData.length-1) === this.state.currentSectionNumber)) { 
+            if(!((this.state.APIData.length) === this.state.currentSectionNumber)) { 
                 this.showLoadingIcon();
                 setTimeout(() => {
                     this.hideLoadingIcon();
