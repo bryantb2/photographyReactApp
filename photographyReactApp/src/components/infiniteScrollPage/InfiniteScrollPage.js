@@ -35,12 +35,10 @@ class InfiniteScrollPage extends React.Component {
         this.dropdownLayoutHandler = this.dropdownLayoutHandler.bind(this);
         this.collapseGenreSelector = this.collapseGenreSelector.bind(this);
         this.expandGenreSelector = this.expandGenreSelector.bind(this);
-        //this.parseAndSection = this.parseAndSection.bind(this);
         this.debounce = this.debounce.bind(this);
         this.userScrollHandler = this.userScrollHandler.bind(this);
         this.disablePhotoScrollListener = this.disablePhotoScrollListener.bind(this);
         this.enablePhotoScrollListener = this.enablePhotoScrollListener.bind(this);
-        //this.photoGridGenerator = this.photoGridGenerator.bind(this);
         this.isUserAtBottom = this.isUserAtBottom.bind(this);
         this.showLoadingIcon = this.showLoadingIcon.bind(this);
         this.hideLoadingIcon = this.hideLoadingIcon.bind(this);
@@ -65,8 +63,6 @@ class InfiniteScrollPage extends React.Component {
         // THIS METHOD will be used to remove event listeners and clear timers
         // prevents runtiume crashing when the page switches
         this.disablePhotoScrollListener();
-        console.log("inside COMPONENT WILL UNMOUNT, testing to see if window STILL has the event listener hooked in: ");
-        console.log();
     }
 
     
@@ -160,18 +156,6 @@ class InfiniteScrollPage extends React.Component {
             return false;
         }
     }
-        
-    /*photoGridGenerator(sectionNumber) {
-        //method takes in the state section number
-        //loops +1 each time until the counter equals the inputted section number
-        //will store JSX components in an array for temp storage
-        //array of components will be returned once loop is complete... those elements will then be rendered on the page
-        let tempCompArray = new Array();
-        for(let i =0; i<= sectionNumber; i++) {
-            tempCompArray.push(<PhotoGrid key={i} photoArray={this.parsedAPIObjectData[i]} gridSize={this.state.columnSize}/>)
-        }
-        return (tempCompArray);
-    }*/
     
     initializeColmnSize() {
         //fills the state's columnSize property with data (setState not used because this is a pre-render function)
@@ -204,23 +188,6 @@ class InfiniteScrollPage extends React.Component {
             if (callNow) func.apply(context, args);
         };
     };
-    
-    /*parseAndSection(apiData) {
-        //method will loop through the entire array of API objects
-        //create a 2-D array
-        //sub-elements will be arrays contains 9 image objects
-        apiData = apiData[1];
-        let mainDataArray = new Array();
-        for(let i=0; i<apiData.length; (i=i+9)) {
-            let subArray = new Array();
-            for(let j=i; j<(i+9); j++) {
-                //grabs image object from main array and pushes it to subarray
-                subArray.push(apiData[j]);
-            }
-            mainDataArray.push(subArray);
-        }
-        return mainDataArray;
-    }*/
     
     
     //UI METHODS
@@ -278,6 +245,8 @@ class InfiniteScrollPage extends React.Component {
     hideLoadingIcon() {
         this.loadingIcon.style.display = "none";
     }
+    
+     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     render() {
         return (

@@ -65,7 +65,6 @@ class HomePage extends React.Component {
     }
     
     
-    
     //METHODS
     initializeColmnSize() {
         //fills the state's columnSize property with data (setState not used because this is a pre-render function)
