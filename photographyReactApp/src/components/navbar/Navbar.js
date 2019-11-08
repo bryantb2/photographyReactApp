@@ -103,7 +103,7 @@ class Navbar extends React.Component {
     render() {
         return (
         <nav id="navigationBar" className={
-            ((this.props.alwaysFixed===true) ? "customNavStyles-Fixed" : (this.state.navBarSticking===true ? "customNavStyles-Fixed" : "customNavStyles-unFixed")) + " navbar navbar-expand-lg navbar-dark customNavStyles-unFixed"}>
+            ((this.props.alwaysFixed===true || this.state.navBarSticking===true) ? "customNavStyles-Fixed" : "customNavStyles-unFixed") + " navbar navbar-expand-lg navbar-dark customNavStyles-unFixed"}>
           <Link className="navbar-brand" to="#">Bryant Photography</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

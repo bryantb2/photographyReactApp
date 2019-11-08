@@ -13,6 +13,7 @@ class InfiniteScrollPage extends React.Component {
         super(props);
         
         // GLOABAL VARIABLES
+        this.rememberScrollPosition = new SmartScroller();
         
         // these exist because setState cannot be called to update the column size when the page has not fully loaded
         this.initialColumnSize = 3;
@@ -120,9 +121,9 @@ class InfiniteScrollPage extends React.Component {
                 setTimeout(() => {
                     this.hideLoadingIcon();
                 }, 1000);
-                SmartScroller.prepareFor(window.pageYOffset);
+                this.rememberScrollPosition.prepareFor(window.pageYOffset);
                 this.updateCurrentSectionCounter();
-                setTimeout(() => window.scrollTo(0,SmartScroller.restorePosition()), 100)
+                setTimeout(() => window.scrollTo(0,this.rememberScrollPosition.restorePosition()), 100)
             }
         }
         this.enablePhotoScrollListener();
@@ -212,7 +213,7 @@ class InfiniteScrollPage extends React.Component {
         //method will loop through the entire array of API objects
         //create a 2-D array
         //sub-elements will be arrays contains 9 image objects
-        apiData = apiData.genreType;
+        apiData = apiData[1];
         let mainDataArray = new Array();
         for(let i=0; i<apiData.length; (i=i+9)) {
             let subArray = new Array();

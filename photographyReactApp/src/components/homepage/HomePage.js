@@ -12,19 +12,23 @@ import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
 
 //imports for testing API system:
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
+import APIDataParser from '../utilityComponents/APIDataParser.js';
+import PhotoGridGenerator from '../utilityComponents/PhotoGridGenerator.js';
 
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
         
         //Local Constructor Variables
-        let APIDataObject = PhotoAPI.GetAPIData("highlights");
+        this.APIDataObject = PhotoAPI.GetAPIData("highlights");
         
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
-            APIData: APIDataObject.genreType,
+            APIData: APIDataParser.parseAndSection(this.APIDataObject),
             columnSize: 3,
         };
+        console.log("logging API data inside home: ");
+        console.log(this.state.APIData);
         
         //Global variables
         //these exist because setState cannot be called to update the column size when the page has not fully loaded
@@ -171,8 +175,7 @@ class HomePage extends React.Component {
 
 
         <section id="page3">
-            <PhotoGrid photoArray={this.state.APIData} gridSize={this.renderedOnce==true?this.state.columnSize : this.initialColumnSize}/>
-            <PhotoGrid photoArray={this.renderedOnce==true?this.state.columnSize : this.initialColumnSize}/>
+            <PhotoGridGenerator columnSize={this.state.columnSize} formattedImageObjectArray={this.state.APIData} numberOfSectionsToRender={1}/>
         </section>  
 
 
