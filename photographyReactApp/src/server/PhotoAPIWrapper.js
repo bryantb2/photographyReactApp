@@ -1,716 +1,966 @@
 class PhotoAPI {
-    
+
     static GetAPIData(genre) {
-        if(genre==="natural") {
-            return null;
-        }
-        else if(genre==="highlights") {
+        if (genre === "highlights") {
             return {
                 genre: "highlights",
                 images: [
                     {
-                       "imageNumber": 0,
+                        "imageNumber": 0,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 1,
+                        "imageNumber": 1,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 2,
+                        "imageNumber": 2,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 3,
+                        "imageNumber": 3,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 5,
+                        "imageNumber": 5,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 6,
+                        "imageNumber": 6,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 7,
+                        "imageNumber": 7,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 8,
+                        "imageNumber": 8,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 0,
+                        "imageNumber": 0,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 1,
+                        "imageNumber": 1,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 2,
+                        "imageNumber": 2,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 3,
+                        "imageNumber": 3,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     },
                     {
-                       "imageNumber": 4,
+                        "imageNumber": 4,
                         "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
                         "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
                         "orientation": "landscape",
                     }
                 ]
             }
-        }
-        else if(genre==="aerial") {
-            return null;
-        }
-        else if(genre=="urban") {
+        } else if (genre === "aerial") {
             return {
-            urban: [
-                {
-                 "genre": "urban"
-                },
-                [
+                genre: "aerial",
+                images: [
                     {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    }
                 ]
+            }
+        } else if (genre == "urban") {
+            return {
+                genre: "urban",
+                images: [
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                    }
+                ]
+            }
+        } else if (genre == "portraits") {
+            return {
+                genre: "portraits",
+                images: [
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                },
             ]
-        }
-        }
-        else if(genre=="portraits") {
-        return {
-            photoArray: [
-                {
-                 "genre": "portraits"
+            }
+        } else if (genre == "natural") {
+            return {
+                genre: "natural",
+                images: [
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/2000?cb=20170701082424",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 1,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 1,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 2,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 2,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 3,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 3,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 4,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 4,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 5,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 5,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 6,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 6,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 7,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 7,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
+                    {
+                        "imageNumber": 8,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
                 },
-                {
-                   "imageNumber": 8,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
-                {
-                   "imageNumber": 0,
-                    "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
-                    "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
-                    "orientation": "landscape",
-                },
+                    {
+                        "imageNumber": 0,
+                        "thumbnail": "https://wallpapercave.com/wp/wp3991421.jpg",
+                        "URL": "https://www.thecountryshed.com/assets/images/TIM06000%20BROWN%20(16823)-5.jpg",
+                        "orientation": "landscape",
+                }
             ]
-        }
+            }
         }
     }
     

@@ -3,11 +3,11 @@ class SmartScroller {
         this.previousScrollPosition = 0;
     }
     //METHODS
-    static restorePosition() {
+    restorePosition() {
         return (SmartScroller.previousScrollPosition);
     }
     
-    static prepareFor(windowYOffset) {
+    prepareFor(windowYOffset) {
         this.previousScrollPosition = windowYOffset;
     }
 }

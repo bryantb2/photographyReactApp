@@ -6,6 +6,8 @@ import SmartScroller from '../utilityComponents/SmartScroll.js';
 
 //imports for testing API system:
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
+import APIDataParser from '../utilityComponents/APIDataParser.js';
+import PhotoGridGenerator from '../utilityComponents/PhotoGridGenerator.js';
 
 class InfiniteScrollPage extends React.Component {
     // INPUT: takes in a genre name and makes a fetch call to the server for the photo data
@@ -14,38 +16,31 @@ class InfiniteScrollPage extends React.Component {
         
         // GLOABAL VARIABLES
         this.rememberScrollPosition = new SmartScroller();
-        
-        // these exist because setState cannot be called to update the column size when the page has not fully loaded
-        this.initialColumnSize = 3;
-        
         // loading icon reference is here
         this.loadingIcon = null;
-        this.scrollHandlerActive = false;
+        
+        // Local Constructor Variables
+        this.APIDataObject = PhotoAPI.GetAPIData(props.match.params.genre);
     
         this.state={
             genre: props.match.params.genre,
-            columnSize: this.initialColumnSize,
-            currentSectionNumber: 0,
+            APIData: APIDataParser.parseAndSection(this.APIDataObject),
+            columnSize: 3,
+            currentSectionNumber: 1,
             currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
         };
-        
-         // Local Constructor Variables
-        let APIDataObject = PhotoAPI.GetAPIData("portraits");
-        
-        // stored the sectioned version of the APIDataObject data
-        this.parsedAPIObjectData = this.parseAndSection(APIDataObject);
         
         //BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
         this.dropdownLayoutHandler = this.dropdownLayoutHandler.bind(this);
         this.collapseGenreSelector = this.collapseGenreSelector.bind(this);
         this.expandGenreSelector = this.expandGenreSelector.bind(this);
-        this.parseAndSection = this.parseAndSection.bind(this);
+        //this.parseAndSection = this.parseAndSection.bind(this);
         this.debounce = this.debounce.bind(this);
         this.userScrollHandler = this.userScrollHandler.bind(this);
         this.disablePhotoScrollListener = this.disablePhotoScrollListener.bind(this);
         this.enablePhotoScrollListener = this.enablePhotoScrollListener.bind(this);
-        this.photoGridGenerator = this.photoGridGenerator.bind(this);
+        //this.photoGridGenerator = this.photoGridGenerator.bind(this);
         this.isUserAtBottom = this.isUserAtBottom.bind(this);
         this.showLoadingIcon = this.showLoadingIcon.bind(this);
         this.hideLoadingIcon = this.hideLoadingIcon.bind(this);
@@ -53,6 +48,7 @@ class InfiniteScrollPage extends React.Component {
         this.getLoadingIcon = this.getLoadingIcon.bind(this);
         this.genreClickHandler = this.genreClickHandler.bind(this);
         this.enableGenreClickListeners = this.enableGenreClickListeners.bind(this);
+        this.initializeColmnSize = this.initializeColmnSize.bind(this);
     }
     
     
@@ -62,6 +58,7 @@ class InfiniteScrollPage extends React.Component {
         // preventing runtime crashing or errors by manually setting the first value
         this.getLoadingIcon();
         this.createEventListeners();
+        this.initializeColmnSize();
     }
     
     componentWillUnmount() {
@@ -90,14 +87,12 @@ class InfiniteScrollPage extends React.Component {
     }
     
     enablePhotoScrollListener() {
-        this.scrollHandlerActive = true;
         window.addEventListener('scroll',this.debounce(this.userScrollHandler,1000));
         //this function uses a timed enabling of the photoScroll listener function, prevents spamming
     }
     
     disablePhotoScrollListener() {
        // will help to prevent against a situation where the user is sitting at the bottom of the page making calls to photoScroll before the photos have actually updated on the UI
-        this.scrollHandlerActive = false;
         window.removeEventListener('scroll',this.debounce(this.userScrollHandler,1000));
     }
     
@@ -116,7 +111,7 @@ class InfiniteScrollPage extends React.Component {
         
         this.disablePhotoScrollListener();
         if(this.isUserAtBottom() === true) {
-            if(!((this.parsedAPIObjectData.length-1) === this.state.currentSectionNumber)) { 
+            if(!((this.state.APIData.length-1) === this.state.currentSectionNumber)) { 
                 this.showLoadingIcon();
                 setTimeout(() => {
                     this.hideLoadingIcon();
@@ -166,7 +161,7 @@ class InfiniteScrollPage extends React.Component {
         }
     }
         
-    photoGridGenerator(sectionNumber) {
+    /*photoGridGenerator(sectionNumber) {
         //method takes in the state section number
         //loops +1 each time until the counter equals the inputted section number
         //will store JSX components in an array for temp storage
@@ -176,15 +171,16 @@ class InfiniteScrollPage extends React.Component {
             tempCompArray.push(<PhotoGrid key={i} photoArray={this.parsedAPIObjectData[i]} gridSize={this.state.columnSize}/>)
         }
         return (tempCompArray);
-    }
+    }*/
     
     initializeColmnSize() {
         //fills the state's columnSize property with data (setState not used because this is a pre-render function)
         let windowWidth = window.innerWidth;
         //setState of layoutSize to "small" if below 575px
         if(windowWidth < 1050) {
-            this.initialColumnSize = 6;
-            //this.state.columnSize = 6;
+            this.setState({
+                columnSize: 6,
+            });
         }
         //no need for else statement to switch to 3 because layoutSize is already set to 3 by default
     }
@@ -209,7 +205,7 @@ class InfiniteScrollPage extends React.Component {
         };
     };
     
-    parseAndSection(apiData) {
+    /*parseAndSection(apiData) {
         //method will loop through the entire array of API objects
         //create a 2-D array
         //sub-elements will be arrays contains 9 image objects
@@ -224,7 +220,7 @@ class InfiniteScrollPage extends React.Component {
             mainDataArray.push(subArray);
         }
         return mainDataArray;
-    }
+    }*/
     
     
     //UI METHODS
@@ -310,7 +306,11 @@ class InfiniteScrollPage extends React.Component {
             </div>
             
             <section id="photos">
-                {this.photoGridGenerator(this.state.currentSectionNumber)}
+                <PhotoGridGenerator 
+                    columnSize={this.state.columnSize} 
+                    formattedImageObjectArray={this.state.APIData} 
+                    numberOfSectionsToRender={this.state.currentSectionNumber} 
+                />
             </section>
             
             <div id="photoPageLoadingIcon" className={Styles.loadingIconDisplay + " justify-content-center p-4"} >

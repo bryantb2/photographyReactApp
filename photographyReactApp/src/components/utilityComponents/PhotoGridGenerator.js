@@ -3,7 +3,7 @@ import PhotoGrid from '../photoGrid/PhotoGrid.js';
 
 function PhotoGridGenerator(props) {
     // takes in columnsize, sectioned and parsed image object array, and number of sections that should be render (from 0)
-    // returns a 
+    // returns an array of image grids
     let columnSize = props.columnSize;
     let formattedImageObjectArray = props.formattedImageObjectArray;
     let numberOfSectionsToRender = props.numberOfSectionsToRender;
