@@ -128,12 +128,16 @@ class InfiniteScrollPage extends React.Component {
         // call setState, genre and APIData properties
         let target = e.target;
         let genreProperty = target.id;
-        // TODO: replace this with a fetch to mongoDB
+        this.props.history.push('/selectportfolio/' + genreProperty);
+        // TODO: replace GetAPIData method and timer method with a fetch to mongoDBz
         let APIDataObject = PhotoAPI.GetAPIData(this.props.match.params.genre);
-        this.setState({
-            genre: genreProperty,
-            APIData: APIDataParser.parseAndSection(APIDataObject),
-        });
+        setTimeout(() => {
+            // timer simulates an asynchronous promise
+            this.setState({
+                genre: genreProperty,
+                APIData: APIDataParser.parseAndSection(APIDataObject),
+            });
+        }, 2000);
     }
     
     
