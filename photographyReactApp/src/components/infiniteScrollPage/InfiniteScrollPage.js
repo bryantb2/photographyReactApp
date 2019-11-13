@@ -47,6 +47,7 @@ class InfiniteScrollPage extends React.Component {
         this.genreClickHandler = this.genreClickHandler.bind(this);
         this.enableGenreClickListeners = this.enableGenreClickListeners.bind(this);
         this.initializeColmnSize = this.initializeColmnSize.bind(this);
+        this.photoGridResizeHandler= this.photoGridResizeHandler.bind(this);
     }
     
     
@@ -66,11 +67,11 @@ class InfiniteScrollPage extends React.Component {
     }
 
     
-    // EVENT LISTENERS
+    // EVENT LISTENER ASSIGNMENTS
     createEventListeners() { 
-        //this is for non-scrolling event listeners
+        // assigning and enabling UI events
         document.getElementById("dropdownMenuButton").addEventListener('click', this.dropdownLayoutHandler);
-        //initialized an event listener for the userScrollHandler
+        window.addEventListener('resize', this.debounce(this.photoGridResizeHandler,1000));
         this.enablePhotoScrollListener();
         this.enableGenreClickListeners();
     }
@@ -119,7 +120,6 @@ class InfiniteScrollPage extends React.Component {
     }
     
     genreClickHandler(e) {
-        console.log("inside genre click handler");
         // get the target element that triggered the event
         // store the element's id property
         // manually modify the component history and add a path to the genre
@@ -173,7 +173,6 @@ class InfiniteScrollPage extends React.Component {
                 columnSize: 6,
             });
         }
-        //no need for else statement to switch to 3 because layoutSize is already set to 3 by default
     }
     
     debounce(func, wait, immediate) {
@@ -200,11 +199,24 @@ class InfiniteScrollPage extends React.Component {
     
     
     // UI METHODS
+    photoGridResizeHandler() {
+        let windowWidth = window.innerWidth;
+        //setState of colSize to 6 if below 800px
+        if(windowWidth < 1050) {
+            this.setState({
+                columnSize: 6,
+            });
+        }
+        //setState of colSize to 3 if not below but still set to 6
+        else if(this.state.columnSize !== 3) {
+            this.setState({
+                columnSize: 3,
+            });
+        }
+    }
+    
     dropdownLayoutHandler() {
         // this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
-        //let button = e.target;
-        let button = document.getElementById("dropdownContainer");
-        let timer;
         if(this.state.currentDropDownClass === Styles.photoSelectorGroupnoDropDown) {
             // adds the expanded styles if the current styling is not expanded
             this.expandGenreSelector();
