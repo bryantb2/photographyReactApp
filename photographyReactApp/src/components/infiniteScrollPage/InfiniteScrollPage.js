@@ -76,6 +76,7 @@ class InfiniteScrollPage extends React.Component {
     }
     
     enableGenreClickListeners() {
+        console.log("inside enable genre click handler");
         let anchorNodes = document.getElementsByClassName("dropdown-item");
         for(let i = 0; i < anchorNodes.length; i++) {
             anchorNodes[i].addEventListener('click',this.genreClickHandler);
@@ -83,13 +84,13 @@ class InfiniteScrollPage extends React.Component {
     }
     
     enablePhotoScrollListener() {
-        window.addEventListener('scroll',this.debounce(this.userScrollHandler,1000));
+        window.addEventListener('scroll',this.debounce(this.userScrollHandler,500));
         //this function uses a timed enabling of the photoScroll listener function, prevents spamming
     }
     
     disablePhotoScrollListener() {
        // will help to prevent against a situation where the user is sitting at the bottom of the page making calls to photoScroll before the photos have actually updated on the UI
-        window.removeEventListener('scroll',this.debounce(this.userScrollHandler,1000));
+        window.removeEventListener('scroll',this.debounce(this.userScrollHandler,500));
     }
     
     
@@ -104,23 +105,21 @@ class InfiniteScrollPage extends React.Component {
             //disable loading icon
             //increment section counter
         //this is the safest way to concatenate values to a React state array (doing it any other way would result in errors because the state gets updated asynchronously)
-        
         this.disablePhotoScrollListener();
         if(this.isUserAtBottom() === true) {
-            if(!((this.state.APIData.length) === this.state.currentSectionNumber)) { 
+            if(!((this.state.APIData.length) <= this.state.currentSectionNumber)) { 
                 this.showLoadingIcon();
-                setTimeout(() => {
-                    this.hideLoadingIcon();
-                }, 1000);
                 this.rememberScrollPosition.prepareFor(window.pageYOffset);
                 this.updateCurrentSectionCounter();
                 setTimeout(() => window.scrollTo(0,this.rememberScrollPosition.restorePosition()), 100)
+                this.hideLoadingIcon();
             }
         }
         this.enablePhotoScrollListener();
     }
     
     genreClickHandler(e) {
+        console.log("inside genre click handler");
         // get the target element that triggered the event
         // store the element's id property
         // manually modify the component history and add a path to the genre
@@ -131,13 +130,11 @@ class InfiniteScrollPage extends React.Component {
         this.props.history.push('/selectportfolio/' + genreProperty);
         // TODO: replace GetAPIData method and timer method with a fetch to mongoDBz
         let APIDataObject = PhotoAPI.GetAPIData(this.props.match.params.genre);
-        setTimeout(() => {
-            // timer simulates an asynchronous promise
-            this.setState({
-                genre: genreProperty,
-                APIData: APIDataParser.parseAndSection(APIDataObject),
-            });
-        }, 2000);
+        // timer simulates an asynchronous promise
+        this.setState({
+            genre: genreProperty,
+            APIData: APIDataParser.parseAndSection(APIDataObject),
+        });
     }
     
     
@@ -157,11 +154,13 @@ class InfiniteScrollPage extends React.Component {
         //RETURNS TRUE OR FALSE
         //this function checks how close the user is the bottom of the page
         //an additional 300px has been added to the calculation to ensure that there is enough room for the photos to get fetched and rendered without the usering knowing
-        if ((window.innerHeight + window.scrollY)+300 >= (document.getElementById("InfiniteScrollPage").offsetHeight)) {
-            return true;
-        }
-        else {
-            return false;
+        if(document.getElementById("InfiniteScrollPage") !== null) {
+            if((window.innerHeight + window.scrollY)+300 >= (document.getElementById("InfiniteScrollPage").offsetHeight)) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
     
@@ -178,8 +177,10 @@ class InfiniteScrollPage extends React.Component {
     }
     
     debounce(func, wait, immediate) {
-        //debounce function prevents overloaded client
-        //function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+        // debounce function prevents overloaded client
+        // function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+        // added conditional block to determine if the genre button has been clicked
+            // this needs to be included because debounce functions delay the execution of functions
         let timeout;
         return function executedFunction() {
             let context = this;
@@ -199,51 +200,48 @@ class InfiniteScrollPage extends React.Component {
     
     
     // UI METHODS
-    dropdownLayoutHandler(e) {
+    dropdownLayoutHandler() {
         // this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
-        let button = e.target;
+        //let button = e.target;
+        let button = document.getElementById("dropdownContainer");
         let timer;
         if(this.state.currentDropDownClass === Styles.photoSelectorGroupnoDropDown) {
             // adds the expanded styles if the current styling is not expanded
             this.expandGenreSelector();
+            // removes the expanded styles if the current styling is expanded
             // then run a timer that checks every second if the button still has the user's focus
                 // if focus is lost, clear the timer (prevent performance bugs) and then collapse the selector UI container
-            timer = setInterval(()=> {
-                if(document.activeElement !== button) {
-                    clearInterval(timer);
+            setTimeout(()=> {
                     this.collapseGenreSelector();
-                }
-            },200);
+            },2000);
         }
-        else if(this.state.currentDropDownClass === Styles.photoSelectorGroupdropDown) {
-            // removes the expanded styles if the current styling is expanded
+        else {
             this.collapseGenreSelector();
         }
     }
     
     expandGenreSelector() {
         this.setState({
-                currentDropDownClass: Styles.photoSelectorGroupdropDown,
-            });
+            currentDropDownClass: Styles.photoSelectorGroupdropDown,
+        });
     }
     
     collapseGenreSelector() {
         // special case: force the dropdown menu to close if it is actived by the bootstrap JS library
-        let dropDown = document.getElementById("dropdown-menuID").classList;
-        let isBootstrapDropdownActivated = false;
-        dropDown.forEach((pageClass)=>{
-            // these are the custom bootstrap classes that are auto-applied to the dropdown menu when it is clicked
-            if(pageClass=="show") {
-                isBootstrapDropdownActivated = true;
-            }
-        });
-        setTimeout(() => {
-            if(isBootstrapDropdownActivated == true)
-                document.getElementById("dropdown-menuID").classList.remove("show");
+        if(document.getElementById("genreSelectionDropdown") !== null) {
+            let dropDown = document.getElementById("genreSelectionDropdown").classList;
+            dropDown.forEach((pageClass)=>{
+                // these are the custom bootstrap classes that are auto-applied to the dropdown menu when it is clicked
+                if(pageClass=="show") {
+                    setTimeout(() => {
+                        dropDown.remove("show");
+                    }, 1);
+                }
+            });
             this.setState({
                 currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
             });
-        }, 500);
+        }
     }
     
     showLoadingIcon() {
@@ -269,10 +267,10 @@ class InfiniteScrollPage extends React.Component {
                 <div className={Styles.verticalLine + " p-2"}></div>
             
                 <div className="p-2">
-                    <div className="portfolioDropdown dropdown">
+                    <div id="dropdownContainer" className="portfolioDropdown dropdown">
                         <button className={Styles.genreSelectButton + " btn btn-secondary dropdown-toggle"} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Genre</button>
-                        <div id="dropdown-menuID" className={Styles.customDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
+                        <div id="genreSelectionDropdown" className={Styles.customDropdownMenu + " dropdown-menu"} aria-labelledby="dropdownMenuButton">
                             <button id="urban" className={Styles.customDropdownItem + " dropdown-item"}>Urban</button>
                             <button id="natural" className={Styles.customDropdownItem + " dropdown-item"} >Natural</button>
                             <button id="aerial" className={Styles.customDropdownItem + " dropdown-item"} >Aerial</button>
