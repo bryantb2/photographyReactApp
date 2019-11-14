@@ -30,7 +30,7 @@ class InfiniteScrollPage extends React.Component {
             currentDropDownClass: Styles.photoSelectorGroupnoDropDown,
         };
         
-        //BINDS
+        // BINDS
         this.createEventListeners = this.createEventListeners.bind(this);
         this.dropdownLayoutHandler = this.dropdownLayoutHandler.bind(this);
         this.collapseGenreSelector = this.collapseGenreSelector.bind(this);
