@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Image = require('../models/Image');
+const ImageContainer = require('../models/ImageContainer');
+const ContainerDirectory = require('../models/ContainerDirectory');
+const ObjectId = require('mongodb').ObjectID;
 
 // GETS ALL IMAGES
 router.get('/', async (req, res) => {
@@ -15,15 +18,20 @@ router.get('/', async (req, res) => {
 });
 
 // GETS IMAGES BASED OFF GENRE
-router.get('/:genre', async (req, res) => {
+router.get('/genre/:genre', async (req, res) => {
     try {
         // search the DB for the document with storingImages prop set to false
             // get the objectID from the appropriate genre object prop
             // use the genre object ID to search for the appropriate storage document
             // return image array from imageArray property
-        const genreDocID = await 
-        const images = await Image.find();
-        res.json(images);
+        //let myID = new ObjectId('5dcdc3ca1c9d440000f857b1');
+        const genreDocID = await ContainerDirectory.findById(
+            //{_id: myID}
+            '5dcdc3ca1c9d440000f857b1'
+        );
+        //const images = await Image.find();
+        console.log(genreDocID);
+        res.json(genreDocID);
     } catch (err) {
         res.json({
             message: err
@@ -32,6 +40,7 @@ router.get('/:genre', async (req, res) => {
 });
 
 // using async and await key words removes the need to use extra syntax like .then and arrow functions
+
 // SUBMITS AN IMAGE
 router.post('/', async (req, res) => {
     const image = new Image({
@@ -51,8 +60,6 @@ router.post('/', async (req, res) => {
             message: err
         });
     }
-
-
 });
 
 // GET SPECIFIC IMAGE
