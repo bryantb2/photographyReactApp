@@ -3,7 +3,6 @@ const router = express.Router();
 const Image = require('../models/Image');
 const ImageContainer = require('../models/ImageContainer');
 const ContainerDirectory = require('../models/ContainerDirectory');
-const ObjectId = require('mongodb').ObjectID;
 
 // GETS ALL IMAGES
 router.get('/', async (req, res) => {
@@ -18,20 +17,39 @@ router.get('/', async (req, res) => {
 });
 
 // GETS IMAGES BASED OFF GENRE
-router.get('/genre/:genre', async (req, res) => {
+router.get('/genre/:genre/', async (req, res) => {
     try {
         // search the DB for the document with storingImages prop set to false
             // get the objectID from the appropriate genre object prop
             // use the genre object ID to search for the appropriate storage document
             // return image array from imageArray property
-        //let myID = new ObjectId('5dcdc3ca1c9d440000f857b1');
-        const genreDocID = await ContainerDirectory.findById(
-            //{_id: myID}
-            '5dcdc3ca1c9d440000f857b1'
-        );
-        //const images = await Image.find();
-        console.log(genreDocID);
-        res.json(genreDocID);
+        const container = await ContainerDirectory.findById({
+            _id: "5dcdc3ca1c9d440000f857b1"
+        });
+        
+        const requestedGenre = req.params.genre;
+        let genreID;
+        if(requestedGenre === "urban") {
+            genreID = container.urban;
+        }
+        else if(requestedGenre === "natural") {
+            genreID = container.natural;
+        }
+        else if(requestedGenre === "aerial") {
+            genreID = container.aerial;
+        }
+        else {
+            genreID = container.portraits;
+        }
+        
+        const genreObject = await ImageContainer.findById({
+            _id: genreID
+        });
+        const images = genreObject.imageArray;
+        
+        console.log(container);
+        res.json(container);
+        
     } catch (err) {
         res.json({
             message: err
@@ -68,10 +86,10 @@ router.get('/:imageId', async (req, res) => {
         console.log(req.params);
         const image = await Image.findById(req.params.imageId);
         if (image == null) {
-            res.status(404).send("An image with that ID was not found");
+            res.status(404);
         }
         else {
-            res.status(202).send("Success, the image was retrieved!");
+            res.status(202);
         }
         res.json(image);
     } catch (err) {
