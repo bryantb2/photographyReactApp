@@ -9,8 +9,8 @@ require('dotenv/config');
 // GET SPECIFIC IMAGE FROM A GENRE CATEGORY
 router.get('/:genre/:imageId', async (req, res) => {
     try {
-        console.log(req.params);
-        const image = await Image.findById(req.params.imageId);
+        // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
+        const image = await GetImageByGenreAndId(req.params.gerne,req.params.imageId);
         if (image == null) {
             res.status(404);
         }
@@ -29,7 +29,13 @@ router.get('/:genre/:imageId', async (req, res) => {
 router.get('/genre/:genre', async (req, res) => {
     try {
         // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
-        const imageArray = await GetAndReturnGenreArray(req.params.gerne);
+        const imageArray = await GetImageArrayByGenre(req.params.gerne);
+        if (image == null) {
+            res.status(404);
+        }
+        else {
+            res.status(202);
+        }
         console.log(imageArray);
         res.json(imageArray);
         
@@ -123,7 +129,7 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 
 
 // SERVER FUNCTIONS
-function GetAndReturnGenreArray(genreNameAsString) {
+function GetImageArrayByGenre(genreNameAsString) {
     // searchs the specified DB collection for the document with the objectId set in the .env file
             // finds and gets the document by objectId
             // accesses the genre sub-object, which is a series of key/value pairs for genre names and their document objectIds
@@ -159,6 +165,21 @@ function GetAndReturnGenreArray(genreNameAsString) {
         const images = genreObject.imageArray;
     
         return images;
+}
+
+function GetImageByGenreAndId(genreNameAsString, imageIdAsInt) {
+    // Gets the array of genre images from GetImageArrayByGenre()
+        // loops through image array, searching for Id
+        // if image with Id is found, return image object
+        // if not found, return null
+    const imageArrayByGenre = GetImageArrayByGenre(genreNameAsString);
+    let foundImage = null;
+    imageArrayByGenre.forEach((image)=>{
+        if(image._id.toString() === imageIdAsInt) {
+            return image;
+        }
+    });
+    return foundImage;
 }
 
 module.exports = router;
