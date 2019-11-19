@@ -128,9 +128,23 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 });
 
 
-// SERVER FUNCTIONS
+// SERVER HELPER FUNCTIONS
 async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
-    // 
+    // Calls GetReferenceToImageContainer() to get an objectId for a genre-specific document
+    // Uses the mongoDb update property to push the imageObject onto the document's imageArray
+    const genreID = await GetReferenceToImageContainer(genreNameAsString);
+    const updatedImage = await ImageContainer.update({
+            _id: genreID //search criteria
+        }, {
+            $push: {
+                // field to be updated
+                { imageArray: imageObject }
+            }
+    });
+}
+
+async function UpdateImageProperty(genreNameAsString, ) {
+    
 }
 
 async function GetAllImages() {
