@@ -29,7 +29,7 @@ router.get('/:genre/:imageId', async (req, res) => {
 router.get('/genre/:genre', async (req, res) => {
     try {
         // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
-        const imageArray = await GetImageArrayByGenre(req.params.gerne);
+        const imageArray = await GetImageArrayByGenre(req.params.genre);
         if (image == null) {
             res.status(404);
         }
@@ -49,7 +49,7 @@ router.get('/genre/:genre', async (req, res) => {
 // GETS ALL IMAGES
 router.get('/', async (req, res) => {
     try {
-        const images = await Image.find();
+        const images = await GetAllImages();
         res.json(images);
     } catch (err) {
         res.json({
@@ -69,8 +69,8 @@ router.post('/', async (req, res) => {
     });
 
     try {
-        console.log(image);
         const savedImage = await image.save();
+        console.log(image);
         res.json(savedImage);
     } catch (err) {
         res.json({
@@ -129,50 +129,30 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 
 
 // SERVER FUNCTIONS
+async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
+    // 
+}
+
 async function GetAllImages() {
     // Use array of genre string constants to
         // loop through each genre and return its respective genre array
         // concat the genreArray to main array
     const genreArray = ["urban","natural","aerial","portraits"];
-    let imageArray = GetImageArrayByGenre(genreArray[0]);
+    let imageArray = await GetImageArrayByGenre(genreArray[0]);
     for(let i = 1; i < genreArray.length; i++) {
-        let tempArray = GetImageArrayByGenre(genreArray[i]);
+        let tempArray = await GetImageArrayByGenre(genreArray[i]);
         imageArray = imageArray.concat(tempArray);
     }
+    return imageArray;
 }
 
 async function GetImageArrayByGenre(genreNameAsString) {
-    // searchs the specified DB collection for the document with the objectId set in the .env file
-            // finds and gets the document by objectId
-            // accesses the genre sub-object, which is a series of key/value pairs for genre names and their document objectIds
-            // Gets the appropriate genre document ID 
-            // Uses the genre document ID to find the document storing an array of image objects
-            // return the array of image objects
-        const requestedGenre = genreNameAsString;
-        const directoryId = process.env.DIRECTORY_ID;
-        const directoryContainer = await ContainerDirectory.findById({
-            _id: directoryId
-        });
-       
-        const genreDirectory = directoryContainer.genre;
-        let genreID;
-        if(requestedGenre === "urban") {
-            genreID = genreDirectory.urban;
-        }
-        else if(requestedGenre === "natural") {
-            genreID = genreDirectory.natural;
-        }
-        else if(requestedGenre === "aerial") {
-            genreID = genreDirectory.aerial;
-        }
-        else {
-            genreID = genreDirectory.portraits;
-        }
-        
-        // NOTE: when attempt to find an image container by id, the genreID object MUST be toString-ed
-        
+        // Calls GetReferenceToImageContainer() to get an objectId for a genre-specific document
+        // Uses the genre document ID to find the document storing an array of image objects
+        // return the array of image objects
+        const genreID = await GetReferenceToGenreContainer(genreNameAsString);
         const genreObject = await ImageContainer.findById({
-            _id: genreID.toString()
+            _id: genreID
         });
         const images = genreObject.imageArray;
     
@@ -184,14 +164,43 @@ async function GetImageByGenreAndId(genreNameAsString, imageIdAsInt) {
         // loops through image array, searching for Id
         // if image with Id is found, return image object
         // if not found, return null
-    const imageArrayByGenre = GetImageArrayByGenre(genreNameAsString);
-    let foundImage = null;
-    imageArrayByGenre.forEach((image)=>{
+    const imageArrayByGenre = await GetImageArrayByGenre(genreNameAsString);
+    imageArrayByGenre.forEach((image)=> {
         if(image._id.toString() === imageIdAsInt) {
             return image;
         }
     });
-    return foundImage;
+    return null;
+}
+
+async function GetReferenceToGenreContainer(genreNameAsString) {
+    // searchs the specified DB collection for the document with the objectId set in the .env file
+        // finds and gets the document by objectId
+        // accesses the genre sub-object, which is a series of key/value pairs for genre names and their document objectIds
+        // Gets and RETURNS the appropriate genre document ID as a STRING
+    const requestedGenre = genreNameAsString;
+    const directoryId = process.env.DIRECTORY_ID;
+    const directoryContainer = await ContainerDirectory.findById({
+        _id: directoryId
+    });
+
+    const genreDirectory = directoryContainer.genre;
+    let genreID;
+    if(requestedGenre === "urban") {
+        genreID = genreDirectory.urban;
+    }
+    else if(requestedGenre === "natural") {
+        genreID = genreDirectory.natural;
+    }
+    else if(requestedGenre === "aerial") {
+        genreID = genreDirectory.aerial;
+    }
+    else {
+        genreID = genreDirectory.portraits;
+    }
+    
+    // NOTE: when attempt to find an image container by id, the genreID object MUST be toString-ed
+    return (genreID.toString());
 }
 
 module.exports = router;
