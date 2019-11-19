@@ -1,4 +1,4 @@
-c+onst express = require('express');
+const express = require('express');
 const router = express.Router();
 const Image = require('../models/Image');
 const ImageContainer = require('../models/ImageContainer');
@@ -129,7 +129,19 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 
 
 // SERVER FUNCTIONS
-function GetImageArrayByGenre(genreNameAsString) {
+async function GetAllImages() {
+    // Use array of genre string constants to
+        // loop through each genre and return its respective genre array
+        // concat the genreArray to main array
+    const genreArray = ["urban","natural","aerial","portraits"];
+    let imageArray = GetImageArrayByGenre(genreArray[0]);
+    for(let i = 1; i < genreArray.length; i++) {
+        let tempArray = GetImageArrayByGenre(genreArray[i]);
+        imageArray = imageArray.concat(tempArray);
+    }
+}
+
+async function GetImageArrayByGenre(genreNameAsString) {
     // searchs the specified DB collection for the document with the objectId set in the .env file
             // finds and gets the document by objectId
             // accesses the genre sub-object, which is a series of key/value pairs for genre names and their document objectIds
@@ -167,7 +179,7 @@ function GetImageArrayByGenre(genreNameAsString) {
         return images;
 }
 
-function GetImageByGenreAndId(genreNameAsString, imageIdAsInt) {
+async function GetImageByGenreAndId(genreNameAsString, imageIdAsInt) {
     // Gets the array of genre images from GetImageArrayByGenre()
         // loops through image array, searching for Id
         // if image with Id is found, return image object
