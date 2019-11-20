@@ -3,23 +3,15 @@ const router = express.Router();
 const Image = require('../models/Image');
 const ImageGenre = require('../models/ImageGenre');
 const Directory = require('../models/Directory');
-const mongoose = require('mongoose');
 require('dotenv/config');
 // using async and await key words removes the need to use extra syntax like .then and arrow functions
 
 // GET SPECIFIC IMAGE FROM A GENRE CATEGORY
-router.get('genre/:genre/imageId/:imageId', async (req, res) => {
+router.get('/genre/:genre/:imageId', async (req, res) => {
+    const requestedGenre = req.params.genre;
+    const requestedImageId = req.params.imageId;
     try {
-        // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
-        console.log("/:genre/:imageId route, logging params: " );
-        console.log(req.params);
-        const image = await GetImageByGenreAndId(req.params.genre,req.params.imageId);
-        if (image == null) {
-            res.status(404);
-        }
-        else {
-            res.status(202);
-        }
+        const image = await GetImageByGenreAndId(requestedGenre,requestedImageId);
         res.json(image);
     } catch (err) {
         console.log(err);
@@ -32,18 +24,8 @@ router.get('genre/:genre/imageId/:imageId', async (req, res) => {
 // GETS IMAGES BASED OFF GENRE
 router.get('/genre/:genre', async (req, res) => {
     try {
-        // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
-        console.log("/genre/:genre route, logging params: " + req.params.genre);
         const imageArray = await GetImageArrayByGenre(req.params.genre);
-        console.log(imageArray);
-        if (image == null) {
-            res.status(404);
-        }
-        else {
-            res.status(202);
-        }
         res.json(imageArray);
-        
     } catch (err) {
         res.json({
             message: err
@@ -159,7 +141,30 @@ router.get('/containerRef', async (req,res)=>{
             message: err
         });
     }
-})
+});
+
+router.post('/buildContainerRef',async(req,res) => {
+    const directory = new Directory({
+            storingImages: req.body.storingImages,
+            genre: req.body.genre
+        });
+    try {
+        if (directory == null) {
+            res.status(404);
+        }
+        else {
+            res.status(202);
+        }
+        const savedDirectory = await directory.save();
+        console.log(directory);
+        res.json(directory);
+    }
+    catch(err) {
+        console.log(err);
+        res.json({
+            message: err
+    })};
+});
 
 
 // SERVER HELPER FUNCTIONS
@@ -205,28 +210,33 @@ async function GetImageArrayByGenre(genreNameAsString) {
     // Uses the genre document ID to find the document storing an array of image objects
     // return the array of image objects
     const genreID = await GetReferenceToGenreContainer(genreNameAsString);
-    console.log("Inside GetImageArrayByGenre function, logging ImageGenre: ");
+    console.log(`genreId for ${genreNameAsString}: ${genreID}`);
     const genreObject = await ImageGenre.findOne({
         _id: genreID
     });
-    console.log(genreObject);
     const images = genreObject.imageArray;
+    console.log("Inside GetImageArrayByGenre function, logging imageArrray: ");
+    console.log(genreObject);
 
     return images;
 }
 
-async function GetImageByGenreAndId(genreNameAsString, imageIdAsInt) {
+async function GetImageByGenreAndId(genreNameAsString, imageId) {
     // Gets the array of genre images from GetImageArrayByGenre()
         // loops through image array, searching for Id
         // if image with Id is found, return image object
         // if not found, return null
     const imageArrayByGenre = await GetImageArrayByGenre(genreNameAsString);
+    let targetImage = null;
     imageArrayByGenre.forEach((image)=> {
-        if(image._id === imageIdAsInt) {
-            return image;
+        console.log(image);
+        if(image._id.toString() == imageId) {
+            console.log("yup, the Ids match. Returning image object");
+            targetImage = image;
+            return;
         }
     });
-    return null;
+    return targetImage;
 }
 
 async function GetReferenceToGenreContainer(genreNameAsString) {

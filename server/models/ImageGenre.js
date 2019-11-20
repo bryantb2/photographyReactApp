@@ -15,6 +15,8 @@ const GenreSchema = mongoose.Schema({
         type: Array,
         required: true
     }
+},{
+    collection: 'images'
 });
 
 module.exports = mongoose.model('ImageGenre', GenreSchema);

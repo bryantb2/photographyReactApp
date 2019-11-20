@@ -11,6 +11,8 @@ const DirectorySchema = mongoose.Schema({
         type: Object,
         required: true
     }
+},{
+    collection: 'images'
 });
 
 module.exports = mongoose.model('Directory', DirectorySchema);
