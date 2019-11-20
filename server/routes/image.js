@@ -29,6 +29,7 @@ router.get('/:genre/:imageId', async (req, res) => {
 router.get('/genre/:genre', async (req, res) => {
     try {
         // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
+        console.log("/genre/:genre route, logging params: " + req.params.genre);
         const imageArray = await GetImageArrayByGenre(req.params.genre);
         if (image == null) {
             res.status(404);
@@ -36,7 +37,6 @@ router.get('/genre/:genre', async (req, res) => {
         else {
             res.status(202);
         }
-        console.log(imageArray);
         res.json(imageArray);
         
     } catch (err) {
@@ -49,7 +49,14 @@ router.get('/genre/:genre', async (req, res) => {
 // GETS ALL IMAGES
 router.get('/', async (req, res) => {
     try {
+        console.log("hello!!!!!")
         const images = await GetAllImages();
+        if (image == null) {
+            res.status(404);
+        }
+        else {
+            res.status(202);
+        }
         res.json(images);
     } catch (err) {
         res.json({
@@ -69,7 +76,8 @@ router.post('/', async (req, res) => {
     });
 
     try {
-        const savedImage = await image.save();
+        //const savedImage = await image.save();
+        const savedImage = await PostImageIntoGenreArray(image.genre, image);
         console.log(image);
         res.json(savedImage);
     } catch (err) {
@@ -120,6 +128,7 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
         }
         res.json(removedImage);
     } catch (err) {
+        console.log(err);
         res.json({
             message: err
         });
@@ -132,19 +141,24 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
     // Calls GetReferenceToImageContainer() to get an objectId for a genre-specific document
     // Uses the mongoDb update property to push the imageObject onto the document's imageArray
+    console.log("Inside post image helper function!");
+    console.log(imageObject);
     const genreID = await GetReferenceToImageContainer(genreNameAsString);
     const updatedImage = await ImageContainer.update({
             _id: genreID //search criteria
         }, {
             $push: {
                 // field to be updated
-                { imageArray: imageObject }
+                imageArray: imageObject
             }
     });
+    console.log("logging image pushed into array: ");
+    console.log(updatedImage);
+    return updatedImage;
 }
 
 async function UpdateImageProperty(genreNameAsString, ) {
-    
+    //TODO: FINISHED THIS   
 }
 
 async function GetAllImages() {
@@ -157,20 +171,24 @@ async function GetAllImages() {
         let tempArray = await GetImageArrayByGenre(genreArray[i]);
         imageArray = imageArray.concat(tempArray);
     }
+    console.log("inside getallimages, logging imagearray: ");
+    console.log(imageArray);
     return imageArray;
 }
 
 async function GetImageArrayByGenre(genreNameAsString) {
-        // Calls GetReferenceToImageContainer() to get an objectId for a genre-specific document
-        // Uses the genre document ID to find the document storing an array of image objects
-        // return the array of image objects
-        const genreID = await GetReferenceToGenreContainer(genreNameAsString);
-        const genreObject = await ImageContainer.findById({
-            _id: genreID
-        });
-        const images = genreObject.imageArray;
-    
-        return images;
+    // Calls GetReferenceToImageContainer() to get an objectId for a genre-specific document
+    // Uses the genre document ID to find the document storing an array of image objects
+    // return the array of image objects
+    const genreID = await GetReferenceToGenreContainer(genreNameAsString);
+    console.log("Inside GetImageArrayByGenre function, logging imageContainer: ");
+    const genreObject = await ImageContainer.findById({
+        _id: genreID
+    });
+    console.log(genreObject);
+    const images = genreObject.imageArray;
+
+    return images;
 }
 
 async function GetImageByGenreAndId(genreNameAsString, imageIdAsInt) {
