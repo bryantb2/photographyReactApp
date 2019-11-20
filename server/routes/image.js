@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const Image = require('../models/Image');
-const ImageContainer = require('../models/ImageContainer');
-const ContainerDirectory = require('../models/ContainerDirectory');
+const ImageGenre = require('../models/ImageGenre');
+const Directory = require('../models/Directory');
 require('dotenv/config');
 // using async and await key words removes the need to use extra syntax like .then and arrow functions
 
 // GET SPECIFIC IMAGE FROM A GENRE CATEGORY
-router.get('/:genre/:imageId', async (req, res) => {
+router.get('genre/:genre/imageId/:imageId', async (req, res) => {
     try {
         // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
-        const image = await GetImageByGenreAndId(req.params.gerne,req.params.imageId);
+        console.log("/:genre/:imageId route, logging params: " );
+        console.log(req.params);
+        const image = await GetImageByGenreAndId(req.params.genre,req.params.imageId);
         if (image == null) {
             res.status(404);
         }
@@ -19,6 +21,7 @@ router.get('/:genre/:imageId', async (req, res) => {
         }
         res.json(image);
     } catch (err) {
+        console.log(err);
         res.json({
             message: err
         });
@@ -31,6 +34,7 @@ router.get('/genre/:genre', async (req, res) => {
         // TODO: ASK MARI IF AWAIT IS REQUIRED WHEN CALLING THE FUNCTION
         console.log("/genre/:genre route, logging params: " + req.params.genre);
         const imageArray = await GetImageArrayByGenre(req.params.genre);
+        console.log(imageArray);
         if (image == null) {
             res.status(404);
         }
@@ -49,7 +53,6 @@ router.get('/genre/:genre', async (req, res) => {
 // GETS ALL IMAGES
 router.get('/', async (req, res) => {
     try {
-        console.log("hello!!!!!")
         const images = await GetAllImages();
         if (image == null) {
             res.status(404);
@@ -59,6 +62,7 @@ router.get('/', async (req, res) => {
         }
         res.json(images);
     } catch (err) {
+        console.log(err);
         res.json({
             message: err
         });
@@ -74,19 +78,18 @@ router.post('/', async (req, res) => {
         fullSizeImage: req.body.fullSizeImage,
         orientation: req.body.orientation
     });
-
     try {
         //const savedImage = await image.save();
-        const savedImage = await PostImageIntoGenreArray(image.genre, image);
+        const savedImage = await PostImageIntoGenreArray(req.body.genre, image);
         console.log(image);
         res.json(savedImage);
     } catch (err) {
+        console.log(err);
         res.json({
             message: err
         });
     }
 });
-
 
 // UPDATE AN IMAGE property
 router.patch('/:imageId/:property', async (req, res) => {
@@ -139,12 +142,12 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 
 // SERVER HELPER FUNCTIONS
 async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
-    // Calls GetReferenceToImageContainer() to get an objectId for a genre-specific document
+    // Calls GetReferenceToImageGenre() to get an objectId for a genre-specific document
     // Uses the mongoDb update property to push the imageObject onto the document's imageArray
     console.log("Inside post image helper function!");
     console.log(imageObject);
-    const genreID = await GetReferenceToImageContainer(genreNameAsString);
-    const updatedImage = await ImageContainer.update({
+    const genreID = await GetReferenceToImageGenre(genreNameAsString);
+    const updatedImage = await ImageGenre.update({
             _id: genreID //search criteria
         }, {
             $push: {
@@ -181,8 +184,8 @@ async function GetImageArrayByGenre(genreNameAsString) {
     // Uses the genre document ID to find the document storing an array of image objects
     // return the array of image objects
     const genreID = await GetReferenceToGenreContainer(genreNameAsString);
-    console.log("Inside GetImageArrayByGenre function, logging imageContainer: ");
-    const genreObject = await ImageContainer.findById({
+    console.log("Inside GetImageArrayByGenre function, logging ImageGenre: ");
+    const genreObject = await ImageGenre.findById({
         _id: genreID
     });
     console.log(genreObject);
@@ -212,10 +215,19 @@ async function GetReferenceToGenreContainer(genreNameAsString) {
         // Gets and RETURNS the appropriate genre document ID as a STRING
     const requestedGenre = genreNameAsString;
     const directoryId = process.env.DIRECTORY_ID;
-    const directoryContainer = await ContainerDirectory.findById({
+    const directoryContainer = await Directory.findById({
         _id: directoryId
     });
-
+    
+    console.log("logging requestedGenre");
+    console.log(genreNameAsString);
+    
+    console.log("logging directoryId");
+    console.log(directoryId);
+    
+    console.log("logging central directory");
+    console.log(directoryContainer);
+    
     const genreDirectory = directoryContainer.genre;
     let genreID;
     if(requestedGenre === "urban") {
