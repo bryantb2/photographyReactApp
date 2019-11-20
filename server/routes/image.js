@@ -3,6 +3,7 @@ const router = express.Router();
 const Image = require('../models/Image');
 const ImageGenre = require('../models/ImageGenre');
 const Directory = require('../models/Directory');
+const mongoose = require('mongoose');
 require('dotenv/config');
 // using async and await key words removes the need to use extra syntax like .then and arrow functions
 
@@ -139,6 +140,27 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 
 });
 
+// TEST ROUTES
+router.get('/containerRef', async (req,res)=>{
+    try {
+        const directory = await Directory.findById({
+            _id: '5dcdc3ca1c9d440000f857b1'
+        });
+        if (directory == null) {
+            res.status(404);
+        }
+        else {
+            res.status(202);
+        }
+        res.json(directory);
+    } catch (err) {
+        console.log(err);
+        res.json({
+            message: err
+        });
+    }
+})
+
 
 // SERVER HELPER FUNCTIONS
 async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
@@ -168,14 +190,13 @@ async function GetAllImages() {
     // Use array of genre string constants to
         // loop through each genre and return its respective genre array
         // concat the genreArray to main array
-    const genreArray = ["urban","natural","aerial","portraits"];
+    console.log("inside GetAllImages");
+    const genreArray = ['urban','natural','aerial','portraits'];
     let imageArray = await GetImageArrayByGenre(genreArray[0]);
     for(let i = 1; i < genreArray.length; i++) {
         let tempArray = await GetImageArrayByGenre(genreArray[i]);
         imageArray = imageArray.concat(tempArray);
     }
-    console.log("inside getallimages, logging imagearray: ");
-    console.log(imageArray);
     return imageArray;
 }
 
@@ -185,7 +206,7 @@ async function GetImageArrayByGenre(genreNameAsString) {
     // return the array of image objects
     const genreID = await GetReferenceToGenreContainer(genreNameAsString);
     console.log("Inside GetImageArrayByGenre function, logging ImageGenre: ");
-    const genreObject = await ImageGenre.findById({
+    const genreObject = await ImageGenre.findOne({
         _id: genreID
     });
     console.log(genreObject);
@@ -201,7 +222,7 @@ async function GetImageByGenreAndId(genreNameAsString, imageIdAsInt) {
         // if not found, return null
     const imageArrayByGenre = await GetImageArrayByGenre(genreNameAsString);
     imageArrayByGenre.forEach((image)=> {
-        if(image._id.toString() === imageIdAsInt) {
+        if(image._id === imageIdAsInt) {
             return image;
         }
     });
