@@ -111,6 +111,11 @@ router.delete('/:genre/:imageId', async (req, res) => {
 });
 
 // SERVER HELPER FUNCTIONS
+async function DeleteImageByGenreAndId(genreNameAsString, imageId) {
+    // Calls GetReferenceToImageGenre() to get an objectId for a genre-specific document
+    // Uses the mongoDb update property to push the imageObject onto the document's imageArray 
+}
+
 async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
     // Calls GetReferenceToImageGenre() to get an objectId for a genre-specific document
     // Uses the mongoDb update property to push the imageObject onto the document's imageArray
