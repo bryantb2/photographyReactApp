@@ -7,7 +7,7 @@ require('dotenv/config');
 // using async and await key words removes the need to use extra syntax like .then and arrow functions
 
 // GET SPECIFIC IMAGE FROM A GENRE CATEGORY
-router.get('/genre/:genre/:imageId', async (req, res) => {
+router.get('/:genre/:imageId', async (req, res) => {
     const requestedGenre = req.params.genre;
     const requestedImageId = req.params.imageId;
     try {
@@ -22,7 +22,7 @@ router.get('/genre/:genre/:imageId', async (req, res) => {
 });
 
 // GETS IMAGES BASED OFF GENRE
-router.get('/genre/:genre', async (req, res) => {
+router.get('/:genre', async (req, res) => {
     try {
         const imageArray = await GetImageArrayByGenre(req.params.genre);
         res.json(imageArray);
@@ -38,28 +38,6 @@ router.get('/', async (req, res) => {
     try {
         const images = await GetAllImages();
         res.json(images);
-    } catch (err) {
-        console.log(err);
-        res.json({
-            message: err
-        });
-    }
-});
-
-// SUBMITS AN IMAGE
-router.post('/', async (req, res) => {
-    const image = new Image({
-        genre: req.body.genre,
-        imageNumber: req.body.imageNumber,
-        thumbnail: req.body.thumbnail,
-        fullSizeImage: req.body.fullSizeImage,
-        orientation: req.body.orientation
-    });
-    try {
-        //const savedImage = await image.save();
-        const savedImage = await PostImageIntoGenreArray(req.body.genre, image);
-        console.log(image);
-        res.json(savedImage);
     } catch (err) {
         console.log(err);
         res.json({
@@ -92,6 +70,28 @@ router.patch('/:genre/:imageId', async (req, res) => {
     } catch (err) {
         res.json({
             err
+        });
+    }
+});
+
+// SUBMITS AN IMAGE
+router.post('/', async (req, res) => {
+    const image = new Image({
+        genre: req.body.genre,
+        imageNumber: req.body.imageNumber,
+        thumbnail: req.body.thumbnail,
+        fullSizeImage: req.body.fullSizeImage,
+        orientation: req.body.orientation
+    });
+    try {
+        //const savedImage = await image.save();
+        const savedImage = await PostImageIntoGenreArray(req.body.genre, image);
+        console.log(image);
+        res.json(savedImage);
+    } catch (err) {
+        console.log(err);
+        res.json({
+            message: err
         });
     }
 });
