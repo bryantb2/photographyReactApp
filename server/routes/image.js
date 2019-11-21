@@ -76,6 +76,7 @@ router.patch('/:genre/:imageId', async (req, res) => {
 
 // SUBMITS AN IMAGE
 router.post('/', async (req, res) => {
+    const imageGenre = req.body.genre;
     const image = new Image({
         genre: req.body.genre,
         imageNumber: req.body.imageNumber,
@@ -84,10 +85,8 @@ router.post('/', async (req, res) => {
         orientation: req.body.orientation
     });
     try {
-        //const savedImage = await image.save();
-        const savedImage = await PostImageIntoGenreArray(req.body.genre, image);
-        console.log(image);
-        res.json(savedImage);
+        await PostImageIntoGenreArray(imageGenre, image);
+        res.json(image);
     } catch (err) {
         console.log(err);
         res.json({
@@ -97,7 +96,7 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE A SPECIFIC IMAGE
-router.delete('genre/:genre/:imageId', async (req, res) => {
+router.delete('/:genre/:imageId', async (req, res) => {
     try {
         const removedImage = await Image.remove({
             _id: req.params.imageId
@@ -115,9 +114,7 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
 async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
     // Calls GetReferenceToImageGenre() to get an objectId for a genre-specific document
     // Uses the mongoDb update property to push the imageObject onto the document's imageArray
-    console.log("Inside post image helper function!");
-    console.log(imageObject);
-    const genreID = await GetReferenceToImageGenre(genreNameAsString);
+    const genreID = await GetReferenceToGenreContainer(genreNameAsString);
     const updatedImage = await ImageGenre.update({
             _id: genreID //search criteria
         }, {
@@ -126,9 +123,6 @@ async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
                 imageArray: imageObject
             }
     });
-    console.log("logging image pushed into array: ");
-    console.log(updatedImage);
-    return updatedImage;
 }
 
 async function UpdateImageProperty(genreNameAsString, imageId, property, changedValue) {
