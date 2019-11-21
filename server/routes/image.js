@@ -37,12 +37,6 @@ router.get('/genre/:genre', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const images = await GetAllImages();
-        if (image == null) {
-            res.status(404);
-        }
-        else {
-            res.status(202);
-        }
         res.json(images);
     } catch (err) {
         console.log(err);
@@ -75,27 +69,29 @@ router.post('/', async (req, res) => {
 });
 
 // UPDATE AN IMAGE property
-router.patch('/:imageId/:property', async (req, res) => {
+router.patch('/:genre/:imageId', async (req, res) => {
+    const propertyToChange = req.body.property;
+    const newPropertyValue = req.body.changedValue;
+    const imageId = req.params.imageId;
+    const genre = req.params.genre;
     try {
-        const updatedImage = await Image.updateOne({
-            _id: req.params.imageId //search criteria
-        }, {
-            $set: {
-                // gets the property from the URL params and sets the property of the specific image to the propertyValue in the body
-                property: req.body.propertyValue
+        // cannot set the _id or genre properties because it would through the document objects out of sync
+        if(!(propertyToChange == "_id" || propertyToChange == "genre")) {
+            // test for invalid data
+            if(propertyToChange == "orientation" && !(newPropertyValue=="portrait" || newPropertyValue=="horizontal")) {
+                res.status(404).send('ERROR: _orientation property can only be portrait or horizontal');
             }
-        });
-        if (updatedImage == null) {
-            res.status(404).send("An image with that ID was not found");
-            // return statement here to break out of the route?
+            else {
+                const updatedImage = await UpdateImageProperty(genre, imageId, propertyToChange, newPropertyValue);
+                res.json(updatedImage);
+            }
         }
         else {
-            res.status(202).send("Success, image was updated!");
+            res.status(404).send('ERROR: _id and genre properties are immutable');
         }
-        res.json(updatedImage);
     } catch (err) {
         res.json({
-            message: err
+            err
         });
     }
 });
@@ -106,12 +102,6 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
         const removedImage = await Image.remove({
             _id: req.params.imageId
         });
-        if (removedImage == null) {
-            res.status(404).send("An image with that ID was not found");
-        }
-        else {
-            res.status(202).send("Success, that SOB is GONE!");
-        }
         res.json(removedImage);
     } catch (err) {
         console.log(err);
@@ -119,53 +109,7 @@ router.delete('genre/:genre/:imageId', async (req, res) => {
             message: err
         });
     }
-
 });
-
-// TEST ROUTES
-router.get('/containerRef', async (req,res)=>{
-    try {
-        const directory = await Directory.findById({
-            _id: '5dcdc3ca1c9d440000f857b1'
-        });
-        if (directory == null) {
-            res.status(404);
-        }
-        else {
-            res.status(202);
-        }
-        res.json(directory);
-    } catch (err) {
-        console.log(err);
-        res.json({
-            message: err
-        });
-    }
-});
-
-router.post('/buildContainerRef',async(req,res) => {
-    const directory = new Directory({
-            storingImages: req.body.storingImages,
-            genre: req.body.genre
-        });
-    try {
-        if (directory == null) {
-            res.status(404);
-        }
-        else {
-            res.status(202);
-        }
-        const savedDirectory = await directory.save();
-        console.log(directory);
-        res.json(directory);
-    }
-    catch(err) {
-        console.log(err);
-        res.json({
-            message: err
-    })};
-});
-
 
 // SERVER HELPER FUNCTIONS
 async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
@@ -187,15 +131,41 @@ async function PostImageIntoGenreArray(genreNameAsString, imageObject) {
     return updatedImage;
 }
 
-async function UpdateImageProperty(genreNameAsString, ) {
-    //TODO: FINISHED THIS   
+async function UpdateImageProperty(genreNameAsString, imageId, property, changedValue) {
+    // Calls GetReferenceToImageGenre() to get an objectId for a genre-specific document
+    // Use findById function to get the ImageGenre
+    // Use foreach loop to iterate through all the image objects, and change the desire property based off the imageId
+    // Update the ImageGenre array property and set it to the new modified array
+    // Return the updated image object
+    const genreID = await GetReferenceToGenreContainer(genreNameAsString);
+    const updatedImageGenre = await ImageGenre.findById({
+        _id: genreID
+    });
+    
+    let updatedImageObject = null;
+    let newImageArray = updatedImageGenre.imageArray;
+    newImageArray.forEach((image)=>{
+        if(image._id.toString() == imageId) {
+            image[property] = changedValue;
+            updatedImageObject = image;
+        }
+    });
+    
+    const updatedImage = await ImageGenre.updateOne({
+            _id: genreID //search criteria
+        }, {
+        $set: {
+            // gets the property from the URL params and sets the property of the specific image to the propertyValue in the body
+            imageArray: newImageArray
+        }
+    });
+    return updatedImageObject;
 }
 
 async function GetAllImages() {
     // Use array of genre string constants to
         // loop through each genre and return its respective genre array
         // concat the genreArray to main array
-    console.log("inside GetAllImages");
     const genreArray = ['urban','natural','aerial','portraits'];
     let imageArray = await GetImageArrayByGenre(genreArray[0]);
     for(let i = 1; i < genreArray.length; i++) {
@@ -210,14 +180,10 @@ async function GetImageArrayByGenre(genreNameAsString) {
     // Uses the genre document ID to find the document storing an array of image objects
     // return the array of image objects
     const genreID = await GetReferenceToGenreContainer(genreNameAsString);
-    console.log(`genreId for ${genreNameAsString}: ${genreID}`);
     const genreObject = await ImageGenre.findOne({
         _id: genreID
     });
     const images = genreObject.imageArray;
-    console.log("Inside GetImageArrayByGenre function, logging imageArrray: ");
-    console.log(genreObject);
-
     return images;
 }
 
@@ -231,7 +197,6 @@ async function GetImageByGenreAndId(genreNameAsString, imageId) {
     imageArrayByGenre.forEach((image)=> {
         console.log(image);
         if(image._id.toString() == imageId) {
-            console.log("yup, the Ids match. Returning image object");
             targetImage = image;
             return;
         }
