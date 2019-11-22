@@ -1,7 +1,7 @@
 // This will return a class with a static getter for the collection name
 // Done this way because it hides the internal collection object that stores the names of the collections
 // Requires the server admin to manually go into this file and add, remove, or edit a key-value pair in the collections object
-let ImageCollectionNames(()=> {
+let CollectionNames(()=> {
     // names of collections
     let collections = {
         collection1: "Aerial",
@@ -38,3 +38,5 @@ let ImageCollectionNames(()=> {
         }
     }
 });
+
+export default CollectionNames;
