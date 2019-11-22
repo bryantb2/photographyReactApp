@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 //this creates a mongoose schema that will setup the data object model
 const ImageSchema = mongoose.Schema({
     genre: {
@@ -23,8 +22,6 @@ const ImageSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-},{
-    collection: 'images'
 });
 
 module.exports = mongoose.model('Image', ImageSchema);

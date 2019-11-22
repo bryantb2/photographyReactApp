@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Image = require('../models/Image');
-const ImageGenre = require('../models/ImageGenre');
-const Directory = require('../models/Directory');
-require('dotenv/config');
 // using async and await key words removes the need to use extra syntax like .then and arrow functions
 
 // GET SPECIFIC IMAGE FROM A GENRE CATEGORY
@@ -77,16 +74,23 @@ router.patch('/:genre/:imageId', async (req, res) => {
 // SUBMITS AN IMAGE
 router.post('/', async (req, res) => {
     const imageGenre = req.body.genre;
-    const image = new Image({
+    let image = new Image({
         genre: req.body.genre,
-        imageNumber: req.body.imageNumber,
         thumbnail: req.body.thumbnail,
         fullSizeImage: req.body.fullSizeImage,
         orientation: req.body.orientation
     });
+    console.log('inside image post route');
+    console.log('logging the image object: ');
+    console.log(image);
+    
+    const aerialImage = image.discriminator('AerialImage',new mongoose.Schema)
     try {
-        await PostImageIntoGenreArray(imageGenre, image);
-        res.json(image);
+        //await PostImageIntoGenreArray(imageGenre, image);
+        const savedImage = await image.save();
+        console.log('logging finished savedImage: ');
+        console.log(savedImage);
+        res.json(savedImage);
     } catch (err) {
         console.log(err);
         res.json({
@@ -110,7 +114,10 @@ router.delete('/:genre/:imageId', async (req, res) => {
     }
 });
 
-// SERVER HELPER FUNCTIONS
+// NEW SERVER HELPER FUNCTIONS
+//async function GetCollectionNameByRequesteGenre()
+
+// OLD<------------------------- SERVER HELPER FUNCTIONS
 async function DeleteImageByGenreAndId(genreNameAsString, imageId) {
     // Calls GetReferenceToImageGenre() to get an objectId for a genre-specific document
     // Uses the mongoDb update property to push the imageObject onto the document's imageArray 
