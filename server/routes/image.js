@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Image = require('../models/Image');
+const Discriminator = require('../models/Discriminator');
 // using async and await key words removes the need to use extra syntax like .then and arrow functions
 
 // GET SPECIFIC IMAGE FROM A GENRE CATEGORY
@@ -80,14 +81,18 @@ router.post('/', async (req, res) => {
         fullSizeImage: req.body.fullSizeImage,
         orientation: req.body.orientation
     });
-    console.log('inside image post route');
-    console.log('logging the image object: ');
-    console.log(image);
+    const builderReturnObject = Discriminator(imageGenre, image);
     
-    const aerialImage = image.discriminator('AerialImage',new mongoose.Schema)
+    console.log("inside post route");
+    console.log('logging builderObject: ');
+    console.log(builderReturnObject);
+    
     try {
-        //await PostImageIntoGenreArray(imageGenre, image);
-        const savedImage = await image.save();
+        if(builderReturnObject.builtSucessfully == false) {
+            res.json(builderReturnObject.message);
+        }
+        const genreSpecificImage = builderReturnObject.newImageObject;
+        const savedImage = await genreSpecificImage.save();
         console.log('logging finished savedImage: ');
         console.log(savedImage);
         res.json(savedImage);

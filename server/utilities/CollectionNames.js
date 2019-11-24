@@ -11,7 +11,7 @@ let CollectionNames(()=> {
     };
     
     
-    function AddCollectionVarsToArray() {
+    function compileCollectionObject() {
         // this function will package all the collection variables into the colleciton array
         let tempCollectionArray = new Array();
         const collectionVarName = "collection";
@@ -33,10 +33,10 @@ let CollectionNames(()=> {
     }
     
     return class {
-        static get CollectionNameArray() {
-            return AddCollectionVarsToArray();
+        static get GetCollectionNames() {
+            return compileCollectionObject();
         }
     }
 });
 
-export default CollectionNames;
+module.exports = CollectionNames;

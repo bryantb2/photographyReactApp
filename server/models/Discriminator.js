@@ -1,22 +1,30 @@
 const mongoose = require('mongoose');
-import CollectionNames from "../utilities/CollectionNames.js";
+const CollectionNames = ('../utilities/CollectionNames');
 
-function BuildGenreSpecificImage(genreString, vanillaImageObject) {
+function Discriminator(genreString, vanillaImageObject) {
     
     // 1. function will take in a standard image object and genreString
     // 2. use the mongoose discriminator function to update the target collection of the image
     
     // VALIDATOR
-    const isGenreValid = (genreString) => {
+    const isGenreValid = () => {
         // loop through collection names and determine if the genreString is valid
-        let collectionNameArray = CollectionNames.CollectionNameArray;
+        let collectionNameArray = CollectionNames.GetCollectionNames;
         let isValidCollectionName = false;
         collectionNameArray.forEach((name)=>{
-            if(name === genreString)
+            if(name === genreString) {
                 isValidCollectionName = true;
+                console.log("THE GENRE IS VALID!!!!!!!");
+            }
         });
         return isValidCollectionName;
     }
+    
+    console.log("inside discriminator, logging if genre is valid: ");
+    console.log(isGenreValid());
+    
+    console.log("inside discriminator, logging the collection name array: ");
+    console.log(CollectionNames.GetCollectionNames);
     
     // BUILDING RETURN OBJECTS
     let returnObject = {
@@ -41,4 +49,4 @@ function BuildGenreSpecificImage(genreString, vanillaImageObject) {
     return returnObject;
 }
 
-export default BuildGenreSpecificImage;
+module.exports = Discriminator;
