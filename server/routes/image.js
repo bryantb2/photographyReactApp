@@ -83,10 +83,6 @@ router.post('/', async (req, res) => {
     });
     const builderReturnObject = Discriminator(imageGenre, image);
     
-    console.log("inside post route");
-    console.log('logging builderObject: ');
-    console.log(builderReturnObject);
-    
     try {
         if(builderReturnObject.builtSucessfully == false) {
             res.json(builderReturnObject.message);

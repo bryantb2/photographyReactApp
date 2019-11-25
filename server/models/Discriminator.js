@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const CollectionNames = ('../utilities/CollectionNames');
+const CollectionNames = require('../utilities/CollectionNames');
 
 function Discriminator(genreString, vanillaImageObject) {
     
@@ -14,17 +14,10 @@ function Discriminator(genreString, vanillaImageObject) {
         collectionNameArray.forEach((name)=>{
             if(name === genreString) {
                 isValidCollectionName = true;
-                console.log("THE GENRE IS VALID!!!!!!!");
             }
         });
         return isValidCollectionName;
     }
-    
-    console.log("inside discriminator, logging if genre is valid: ");
-    console.log(isGenreValid());
-    
-    console.log("inside discriminator, logging the collection name array: ");
-    console.log(CollectionNames.GetCollectionNames);
     
     // BUILDING RETURN OBJECTS
     let returnObject = {
@@ -33,11 +26,11 @@ function Discriminator(genreString, vanillaImageObject) {
         newImageObject: null
     };
     
-    if(isGenreValid === true) {
+    if(isGenreValid() === true) {
         // unique key required for models that are discriminated
-        const discriminatorKey = Date.now();
-        const newImageObject = vanillaImageObject.discriminator('GenreImage',
-                        new mongoose.Schema({}, discriminatorKey, ));
+        //const discriminatorKey = Date.now();
+        const discriminatorKey = {collection: genreString};
+        const newImageObject = vanillaImageObject.discriminator('GenreImage',new mongoose.Schema({}, discriminatorKey));
         returnObject.newImageObject = newImageObject;
         returnObject.builtSucessfully = false;
         returnObject.message = "success!";
