@@ -73,6 +73,11 @@ router.post('/', async (req, res) => {
         fullSizeImage: req.body.fullSizeImage,
         orientation: req.body.orientation
     });
+<<<<<<< HEAD
+=======
+    const builderReturnObject = Discriminator(imageGenre, image);
+    
+>>>>>>> 9112038b985d91eaf741847b5921b2f289d7309d
     try {
         const savedImage = await image.save();
         console.log(savedImage);
