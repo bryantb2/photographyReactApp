@@ -8,6 +8,9 @@ require('dotenv/config');
 //Middlewares: functions that are executed along with certain routes
 app.use(cors()); //alows for cross-domain communication with the web server
 app.use(bodyParser.json());
+app.use(cors({
+    origin: process.env.ORIGIN_CONNECTION
+}));
 
 //IMPORT ROUTES
 const imageRoute = require('./routes/image');
@@ -17,7 +20,7 @@ app.use('/image', imageRoute); //middleware example
 //ROUTES: patch for updating delete for deleting get to retrieve info post to send info
 
 app.get('/', (req, res) => {
-    res.send('HOME');
+    res.send('Image API Server.');
 });
 
 //Connect to DB
