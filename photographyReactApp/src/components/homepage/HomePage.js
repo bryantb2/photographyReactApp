@@ -7,8 +7,8 @@ import Navbar from '../navbar/Navbar.js';
 import ContactInfo from '../footer/ContactInfo.js';
 //image assets
 
-import backgroundImage from '../../referenceImages/9DS_0066.JPG';
-import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
+
+
 
 //imports for testing API system:
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
@@ -16,7 +16,9 @@ import APIDataParser from '../utilityComponents/APIDataParser.js';
 import PhotoGridGenerator from '../utilityComponents/PhotoGridGenerator.js';
 
 // imports for UI components
-import CoverPage from './CoverPage';
+import CoverSection from './CoverSection.js';
+import HomeSection from './HomeSection.js';
+import AboutSection from './AboutSection.js';
 
 
 class HomePage extends React.Component {
@@ -110,36 +112,14 @@ class HomePage extends React.Component {
       return (
         <div id="homepage-wrapper">
             
-        <CoverPage />
+        <CoverSection />
 
           <div className="page-divider">
               <Navbar />
           </div>
 
 
-        <section id="page2">
-            <article className="contentContainer">
-                <div className="d-flex justify-content-center headerStyle">
-                    <div className="p-2">Bryant Photography</div>
-                </div>
-
-                <div className="d-flex justify-content-center infoStyle">
-                      <div className="p-2">Emphasis on drone shots and natural environments.</div>
-                </div>
-
-                <div className="d-flex justify-content-center lineStyle">
-                      <div className="p-2">&nbsp;</div>
-                </div>
-
-                <div className="d-flex justify-content-center">
-                      <button type="button" className="text-center btn btn-lg btn-light portfolioButton">Portfolio</button>
-                </div>
-            </article>
-
-            <div className="imageContainer">
-                <img className="mainImage" src={backgroundImage}/>
-            </div>
-        </section>
+        <HomeSection />
 
 
         <div id="highlightsDivider">
@@ -169,28 +149,8 @@ class HomePage extends React.Component {
                   <button type="button" className="portfolioButton text-center btn btn-lg btn-light ">Portfolio</button>
             </div>
         </div>
-
-
-        <section id="page4">
-            <article className="contentContainer contentBoxRestricted">
-                <div className="d-flex justify-content-left dividerHeader bioInfo-customMargin">
-                    <div className="p-2">Bio Information</div>
-                </div>
-                <br/>
-                <div className="d-flex justify-content-center bioInfo-subText bioInfo-customParaMargin">
-                      <p className="p-2">My name is Blake Bryant, and, as you have probably already discovered, I have a love for photography. More specifically, I seek to capture “the asthetic”. This is the satisfying sensation a viewer gets from, one, finding an image visually pleasing and, two, feeling a connection to the subject.</p>
-                </div>
-
-                <div className="d-flex justify-content-center bioInfo-subText">
-                      <p className="p-2">My favorite types of photography usually involve a drone and forested enviroment rich in detail, as you will see. I personally find aerial photos to be the most effective way of capturing landscape photos due to the unique perspective and scope of the scenery that can be shown. However, I am comfortable with snapping a host of photograph types consisting of, but not limited to, action shots, portraits, landscapes, and light painting. I have experience in a variety of settings ranging from highly urbanized cities to beaches.</p>
-                </div>
-            </article>
-
-            <div className="imageContainer2">
-                <img className="mainImage2" src={backgroundImage2}/>
-            </div>
-        </section>
-
+        
+          
 
         <footer id="contactInfo">
             <ContactInfo />

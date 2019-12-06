@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from './CoverPage.module.css';
 import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 
-function CoverPage(props) {
+function CoverSection(props) {
     return(
         <section id="page1">
             <img className="titleImage d-block img-fluid mx-auto" src={textBoxVector}/>
@@ -22,4 +22,4 @@ function CoverPage(props) {
     );
 }
 
-export default CoverPage;
+export default CoverSection;
