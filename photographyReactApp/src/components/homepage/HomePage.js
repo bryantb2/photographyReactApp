@@ -6,7 +6,7 @@ import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import Navbar from '../navbar/Navbar.js';
 import ContactInfo from '../footer/ContactInfo.js';
 //image assets
-import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
+
 import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
 
@@ -14,6 +14,10 @@ import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
 import PhotoAPI from '../../server/PhotoAPIWrapper.js';
 import APIDataParser from '../utilityComponents/APIDataParser.js';
 import PhotoGridGenerator from '../utilityComponents/PhotoGridGenerator.js';
+
+// imports for UI components
+import CoverPage from './CoverPage';
+
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -105,22 +109,8 @@ class HomePage extends React.Component {
   render() {
       return (
         <div id="homepage-wrapper">
-            <section id="page1">
-                <img className="titleImage d-block img-fluid mx-auto" src={textBoxVector}/>
-
-                <div className="d-flex justify-content-center">
-                      <div className="p-2 titleOblique-text">So it would be a shame to not share a good story, right?</div>
-                </div>
-
-                <div className="d-flex justify-content-center">
-                      <div className="p-2 title-lineStyle"></div>
-                </div>
-
-                <div className="d-flex scroll-info justify-content-center scroll-text">
-                    <div className="p-2">Scroll Down for Mainpage</div>
-                </div>
-            </section>
-      
+            
+        <CoverPage />
 
           <div className="page-divider">
               <Navbar />
