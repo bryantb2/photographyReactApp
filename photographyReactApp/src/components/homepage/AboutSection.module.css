@@ -1,0 +1,190 @@
+/*Bio Page Styles */
+#page4 { /* Background Image Styles */
+    position: relative;
+    width: 100%;
+}
+
+.imageContainer2 { /* Background Image Styles */
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    z-index: -101;
+    background: url(../../referenceImages/DSC_0530.JPG);
+}
+
+.contentContainer { /* content boxes */
+    display: block;
+    position: absolute;
+    /*max-width: 50%; */
+    margin-top: 22%;
+    /*margin-left: 5%;*/
+    max-height: 100%;
+    max-width: 100%;
+    opacity: 0.9;
+}
+
+.mainImage2 {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-width:150%;
+    -ms-min-width:150%;
+        min-width: 150%;
+    opacity: 0.9;
+}
+
+.infoHeader {
+    font-family: 'FuturaPT-Medium';
+    font-size: 48pt;
+    color: #f4e0b9;
+    /*margin-bottom: -10px;*/
+}
+
+.bioInfoSubText {
+    font-family: "FuturaPT-Light";
+    font-size: 25pt;
+    color: #f4e0b9;
+    letter-spacing: 0.3pt;
+    /*margin-bottom: 0%;*/
+    line-height: 1.25em;
+}
+
+.customMargin {
+    /*margin-bottom: -3%;*/
+}
+
+
+/* BIO PAGE MEDIA QUERY OPTIMIZATION */
+@media (min-width:2000px) {
+    .infoHeader {
+        font-size: 65pt;
+    }
+}
+
+@media (max-width: 1400px) {
+    .contentBoxRestricted {
+        margin-top: 15%;
+    }
+    .bioInfoSubText {
+        font-size: 20pt;
+    }
+    .customMargin {
+        /*margin-bottom: -5%;*/
+    }
+    .customParaMargin{
+       /* margin-bottom: -1.5%; */
+    }
+}
+
+@media (max-width: 1200px) {
+    .contentBoxRestricted {
+        margin-top: 13%;
+    }
+    .bioInfoSubText {
+        font-size: 18pt;
+    }
+    .customMargin {
+        /*margin-bottom: -7%;*/
+    }
+    .customParaMargin{
+        /*margin-bottom: -2%;*/
+    }
+}
+
+@media (max-width:960px) {
+    .infoHeader {
+        font-size: 38pt;
+        margin-bottom: -2%;
+    }
+    .contentBoxRestricted {
+        margin-top: 10%;
+    }
+    .bioInfoSubText {
+        font-size: 15pt;
+    }
+    .customMargin {
+        /*margin-bottom: -9%;*/
+    }
+    .customParaMargin{
+        /*margin-bottom: -3.5%; */
+    }
+}
+@media (max-width:760px) {
+    .infoHeader {
+        font-size: 30pt;
+        margin-bottom: -3%;
+    }
+    .mainImage2 { /* expanding background image for mobile */
+        -webkit-width:220%;
+        -ms-min-width:220%;
+        min-width: 220%;
+    }
+    .contentBoxRestricted {
+        margin-top: 25%;
+    }
+    .bioInfoSubText {
+        font-size: 13pt;
+    }
+    .customMargin {
+        /*margin-bottom: -11%;*/
+    }
+    .customParaMargin{
+        /*margin-bottom: -5%;*/
+    }
+}
+@media (max-width:550px) {
+    .infoHeader {
+        font-size: 20pt;
+        /*margin-bottom: -16px;*/
+    }
+    .contentBoxRestricted {
+        margin-top: 30%;
+        max-width: 90%;
+    }
+    .bioInfoSubText {
+        font-size: 10pt;
+    }
+    .customMargin {
+        /*margin-bottom: -8%;*/
+    }
+    .customParaMargin{
+        /*margin-bottom: -5%;*/
+    }
+}
+
+@media (max-width: 400px) {
+    /*special case to fix scaling issues */
+    .contentBoxRestricted {
+        margin-top: 30%;
+    }
+    .bioInfoSubText {
+        font-size: 9pt;
+    }
+    .customMargin {
+       /* margin-bottom: -11%; */
+    }
+    .customParaMargin{
+        /*margin-bottom: -7%;*/
+    }
+}
+
+@media (max-width: 320px) {
+    .contentBoxRestricted {
+        margin-top: 30%;
+    }
+    .bioInfoSubText {
+        font-size: 8pt;
+    }
+    .customMargin {
+        /*margin-bottom: -13.5%;*/
+    }
+    .customParaMargin{
+       /* margin-bottom: -8%; */
+    }
+}

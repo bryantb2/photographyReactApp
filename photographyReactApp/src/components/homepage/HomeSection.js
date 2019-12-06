@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from './HomeSection.module.css';
+import Button from '../sharedUIComponents/Button.js';
 
 function HomeSection(props) {
     return(
@@ -13,12 +14,15 @@ function HomeSection(props) {
                       <div className="p-2">Emphasis on drone shots and natural environments.</div>
                 </div>
 
-                <div className="d-flex justify-content-center lineStyle">
+                <div className="d-flex justify-content-center lineStyle mb-3">
                       <div className="p-2">&nbsp;</div>
                 </div>
 
                 <div className="d-flex justify-content-center">
-                      <button type="button" className="text-center btn btn-lg btn-light portfolioButton">Portfolio</button>
+                    <Button
+                        destination={"/selectportfolio"}
+                        text={"Portfolio"}
+                    />
                 </div>
             </article>
 

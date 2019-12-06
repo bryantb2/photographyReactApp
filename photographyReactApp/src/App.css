@@ -29,4 +29,12 @@
 /* Basic styles*/
 html, body {margin:0;padding:0;height:100%;}
 
+html {
+-webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
 
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}

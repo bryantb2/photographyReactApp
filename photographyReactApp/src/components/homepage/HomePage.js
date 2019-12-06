@@ -22,6 +22,7 @@ import CoverSection from './CoverSection.js';
 import HomeSection from './HomeSection.js';
 import AboutSection from './AboutSection.js';
 import Divider from '../sharedUIComponents/Divider.js';
+import Button from '../sharedUIComponents/Button.js';
 
 
 class HomePage extends React.Component {

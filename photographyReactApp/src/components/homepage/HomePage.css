@@ -199,20 +199,7 @@ img.mainImage {
     border-bottom: solid 4px #f4e0b9;
 }
 
-.portfolioButton {
-    background: transparent;
-    border-width:medium;
-    color: #f4e0b9;
-    border-color: #f4e0b9;
-    font-family: 'FuturaPT-Light';
-    font-size: 20pt;
-    padding: 15px 45px;
-    margin-top: 4%;
-}
 
-.portfolioButton:hover {
-    background-color: dimgrey;
-}
 
 /* HOMEPAGE MEDIA QUERY OPTIMIZATION */
 @media (min-width: 2000px) {
@@ -228,12 +215,7 @@ img.mainImage {
         border-bottom: solid 4px #f4e0b9;
         margin-bottom: -0.5%;
     }
-    .portfolioButton {
-        border-width:3px;
-        font-size: 32pt;
-        padding: 17px 47px;
-        margin-top: 4%;
-    }
+    
 }
 
 @media (max-width: 960px) {
@@ -249,11 +231,7 @@ img.mainImage {
         border-bottom: solid 3px #f4e0b9;
         margin-bottom: 0%;
     }
-    .portfolioButton {
-        border-width:2px;
-        font-size: 15pt;
-        padding: 12px 29px;
-    }
+    
 }
 
 @media (max-width: 760px) {
@@ -273,11 +251,6 @@ img.mainImage {
         font-size: 15.7pt;
         margin-bottom: -4%;
     }
-    .portfolioButton {
-        border-width:2px;
-        font-size: 13pt;
-        padding: 10px 27px;
-    }
 }
 
 @media (max-width: 550px) {
@@ -293,11 +266,6 @@ img.mainImage {
         border-bottom: solid 2px #f4e0b9;
         margin-bottom: 0.5%;
     }
-    .portfolioButton {
-        border-width:1.75px;
-        font-size: 12pt;
-        padding: 8px 20px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -312,10 +280,7 @@ img.mainImage {
     .lineStyle {
         border-bottom: solid 2px #f4e0b9;
     }
-    .portfolioButton {
-        font-size: 10pt;
-        padding: 8px 20px;
-    }
+    
 }
 
 @media (max-width: 380px) {
@@ -330,10 +295,7 @@ img.mainImage {
     .lineStyle {
         border-bottom: solid 1.75px #f4e0b9;
     }
-    .portfolioButton {
-        font-size: 10pt;
-        padding: 6px 18px;
-    }
+    
 }
 
 @media (max-width: 320px) {
@@ -348,10 +310,7 @@ img.mainImage {
     .lineStyle {
         border-bottom: solid 1.75px #f4e0b9;
     }
-    .portfolioButton {
-        font-size: 9pt;
-        padding: 5px 15px;
-    }
+    
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -450,169 +409,6 @@ img.mainImage {
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Bio Page Styles */
-#page4 { /* Background Image Styles */
-    position: relative;
-    width: 100%;
-}
-
-.imageContainer2 { /* Background Image Styles */
-    position: relative;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    z-index: -101;
-}
-
-.contentBoxRestricted {
-    max-width: 50%;
-    margin-top: 22%;
-    margin-left: 5%;
-    max-height: 100%;
-}
-
-.mainImage2 {
-    -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-    -webkit-width:150%;
-    -ms-min-width:150%;
-        min-width: 150%;
-    opacity: 0.9;
-}
-
-.bioInfo-subText {
-    font-family: "FuturaPT-Light";
-    font-size: 25pt;
-    color: #f4e0b9;
-    letter-spacing: 0.3pt;
-    margin-bottom: 0%;
-    line-height: 1.25em;
-}
-
-.bioInfo-customMargin {
-    margin-bottom: -3%;
-}
-
-
-/* BIO PAGE MEDIA QUERY OPTIMIZATION */
-@media (min-width:2000px) {
-}
-
-@media (max-width: 1400px) {
-    .contentBoxRestricted {
-        margin-top: 15%;
-    }
-    .bioInfo-subText {
-        font-size: 20pt;
-    }
-    .bioInfo-customMargin {
-        margin-bottom: -5%;
-    }
-    .bioInfo-customParaMargin{
-        margin-bottom: -1.5%;
-    }
-}
-
-@media (max-width: 1200px) {
-    .contentBoxRestricted {
-        margin-top: 13%;
-    }
-    .bioInfo-subText {
-        font-size: 18pt;
-    }
-    .bioInfo-customMargin {
-        margin-bottom: -7%;
-    }
-    .bioInfo-customParaMargin{
-        margin-bottom: -2%;
-    }
-}
-
-@media (max-width:960px) {
-    .contentBoxRestricted {
-        margin-top: 10%;
-    }
-    .bioInfo-subText {
-        font-size: 15pt;
-    }
-    .bioInfo-customMargin {
-        margin-bottom: -9%;
-    }
-    .bioInfo-customParaMargin{
-        margin-bottom: -3.5%;
-    }
-}
-@media (max-width:760px) {
-    .mainImage2 { /* expanding background image for mobile */
-        -webkit-width:220%;
-        -ms-min-width:220%;
-        min-width: 220%;
-    }
-    .contentBoxRestricted {
-        margin-top: 25%;
-    }
-    .bioInfo-subText {
-        font-size: 13pt;
-    }
-    .bioInfo-customMargin {
-        margin-bottom: -11%;
-    }
-    .bioInfo-customParaMargin{
-        margin-bottom: -5%;
-    }
-}
-@media (max-width:550px) {
-    .contentBoxRestricted {
-        margin-top: 30%;
-        max-width: 90%;
-    }
-    .bioInfo-subText {
-        font-size: 10pt;
-    }
-    .bioInfo-customMargin {
-        margin-bottom: -8%;
-    }
-    .bioInfo-customParaMargin{
-        margin-bottom: -5%;
-    }
-}
-
-@media (max-width: 400px) {
-    /*special case to fix scaling issues */
-    .contentBoxRestricted {
-        margin-top: 30%;
-    }
-    .bioInfo-subText {
-        font-size: 9pt;
-    }
-    .bioInfo-customMargin {
-        margin-bottom: -11%;
-    }
-    .bioInfo-customParaMargin{
-        margin-bottom: -7%;
-    }
-}
-
-@media (max-width: 320px) {
-    .contentBoxRestricted {
-        margin-top: 30%;
-    }
-    .bioInfo-subText {
-        font-size: 8pt;
-    }
-    .bioInfo-customMargin {
-        margin-bottom: -13.5%;
-    }
-    .bioInfo-customParaMargin{
-        margin-bottom: -8%;
-    }
-}
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
