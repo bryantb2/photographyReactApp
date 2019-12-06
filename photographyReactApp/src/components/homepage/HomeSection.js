@@ -1,6 +1,5 @@
 import React from 'react';
 import Styles from './HomeSection.module.css';
-import backgroundImage from '../../referenceImages/9DS_0066.JPG';
 
 function HomeSection(props) {
     return(
@@ -24,7 +23,7 @@ function HomeSection(props) {
             </article>
 
             <div className="imageContainer">
-                <img className="mainImage" src={backgroundImage}/>
+                <img className="mainImage" src={props.backgroundImage}/>
             </div>
         </section>
     );

@@ -357,65 +357,6 @@ img.mainImage {
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-/* HIGHLIGHTS DIVIDER STYLES */
-#highlightsDivider {
-    padding-top: 1%;
-    width: 100%;
-    background: #454231;
-    position: relative;
-    padding-bottom: 2%;
-}
-
-.dividerHeader {
-    font-family: 'FuturaPT-Medium';
-    font-size: 48pt;
-    color: #f4e0b9;
-    margin-bottom: -10px;
-}
-
-.dividerSubText {
-    font-family: 'FuturaPT-Light';
-    font-size: 20pt;
-    color: #f4e0b9;
-}
-
-/* HIGHLIGHTS DIVIDER MEDIA QUERY OPTIMIZATION */
-@media (min-width:2000px) {
-    .dividerHeader {
-        font-size: 65pt;
-        margin-bottom: -0.5%;
-    }
-    .highlightsDivider-subText {
-        font-size: 30pt;
-    }
-}
-@media (max-width:960px) {
-    .dividerHeader {
-        font-size: 38pt;
-        margin-bottom: -2%;
-    }
-    .highlightsDivider-subText {
-        font-size: 17pt;
-    }
-}
-@media (max-width:760px) {
-    .dividerHeader {
-        font-size: 30pt;
-        margin-bottom: -3%;
-    }
-    .highlightsDivider-subText {
-        font-size: 14pt;
-    }
-}
-@media (max-width:550px) {
-    .dividerHeader {
-        font-size: 20pt;
-        margin-bottom: -16px;
-    }
-    .highlightsDivider-subText {
-        font-size: 10pt;
-    }
-}
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 

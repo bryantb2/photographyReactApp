@@ -5,8 +5,10 @@ import '../../App.css';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
 import Navbar from '../navbar/Navbar.js';
 import ContactInfo from '../footer/ContactInfo.js';
-//image assets
 
+//image assets
+import backgroundImage from '../../referenceImages/9DS_0066.JPG';
+import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
 
 
 
@@ -19,6 +21,7 @@ import PhotoGridGenerator from '../utilityComponents/PhotoGridGenerator.js';
 import CoverSection from './CoverSection.js';
 import HomeSection from './HomeSection.js';
 import AboutSection from './AboutSection.js';
+import Divider from '../sharedUIComponents/Divider.js';
 
 
 class HomePage extends React.Component {
@@ -114,23 +117,19 @@ class HomePage extends React.Component {
             
         <CoverSection />
 
-          <div className="page-divider">
-              <Navbar />
-          </div>
-
-
-        <HomeSection />
-
-
-        <div id="highlightsDivider">
-            <div className="d-flex justify-content-center dividerHeader">
-                <div className="p-2">Portfolio Highlights</div>
-            </div>
-
-            <div className="d-flex justify-content-center dividerSubText">
-                <div className="p-2 highlightsDivider-subText">Click photos for expanded view.</div>
-            </div>
+        <div className="page-divider">
+          <Navbar />
         </div>
+
+        <HomeSection
+            backgroundImage={backgroundImage}
+        />
+
+        <Divider
+          dividerNumber={1}
+          header={"Portfolio Highlights"}
+          subHeader={"Click photos for expanded view."}
+          />
 
 
         <section id="page3">
@@ -138,19 +137,15 @@ class HomePage extends React.Component {
         </section>  
 
 
-        <div id="moreInfoDivider">
-            <div className="d-flex justify-content-center dividerSubText">
-                <div className="p-2 moreInfoDivider-subText">For more of my work, visit the portfolio section of this site.</div>
-            </div>
-            <div className="d-flex justify-content-center infoDivider-lineStyle">
-                <div className="p-2">&nbsp;</div>
-            </div>
-            <div className="d-flex justify-content-center">
-                  <button type="button" className="portfolioButton text-center btn btn-lg btn-light ">Portfolio</button>
-            </div>
-        </div>
+        <Divider
+            dividerNumber={2}
+            header={"Checkout More Photos"}
+            subHeader={"For more of my work, visit the portfolio section of this site."}   
+        />
         
-          
+        <AboutSection 
+            backgroundImage={backgroundImage2}
+        />  
 
         <footer id="contactInfo">
             <ContactInfo />

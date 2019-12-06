@@ -1,8 +1,6 @@
 import React from 'react';
 import Styles from './AboutSection.module.css';
 
-import backgroundImage2 from '../../referenceImages/DSC_0530.JPG';
-
 function AboutSection(props) {
     return(
         <section id="page4">
@@ -21,7 +19,7 @@ function AboutSection(props) {
             </article>
 
             <div className="imageContainer2">
-                <img className="mainImage2" src={backgroundImage2}/>
+                <img className="mainImage2" src={props.backgroundImage}/>
             </div>
         </section>
     );
