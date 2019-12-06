@@ -4,18 +4,18 @@ import textBoxVector from '../../referenceImages/vectors/mainTitleVector.png';
 
 function CoverSection(props) {
     return(
-        <section id="page1">
-            <img className="titleImage d-block img-fluid mx-auto" src={textBoxVector}/>
+        <section id="section1" className={Styles.pageContainer}>
+            <img className={Styles.titleImage + " d-block img-fluid mx-auto"} src={textBoxVector}/>
 
             <div className="d-flex justify-content-center">
-                  <div className="p-2 titleOblique-text">So it would be a shame to not share a good story, right?</div>
+                  <div className={"p-2 " + Styles.titleObliqueText}>So it would be a shame to not share a good story, right?</div>
             </div>
 
             <div className="d-flex justify-content-center">
-                  <div className="p-2 title-lineStyle"></div>
+                  <div className={"p-2 " + Styles.lineStyle}></div>
             </div>
 
-            <div className="d-flex scroll-info justify-content-center scroll-text">
+            <div className={"d-flex justify-content-center " + Styles.scrollText + " " + Styles.scrollInfo}>
                 <div className="p-2">Scroll Down for Mainpage</div>
             </div>
         </section>

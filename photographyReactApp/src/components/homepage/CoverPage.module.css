@@ -1,0 +1,122 @@
+/* TITLE PAGE STYLES */
+.pageContainer {
+    width: 100%;
+    background: #5f703a;
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 15%;
+}
+
+.titleImage {
+    max-width: 90%;
+    height: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.titleObliqueText {
+    font-family: 'FuturaPT-Medium';
+    font-size: 31.5pt;
+    color: #f4e0b9;
+    letter-spacing: 1.5px;
+}
+
+.lineStyle {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 3%;
+    border-bottom: solid 2px #f4e0b9;
+    margin-top: 1%;
+}
+
+.scrollInfo {
+    width: 30%;
+    margin: 0 auto;
+    padding-bottom: 3%;
+    margin-top: 2.5%;
+}
+
+.scrollText {
+    width: 100%;
+    font-family: 'FuturaPT-Book';
+    font-size: 15pt;
+    color: #f4e0b9;
+}
+
+    
+/* TITLE PAGE MEDIA QUERY OPTIMIZATION*/
+@media (min-width: 1920px) {
+    .titleImage {
+        width: 50%;
+    }
+    .titleObliqueText {
+        font-size: 28pt;
+    }
+    .scrollText {
+        font-size: 20pt;
+    }
+}
+
+@media (max-width: 1200px) {
+    .titleObliqueText {
+        font-size: 25.5pt;
+    }
+    .scrollText {
+        font-size: 14pt;
+    }
+}
+
+@media (max-width: 1000px) {
+    .titleObliqueText {
+        font-size: 24pt;
+    }
+    .scrollText {
+        font-size: 12pt;
+    }
+}
+
+@media (max-width: 960px) {
+    .titleObliqueText {
+        font-size: 19pt;
+        -webkit-transform: scaleY(1.2);
+            -ms-transform: scaleY(1.2);
+                transform: scaleY(1.2);
+    }
+}
+
+@media (max-width: 760px) {
+    .titleObliqueText {
+        font-size: 13pt;
+    }
+}
+
+@media (max-width: 550px) {
+    .titleObliqueText {
+        font-size: 11pt;
+    }
+    .scrollText {
+        font-size: 10pt;
+    }
+}
+
+@media (max-width: 480px) {
+    .titleObliqueText {
+        font-size: 8.5pt;
+    }
+}
+
+@media (max-width: 380px) {
+    .titleObliqueText {
+        font-size: 7pt;
+    }
+    .scrollText {
+        font-size: 7pt;
+    }
+}
+
+@media (max-width: 320px) {
+    .titleObliqueText {
+        font-size: 9pt;
+    }
+}

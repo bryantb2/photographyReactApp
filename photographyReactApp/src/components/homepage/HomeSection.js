@@ -4,17 +4,17 @@ import Button from '../sharedUIComponents/Button.js';
 
 function HomeSection(props) {
     return(
-        <section id="page2">
-            <article className="contentContainer">
-                <div className="d-flex justify-content-center headerStyle">
+        <section id="section2">
+            <article className={Styles.contentContainer}>
+                <div className={Styles.headerStyle + " d-flex justify-content-center"}>
                     <div className="p-2">Bryant Photography</div>
                 </div>
 
-                <div className="d-flex justify-content-center infoStyle">
+                <div className={"d-flex justify-content-center " + Styles.infoStyle}>
                       <div className="p-2">Emphasis on drone shots and natural environments.</div>
                 </div>
 
-                <div className="d-flex justify-content-center lineStyle mb-3">
+                <div className={Styles.lineStyle + " d-flex justify-content-center mb-3"}>
                       <div className="p-2">&nbsp;</div>
                 </div>
 
@@ -26,8 +26,8 @@ function HomeSection(props) {
                 </div>
             </article>
 
-            <div className="imageContainer">
-                <img className="mainImage" src={props.backgroundImage}/>
+            <div className={Styles.imageContainer}>
+                <img className={Styles.mainImage} src={props.backgroundImage}/>
             </div>
         </section>
     );
