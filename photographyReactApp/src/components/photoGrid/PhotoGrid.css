@@ -18,10 +18,6 @@
     margin-bottom: -1% !important;
 }
 
-.photoCol6 {
-    padding-right: 0;
-}
-
 .gridSection .imageAnchor {
     border-style: none;
     background: none;
@@ -31,7 +27,6 @@
     width:100%;
     height: 95%;
 }
-
 /*.gridSection .loadingColor {
     background-color: #454231;
     overflow: hidden;
