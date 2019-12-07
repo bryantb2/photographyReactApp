@@ -35,78 +35,8 @@ class HomePage extends React.Component {
         this.state={
             //this essentially parses the data (sets the apidata to actual array of photos and NOT the entire object)
             APIData: APIDataParser.parseAndSection(this.APIDataObject),
-            columnSize: 3,
         };
-        
-        //BINDS
-        this.createEventListeners = this.createEventListeners.bind(this);
-        this.photoGridResizeHandler = this.photoGridResizeHandler.bind(this);
-        this.initializeColmnSize = this.initializeColmnSize.bind(this);
-        this.debounce = this.debounce.bind(this);
     }
-    
-    //LIFECYCLE METHODS
-    componentDidMount() {
-        this.createEventListeners();
-        this.initializeColmnSize();
-    }
-    
-    //EVENT LISTENERS
-    createEventListeners() {
-        window.addEventListener('resize', this.debounce(this.photoGridResizeHandler,1000));
-    }
-    
-    
-    //EVENT HANDLERS
-    photoGridResizeHandler() {
-        let windowWidth = window.innerWidth;
-        //setState of colSize to 6 if below 800px
-        if(windowWidth < 1050) {
-            this.setState({
-                columnSize: 6,
-            });
-        }
-        //setState of colSize to 3 if not below but still set to 6
-        else if(this.state.columnSize !== 3) {
-            this.setState({
-                columnSize: 3,
-            });
-        }
-    }
-    
-    
-    //METHODS
-    initializeColmnSize() {
-        //fills the state's columnSize property with data (setState not used because this is a pre-render function)
-        let windowWidth = window.innerWidth;
-        //setState of layoutSize to "small" if below 575px
-        if(windowWidth < 1050) {
-            this.setState({
-                columnSize: 6,
-            });
-        }
-        //no need for else statement to switch to 3 because layoutSize is already set to 3 by default
-    }
-    
-    debounce(func, wait, immediate) {
-        //debounce function prevents overloaded client
-        //function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
-        let timeout;
-        return function executedFunction() {
-            let context = this;
-            let args = arguments;
-            
-            let later = function() {
-              timeout = null;
-              if (!immediate) func.apply(context, args);
-            };
-
-            let callNow = immediate && !timeout;
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-            if (callNow) func.apply(context, args);
-        };
-    };
     
     
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
