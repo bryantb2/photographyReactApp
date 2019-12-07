@@ -8,19 +8,19 @@
 
 .verticalLine {
     border-left: 3px solid #454231;
-    max-height: 0%;
     margin-left: 3%;
     margin-right: 3%;
+    max-height: 120px;
 }
 
 .photoSelectorGroupnoDropDown {
-    padding-top: 7%;
+    margin-top: 7%;    
     margin-bottom: 0.5%;
 }
 
 .photoSelectorGroupdropDown {
-    padding-top: 7%;
-    margin-bottom: 220px;
+    margin-top: 7%;
+    margin-bottom: 270px;
 }
 
 /* dropdown menu button styles */
@@ -86,7 +86,12 @@
 }
 
 @media (max-width: 1200px) {
-    
+    .photoSelectorGroupnoDropDown {
+        margin-top: 10%;
+    }
+    .photoSelectorGroupdropDown {
+        margin-top: 10%;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -100,6 +105,12 @@
     .infoStyleGenrePage {
         font-size: 28pt;
         margin-bottom: -2%;
+    }
+    .photoSelectorGroupnoDropDown {
+        margin-top: 13%;
+    }
+    .photoSelectorGroupdropDown {
+        margin-top: 13%;
     }
 }
 
@@ -119,7 +130,12 @@
     .portfolioDropdown>.dropdown-menu {
         /*max-width: 90%;*/
     }
-    
+    .photoSelectorGroupnoDropDown {
+        margin-top: 15%;
+    }
+    .photoSelectorGroupdropDown {
+        margin-top: 15%;
+    }
 }
 
 @media (max-width: 550px) {
@@ -127,8 +143,6 @@
         margin-top: 35%;
     }
     .infoStyleGenrePage {
-        font-size: 19pt;
-        margin-bottom: -7%;
     }
     /*.genreSelectButton1 {
         border-width:1.75px;
@@ -142,8 +156,12 @@
         margin-top: 45%;
     }
     .infoStyleGenrePage {
-        font-size: 16pt;
-        margin-bottom: -8%;
+    }
+    .photoSelectorGroupnoDropDown {
+        margin-top: 18%;
+    }
+    .photoSelectorGroupdropDown {
+        margin-top: 18%;
     }
     /*.genreSelectButton1 {
         font-size: 10pt;
@@ -152,9 +170,11 @@
 }
 
 @media (max-width: 380px) {
-    .infoStyleGenrePage {
-        font-size: 13pt;
-        margin-bottom: -11%;
+    .photoSelectorGroupnoDropDown {
+        margin-top: 23%;
+    }
+    .photoSelectorGroupdropDown {
+        margin-top: 23%;
     }
     /*.genreSelectButton1 {
         font-size: 10pt;
@@ -164,11 +184,16 @@
 
 @media (max-width: 320px) {
     .infoStyleGenrePage {
-        font-size: 13pt;
-        margin-bottom: -12%;
+        font-size: 20pt;
     }
     .genreSelectButton {
         font-size: 9pt;
         padding: 5px 15px;
+    }
+    .photoSelectorGroupnoDropDown {
+        margin-top: 26%;
+    }
+    .photoSelectorGroupdropDown {
+        margin-top: 26%;
     }
 }

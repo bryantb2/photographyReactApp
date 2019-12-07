@@ -46,8 +46,6 @@ class InfiniteScrollPage extends React.Component {
         this.getLoadingIcon = this.getLoadingIcon.bind(this);
         this.genreClickHandler = this.genreClickHandler.bind(this);
         this.enableGenreClickListeners = this.enableGenreClickListeners.bind(this);
-        this.initializeColmnSize = this.initializeColmnSize.bind(this);
-        this.photoGridResizeHandler= this.photoGridResizeHandler.bind(this);
     }
     
     
@@ -57,7 +55,6 @@ class InfiniteScrollPage extends React.Component {
         // preventing runtime crashing or errors by manually setting the first value
         this.getLoadingIcon();
         this.createEventListeners();
-        this.initializeColmnSize();
     }
     
     componentWillUnmount() {
@@ -71,7 +68,6 @@ class InfiniteScrollPage extends React.Component {
     createEventListeners() { 
         // assigning and enabling UI events
         document.getElementById("dropdownMenuButton").addEventListener('click', this.dropdownLayoutHandler);
-        window.addEventListener('resize', this.debounce(this.photoGridResizeHandler,1000));
         this.enablePhotoScrollListener();
         this.enableGenreClickListeners();
     }
@@ -164,17 +160,6 @@ class InfiniteScrollPage extends React.Component {
         }
     }
     
-    initializeColmnSize() {
-        //fills the state's columnSize property with data (setState not used because this is a pre-render function)
-        let windowWidth = window.innerWidth;
-        //setState of layoutSize to "small" if below 575px
-        if(windowWidth < 1050) {
-            this.setState({
-                columnSize: 6,
-            });
-        }
-    }
-    
     debounce(func, wait, immediate) {
         // debounce function prevents overloaded client
         // function borrowed from https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
@@ -199,22 +184,6 @@ class InfiniteScrollPage extends React.Component {
     
     
     // UI METHODS
-    photoGridResizeHandler() {
-        let windowWidth = window.innerWidth;
-        //setState of colSize to 6 if below 800px
-        if(windowWidth < 1050) {
-            this.setState({
-                columnSize: 6,
-            });
-        }
-        //setState of colSize to 3 if not below but still set to 6
-        else if(this.state.columnSize !== 3) {
-            this.setState({
-                columnSize: 3,
-            });
-        }
-    }
-    
     dropdownLayoutHandler() {
         // this method changes the padding of the photoSelectorContainer when the genre dropdown button is clicked
         if(this.state.currentDropDownClass === Styles.photoSelectorGroupnoDropDown) {
