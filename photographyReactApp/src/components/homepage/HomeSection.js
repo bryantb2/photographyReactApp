@@ -4,7 +4,7 @@ import Button from '../sharedUIComponents/Button.js';
 
 function HomeSection(props) {
     return(
-        <section id="section2">
+        <section id="homeSection">
             <article className={Styles.contentContainer}>
                 <div className={Styles.headerStyle + " d-flex justify-content-center"}>
                     <div className="p-2">Bryant Photography</div>

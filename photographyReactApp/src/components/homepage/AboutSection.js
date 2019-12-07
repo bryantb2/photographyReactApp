@@ -3,8 +3,8 @@ import Styles from './AboutSection.module.css';
 
 function AboutSection(props) {
     return(
-        <section id="page4">
-            <article className={Styles.contentContainer + " row d-flex"}>
+        <section id="aboutSection" className={Styles.topLevelContainer}>
+            <article className={Styles.contentContainer + " row d-flex justify-content-center"}>
                 <div className="col-9">
                     <div className={"d-flex justify-content-left " + Styles.infoHeader + " " + Styles.customMargin}>
                         <div className="p-2">Bio Information</div>

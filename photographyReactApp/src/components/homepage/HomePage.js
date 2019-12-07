@@ -133,7 +133,7 @@ class HomePage extends React.Component {
           />
 
 
-        <section id="page3">
+        <section id="highlights">
             <PhotoGridGenerator columnSize={this.state.columnSize} formattedImageObjectArray={this.state.APIData} numberOfSectionsToRender={3}/>
         </section>  
 
@@ -148,9 +148,8 @@ class HomePage extends React.Component {
             backgroundImage={backgroundImage2}
         />  
 
-        <footer id="contactInfo">
-            <ContactInfo />
-        </footer>
+        
+        <ContactInfo />
     </div>
   );
   }  

@@ -1,5 +1,5 @@
 /* CONTACT INFO STYLES (these are used for both large AND small layouts) */
-#contactInfo {
+.containerStyles {
     width: 100%;
     background-color: #5f703a;
     color: #f4e0b9;
@@ -8,18 +8,18 @@
 
 }
 
-.footer-contentContainer {
+/*.footer-contentContainer {
     width: 100%;
-}
+}*/
 
 /* header and sub header text styles and alignment */
 .customHeaderAlignText {
     text-align: center;
 }
 
-.customContentJustify-center {
+/*.customJustify {
     justify-content: center;
-}
+}*/
 
 .contactInfoHeader {
     font-family: 'FuturaPT-Medium';
@@ -28,30 +28,32 @@
     margin-bottom: -10px;
 }
 
-.contactInfo-subHeaderText {
+.subHeaderText {
     min-width: 100%;
     font-size: 30pt;
     padding-bottom: 2%;
     text-align: center;
 }
 
+/*.contactSubText {
+    font-family: 'FuturaPT-Light';
+    font-size: 20pt;
+    color: #f4e0b9;
+}*/
+
 /* contact information row text styling and alignment*/
-.row:last-of-type {
-    justify-content: center;
-    width: 100%;
-}
 
 .footerRightSection, .footerLeftSection {
     height: 100%;
 }
 
-.footer-subText {
+.footerSubText {
     font-family: 'FuturaPT-Light';
     font-size: 15pt;
 }
 
 .verticalLineStyle {
-    border-left: 4px solid #f4e0b9;
+    border-right: 4px solid #f4e0b9;
 }
 
 .customContentJustify-right {
@@ -67,33 +69,23 @@
     padding-top: 12%;
 }
 
-.shareButton {
-    background: transparent;
-    border-width:medium;
-    color: #f4e0b9;
-    border-color: #f4e0b9;
-    font-family: 'FuturaPT-Light';
-    font-size: 20pt;
-    padding: 15px 45px;
-    margin-top: 4%;
-}
-
 /*SMALL LAYOUT SPECIFIC STYLES */
-.customPadding-Left-None {
-    padding-left: 0;
-}
-
 .shareTextCustom {
     font-family: 'FuturaPT-Light';
     font-size: 11pt;
 }
 
 /* CONTACT INFO MEDIA QUERY OPTIMIZATION */
+@media (min-width:2000px) {
+    .contactSubText {
+        font-size: 30pt;
+    }
+}
 @media (min-width: 1920px) {
 }
 
 @media (max-width: 1200px) {
-    .contactInfo-subHeaderText {
+    .subHeaderText {
         font-size: 25pt;
     }
     .customPadding {
@@ -105,7 +97,7 @@
     .contactInfoHeader {
         font-size: 40pt;
     }
-    .contactInfo-subHeaderText {
+    .subHeaderText {
         font-size: 18.5pt;
         padding-bottom: 3%;
     }
@@ -115,47 +107,38 @@
 }
 
 @media (max-width: 960px) {
-    .shareButton {
-        border-width:2px;
-        font-size: 15pt;
-        padding: 12px 29px;
-    }
     .customPadding {
         padding-top: 30%;
+    }
+    .contactSubText {
+        font-size: 17pt;
     }
 }
 
 @media (max-width: 770px) {
-    .shareButton {
-        border-width:2px;
-        font-size: 13pt;
-        padding: 10px 27px;
-    }
-    .contactInfo-subHeaderText {
+    .subHeaderText {
         font-size: 14pt;
     }
     .contactInfoHeader {
         font-size: 28pt;
         padding-bottom: 1%;
     }
-    .footer-subText {
+    .footerSubText {
         font-size: 10pt;
+    }
+    .contactSubText {
+        font-size: 14pt;
     }
 }
 
 @media (max-width: 550px) {
-    .shareButton {
-        border-width:1.75px;
-        font-size: 12pt;
-        padding: 8px 20px;
-    }
-    .contactInfo-subHeaderText {
+    .subHeaderText {
         font-size: 12pt;
     }
     .contactInfoHeader {
         font-size: 25pt
     }
-    .footer-subText {
+    .footerSubText {
         font-size: 9pt;
     }
     .shareTextCustom {
@@ -164,22 +147,20 @@
     .shareTextCustom {
         font-size: 11pt;
     }
+    .contactSubText {
+        font-size: 10pt;
+    }
 }
 
 @media (max-width: 480px) {
-    .shareButton {
-        border-width: thin;
-        font-size: 10pt;
-        padding: 8px 20px;
-    }
-    .contactInfo-subHeaderText {
+    .subHeaderText {
         font-size: 9.5pt;
     }
     .contactInfoHeader {
         font-size: 19pt;
         padding-bottom: 2%;
     }
-    .footer-subText {
+    .footerSubText {
         font-size: 7pt;
     }
     .shareTextCustom {
@@ -191,24 +172,17 @@
     .maxIconWidth {
         max-width: 15px;
     }
-    .shareButtonCustomPadding {
-        padding-top: 2%;
-    }
 }
 
 @media (max-width: 380px) {
-    .shareButton {
-        font-size: 10pt;
-        padding: 6px 18px;
-    }
-    .contactInfo-subHeaderText {
+    .subHeaderText {
         font-size: 8pt;
     }
     .contactInfoHeader {
         font-size: 15pt;
         padding-bottom: 3%;
     }
-    .footer-subText {
+    .footerSubText {
         font-size: 6pt;
     }
     .shareTextCustom {
@@ -225,12 +199,5 @@
     }
     .reducedPadding {
         padding-right: -2px;
-    }
-}
-
-@media (max-width: 320px) {
-    .shareButton {
-        font-size: 9pt;
-        padding: 5px 15px;
     }
 }
