@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../App.css';
-import './PhotoGrid.css';
 import PhotoRow from './PhotoRow.js';
 import Col6Photo from './Col6Photo.js';
+import Styles from './PhotoGrid.module.css';
 
 class PhotoGrid extends React.Component {
     //INPUT: will take in photoArray, photoArray SIZE, and gridSize
@@ -24,7 +24,7 @@ class PhotoGrid extends React.Component {
         let firstSection = sectionedArrayData.shift();
         
         return (
-            <div className="gridSection">
+            <div className={Styles.gridSection + " " + Styles.gridMarginTop}>
                 {
                 sectionedArrayData.map((section,index) =>
                     <PhotoRow>
