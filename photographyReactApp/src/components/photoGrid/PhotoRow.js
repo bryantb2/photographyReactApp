@@ -1,12 +1,11 @@
 import React from 'react';
-import Col6Photo from './Col6Photo';
 import Col4Photo from './Col4Photo';
 import Col12Photo from './Col12Photo';
 
 function PhotoRow(props) {
     //WORKING ASSUMPTION: row will take in a section of 2-3 photo objects that can then be indexed into
     //rows now have conditional rendering capabilities, allowing for incomplete sections to render parts of the row
-    const ColumnFourRow = () => {
+    /*const ColumnFourRow = () => {
       return (
         <div className="row">
             {(props.section[0] !== undefined)? 
@@ -25,7 +24,8 @@ function PhotoRow(props) {
                     customorientation= {props.section[1].orientation}
                     src={props.section[1].thumbnail}
                     fullImage={props.section[1].URL}
-                /> : null}
+                /> : null
+            }
             {(props.section[2] !== undefined)? 
                 <Col4Photo 
                     key={"photo2"}
@@ -37,10 +37,10 @@ function PhotoRow(props) {
             }
         </div>
       );  
-    }
+    }*/
     
     
-    const ColumnTwelveRow = () =>
+    /*const ColumnTwelveRow = () =>
     <div className="row customCol12Style">
         <Col12Photo 
             key={"photo0"}
@@ -83,7 +83,7 @@ function PhotoRow(props) {
     /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
     
     //CONDITIONAL RENDER FUNCTION
-    function finaloutput() {
+    /*function finaloutput() {
         //returnedJSX will store the final output to be returned
         //conditionally render row based on gridSize
         
@@ -100,14 +100,14 @@ function PhotoRow(props) {
             finalJSX = <ColumnFourRow section={props.section} gridSize={props.gridSize} />;
         }
         return finalJSX;
-    };
+    };*/
     
       
       
     //function's final return  
-    return (
+    /*return (
         finaloutput()
-    );
+    );*/
 }
 
 export default PhotoRow;

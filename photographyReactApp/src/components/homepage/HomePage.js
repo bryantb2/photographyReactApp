@@ -134,7 +134,7 @@ class HomePage extends React.Component {
 
 
         <section id="highlights">
-            <PhotoGridGenerator columnSize={this.state.columnSize} formattedImageObjectArray={this.state.APIData} numberOfSectionsToRender={3}/>
+            <PhotoGridGenerator formattedImageObjectArray={this.state.APIData} numberOfSectionsToRender={3}/>
         </section>  
 
 

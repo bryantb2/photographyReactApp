@@ -2,9 +2,9 @@ import React from 'react';
 import PhotoGrid from '../photoGrid/PhotoGrid.js';
 
 function PhotoGridGenerator(props) {
-    // takes in columnsize, sectioned and parsed image object array, and number of sections that should be render (from 0)
+    // NOTE: method converts a 2-D array of image objects that have 10 images in each sub-element
+    // sectioned and parsed image object array, and number of sections that should be render (from 0)
     // returns an array of image grids
-    let columnSize = props.columnSize;
     let formattedImageObjectArray = props.formattedImageObjectArray;
     let numberOfSectionsToRender = props.numberOfSectionsToRender;
     //method takes in the state section number
@@ -16,8 +16,7 @@ function PhotoGridGenerator(props) {
         tempCompArray.push(
             <PhotoGrid 
                 key={i-1} 
-                photoArray={formattedImageObjectArray[i-1]} 
-                gridSize={columnSize}
+                photoArray={formattedImageObjectArray[i-1]}
             />
         )
     }
